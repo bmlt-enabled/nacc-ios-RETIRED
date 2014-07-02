@@ -102,18 +102,23 @@ class NACC_MainViewController : UIViewController
         }
         NACC_AppDelegate.setGradient()
         self.setGradient()
+        let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
+        mainNavController.navigationBar.barTintColor = mainNavController.navigationBar.backgroundColor
         super.viewDidLayoutSubviews ( )
         self.tagDisplayScroller.setContentOffset ( CGPointZero, animated: false )
         self.tagDisplayScroller.setNeedsLayout()
     }
     
+    /*******************************************************************************************/
+    /**
+        \brief  We create the gradient that we use to fill the background of the textual report.
+                This is a semi-transparent gradient that allows you to see the tags beneath the report.
+    */
     func setGradient()
     {
         if ( (s_NACC_AppDelegate != nil) && (s_NACC_AppDelegate!.window != nil) )
         {
-            let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
-            
-            if ( mainNavController.navigationBar.backgroundColor )
+            if ( s_NACC_BaseColor != nil )
             {
                 var gradientEndColor:UIColor? = nil
                 var gradientMidColor:UIColor? = nil
@@ -121,6 +126,8 @@ class NACC_MainViewController : UIViewController
                 var g:CGFloat = 0
                 var b:CGFloat = 0
                 var a:CGFloat = 0
+                var startPoint:CGPoint = CGPointMake ( 0.5, 1 )
+                var endPoint:CGPoint = CGPointMake ( 0.5, 0 )
                 
                 if ( s_NACC_BaseColor!.getRed ( &r, green: &g, blue: &b, alpha: &a ) )
                 {
@@ -135,15 +142,22 @@ class NACC_MainViewController : UIViewController
                 
                 gradientLayer = CAGradientLayer()
                 
-                var startPoint:CGPoint = CGPointMake ( 0.5, 1 )
-                var endPoint:CGPoint = CGPointMake ( 0.5, 0 )
-                
-                gradientLayer!.endPoint = endPoint
-                gradientLayer!.startPoint = startPoint
-                gradientLayer!.colors = [gradientEndColor!.CGColor, gradientMidColor!.CGColor, mainNavController.navigationBar.backgroundColor.CGColor]
-                gradientLayer!.locations = [NSNumber ( float: 0.0 ), NSNumber ( float: 0.4 ), NSNumber ( float: 1.0 )]
-                gradientLayer!.frame = self.headerView.bounds
-                self.headerView.layer.insertSublayer ( gradientLayer, atIndex: 0 )
+                if ( (gradientLayer != nil) && (gradientMidColor != nil) && (gradientEndColor != nil) )
+                {
+                    gradientLayer!.endPoint = endPoint
+                    gradientLayer!.startPoint = startPoint
+                    let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
+                    gradientLayer!.colors = [   gradientEndColor!.CGColor,
+                                                gradientMidColor!.CGColor,
+                                                mainNavController.navigationBar.backgroundColor.CGColor
+                                            ]
+                    gradientLayer!.locations = [    NSNumber ( float: 0.0 ),
+                                                    NSNumber ( float: 0.4 ),
+                                                    NSNumber ( float: 1.0 )
+                                            ]
+                    gradientLayer!.frame = self.headerView.bounds
+                    self.headerView.layer.insertSublayer ( gradientLayer, atIndex: 0 )
+                }
             }
         }
     }
