@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
     This is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -12,6 +13,15 @@
     You should have received a copy of the GNU General Public License
     along with this code.  If not, see <http://www.gnu.org/licenses/>.
 */
+=======
+//
+//  NACC_NavigationController.swift
+//  NACC-iOS
+//
+//  Created by Chris Marshall on 6/28/14.
+//  Copyright (c) 2014 MAGSHARE. All rights reserved.
+//
+>>>>>>> a6ed957b193502b8bbfddb285792170a421ff247
 
 import UIKit
 
