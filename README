@@ -1,9 +1,11 @@
 DESCRIPTION
 -----------
+This is an extremely basic "toy" app that is for use by NA members for "calculating their cleantime -not their Recovery."
+It asks the user to enter their clean date in the app, then displays a textual breakdown of their cleantime to date, along with a string of keytags.
 
 REQUIREMENTS
 ------------
-This is an iOS app, made for iPhones and iPads. It is only available via the Apple App Store, and requires iOS 5.0 or above.
+This is an iOS app, made for iPhones and iPads. It is only available via the Apple App Store, and requires iOS 7.0 or above.
 
 INSTALLATION
 ------------
@@ -27,5 +29,6 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
-== Version 1.0
+== Version 3.0
 * TBD
+* This reflects a complete, top-to-bottom rewrite of the app. It has been rewritten in Swift, Apple's new programming language.
