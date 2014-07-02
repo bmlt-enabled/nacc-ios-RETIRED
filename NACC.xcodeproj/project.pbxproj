@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		771B6A9419618AC000011DC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
+		7729B1641962EE6600524697 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
+		77388C051960ECB0001F89A8 /* NACC_DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */; };
+		773DC6B41963028B00B169A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
+		773DC6B51963028B00B169A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
+		779E76BD195F2E230061BAED /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
+		779E76BE195F2E230061BAED /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
+		77BB5CA31960753000B023FC /* NACC_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */; };
+		77BB5CA41960753400B023FC /* NACC_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */; };
+		77BB5CA61960765300B023FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D9F7BE195EE760007DF220 /* Main.storyboard */; };
+		77D9F7BB195EE760007DF220 /* NACC_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */; };
+		77D9F7BD195EE760007DF220 /* NACC_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */; };
+		77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D9F7BE195EE760007DF220 /* Main.storyboard */; };
+		77D9F7CE195EE760007DF220 /* NACC_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7CD195EE760007DF220 /* NACC_iOSTests.swift */; };
+		77D9F7DA195EE847007DF220 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
+		77D9F7DB195EE847007DF220 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
+		77E694DC1960E3F6005F21FF /* NACC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		772F27381960EED700F6DBC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
+			remoteInfo = "NACC-iOS";
+		};
+		772F273A1960EED700F6DBC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
+			remoteInfo = "NACC-iOS";
+		};
+		77BB5C9F196074FA00B023FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
+			remoteInfo = "NACC-iOS";
+		};
+		77BB5CA1196074FB00B023FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
+			remoteInfo = "NACC-iOS";
+		};
+		77D9F7C8195EE760007DF220 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
+			remoteInfo = "NACC-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		771B6A9719618AD100011DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_DatePickerViewController.swift; sourceTree = "<group>"; };
+		773DC6B31963028B00B169A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		77423E3E195F553B0053160B /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Main.strings; sourceTree = "<group>"; };
+		77423E40195F556C0053160B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
+		779E76BC195F2E230061BAED /* NACC_TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_TagModel.swift; sourceTree = "<group>"; };
+		77BB5C9C1960566F00B023FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77D9F7B5195EE760007DF220 /* NACC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NACC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_AppDelegate.swift; sourceTree = "<group>"; };
+		77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_NavigationController.swift; sourceTree = "<group>"; };
+		77D9F7BF195EE760007DF220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		77D9F7C7195EE760007DF220 /* NACCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NACCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77D9F7CC195EE760007DF220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77D9F7CD195EE760007DF220 /* NACC_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_iOSTests.swift; sourceTree = "<group>"; };
+		77D9F7D7195EE836007DF220 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		77D9F7D8195EE836007DF220 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_DateCalc.swift; sourceTree = "<group>"; };
+		77D9F7DC195EEAB2007DF220 /* NACC-iOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "NACC-iOS.playground"; sourceTree = "<group>"; };
+		77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_MainViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		77D9F7B2195EE760007DF220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77D9F7C4195EE760007DF220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		771B6A98196190DE00011DC1 /* Misc. */ = {
+			isa = PBXGroup;
+			children = (
+				77D9F7D7195EE836007DF220 /* LICENSE.txt */,
+				77D9F7D8195EE836007DF220 /* README */,
+			);
+			name = Misc.;
+			sourceTree = "<group>";
+		};
+		77235AA91960E58E006E42D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */,
+				779E76BC195F2E230061BAED /* NACC_TagModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		77388C011960EAC4001F89A8 /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */,
+			);
+			name = "Main Screen";
+			sourceTree = "<group>";
+		};
+		77388C031960EAFE001F89A8 /* Application Framework */ = {
+			isa = PBXGroup;
+			children = (
+				77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */,
+				77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */,
+			);
+			name = "Application Framework";
+			sourceTree = "<group>";
+		};
+		77D9F7AC195EE760007DF220 = {
+			isa = PBXGroup;
+			children = (
+				771B6A98196190DE00011DC1 /* Misc. */,
+				77D9F7DC195EEAB2007DF220 /* NACC-iOS.playground */,
+				77D9F7B7195EE760007DF220 /* NACC */,
+				77D9F7CA195EE760007DF220 /* NACCTests */,
+				77D9F7B6195EE760007DF220 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		77D9F7B6195EE760007DF220 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				77D9F7B5195EE760007DF220 /* NACC.app */,
+				77D9F7C7195EE760007DF220 /* NACCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		77D9F7B7195EE760007DF220 /* NACC */ = {
+			isa = PBXGroup;
+			children = (
+				77388C031960EAFE001F89A8 /* Application Framework */,
+				77235AA91960E58E006E42D3 /* Model */,
+				77DECE5A1960F29200AEBEA8 /* Date Picker Screen */,
+				77388C011960EAC4001F89A8 /* Main Screen */,
+				77D9F7B8195EE760007DF220 /* Supporting Files */,
+			);
+			name = NACC;
+			path = "NACC-iOS";
+			sourceTree = "<group>";
+		};
+		77D9F7B8195EE760007DF220 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				77D9F7BE195EE760007DF220 /* Main.storyboard */,
+				773DC6B31963028B00B169A4 /* Images.xcassets */,
+				771B6A9219618AC000011DC1 /* Localizable.strings */,
+				77BB5C9C1960566F00B023FC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		77D9F7CA195EE760007DF220 /* NACCTests */ = {
+			isa = PBXGroup;
+			children = (
+				77D9F7CD195EE760007DF220 /* NACC_iOSTests.swift */,
+				77D9F7CB195EE760007DF220 /* Supporting Files */,
+			);
+			name = NACCTests;
+			path = "NACC-iOSTests";
+			sourceTree = "<group>";
+		};
+		77D9F7CB195EE760007DF220 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				77D9F7CC195EE760007DF220 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		77DECE5A1960F29200AEBEA8 /* Date Picker Screen */ = {
+			isa = PBXGroup;
+			children = (
+				77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */,
+			);
+			name = "Date Picker Screen";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		77D9F7B4195EE760007DF220 /* NACC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77D9F7D1195EE760007DF220 /* Build configuration list for PBXNativeTarget "NACC" */;
+			buildPhases = (
+				77D9F7B1195EE760007DF220 /* Sources */,
+				77D9F7B2195EE760007DF220 /* Frameworks */,
+				77D9F7B3195EE760007DF220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NACC;
+			productName = "NACC-iOS";
+			productReference = 77D9F7B5195EE760007DF220 /* NACC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		77D9F7C6195EE760007DF220 /* NACCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77D9F7D4195EE760007DF220 /* Build configuration list for PBXNativeTarget "NACCTests" */;
+			buildPhases = (
+				77D9F7C3195EE760007DF220 /* Sources */,
+				77D9F7C4195EE760007DF220 /* Frameworks */,
+				77D9F7C5195EE760007DF220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77D9F7C9195EE760007DF220 /* PBXTargetDependency */,
+				77BB5CA0196074FA00B023FC /* PBXTargetDependency */,
+				77BB5CA2196074FB00B023FC /* PBXTargetDependency */,
+				772F27391960EED700F6DBC5 /* PBXTargetDependency */,
+				772F273B1960EED700F6DBC5 /* PBXTargetDependency */,
+			);
+			name = NACCTests;
+			productName = "NACC-iOSTests";
+			productReference = 77D9F7C7195EE760007DF220 /* NACCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		77D9F7AD195EE760007DF220 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NACC_;
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = MAGSHARE;
+				TargetAttributes = {
+					77D9F7B4195EE760007DF220 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					77D9F7C6195EE760007DF220 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 77D9F7B4195EE760007DF220;
+					};
+				};
+			};
+			buildConfigurationList = 77D9F7B0195EE760007DF220 /* Build configuration list for PBXProject "NACC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				fa,
+				sv,
+			);
+			mainGroup = 77D9F7AC195EE760007DF220;
+			productRefGroup = 77D9F7B6195EE760007DF220 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				77D9F7B4195EE760007DF220 /* NACC */,
+				77D9F7C6195EE760007DF220 /* NACCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		77D9F7B3195EE760007DF220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				773DC6B41963028B00B169A4 /* Images.xcassets in Resources */,
+				77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */,
+				771B6A9419618AC000011DC1 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77D9F7C5195EE760007DF220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				773DC6B51963028B00B169A4 /* Images.xcassets in Resources */,
+				77BB5CA61960765300B023FC /* Main.storyboard in Resources */,
+				7729B1641962EE6600524697 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		77D9F7B1195EE760007DF220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77D9F7BD195EE760007DF220 /* NACC_NavigationController.swift in Sources */,
+				77D9F7DA195EE847007DF220 /* NACC_DateCalc.swift in Sources */,
+				77E694DC1960E3F6005F21FF /* NACC_MainViewController.swift in Sources */,
+				77D9F7BB195EE760007DF220 /* NACC_AppDelegate.swift in Sources */,
+				77388C051960ECB0001F89A8 /* NACC_DatePickerViewController.swift in Sources */,
+				779E76BD195F2E230061BAED /* NACC_TagModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77D9F7C3195EE760007DF220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77D9F7CE195EE760007DF220 /* NACC_iOSTests.swift in Sources */,
+				77BB5CA31960753000B023FC /* NACC_AppDelegate.swift in Sources */,
+				77D9F7DB195EE847007DF220 /* NACC_DateCalc.swift in Sources */,
+				779E76BE195F2E230061BAED /* NACC_TagModel.swift in Sources */,
+				77BB5CA41960753400B023FC /* NACC_NavigationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		772F27391960EED700F6DBC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77D9F7B4195EE760007DF220 /* NACC */;
+			targetProxy = 772F27381960EED700F6DBC5 /* PBXContainerItemProxy */;
+		};
+		772F273B1960EED700F6DBC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77D9F7B4195EE760007DF220 /* NACC */;
+			targetProxy = 772F273A1960EED700F6DBC5 /* PBXContainerItemProxy */;
+		};
+		77BB5CA0196074FA00B023FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77D9F7B4195EE760007DF220 /* NACC */;
+			targetProxy = 77BB5C9F196074FA00B023FC /* PBXContainerItemProxy */;
+		};
+		77BB5CA2196074FB00B023FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77D9F7B4195EE760007DF220 /* NACC */;
+			targetProxy = 77BB5CA1196074FB00B023FC /* PBXContainerItemProxy */;
+		};
+		77D9F7C9195EE760007DF220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77D9F7B4195EE760007DF220 /* NACC */;
+			targetProxy = 77D9F7C8195EE760007DF220 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		771B6A9219618AC000011DC1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				771B6A9719618AD100011DC1 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		77D9F7BE195EE760007DF220 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				77D9F7BF195EE760007DF220 /* Base */,
+				77423E3E195F553B0053160B /* fa */,
+				77423E40195F556C0053160B /* sv */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		77D9F7CF195EE760007DF220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		77D9F7D0195EE760007DF220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		77D9F7D2195EE760007DF220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "NACC-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		77D9F7D3195EE760007DF220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "NACC-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		77D9F7D5195EE760007DF220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NACC-iOS.app/NACC-iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NACC-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = NACCTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		77D9F7D6195EE760007DF220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NACC-iOS.app/NACC-iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NACC-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = NACCTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		77D9F7B0195EE760007DF220 /* Build configuration list for PBXProject "NACC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77D9F7CF195EE760007DF220 /* Debug */,
+				77D9F7D0195EE760007DF220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77D9F7D1195EE760007DF220 /* Build configuration list for PBXNativeTarget "NACC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77D9F7D2195EE760007DF220 /* Debug */,
+				77D9F7D3195EE760007DF220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77D9F7D4195EE760007DF220 /* Build configuration list for PBXNativeTarget "NACCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77D9F7D5195EE760007DF220 /* Debug */,
+				77D9F7D6195EE760007DF220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 77D9F7AD195EE760007DF220 /* Project object */;
+}

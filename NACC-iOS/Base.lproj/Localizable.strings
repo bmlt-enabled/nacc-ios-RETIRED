@@ -1,0 +1,71 @@
+/**
+    MAIN LOCALIZATION FILE
+
+    This file contains all the strings that are displayed in the NACC app.
+
+    The app is designed to be entirely localizable, so no strings are included
+    in the main app. Instead, we use keys and the NSLocalizedString function to
+    develop the displayed strings. Whatever is written here, will be displayed
+    in the app.
+
+    It is important that this file be UTF-8 encoded. Xcode has a bug, where it keeps
+    saving these as UTF-16. If this happens, you will see a bunch of upside-down
+    question marks (¿) displayed, if viewed in Xcode. It will probably display fine
+    in other text editors.
+ 
+    You localize these strings by changing the string in the RIGHT side of the "=".
+ 
+    DO NOT CHANGE THE LEFT SIDE!
+ 
+    Only change the string on the right.
+
+      DO NOT CHANGE                                 CHANGE
+           |                                           |
+           |                                           |
+           V                                           V
+       "RESULTS-DAY"        =           "You have been clean for 1 day.";
+
+    This is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    NACC is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this code.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"ENTER-LABEL"               =           "Enter Your Clean Date";
+"CALC-LABEL"                =           "Calculate Cleantime";
+
+"RESULTS-LINE1"             =           "Your clean date is %@.\n";
+"RESULTS-SUPPORT"           =           "We support you in getting clean in the future.";
+"RESULTS-DAYS"              =           "You have been clean for %d days.";
+"RESULTS-DAY"               =           "You have been clean for 1 day.";
+"RESULTS-COMPLEX-1"         =           "\nThis is %d years, %d months and %d days.";
+"RESULTS-COMPLEX-2"         =           "\nThis is %d years, %d months and 1 day.";
+"RESULTS-COMPLEX-3"         =           "\nThis is %d years, 1 month and 1 day.";
+"RESULTS-COMPLEX-4"         =           "\nThis is 1 year, 1 month and 1 day.";
+"RESULTS-COMPLEX-5"         =           "\nThis is 1 year and %d months.";
+"RESULTS-COMPLEX-6"         =           "\nThis is 1 year and 1 month.";
+"RESULTS-COMPLEX-7"         =           "\nThis is 1 year and %d days.";
+"RESULTS-COMPLEX-8"         =           "\nThis is 1 year and 1 day.";
+"RESULTS-COMPLEX-9"         =           "\nThis is %d years and %d months.";
+"RESULTS-COMPLEX-10"        =           "\nThis is %d months and %d days.";
+"RESULTS-COMPLEX-11"        =           "\nThis is %d months and 1 day.";
+"RESULTS-COMPLEX-12"        =           "\nThis is %d months.";
+"RESULTS-COMPLEX-13"        =           "\nThis is %d years.";
+"RESULTS-COMPLEX-14"        =           "\nThis is %d years and 1 month.";
+"RESULTS-COMPLEX-15"        =           "\nThis is 1 year, %d months and %d days.";
+"RESULTS-COMPLEX-16"        =           "\nThis is 1 year, %d months and 1 day.";
+"RESULTS-COMPLEX-17"        =           "\nThis is 1 month and %d days.";
+"RESULTS-COMPLEX-18"        =           "\nThis is 1 month and 1 day.";
+"RESULTS-COMPLEX-19"        =           "\nThis is %d years and %d days.";
+"RESULTS-COMPLEX-20"        =           "\nThis is %d years and 1 day.";
+"RESULTS-COMPLEX-21"        =           "\nThis is 1 year.";
+"RESULTS-COMPLEX-22"        =           "\nThis is %d years, 1 month and %d days.";
+"RESULTS-COMPLEX-23"        =           "\nThis is 1 year, 1 month and %d days.";
