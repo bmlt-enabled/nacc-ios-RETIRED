@@ -1,14 +1,9 @@
 DESCRIPTION
 -----------
-<<<<<<< HEAD
 This is an extremely basic "toy" app that is for use by NA members for
 "calculating their cleantime -not their Recovery."
 It asks the user to enter their clean date in the app, then displays a
 textual breakdown of their cleantime to date, along with a string of keytags.
-=======
-This is an extremely basic "toy" app that is for use by NA members for "calculating their cleantime -not their Recovery."
-It asks the user to enter their clean date in the app, then displays a textual breakdown of their cleantime to date, along with a string of keytags.
->>>>>>> a6ed957b193502b8bbfddb285792170a421ff247
 
 REQUIREMENTS
 ------------
@@ -38,9 +33,5 @@ CHANGELIST
 ----------
 == Version 3.0
 * TBD
-<<<<<<< HEAD
 * This reflects a complete, top-to-bottom rewrite of the app.
 * It has been rewritten in Swift, Apple's new programming language.
-=======
-* This reflects a complete, top-to-bottom rewrite of the app. It has been rewritten in Swift, Apple's new programming language.
->>>>>>> a6ed957b193502b8bbfddb285792170a421ff247
