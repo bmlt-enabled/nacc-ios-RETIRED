@@ -12,6 +12,7 @@
 		77388C051960ECB0001F89A8 /* NACC_DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */; };
 		773DC6B41963028B00B169A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
 		773DC6B51963028B00B169A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
+		77442E2319658C210001C1DD /* NACC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */; };
 		779E76BD195F2E230061BAED /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
 		779E76BE195F2E230061BAED /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
 		77BB5CA31960753000B023FC /* NACC_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */; };
@@ -337,6 +338,7 @@
 				77BB5CA31960753000B023FC /* NACC_AppDelegate.swift in Sources */,
 				77D9F7DB195EE847007DF220 /* NACC_DateCalc.swift in Sources */,
 				779E76BE195F2E230061BAED /* NACC_TagModel.swift in Sources */,
+				77442E2319658C210001C1DD /* NACC_MainViewController.swift in Sources */,
 				77BB5CA41960753400B023FC /* NACC_NavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,7 +515,7 @@
 		77D9F7D5195EE760007DF220 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NACC-iOS.app/NACC-iOS";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NACC.app/NACC";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -533,7 +535,7 @@
 		77D9F7D6195EE760007DF220 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NACC-iOS.app/NACC-iOS";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NACC.app/NACC";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
