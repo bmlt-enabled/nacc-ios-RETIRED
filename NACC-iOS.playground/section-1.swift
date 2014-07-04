@@ -1,62 +1,25 @@
 import Foundation
 
-class Gonkulator
+extension Int
 {
-    var years:Int
-    var months:Int
-    var days:Int
-    
-    init ( inStartDate:NSDate, inNowDate:NSDate )
+    func format ( f:String ) -> String
     {
-        // The reason for all this wackiness, is we want to completely strip out the time element of each date. We want the days to be specified at noon.
-        var fromString:String = NSDateFormatter.localizedStringFromDate ( inStartDate, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.NoStyle )
-        var toString:String = NSDateFormatter.localizedStringFromDate ( inNowDate, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.NoStyle )
-        
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = .NoStyle
-        dateFormatter.dateStyle = .ShortStyle
-        
-        // We have stripped out the time information, and each day is at noon.
-        var startDate:NSDate = dateFormatter.dateFromString ( fromString ).dateByAddingTimeInterval ( 43200 )    // Make it Noon, Numbah One.
-        var stopDate:NSDate = dateFormatter.dateFromString ( toString ).dateByAddingTimeInterval ( 43200 )
-        
-        // We use a special Persian solar calendar if we are in Farsi (Iranian)
-        let myCalendar: NSCalendar = NSCalendar ( calendarIdentifier:NSGregorianCalendar )
-        
-        // Create our answer from the components of the result.
-        var components = myCalendar.components ( NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit, fromDate: startDate, toDate: stopDate, options: nil )
-        self.years = components.year
-        self.months = components.month
-        self.days = components.day
-        
-//        DEBUG DISPLAY
-//        fromString = NSDateFormatter.localizedStringFromDate ( startDate, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.NoStyle )
-//        toString = NSDateFormatter.localizedStringFromDate ( stopDate, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.NoStyle )
-//        println ( "Start Date: " + fromString + " -Years: \(self.years), Months: \(self.months), Days: \(self.days)" )
-//        println ( "End Date: " + toString )
+        return NSString ( format:"%\(f)d", self )
     }
 }
 
-var dateFormatter = NSDateFormatter()
-dateFormatter.timeStyle = .NoStyle
-dateFormatter.dateStyle = .ShortStyle
+func doSomethingWithAFile ( inFileName:String )
+{
+    let filename = inFileName
+    println ( "The file name is '\(filename)'" )
+}
 
-// We have stripped out the time information, and each day is at noon.
-var startDate:NSDate = dateFormatter.dateFromString ( "12/30/12" ).dateByAddingTimeInterval ( 43200 )    // Make it Noon, Numbah One.
-var stopDate:NSDate = dateFormatter.dateFromString ( "06/30/14" ).dateByAddingTimeInterval ( 43200 )
+let aBasicIntegerValue:Int = 3
+let fileNamePrefix:String = "IMG_"
+let fileNameSuffix:String = ".JPG"
 
-// First create an instance for December 30, 2 years ago
-let test = Gonkulator ( inStartDate: startDate, inNowDate: stopDate )
-var years = test.years      // This will be 2
-var months = test.months    // This will be 6
-var days = test.days        // This will be 0
-
-startDate = dateFormatter.dateFromString ( "12/31/12" ).dateByAddingTimeInterval ( 43200 )    // Make it Noon, Numbah One.
-
-// Next, create an instance for December 31
-let test2 = Gonkulator ( inStartDate: startDate, inNowDate: stopDate )
-years = test2.years      // This will be 2
-months = test2.months    // This will be 6
-days = test2.days        // This will be 0 #WhiskeyTangoFoxtrot
-
-
+for index in 0..100
+{
+    let fileName = fileNamePrefix + index.format ( "04" ) + fileNameSuffix
+    doSomethingWithAFile ( fileName )
+}

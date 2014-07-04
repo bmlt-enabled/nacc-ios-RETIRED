@@ -25,9 +25,9 @@ import UIKit
 extension Int
 {
     func format ( f: String ) -> String
-        {
+    {
         return NSString ( format: "%\(f)d", self )
-        }
+    }
 }
 
 /***********************************************************************************************/
