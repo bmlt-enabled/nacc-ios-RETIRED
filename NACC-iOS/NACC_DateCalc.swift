@@ -43,7 +43,7 @@ class NACC_DateCalc
     /**
         \brief  This is the designated initializer. It takes two dates, and calculates between them.
     
-        \param inCleanDate This is the "from" date. It is the start of the calculation.
+        \param inStartDate This is the "from" date. It is the start of the calculation.
         \param inNowDate This is the end date. The calculation goes between these two dates.
     */
     init ( inStartDate:NSDate, inNowDate:NSDate )
@@ -89,7 +89,7 @@ class NACC_DateCalc
     /**
         \brief  This is a convenience initializer that calculates between a given date, and now.
     
-        \param inCleanDate This is the "from" date. It is the start of the calculation.
+        \param inStartDate This is the "from" date. It is the start of the calculation.
     */
     convenience init ( inStartDate:NSDate )
     {
