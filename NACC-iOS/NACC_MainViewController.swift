@@ -50,7 +50,7 @@ class NACC_MainViewController : UIViewController
         
         \param inTagImageArray the array of tag images to be displayed.
     */
-    func displayTags ( inTagImageArray:UIImage[] )
+    func displayTags ( inTagImageArray:[UIImage] )
     {
         if ( inTagImageArray.count > 0 )    // We need to have images to display
         {
@@ -102,7 +102,7 @@ class NACC_MainViewController : UIViewController
         
         self.resultTextDisplayView.text = displayString
         let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: s_NACC_cleanDateCalc )
-        let tags:UIImage[]? = tagModel.getTags()
+        let tags:[UIImage]? = tagModel.getTags()
         if ( tags )
         {
             self.displayTags ( tags! )
@@ -154,9 +154,14 @@ class NACC_MainViewController : UIViewController
                     gradientLayer!.endPoint = endPoint
                     gradientLayer!.startPoint = startPoint
                     let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
-                    gradientLayer!.colors = [   gradientEndColor!.CGColor,
-                                                gradientMidColor!.CGColor,
-                                                mainNavController.navigationBar.backgroundColor.CGColor
+                    let endColor:CGColorRef = gradientEndColor!.CGColor
+                    let midColor:CGColorRef = gradientMidColor!.CGColor
+                    let startColor:CGColorRef = mainNavController.navigationBar.backgroundColor.CGColor
+                    
+                    gradientLayer!.colors = [endColor, startColor]
+                    gradientLayer!.colors = [   endColor,
+                                                midColor,
+                                                startColor
                                             ]
                     gradientLayer!.locations = [    NSNumber ( float: 0.0 ),
                                                     NSNumber ( float: 0.4 ),

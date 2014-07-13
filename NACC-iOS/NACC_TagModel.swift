@@ -223,10 +223,10 @@ class NACC_TagModel
         
         \returns    an array of prepared NACC_TagModel_TagData objects.
     */
-    class func setUpAvailableImages() -> NACC_TagModel_TagData[]
+    class func setUpAvailableImages() -> [NACC_TagModel_TagData]
     {
         // This current implementation is real clunky. I'll revisit it when I improve my Swift-Fu.
-        var ret:NACC_TagModel_TagData[] = []
+        var ret:[NACC_TagModel_TagData] = []
         
         var index = 1
         
@@ -404,9 +404,9 @@ class NACC_TagModel
         
         \returns an array of UIImage.
     */
-    func getTags() -> UIImage[]?
+    func getTags() -> [UIImage]?
     {
-        var tagImages: UIImage[] = []                   // This is an array that will hold each of the aggregated image objects, in the order of display.
+        var tagImages: [UIImage] = []                   // This is an array that will hold each of the aggregated image objects, in the order of display.
         
         if ( self.calculation.totalDays > 0 )
         {
@@ -416,7 +416,7 @@ class NACC_TagModel
             
             var index = 0
             
-            for i in 0..9
+            for i in 0..<9
             {
                 index = i
                 

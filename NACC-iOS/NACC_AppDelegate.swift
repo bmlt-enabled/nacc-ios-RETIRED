@@ -91,9 +91,11 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
             {
                 s_NACC_GradientLayer!.endPoint = endPoint
                 s_NACC_GradientLayer!.startPoint = startPoint
-                s_NACC_GradientLayer!.colors = [    gradientEndColor!.CGColor,
-                                                    mainNavController.navigationBar.backgroundColor.CGColor
-                                                ]
+                
+                let endColor:CGColorRef = gradientEndColor!.CGColor
+                let startColor:CGColorRef = mainNavController.navigationBar.backgroundColor.CGColor
+                
+                s_NACC_GradientLayer!.colors = [endColor, startColor]
                 s_NACC_GradientLayer!.locations = [ NSNumber ( float: 0.0 ),
                                                     NSNumber ( float: 1.0 )
                                                    ]
