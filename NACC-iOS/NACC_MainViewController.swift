@@ -19,11 +19,11 @@ import QuartzCore
 class NACC_MainViewController : UIViewController
 {
     var             gradientLayer:CAGradientLayer? = nil
-    @IBOutlet var   resultTextDisplayView:UILabel
-    @IBOutlet var   tagDisplayView:UIView
-    @IBOutlet var   tagDisplayScroller:UIScrollView
-    @IBOutlet var   headerView: UIView
-    @IBOutlet var   cleandateLabel: UILabel
+    @IBOutlet var   resultTextDisplayView:UILabel?
+    @IBOutlet var   tagDisplayView:UIView?
+    @IBOutlet var   tagDisplayScroller:UIScrollView?
+    @IBOutlet var   headerView: UIView?
+    @IBOutlet var   cleandateLabel: UILabel?
     /*******************************************************************************************/
     /**
         \brief  Displays a single tag in the scroll view.
@@ -34,13 +34,13 @@ class NACC_MainViewController : UIViewController
     func displayTag ( inTag:UIImage, inout inOffset:CGFloat )
     {
         let imageView:UIImageView = UIImageView ( image:inTag )
-        var containerRect:CGRect = self.tagDisplayView.bounds   // See what we have to work with.
+        var containerRect:CGRect = self.tagDisplayView!.bounds   // See what we have to work with.
         let targetRect:CGRect = CGRectMake ( (containerRect.size.width - inTag.size.width) / 2.0, inOffset, inTag.size.width, inTag.size.height )
         imageView.frame = targetRect
         containerRect.size.height = max ( (targetRect.origin.y + targetRect.size.height), (containerRect.origin.y + containerRect.size.height) )
-        self.tagDisplayView.bounds = containerRect
-        self.tagDisplayView.addSubview ( imageView )
-        self.tagDisplayScroller.contentSize = containerRect.size
+        self.tagDisplayView!.bounds = containerRect
+        self.tagDisplayView!.addSubview ( imageView )
+        self.tagDisplayScroller!.contentSize = containerRect.size
         inOffset = inOffset + (inTag.size.height * 0.31)
     }
     
@@ -80,16 +80,16 @@ class NACC_MainViewController : UIViewController
     */
     override func viewDidLayoutSubviews ( )
     {
-        var subViews = self.tagDisplayView.subviews as Array<UIView>
+        var subViews = self.tagDisplayView!.subviews as Array<UIView>
         
         for subView in subViews
         {
             subView.removeFromSuperview()
         }
         
-        self.tagDisplayView.frame = self.tagDisplayScroller.bounds
-        self.tagDisplayScroller.setContentOffset ( CGPointZero, animated: false )
-        self.tagDisplayScroller.contentSize = self.tagDisplayScroller.bounds.size
+        self.tagDisplayView!.frame = self.tagDisplayScroller!.bounds
+        self.tagDisplayScroller!.setContentOffset ( CGPointZero, animated: false )
+        self.tagDisplayScroller!.contentSize = self.tagDisplayScroller!.bounds.size
 
         var displayString = NACC_TagModel.getDisplayCleandate ( s_NACC_cleanDateCalc.totalDays, inYears: s_NACC_cleanDateCalc.years, inMonths: s_NACC_cleanDateCalc.months, inDays: s_NACC_cleanDateCalc.days )
         
@@ -97,10 +97,10 @@ class NACC_MainViewController : UIViewController
         {
             let firstLine:String = String ( format: NSLocalizedString ( "RESULTS-LINE1", tableName: nil, bundle: NSBundle.mainBundle(), value: "RESULTS-LINE1", comment: "" ), s_NACC_cleanDateCalc.dateString )
             
-            self.cleandateLabel.text = firstLine
+            self.cleandateLabel!.text = firstLine
         }
         
-        self.resultTextDisplayView.text = displayString
+        self.resultTextDisplayView!.text = displayString
         let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: s_NACC_cleanDateCalc )
         let tags:[UIImage]? = tagModel.getTags()
         if ( tags )
@@ -112,8 +112,8 @@ class NACC_MainViewController : UIViewController
         let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
         mainNavController.navigationBar.barTintColor = mainNavController.navigationBar.backgroundColor
         super.viewDidLayoutSubviews ( )
-        self.tagDisplayScroller.setContentOffset ( CGPointZero, animated: false )
-        self.tagDisplayScroller.setNeedsLayout()
+        self.tagDisplayScroller!.setContentOffset ( CGPointZero, animated: false )
+        self.tagDisplayScroller!.setNeedsLayout()
     }
     
     /*******************************************************************************************/
@@ -167,8 +167,8 @@ class NACC_MainViewController : UIViewController
                                                     NSNumber ( float: 0.4 ),
                                                     NSNumber ( float: 1.0 )
                                             ]
-                    gradientLayer!.frame = self.headerView.bounds
-                    self.headerView.layer.insertSublayer ( gradientLayer, atIndex: 0 )
+                    gradientLayer!.frame = self.headerView!.bounds
+                    self.headerView!.layer.insertSublayer ( gradientLayer, atIndex: 0 )
                 }
             }
         }

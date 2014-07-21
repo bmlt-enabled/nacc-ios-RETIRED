@@ -17,10 +17,10 @@ import UIKit
 
 class NACC_DatePickerViewController : UIViewController
 {
-    @IBOutlet var   datePicker:UIDatePicker
-    @IBOutlet var   displayView: UIView
-    @IBOutlet var   explainTextField: UITextView
-    @IBOutlet var   calcButton: UIButton
+    @IBOutlet var   datePicker:UIDatePicker?
+    @IBOutlet var   displayView: UIView?
+    @IBOutlet var   explainTextField: UITextView?
+    @IBOutlet var   calcButton: UIButton?
     
     /*******************************************************************************************/
     /**
@@ -42,10 +42,10 @@ class NACC_DatePickerViewController : UIViewController
     override func viewWillAppear ( inAnimated: Bool )
     {
         super.viewWillAppear ( inAnimated )
-        self.datePicker.date = s_NACC_cleanDateCalc.startDate
-        self.datePicker.hidden = false
-        self.calcButton.hidden = false
-        self.explainTextField.hidden = false
+        self.datePicker!.date = s_NACC_cleanDateCalc.startDate
+        self.datePicker!.hidden = false
+        self.calcButton!.hidden = false
+        self.explainTextField!.hidden = false
     }
     
     /*******************************************************************************************/
@@ -55,8 +55,8 @@ class NACC_DatePickerViewController : UIViewController
     override func viewWillLayoutSubviews() 
     {
         self.navigationItem.title = NSLocalizedString ( "ENTER-LABEL", tableName: nil, bundle: NSBundle.mainBundle(), value: "ENTER-LABEL", comment: "" )
-        self.calcButton.setTitle ( NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: NSBundle.mainBundle(), value: "CALC-LABEL", comment: "" ), forState: UIControlState.Normal )
-        self.explainTextField.text = NSLocalizedString ( "EXPLAIN-TEXT", tableName: nil, bundle: NSBundle.mainBundle(), value: "EXPLAIN-TEXT", comment: "" )
+        self.calcButton!.setTitle ( NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: NSBundle.mainBundle(), value: "CALC-LABEL", comment: "" ), forState: UIControlState.Normal )
+        self.explainTextField!.text = NSLocalizedString ( "EXPLAIN-TEXT", tableName: nil, bundle: NSBundle.mainBundle(), value: "EXPLAIN-TEXT", comment: "" )
         super.viewWillLayoutSubviews()
         let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
         mainNavController.navigationBar.barTintColor = s_NACC_BaseColor
@@ -71,10 +71,10 @@ class NACC_DatePickerViewController : UIViewController
     */
     override func viewWillDisappear ( inAnimated: Bool )
     {
-        s_NACC_cleanDateCalc = NACC_DateCalc ( inStartDate: self.datePicker.date )
-        self.calcButton.hidden = true
-        self.datePicker.hidden = true
-        self.explainTextField.hidden = true
+        s_NACC_cleanDateCalc = NACC_DateCalc ( inStartDate: self.datePicker!.date )
+        self.calcButton!.hidden = true
+        self.datePicker!.hidden = true
+        self.explainTextField!.hidden = true
         super.viewWillDisappear ( inAnimated )
     }
 }

@@ -202,10 +202,12 @@ class NACC_TagModel
                                                             faceName:String   ///< The tag face file name.
                                                             )
     {
-        let localeID = NSLocale.currentLocale().localeIdentifier.substringToIndex(2).lowercaseString    // Get the 2-letter locale ID.
+        let currentLocale:NSLocale? = NSLocale.currentLocale()
+        let localeIDTemp:NSString = currentLocale!.localeIdentifier
+        let localeID = localeIDTemp.substringToIndex(2)
         
         let returnedBaseName = "tag_" + Int ( inIndex.integerValue ).format ( "02" )
-        var returnedFaceName = "face_" + Int ( inIndex.integerValue ).format ( "02" ) + "_" + localeID
+        var returnedFaceName = "face_" + Int ( inIndex.integerValue ).format ( "02" ) + "_" + localeID!
         
         let testImage:UIImage? = UIImage ( named:returnedFaceName ) // Test to see if we can get the image for the face.
         
