@@ -103,7 +103,7 @@ class NACC_MainViewController : UIViewController
         self.resultTextDisplayView!.text = displayString
         let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: s_NACC_cleanDateCalc )
         let tags:[UIImage]? = tagModel.getTags()
-        if ( tags )
+        if ( tags != nil )
         {
             self.displayTags ( tags! )
         }
@@ -156,7 +156,7 @@ class NACC_MainViewController : UIViewController
                     let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
                     let endColor:CGColorRef = gradientEndColor!.CGColor
                     let midColor:CGColorRef = gradientMidColor!.CGColor
-                    let startColor:CGColorRef = mainNavController.navigationBar.backgroundColor.CGColor
+                    let startColor:CGColorRef = mainNavController.navigationBar.backgroundColor != nil ? mainNavController.navigationBar.backgroundColor!.CGColor : nil
                     
                     gradientLayer!.colors = [endColor, startColor]
                     gradientLayer!.colors = [   endColor,

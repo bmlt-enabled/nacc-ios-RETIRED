@@ -68,7 +68,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
             var endPoint:CGPoint = CGPointMake ( 0.5, 1 )
             
             // We have the gradient get lighter. The source is the background color we set for our navigation bar.
-            if ( mainNavController.navigationBar.backgroundColor.getRed ( &r, green: &g, blue: &b, alpha: &a ) )
+            if ( (mainNavController.navigationBar.backgroundColor != nil) && mainNavController.navigationBar.backgroundColor!.getRed ( &r, green: &g, blue: &b, alpha: &a ) )
             {
                 r = r + 0.4
                 g = g + 0.4
@@ -93,7 +93,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
                 s_NACC_GradientLayer!.startPoint = startPoint
                 
                 let endColor:CGColorRef = gradientEndColor!.CGColor
-                let startColor:CGColorRef = mainNavController.navigationBar.backgroundColor.CGColor
+                let startColor:CGColorRef = mainNavController.navigationBar.backgroundColor != nil ? mainNavController.navigationBar.backgroundColor!.CGColor : nil
                 
                 s_NACC_GradientLayer!.colors = [endColor, startColor]
                 s_NACC_GradientLayer!.locations = [ NSNumber ( float: 0.0 ),
