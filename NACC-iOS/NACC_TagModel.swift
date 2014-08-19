@@ -207,7 +207,7 @@ class NACC_TagModel
         let localeID = localeIDTemp.substringToIndex(2)
         
         let returnedBaseName = "tag_" + Int ( inIndex.integerValue ).format ( "02" )
-        var returnedFaceName = "face_" + Int ( inIndex.integerValue ).format ( "02" ) + "_" + localeID!
+        var returnedFaceName = "face_" + Int ( inIndex.integerValue ).format ( "02" ) + "_" + localeID
         
         let testImage:UIImage? = UIImage ( named:returnedFaceName ) // Test to see if we can get the image for the face.
         
@@ -325,27 +325,24 @@ class NACC_TagModel
         
         var ret:UIImage? = nil  // Start off pessimistic
         
-        if ( (baseImage != nil) && (faceImage != nil) && (ringImage != nil) )   // Make sure we got everything.
-        {
-            let aspect:CGFloat = 580.0 / 320.0
-            let width:CGFloat = baseImage.size.width
-            let height:CGFloat = width * aspect
-            
-            let size:CGSize = CGSizeMake ( width, height )
-            
-            UIGraphicsBeginImageContextWithOptions ( size, false, 0 )    // Set up an offscreen bitmap context.
-            
-            // Draw the transparent images over each other.
-            baseImage.drawAtPoint ( CGPointMake ( 0.0, height - baseImage.size.height ) )
-            faceImage.drawAtPoint ( CGPointMake ( 0.0, height - faceImage.size.height ) )
-            
-            let ringleft:CGFloat = (size.width - ringImage.size.width) / 2.0
-            
-            ringImage.drawAtPoint ( CGPointMake ( ringleft, 0.0 ) )
-            
-            ret = UIGraphicsGetImageFromCurrentImageContext()   // Get the resulting composite image as a single image.
-            UIGraphicsEndImageContext()
-        }
+        let aspect:CGFloat = 580.0 / 320.0
+        let width:CGFloat = baseImage.size.width
+        let height:CGFloat = width * aspect
+        
+        let size:CGSize = CGSizeMake ( width, height )
+        
+        UIGraphicsBeginImageContextWithOptions ( size, false, 0 )    // Set up an offscreen bitmap context.
+        
+        // Draw the transparent images over each other.
+        baseImage.drawAtPoint ( CGPointMake ( 0.0, height - baseImage.size.height ) )
+        faceImage.drawAtPoint ( CGPointMake ( 0.0, height - faceImage.size.height ) )
+        
+        let ringleft:CGFloat = (size.width - ringImage.size.width) / 2.0
+        
+        ringImage.drawAtPoint ( CGPointMake ( ringleft, 0.0 ) )
+        
+        ret = UIGraphicsGetImageFromCurrentImageContext()   // Get the resulting composite image as a single image.
+        UIGraphicsEndImageContext()
         
         return ret
     }

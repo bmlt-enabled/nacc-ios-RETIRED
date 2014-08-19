@@ -31,13 +31,13 @@ class NACC_DateCalc
 {
     /// The following will read like:
     /// "There have been <totalDays> between the dates. This is a period of <years> years, <months> months and <days> days."
-    let totalDays: Int      ///< The total number of days.
-    let years: Int          ///< The number of years since the clean date.
-    let months: Int         ///< The number of months since the last year in the clean date.
-    let days: Int           ///< The number of days since the last month in the clean date.
+    let totalDays: Int = 0  ///< The total number of days.
+    let years: Int = 0      ///< The number of years since the clean date.
+    let months: Int = 0     ///< The number of months since the last year in the clean date.
+    let days: Int = 0       ///< The number of days since the last month in the clean date.
     let dateString: String  ///< This will contain a readable string of the date.
-    let startDate: NSDate   ///< The starting date of the period (the cleandate).
-    let endDate: NSDate     ///< The ending date of the period (today, usually).
+    let startDate: NSDate?  ///< The starting date of the period (the cleandate).
+    let endDate: NSDate?    ///< The ending date of the period (today, usually).
     
     /*******************************************************************************************/
     /**
@@ -57,23 +57,23 @@ class NACC_DateCalc
         dateFormatter.dateStyle = .ShortStyle
         
         // We have stripped out the time information, and each day is at noon.
-        var startDate:NSDate = dateFormatter.dateFromString ( fromString ).dateByAddingTimeInterval ( 43200 )    // Make it Noon, Numbah One.
-        var stopDate:NSDate = dateFormatter.dateFromString ( toString ).dateByAddingTimeInterval ( 43200 )
-        
-        self.startDate = startDate
-        self.endDate = stopDate
+        self.startDate = dateFormatter.dateFromString ( fromString )?.dateByAddingTimeInterval(43200)  // Make it Noon, Numbah One.
+        self.endDate = dateFormatter.dateFromString ( toString )?.dateByAddingTimeInterval ( 43200 )
         
         self.dateString = NSDateFormatter.localizedStringFromDate ( startDate, dateStyle: NSDateFormatterStyle.LongStyle, timeStyle: NSDateFormatterStyle.NoStyle )
         
         // We get the total days, just to check for 90 or less.
         self.totalDays = Int ( trunc ( inNowDate.timeIntervalSinceDate ( inStartDate ) / 86400.0 ) ) // Change seconds into days.
         
-        // Create our answer from the components of the result.
-        var components = NSCalendar.currentCalendar().components ( NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit, fromDate: self.startDate, toDate: self.endDate, options: nil )
+        if ( self.startDate != nil && self.endDate != nil )
+        {
+            // Create our answer from the components of the result.
+            let components = NSCalendar.currentCalendar().components ( NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit, fromDate: self.startDate!, toDate: self.endDate!, options: nil )
         
-        self.years = components.year
-        self.months = components.month
-        self.days = components.day
+            self.years = components.year
+            self.months = components.month
+            self.days = components.day
+        }
     }
     
     /*******************************************************************************************/
@@ -113,9 +113,9 @@ class NACC_DateCalc
         components.hour = 0
         components.minute = 0
         components.second = 0
-        let cleanDate = NSCalendar.currentCalendar().dateFromComponents ( components )
+        let cleanDate:NSDate? = NSCalendar.currentCalendar().dateFromComponents ( components )
         
-        self.init ( inStartDate: cleanDate )
+        self.init ( inStartDate: cleanDate! )
     }
 }
 
