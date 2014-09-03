@@ -60,7 +60,7 @@ class NACC_DateCalc
         self.startDate = dateFormatter.dateFromString ( fromString )?.dateByAddingTimeInterval(43200)  // Make it Noon, Numbah One.
         self.endDate = dateFormatter.dateFromString ( toString )?.dateByAddingTimeInterval ( 43200 )
         
-        self.dateString = NSDateFormatter.localizedStringFromDate ( startDate, dateStyle: NSDateFormatterStyle.LongStyle, timeStyle: NSDateFormatterStyle.NoStyle )
+        self.dateString = NSDateFormatter.localizedStringFromDate ( startDate!, dateStyle: NSDateFormatterStyle.LongStyle, timeStyle: NSDateFormatterStyle.NoStyle )
         
         // We get the total days, just to check for 90 or less.
         self.totalDays = Int ( trunc ( inNowDate.timeIntervalSinceDate ( inStartDate ) / 86400.0 ) ) // Change seconds into days.

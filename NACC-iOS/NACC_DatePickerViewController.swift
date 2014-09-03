@@ -42,7 +42,7 @@ class NACC_DatePickerViewController : UIViewController
     override func viewWillAppear ( inAnimated: Bool )
     {
         super.viewWillAppear ( inAnimated )
-        self.datePicker!.date = s_NACC_cleanDateCalc.startDate
+        self.datePicker!.date = s_NACC_cleanDateCalc.startDate!
         self.datePicker!.hidden = false
         self.calcButton!.hidden = false
         self.explainTextField!.hidden = false
