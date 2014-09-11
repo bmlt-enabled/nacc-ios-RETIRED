@@ -95,9 +95,10 @@ class NACC_MainViewController : UIViewController
         
         if ( s_NACC_cleanDateCalc.totalDays > 0 )
         {
-            let firstLine:String = String ( format: NSLocalizedString ( "RESULTS-LINE1", tableName: nil, bundle: NSBundle.mainBundle(), value: "RESULTS-LINE1", comment: "" ), s_NACC_cleanDateCalc.dateString )
+            var resultsString:String = NSLocalizedString ( "RESULTS-LINE1", tableName: nil, bundle: NSBundle.mainBundle(), value: "RESULTS-LINE1", comment: "" )
+            var dateString:String = s_NACC_cleanDateCalc.dateString
             
-            self.cleandateLabel!.text = firstLine
+            self.cleandateLabel!.text = NSString ( format:resultsString, dateString )
         }
         
         self.resultTextDisplayView!.text = displayString
