@@ -80,7 +80,7 @@ class NACC_MainViewController : UIViewController
     */
     override func viewDidLayoutSubviews ( )
     {
-        var subViews = self.tagDisplayView!.subviews as Array<UIView>
+        var subViews = self.tagDisplayView!.subviews as! Array<UIView>
         
         for subView in subViews
         {
@@ -98,7 +98,7 @@ class NACC_MainViewController : UIViewController
             var resultsString:String = NSLocalizedString ( "RESULTS-LINE1", tableName: nil, bundle: NSBundle.mainBundle(), value: "RESULTS-LINE1", comment: "" )
             var dateString:String = s_NACC_cleanDateCalc.dateString
             
-            self.cleandateLabel!.text = NSString ( format:resultsString, dateString )
+            self.cleandateLabel!.text = NSString ( format:resultsString, dateString ) as String
         }
         
         self.resultTextDisplayView!.text = displayString
@@ -110,7 +110,7 @@ class NACC_MainViewController : UIViewController
         }
         NACC_AppDelegate.setGradient()
         self.setGradient()
-        let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
+        let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
         mainNavController.navigationBar.barTintColor = mainNavController.navigationBar.backgroundColor
         super.viewDidLayoutSubviews ( )
         self.tagDisplayScroller!.setContentOffset ( CGPointZero, animated: false )
@@ -154,7 +154,7 @@ class NACC_MainViewController : UIViewController
                 {
                     gradientLayer!.endPoint = endPoint
                     gradientLayer!.startPoint = startPoint
-                    let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
+                    let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
                     let endColor:CGColorRef = gradientEndColor!.CGColor
                     let midColor:CGColorRef = gradientMidColor!.CGColor
                     let startColor:CGColorRef = mainNavController.navigationBar.backgroundColor != nil ? mainNavController.navigationBar.backgroundColor!.CGColor : nil

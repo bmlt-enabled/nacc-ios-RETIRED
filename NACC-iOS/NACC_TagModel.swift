@@ -26,7 +26,7 @@ extension Int
 {
     func format ( f: String ) -> String
     {
-        return NSString ( format: "%\(f)d", self )
+        return NSString ( format: "%\(f)d", self ) as String
     }
 }
 
@@ -319,9 +319,9 @@ class NACC_TagModel
     */
     class func constructTag ( inBaseName:String, inFaceName:String, inRingClosed:Bool = false ) -> UIImage?
     {
-        let baseImage:UIImage = UIImage ( named:inBaseName )
-        let faceImage:UIImage = UIImage ( named:inFaceName )
-        let ringImage:UIImage = UIImage ( named:(inRingClosed ? "ring_02" : "ring_01") ) // Select the correct ring image.
+        let baseImage:UIImage = UIImage ( named:inBaseName )!
+        let faceImage:UIImage = UIImage ( named:inFaceName )!
+        let ringImage:UIImage = UIImage ( named:(inRingClosed ? "ring_02" : "ring_01") )! // Select the correct ring image.
         
         var ret:UIImage? = nil  // Start off pessimistic
         
@@ -367,11 +367,14 @@ class NACC_TagModel
         }
         else // Otherwise, we need to compare years, months and days. Bit more involved.
         {
-            // This is a quick and dirty way to compare.
-            let tagScore:NSNumber = (inTagTemplate.years * 10000) + (inTagTemplate.months * 100) + inTagTemplate.days;
-            let caclcScore:NSNumber = (inCalculation.years * 10000) + (inCalculation.months * 100) + inCalculation.days;
-            
-            ret = caclcScore.longLongValue >= tagScore.longLongValue
+            if ( inCalculation.totalDays > 90 ) // Doesn't even come into play for less than 90.
+            {
+                // This is a quick and dirty way to compare.
+                let tagScore:NSNumber = (inTagTemplate.years * 10000) + (inTagTemplate.months * 100) + inTagTemplate.days;
+                let caclcScore:NSNumber = (inCalculation.years * 10000) + (inCalculation.months * 100) + inCalculation.days;
+                
+                ret = caclcScore.longLongValue >= tagScore.longLongValue
+            }
         }
         
         return ret

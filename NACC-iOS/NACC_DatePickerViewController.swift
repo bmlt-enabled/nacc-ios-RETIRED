@@ -58,7 +58,7 @@ class NACC_DatePickerViewController : UIViewController
         self.calcButton!.setTitle ( NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: NSBundle.mainBundle(), value: "CALC-LABEL", comment: "" ), forState: UIControlState.Normal )
         self.explainTextField!.text = NSLocalizedString ( "EXPLAIN-TEXT", tableName: nil, bundle: NSBundle.mainBundle(), value: "EXPLAIN-TEXT", comment: "" )
         super.viewWillLayoutSubviews()
-        let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
+        let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
         mainNavController.navigationBar.barTintColor = s_NACC_BaseColor
         NACC_AppDelegate.setGradient()
     }

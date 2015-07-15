@@ -29,7 +29,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
     /**
         \brief  Simply set the SINGLETON to us.
     */
-    func application ( application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary! ) -> Bool
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
     {
         s_NACC_AppDelegate = self
         return true
@@ -39,9 +39,9 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
     /**
         \brief  We make sure that the first window is always the date selector.
     */
-    func applicationWillEnterForeground( application: UIApplication! )
+    func applicationWillEnterForeground( application: UIApplication )
     {
-        let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
+        let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
         
         if ( mainNavController.topViewController.isKindOfClass ( NACC_MainViewController.self ) )
         {
@@ -57,7 +57,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
     {
         if ( (s_NACC_AppDelegate != nil) && (s_NACC_AppDelegate!.window != nil) )
         {
-            let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as UINavigationController
+            let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
             
             var gradientEndColor:UIColor? = nil
             var r:CGFloat = 0

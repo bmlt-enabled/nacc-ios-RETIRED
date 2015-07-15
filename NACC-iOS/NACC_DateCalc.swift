@@ -31,10 +31,10 @@ class NACC_DateCalc
 {
     /// The following will read like:
     /// "There have been <totalDays> between the dates. This is a period of <years> years, <months> months and <days> days."
-    let totalDays: Int = 0  ///< The total number of days.
-    let years: Int = 0      ///< The number of years since the clean date.
-    let months: Int = 0     ///< The number of months since the last year in the clean date.
-    let days: Int = 0       ///< The number of days since the last month in the clean date.
+    let totalDays: Int      ///< The total number of days.
+    var years: Int = 0      ///< The number of years since the clean date.
+    var months: Int = 0     ///< The number of months since the last year in the clean date.
+    var days: Int = 0       ///< The number of days since the last month in the clean date.
     let dateString: String  ///< This will contain a readable string of the date.
     let startDate: NSDate?  ///< The starting date of the period (the cleandate).
     let endDate: NSDate?    ///< The ending date of the period (today, usually).
@@ -63,7 +63,7 @@ class NACC_DateCalc
         self.dateString = NSDateFormatter.localizedStringFromDate ( startDate!, dateStyle: NSDateFormatterStyle.LongStyle, timeStyle: NSDateFormatterStyle.NoStyle )
         
         // We get the total days, just to check for 90 or less.
-        self.totalDays = Int ( trunc ( inNowDate.timeIntervalSinceDate ( inStartDate ) / 86400.0 ) ) // Change seconds into days.
+        self.totalDays = Int ( trunc ( inNowDate.timeIntervalSinceDate ( inStartDate ) / 86400.0 ) ) + 1 // Change seconds into days.
         
         if ( self.startDate != nil && self.endDate != nil )
         {
