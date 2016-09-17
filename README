@@ -31,7 +31,11 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
-== Version 3.0
+== Version 3.1
 * TBD
+* This implements the new Swift 3 language.
+
+== Version 3.0
+* July 15, 2015
 * This reflects a complete, top-to-bottom rewrite of the app.
 * It has been rewritten in Swift, Apple's new programming language.
