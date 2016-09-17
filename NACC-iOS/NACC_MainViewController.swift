@@ -31,11 +31,11 @@ class NACC_MainViewController : UIViewController
         \param inTag a UIImage of the tag to be displayed.
         \param inOffset the vertical offset (from the top of the display view) of the tag to be drawn.
     */
-    func displayTag ( inTag:UIImage, inout inOffset:CGFloat )
+    func displayTag ( _ inTag:UIImage, inOffset:inout CGFloat )
     {
         let imageView:UIImageView = UIImageView ( image:inTag )
         var containerRect:CGRect = self.tagDisplayView!.bounds   // See what we have to work with.
-        let targetRect:CGRect = CGRectMake ( (containerRect.size.width - inTag.size.width) / 2.0, inOffset, inTag.size.width, inTag.size.height )
+        let targetRect:CGRect = CGRect ( x: (containerRect.size.width - inTag.size.width) / 2.0, y: inOffset, width: inTag.size.width, height: inTag.size.height )
         imageView.frame = targetRect
         containerRect.size.height = max ( (targetRect.origin.y + targetRect.size.height), (containerRect.origin.y + containerRect.size.height) )
         self.tagDisplayView!.bounds = containerRect
@@ -50,8 +50,9 @@ class NACC_MainViewController : UIViewController
         
         \param inTagImageArray the array of tag images to be displayed.
     */
-    func displayTags ( inTagImageArray:[UIImage] )
+    func displayTags ( _ inTagImageArray:[UIImage] )
     {
+        self.tagDisplayView!.bounds = self.tagDisplayScroller!.bounds
         if ( inTagImageArray.count > 0 )    // We need to have images to display
         {
             var offset:CGFloat = 0.0    // This will be the vertical offset for each tag.
@@ -69,7 +70,7 @@ class NACC_MainViewController : UIViewController
     */
     override func viewDidLoad() 
     {
-        self.navigationItem.title = NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: NSBundle.mainBundle(), value: "CALC-LABEL", comment: "" )
+        self.navigationItem.title = NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" )
         super.viewDidLoad()
     }
     
@@ -80,7 +81,7 @@ class NACC_MainViewController : UIViewController
     */
     override func viewDidLayoutSubviews ( )
     {
-        var subViews = self.tagDisplayView!.subviews as! Array<UIView>
+        let subViews = self.tagDisplayView!.subviews 
         
         for subView in subViews
         {
@@ -88,17 +89,17 @@ class NACC_MainViewController : UIViewController
         }
         
         self.tagDisplayView!.frame = self.tagDisplayScroller!.bounds
-        self.tagDisplayScroller!.setContentOffset ( CGPointZero, animated: false )
-        self.tagDisplayScroller!.contentSize = self.tagDisplayScroller!.bounds.size
+        self.tagDisplayScroller!.setContentOffset ( CGPoint.zero, animated: false )
+        self.tagDisplayScroller!.contentSize = self.tagDisplayView!.bounds.size
 
-        var displayString = NACC_TagModel.getDisplayCleandate ( s_NACC_cleanDateCalc.totalDays, inYears: s_NACC_cleanDateCalc.years, inMonths: s_NACC_cleanDateCalc.months, inDays: s_NACC_cleanDateCalc.days )
+        let displayString = NACC_TagModel.getDisplayCleandate ( s_NACC_cleanDateCalc.totalDays, inYears: s_NACC_cleanDateCalc.years, inMonths: s_NACC_cleanDateCalc.months, inDays: s_NACC_cleanDateCalc.days )
         
         if ( s_NACC_cleanDateCalc.totalDays > 0 )
         {
-            var resultsString:String = NSLocalizedString ( "RESULTS-LINE1", tableName: nil, bundle: NSBundle.mainBundle(), value: "RESULTS-LINE1", comment: "" )
-            var dateString:String = s_NACC_cleanDateCalc.dateString
+            let resultsString:String = NSLocalizedString ( "RESULTS-LINE1", tableName: nil, bundle: Bundle.main, value: "RESULTS-LINE1", comment: "" )
+            let dateString:String = s_NACC_cleanDateCalc.dateString
             
-            self.cleandateLabel!.text = NSString ( format:resultsString, dateString ) as String
+            self.cleandateLabel!.text = NSString ( format:resultsString as NSString, dateString ) as String
         }
         
         self.resultTextDisplayView!.text = displayString
@@ -113,7 +114,7 @@ class NACC_MainViewController : UIViewController
         let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
         mainNavController.navigationBar.barTintColor = mainNavController.navigationBar.backgroundColor
         super.viewDidLayoutSubviews ( )
-        self.tagDisplayScroller!.setContentOffset ( CGPointZero, animated: false )
+        self.tagDisplayScroller!.setContentOffset ( CGPoint.zero, animated: false )
         self.tagDisplayScroller!.setNeedsLayout()
     }
     
@@ -134,8 +135,8 @@ class NACC_MainViewController : UIViewController
                 var g:CGFloat = 0
                 var b:CGFloat = 0
                 var a:CGFloat = 0
-                var startPoint:CGPoint = CGPointMake ( 0.5, 1 )
-                var endPoint:CGPoint = CGPointMake ( 0.5, 0 )
+                let startPoint:CGPoint = CGPoint ( x: 0.5, y: 1 )
+                let endPoint:CGPoint = CGPoint ( x: 0.5, y: 0 )
                 
                 if ( s_NACC_BaseColor!.getRed ( &r, green: &g, blue: &b, alpha: &a ) )
                 {
@@ -154,22 +155,22 @@ class NACC_MainViewController : UIViewController
                 {
                     gradientLayer!.endPoint = endPoint
                     gradientLayer!.startPoint = startPoint
+                    let clearColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
                     let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
-                    let endColor:CGColorRef = gradientEndColor!.CGColor
-                    let midColor:CGColorRef = gradientMidColor!.CGColor
-                    let startColor:CGColorRef = mainNavController.navigationBar.backgroundColor != nil ? mainNavController.navigationBar.backgroundColor!.CGColor : nil
-                    
+                    let endColor:CGColor = gradientEndColor!.cgColor
+                    let midColor:CGColor = gradientMidColor!.cgColor
+                    let startColor:CGColor = mainNavController.navigationBar.backgroundColor != nil ? mainNavController.navigationBar.backgroundColor!.cgColor : clearColor.cgColor
                     gradientLayer!.colors = [endColor, startColor]
                     gradientLayer!.colors = [   endColor,
                                                 midColor,
                                                 startColor
                                             ]
-                    gradientLayer!.locations = [    NSNumber ( float: 0.0 ),
-                                                    NSNumber ( float: 0.4 ),
-                                                    NSNumber ( float: 1.0 )
+                    gradientLayer!.locations = [    NSNumber (value: 0.0 as Float),
+                                                    NSNumber (value: 0.4 as Float),
+                                                    NSNumber (value: 1.0 as Float)
                                             ]
                     gradientLayer!.frame = self.headerView!.bounds
-                    self.headerView!.layer.insertSublayer ( gradientLayer, atIndex: 0 )
+                    self.headerView!.layer.insertSublayer ( gradientLayer!, at: 0 )
                 }
             }
         }

@@ -29,7 +29,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
     /**
         \brief  Simply set the SINGLETON to us.
     */
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         s_NACC_AppDelegate = self
         return true
@@ -39,13 +39,13 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
     /**
         \brief  We make sure that the first window is always the date selector.
     */
-    func applicationWillEnterForeground( application: UIApplication )
+    func applicationWillEnterForeground( _ application: UIApplication )
     {
         let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
         
-        if ( mainNavController.topViewController.isKindOfClass ( NACC_MainViewController.self ) )
+        if ( mainNavController.topViewController?.isKind ( of: NACC_MainViewController.self ) )!
         {
-            mainNavController.popToRootViewControllerAnimated ( true )
+            mainNavController.popToRootViewController ( animated: true )
         }
     }
     
@@ -64,8 +64,8 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
             var g:CGFloat = 0
             var b:CGFloat = 0
             var a:CGFloat = 0
-            var startPoint:CGPoint = CGPointMake ( 0.5, 0 )
-            var endPoint:CGPoint = CGPointMake ( 0.5, 1 )
+            let startPoint:CGPoint = CGPoint ( x: 0.5, y: 0 )
+            let endPoint:CGPoint = CGPoint ( x: 0.5, y: 1 )
             
             // We have the gradient get lighter. The source is the background color we set for our navigation bar.
             if ( (mainNavController.navigationBar.backgroundColor != nil) && mainNavController.navigationBar.backgroundColor!.getRed ( &r, green: &g, blue: &b, alpha: &a ) )
@@ -91,16 +91,17 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
             {
                 s_NACC_GradientLayer!.endPoint = endPoint
                 s_NACC_GradientLayer!.startPoint = startPoint
+                let clearColor = UIColor ( red: 0, green: 0, blue: 0, alpha: 0 )
                 
-                let endColor:CGColorRef = gradientEndColor!.CGColor
-                let startColor:CGColorRef = mainNavController.navigationBar.backgroundColor != nil ? mainNavController.navigationBar.backgroundColor!.CGColor : nil
+                let endColor:CGColor = gradientEndColor!.cgColor
+                let startColor:CGColor = mainNavController.navigationBar.backgroundColor != nil ? mainNavController.navigationBar.backgroundColor!.cgColor : clearColor.cgColor
                 
                 s_NACC_GradientLayer!.colors = [endColor, startColor]
-                s_NACC_GradientLayer!.locations = [ NSNumber ( float: 0.0 ),
-                                                    NSNumber ( float: 1.0 )
+                s_NACC_GradientLayer!.locations = [ NSNumber (value: 0.0 as Float),
+                                                    NSNumber (value: 1.0 as Float)
                                                    ]
                 s_NACC_GradientLayer!.frame = s_NACC_AppDelegate!.window!.bounds
-                s_NACC_AppDelegate!.window!.layer.insertSublayer ( s_NACC_GradientLayer, atIndex: 0 )
+                s_NACC_AppDelegate!.window!.layer.insertSublayer ( s_NACC_GradientLayer!, at: 0 )
             }
         }
     }

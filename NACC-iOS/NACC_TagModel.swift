@@ -24,9 +24,9 @@ import UIKit
 /***********************************************************************************************/
 extension Int
 {
-    func format ( f: String ) -> String
+    func format ( _ f: String ) -> String
     {
-        return NSString ( format: "%\(f)d", self ) as String
+        return NSString ( format: "%\(f)d" as NSString, self ) as String
     }
 }
 
@@ -71,10 +71,10 @@ class NACC_TagModel
         
         \returns a string, containing the cleandate text.
     */
-    class func getDisplayCleandate ( inTotalDays:Int, inYears:Int, inMonths:Int, inDays:Int ) -> String
+    class func getDisplayCleandate ( _ inTotalDays:Int, inYears:Int, inMonths:Int, inDays:Int ) -> String
     {
         var resultsString:String = ""
-        let bundle:NSBundle = NSBundle ( forClass: NACC_TagModel.self )
+        let bundle:Bundle = Bundle ( for: NACC_TagModel.self )
         
         // This is the first line, where we count days.
         if ( inTotalDays == 1 )  // Brand new
@@ -198,22 +198,22 @@ class NACC_TagModel
         
         \returns a tuple, containing both the base (tag) file name, and the face (text) file name.
     */
-    class func determineImageNames ( inIndex:NSNumber ) -> (baseName:String,  ///< The tag base file name
+    class func determineImageNames ( _ inIndex:NSNumber ) -> (baseName:String,  ///< The tag base file name
                                                             faceName:String   ///< The tag face file name.
                                                             )
     {
-        let currentLocale:NSLocale? = NSLocale.currentLocale()
-        let localeIDTemp:NSString = currentLocale!.localeIdentifier
-        let localeID = localeIDTemp.substringToIndex(2)
+        let currentLocale:Locale? = Locale.current
+        let localeIDTemp:NSString = currentLocale!.identifier as NSString
+        let localeID = localeIDTemp.substring(to: 2)
         
-        let returnedBaseName = "tag_" + Int ( inIndex.integerValue ).format ( "02" )
-        var returnedFaceName = "face_" + Int ( inIndex.integerValue ).format ( "02" ) + "_" + localeID
+        let returnedBaseName = "tag_" + Int ( inIndex.intValue ).format ( "02" )
+        var returnedFaceName = "face_" + Int ( inIndex.intValue ).format ( "02" ) + "_" + localeID
         
         let testImage:UIImage? = UIImage ( named:returnedFaceName ) // Test to see if we can get the image for the face.
         
         if ( testImage == nil ) // Default to English if no image for this language.
         {
-            returnedFaceName = "face_" + Int ( inIndex.integerValue ).format ( "02" ) + "_en"
+            returnedFaceName = "face_" + Int ( inIndex.intValue ).format ( "02" ) + "_en"
         }
 
         return ( baseName: returnedBaseName, faceName: returnedFaceName )
@@ -232,74 +232,99 @@ class NACC_TagModel
         
         var index = 1
         
-        var names:(baseName:String, faceName:String) = NACC_TagModel.determineImageNames ( index++ )
+        var names:(baseName:String, faceName:String) = NACC_TagModel.determineImageNames ( index as NSNumber )
+        
+        index += 1
         
         let tagData1 = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 1, days: 0, months: 0, years: 0 );
         
         ret.append ( tagData1 )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
+        index += 1
+
         let tagData30 = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 30, days: 0, months: 0, years: 0 )
         
         ret.append ( tagData30 )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
+        index += 1
+
         let tagData60 = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 60, days: 0, months: 0, years: 0 )
         
         ret.append ( tagData60 )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
+        index += 1
+
         let tagData90 = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 90, days: 0, months: 0, years: 0 )
         
         ret.append ( tagData90 )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
+        index += 1
+
         let tagData6Mo = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 6, years: 0 )
         
         ret.append ( tagData6Mo )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
+        index += 1
+
         let tagData9Mo = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 9, years: 0 )
         
         ret.append ( tagData9Mo )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        
+        index += 1
         
         let tagData1Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 1 )
         
         ret.append ( tagData1Yr )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        
+        index += 1
+
         
         let tagData18Mo = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 6, years: 1 )
         
         ret.append ( tagData18Mo )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
+        index += 1
+
         let tagData2Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 2 )
         
         ret.append ( tagData2Yr )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        
+        index += 1
         
         let tagData10Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 10 )
         
         ret.append ( tagData10Yr )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
+        index += 1
+
         let tagData20Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 20 )
         
         ret.append ( tagData20Yr )
         
-        names = NACC_TagModel.determineImageNames ( index++ )
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
+        index += 1
+
         let tagData25Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 25 )
         
         ret.append ( tagData25Yr )
@@ -317,7 +342,7 @@ class NACC_TagModel
         
         \returns an instance of UIImage. May be nil, if the operation fails.
     */
-    class func constructTag ( inBaseName:String, inFaceName:String, inRingClosed:Bool = false ) -> UIImage?
+    class func constructTag ( _ inBaseName:String, inFaceName:String, inRingClosed:Bool = false ) -> UIImage?
     {
         let baseImage:UIImage = UIImage ( named:inBaseName )!
         let faceImage:UIImage = UIImage ( named:inFaceName )!
@@ -329,17 +354,17 @@ class NACC_TagModel
         let width:CGFloat = baseImage.size.width
         let height:CGFloat = width * aspect
         
-        let size:CGSize = CGSizeMake ( width, height )
+        let size:CGSize = CGSize ( width: width, height: height )
         
         UIGraphicsBeginImageContextWithOptions ( size, false, 0 )    // Set up an offscreen bitmap context.
         
         // Draw the transparent images over each other.
-        baseImage.drawAtPoint ( CGPointMake ( 0.0, height - baseImage.size.height ) )
-        faceImage.drawAtPoint ( CGPointMake ( 0.0, height - faceImage.size.height ) )
+        baseImage.draw ( at: CGPoint ( x: 0.0, y: height - baseImage.size.height ) )
+        faceImage.draw ( at: CGPoint ( x: 0.0, y: height - faceImage.size.height ) )
         
         let ringleft:CGFloat = (size.width - ringImage.size.width) / 2.0
         
-        ringImage.drawAtPoint ( CGPointMake ( ringleft, 0.0 ) )
+        ringImage.draw ( at: CGPoint ( x: ringleft, y: 0.0 ) )
         
         ret = UIGraphicsGetImageFromCurrentImageContext()   // Get the resulting composite image as a single image.
         UIGraphicsEndImageContext()
@@ -356,7 +381,7 @@ class NACC_TagModel
         
         \returns true if the tag applies to this calculation.
     */
-    class func doesThisTagApply ( inCalculation:NACC_DateCalc, inTagTemplate:NACC_TagModel_TagData ) -> Bool
+    class func doesThisTagApply ( _ inCalculation:NACC_DateCalc, inTagTemplate:NACC_TagModel_TagData ) -> Bool
     {
         var ret:Bool = false
         
@@ -370,10 +395,10 @@ class NACC_TagModel
             if ( inCalculation.totalDays > 90 ) // Doesn't even come into play for less than 90.
             {
                 // This is a quick and dirty way to compare.
-                let tagScore:NSNumber = (inTagTemplate.years * 10000) + (inTagTemplate.months * 100) + inTagTemplate.days;
-                let caclcScore:NSNumber = (inCalculation.years * 10000) + (inCalculation.months * 100) + inCalculation.days;
+                let tagScore = (inTagTemplate.years * 10000) + (inTagTemplate.months * 100) + inTagTemplate.days
+                let caclcScore = (inCalculation.years * 10000) + (inCalculation.months * 100) + inCalculation.days
                 
-                ret = caclcScore.longLongValue >= tagScore.longLongValue
+                ret = caclcScore >= tagScore
             }
         }
         
@@ -436,7 +461,7 @@ class NACC_TagModel
             {
                 var year = 3
                 
-                while ( years-- > 2 )
+                while ( years > 2 )
                 {
                     if ( year == 10 )
                     {
@@ -459,7 +484,8 @@ class NACC_TagModel
                         tagImages.append ( NACC_TagModel.constructTag ( twoYearTag.baseImageName, inFaceName: twoYearTag.faceImageName, inRingClosed: false )! )
                     }
                 
-                    year++
+                    year += 1
+                    years -= 1
                 }
             }
         }

@@ -5,13 +5,17 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "ring_01.png"
+      "filename" : "ring_01.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "ring_01@2x.png"
+      "filename" : "ring_01@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

@@ -5,13 +5,17 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "12_HotPink.png"
+      "filename" : "12_HotPink.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "12_HotPink@2x.png"
+      "filename" : "12_HotPink@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
