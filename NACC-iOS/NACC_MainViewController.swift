@@ -31,16 +31,19 @@ class NACC_MainViewController : UIViewController
         \param inTag a UIImage of the tag to be displayed.
         \param inOffset the vertical offset (from the top of the display view) of the tag to be drawn.
     */
-    func displayTag ( _ inTag:UIImage, inOffset:inout CGFloat )
+    func displayTag ( inTag:UIImage, inOffset:inout CGFloat )
     {
         let imageView:UIImageView = UIImageView ( image:inTag )
-        var containerRect:CGRect = self.tagDisplayView!.bounds   // See what we have to work with.
+        var containerRect:CGRect = self.tagDisplayView!.frame   // See what we have to work with.
+        containerRect.origin = CGPoint.zero
         let targetRect:CGRect = CGRect ( x: (containerRect.size.width - inTag.size.width) / 2.0, y: inOffset, width: inTag.size.width, height: inTag.size.height )
         imageView.frame = targetRect
         containerRect.size.height = max ( (targetRect.origin.y + targetRect.size.height), (containerRect.origin.y + containerRect.size.height) )
-        self.tagDisplayView!.bounds = containerRect
+        self.tagDisplayView!.frame = containerRect
         self.tagDisplayView!.addSubview ( imageView )
         self.tagDisplayScroller!.contentSize = containerRect.size
+        print ( "Tag Container Rect: \(containerRect)" )
+        print ( "    Tag ScrollView Bounds: \(self.tagDisplayScroller!.bounds)" )
         inOffset = inOffset + (inTag.size.height * 0.31)
     }
     
@@ -50,7 +53,7 @@ class NACC_MainViewController : UIViewController
         
         \param inTagImageArray the array of tag images to be displayed.
     */
-    func displayTags ( _ inTagImageArray:[UIImage] )
+    func displayTags ( inTagImageArray:[UIImage] )
     {
         self.tagDisplayView!.bounds = self.tagDisplayScroller!.bounds
         if ( inTagImageArray.count > 0 )    // We need to have images to display
@@ -59,7 +62,7 @@ class NACC_MainViewController : UIViewController
 
             for tag in inTagImageArray
             {
-                self.displayTag ( tag, inOffset: &offset )
+                self.displayTag ( inTag: tag, inOffset: &offset )
             }
         }
     }
@@ -107,8 +110,9 @@ class NACC_MainViewController : UIViewController
         let tags:[UIImage]? = tagModel.getTags()
         if ( tags != nil )
         {
-            self.displayTags ( tags! )
+            self.displayTags ( inTagImageArray: tags! )
         }
+        
         NACC_AppDelegate.setGradient()
         self.setGradient()
         let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
