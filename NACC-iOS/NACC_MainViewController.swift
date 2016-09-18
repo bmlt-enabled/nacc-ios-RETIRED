@@ -18,7 +18,9 @@ import QuartzCore
 
 class NACC_MainViewController : UIViewController
 {
-    var             gradientLayer:CAGradientLayer? = nil
+    let             s_offsetMultiplier: CGFloat     = 0.31
+    
+    var             gradientLayer:CAGradientLayer?  = nil
     @IBOutlet var   resultTextDisplayView:UILabel?
     @IBOutlet var   tagDisplayView:UIView?
     @IBOutlet var   tagDisplayScroller:UIScrollView?
@@ -44,7 +46,7 @@ class NACC_MainViewController : UIViewController
         self.tagDisplayScroller!.contentSize = containerRect.size
         print ( "Tag Container Rect: \(containerRect)" )
         print ( "    Tag ScrollView Bounds: \(self.tagDisplayScroller!.bounds)" )
-        inOffset = inOffset + (inTag.size.height * 0.31)
+        inOffset = inOffset + (inTag.size.height * self.s_offsetMultiplier)
     }
     
     /*******************************************************************************************/
