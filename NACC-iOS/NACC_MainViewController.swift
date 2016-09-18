@@ -26,6 +26,17 @@ class NACC_MainViewController : UIViewController
     @IBOutlet var   tagDisplayScroller:UIScrollView?
     @IBOutlet var   headerView: UIView?
     @IBOutlet var   cleandateLabel: UILabel?
+    
+    /*******************************************************************************************/
+    /**
+     \brief  Called when the view is loaded. We set the navbar color here.
+     */
+    override func viewDidLoad()
+    {
+        self.navigationItem.title = NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" )
+        super.viewDidLoad()
+    }
+
     /*******************************************************************************************/
     /**
         \brief  Displays a single tag in the scroll view.
@@ -44,6 +55,7 @@ class NACC_MainViewController : UIViewController
         self.tagDisplayView!.frame = containerRect
         self.tagDisplayView!.addSubview ( imageView )
         self.tagDisplayScroller!.contentSize = containerRect.size
+        self.tagDisplayScroller!.scrollRectToVisible(targetRect, animated: true)
         inOffset = inOffset + (inTag.size.height * self.s_offsetMultiplier)
     }
     
@@ -65,16 +77,6 @@ class NACC_MainViewController : UIViewController
                 self.displayTag ( inTag: tag, inOffset: &offset )
             }
         }
-    }
-    
-    /*******************************************************************************************/
-    /**
-        \brief  Called when the view is loaded. We set the navbar color here.
-    */
-    override func viewDidLoad() 
-    {
-        self.navigationItem.title = NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" )
-        super.viewDidLoad()
     }
     
     /*******************************************************************************************/
@@ -118,8 +120,6 @@ class NACC_MainViewController : UIViewController
         let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
         mainNavController.navigationBar.barTintColor = mainNavController.navigationBar.backgroundColor
         super.viewDidLayoutSubviews ( )
-        self.tagDisplayScroller!.setContentOffset ( CGPoint.zero, animated: false )
-        self.tagDisplayScroller!.setNeedsLayout()
     }
     
     /*******************************************************************************************/

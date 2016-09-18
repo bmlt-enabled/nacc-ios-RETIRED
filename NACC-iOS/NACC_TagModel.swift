@@ -328,11 +328,15 @@ class NACC_TagModel
         
         ret.append ( tagData25Yr )
         
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        
         index += 1
         
         let tagData10K = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 10000, days: 0, months: 0, years: 0 )
         
         ret.append ( tagData10K )
+        
+        names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
         let tagData30Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 30 )
         
