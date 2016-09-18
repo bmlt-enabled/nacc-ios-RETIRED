@@ -18,7 +18,7 @@ import QuartzCore
 
 class NACC_MainViewController : UIViewController
 {
-    let             s_offsetMultiplier: CGFloat     = 0.31
+    let             s_offsetMultiplier: CGFloat     = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
     
     var             gradientLayer:CAGradientLayer?  = nil
     @IBOutlet var   resultTextDisplayView:UILabel?
@@ -44,8 +44,6 @@ class NACC_MainViewController : UIViewController
         self.tagDisplayView!.frame = containerRect
         self.tagDisplayView!.addSubview ( imageView )
         self.tagDisplayScroller!.contentSize = containerRect.size
-        print ( "Tag Container Rect: \(containerRect)" )
-        print ( "    Tag ScrollView Bounds: \(self.tagDisplayScroller!.bounds)" )
         inOffset = inOffset + (inTag.size.height * self.s_offsetMultiplier)
     }
     

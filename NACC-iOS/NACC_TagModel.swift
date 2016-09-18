@@ -292,7 +292,6 @@ class NACC_TagModel
         
         index += 1
 
-        
         let tagData18Mo = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 6, years: 1 )
         
         ret.append ( tagData18Mo )
@@ -324,10 +323,20 @@ class NACC_TagModel
         names = NACC_TagModel.determineImageNames ( index as NSNumber )
         
         index += 1
-
+        
         let tagData25Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 25 )
         
         ret.append ( tagData25Yr )
+        
+        index += 1
+        
+        let tagData10K = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 10000, days: 0, months: 0, years: 0 )
+        
+        ret.append ( tagData10K )
+        
+        let tagData30Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 30 )
+        
+        ret.append ( tagData30Yr )
         
         return ret
     }
@@ -381,7 +390,7 @@ class NACC_TagModel
         
         \returns true if the tag applies to this calculation.
     */
-    class func doesThisTagApply ( _ inCalculation:NACC_DateCalc, inTagTemplate:NACC_TagModel_TagData ) -> Bool
+    class func doesThisTagApply ( inCalculation:NACC_DateCalc, inTagTemplate:NACC_TagModel_TagData ) -> Bool
     {
         var ret:Bool = false
         
@@ -448,7 +457,7 @@ class NACC_TagModel
                 index = i
                 
                 let tagTemplate = tagDataArray[index]
-                if ( NACC_TagModel.doesThisTagApply ( self.calculation, inTagTemplate: tagTemplate ) )
+                if ( NACC_TagModel.doesThisTagApply ( inCalculation: self.calculation, inTagTemplate: tagTemplate ) )
                 {
                     tagImages.append ( NACC_TagModel.constructTag ( tagTemplate.baseImageName, inFaceName: tagTemplate.faceImageName, inRingClosed: isFirst )! )
                     isFirst = false // Only the first one is closed.
@@ -456,7 +465,7 @@ class NACC_TagModel
             }
             
             var years:Int = self.calculation.years
-                        
+            
             if ( years > 2 )
             {
                 var year = 3
@@ -473,6 +482,11 @@ class NACC_TagModel
                         let twentyFiveYearTag = tagDataArray[index + 3]
                         tagImages.append ( NACC_TagModel.constructTag ( twentyFiveYearTag.baseImageName, inFaceName: twentyFiveYearTag.faceImageName, inRingClosed: false )! )
                     }
+                    else if ( year == 30 )
+                    {
+                        let twentyFiveYearTag = tagDataArray[index + 5]
+                        tagImages.append ( NACC_TagModel.constructTag ( twentyFiveYearTag.baseImageName, inFaceName: twentyFiveYearTag.faceImageName, inRingClosed: false )! )
+                    }
                     else if ( (year % 10) == 0 )
                     {
                         let twentyYearTag = tagDataArray[index + 2]
@@ -482,6 +496,12 @@ class NACC_TagModel
                     {
                         let twoYearTag = tagDataArray[index]
                         tagImages.append ( NACC_TagModel.constructTag ( twoYearTag.baseImageName, inFaceName: twoYearTag.faceImageName, inRingClosed: false )! )
+                        
+                        if ( (year == 27) && (self.calculation.totalDays >= 10000) )
+                        {
+                            let tenKayDaysTag = tagDataArray[index + 4]
+                            tagImages.append ( NACC_TagModel.constructTag ( tenKayDaysTag.baseImageName, inFaceName: tenKayDaysTag.faceImageName, inRingClosed: false )! )
+                        }
                     }
                 
                     year += 1
