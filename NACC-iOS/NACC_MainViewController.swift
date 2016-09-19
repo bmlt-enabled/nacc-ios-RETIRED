@@ -47,14 +47,13 @@ class NACC_MainViewController : UIViewController
     func displayTag ( inTag:UIImage, inOffset:inout CGFloat )
     {
         let imageView:UIImageView = UIImageView ( image:inTag )
-        var containerRect:CGRect = self.tagDisplayView!.frame   // See what we have to work with.
-        containerRect.origin = CGPoint.zero
+        var containerRect:CGRect = self.tagDisplayView!.bounds   // See what we have to work with. We will be extending this.
         let targetRect:CGRect = CGRect ( x: (containerRect.size.width - inTag.size.width) / 2.0, y: inOffset, width: inTag.size.width, height: inTag.size.height )
         imageView.frame = targetRect
         containerRect.size.height = max ( (targetRect.origin.y + targetRect.size.height), (containerRect.origin.y + containerRect.size.height) )
         self.tagDisplayView!.frame = containerRect
-        self.tagDisplayView!.addSubview ( imageView )
         self.tagDisplayScroller!.contentSize = containerRect.size
+        self.tagDisplayView!.addSubview ( imageView )
         self.tagDisplayScroller!.scrollRectToVisible(targetRect, animated: true)
         inOffset = inOffset + (inTag.size.height * self.s_offsetMultiplier)
     }
