@@ -81,7 +81,6 @@
 		77D9F7D7195EE836007DF220 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		77D9F7D8195EE836007DF220 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_DateCalc.swift; sourceTree = "<group>"; };
-		77D9F7DC195EEAB2007DF220 /* NACC-iOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "NACC-iOS.playground"; sourceTree = "<group>"; };
 		77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				771B6A98196190DE00011DC1 /* Misc. */,
-				77D9F7DC195EEAB2007DF220 /* NACC-iOS.playground */,
 				77D9F7B7195EE760007DF220 /* NACC */,
 				77D9F7CA195EE760007DF220 /* NACCTests */,
 				77D9F7B6195EE760007DF220 /* Products */,
@@ -279,8 +277,6 @@
 			knownRegions = (
 				en,
 				Base,
-				fa,
-				sv,
 			);
 			mainGroup = 77D9F7AC195EE760007DF220;
 			productRefGroup = 77D9F7B6195EE760007DF220 /* Products */;
