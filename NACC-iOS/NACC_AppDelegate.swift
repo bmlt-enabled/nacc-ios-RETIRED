@@ -23,7 +23,50 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
 
 @UIApplicationMain class NACC_AppDelegate: UIResponder, UIApplicationDelegate
 {
+    /** This is the key we save the main prefs Dictionary under. */
+    let _mainPrefsKey: String   = "NACCMainPrefs"
+    let _datePrefsKey: String   = "NACCLastDate"
+    
+    /** This contains our loaded prefs Dictionary. */
+    var _loadedPrefs: NSMutableDictionary! = nil
+
     var window:UIWindow?
+    
+    var lastEnteredDate: Double {
+        /* ################################################################## */
+        /**
+         This method returns the last entered date, which is persistent.
+         
+         The date is a POSIX epoch date (integer).
+         */
+        get {
+            var ret: Double = 0
+            
+            if self._loadPrefs()
+            {
+                if let temp = self._loadedPrefs.object(forKey: _datePrefsKey) as? Double
+                {
+                    ret = temp
+                }
+            }
+            
+            return ret
+        }
+        
+        /* ################################################################## */
+        /**
+         This method saves the last entered date, which is persistent.
+         
+         The date is a POSIX epoch date (integer).
+         */
+        set {
+            if self._loadPrefs()
+            {
+                self._loadedPrefs.setObject(newValue, forKey: _datePrefsKey as NSCopying)
+                self._savePrefs()
+            }
+        }
+    }
     
     /*******************************************************************************************/
     /**
@@ -104,6 +147,32 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
                 s_NACC_AppDelegate!.window!.layer.insertSublayer ( s_NACC_GradientLayer!, at: 0 )
             }
         }
+    }
+    
+    /*******************************************************************************************/
+    /**
+     \brief  Saves the persistent prefs.
+     */
+    func _savePrefs()
+    {
+        UserDefaults.standard.set(self._loadedPrefs, forKey: self._mainPrefsKey)
+    }
+    
+    /*******************************************************************************************/
+    /**
+     \brief  Loads the persistent prefs.
+     */
+    func _loadPrefs() -> Bool
+    {
+        let temp = UserDefaults.standard.object(forKey: self._mainPrefsKey) as? NSDictionary
+        
+        if nil == temp {
+            self._loadedPrefs = NSMutableDictionary()
+        } else {
+            self._loadedPrefs = NSMutableDictionary(dictionary: temp!)
+        }
+        
+        return nil != self._loadedPrefs
     }
 }
 

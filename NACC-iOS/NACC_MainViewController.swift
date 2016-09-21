@@ -114,10 +114,7 @@ class NACC_MainViewController : UIViewController
             self.displayTags ( inTagImageArray: tags! )
         }
         
-        NACC_AppDelegate.setGradient()
         self.setGradient()
-        let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
-        mainNavController.navigationBar.barTintColor = mainNavController.navigationBar.backgroundColor
         super.viewDidLayoutSubviews ( )
     }
     

@@ -35,6 +35,8 @@ CHANGELIST
 * TBD
 * This implements the new Swift 3 language.
 * Added the new 10,000 days and 30-year tags.
+* It now remembers the last date entered.
+* The keychain now scrolls to the end when the result is announced.
 
 == Version 3.0
 * July 15, 2015

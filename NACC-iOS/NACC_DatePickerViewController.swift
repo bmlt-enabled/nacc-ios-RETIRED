@@ -30,6 +30,8 @@ class NACC_DatePickerViewController : UIViewController
     */
     @IBAction func dateChanged ( _ inPicker: UIDatePicker )
     {
+        let posixDate = inPicker.date.timeIntervalSince1970
+        s_NACC_AppDelegate?.lastEnteredDate = posixDate
         s_NACC_cleanDateCalc = NACC_DateCalc ( inStartDate: inPicker.date )
     }
     
@@ -42,7 +44,8 @@ class NACC_DatePickerViewController : UIViewController
     override func viewWillAppear ( _ inAnimated: Bool )
     {
         super.viewWillAppear ( inAnimated )
-        self.datePicker!.date = s_NACC_cleanDateCalc.startDate! as Date
+        let posixDate = s_NACC_AppDelegate?.lastEnteredDate
+        self.datePicker!.date = Date(timeIntervalSince1970: posixDate!)
         self.datePicker!.isHidden = false
         self.calcButton!.isHidden = false
         self.explainTextField!.isHidden = false
