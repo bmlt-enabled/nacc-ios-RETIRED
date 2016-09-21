@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		771B6A9419618AC000011DC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
+		771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */; };
 		7729B1641962EE6600524697 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		77388C051960ECB0001F89A8 /* NACC_DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */; };
 		773DC6B41963028B00B169A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		771B6A9719618AD100011DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		771BF1FB1D92E4D60024BAA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_DatePickerViewController.swift; sourceTree = "<group>"; };
 		773DC6B31963028B00B169A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		779E76BC195F2E230061BAED /* NACC_TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_TagModel.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				77D9F7BE195EE760007DF220 /* Main.storyboard */,
+				771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */,
 				773DC6B31963028B00B169A4 /* Images.xcassets */,
 				771B6A9219618AC000011DC1 /* Localizable.strings */,
 				77BB5C9C1960566F00B023FC /* Info.plist */,
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				773DC6B41963028B00B169A4 /* Images.xcassets in Resources */,
+				771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */,
 				77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */,
 				771B6A9419618AC000011DC1 /* Localizable.strings in Resources */,
 			);
@@ -376,6 +380,14 @@
 				771B6A9719618AD100011DC1 /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				771BF1FB1D92E4D60024BAA6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		77D9F7BE195EE760007DF220 /* Main.storyboard */ = {
