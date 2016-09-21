@@ -40,7 +40,9 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
          The date is a POSIX epoch date (integer).
          */
         get {
-            var ret: Double = 0
+            let today = Date()
+            
+            var ret: Double = today.timeIntervalSince1970
             
             if self._loadPrefs()
             {
