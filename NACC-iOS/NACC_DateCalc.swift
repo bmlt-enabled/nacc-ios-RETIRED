@@ -63,18 +63,21 @@ class NACC_DateCalc
         self.dateString = DateFormatter.localizedString ( from: startDate!, dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none )
         
         // We get the total days, just to check for 90 or less.
-        self.totalDays = Int ( trunc ( inNowDate.timeIntervalSince ( inStartDate ) / 86400.0 ) ) + 1 // Change seconds into days.
+        self.totalDays = Int ( trunc ( inNowDate.timeIntervalSince ( inStartDate ) / 86400.0 ) ) // Change seconds into days.
         
-        if ( self.startDate != nil && self.endDate != nil )
+        if ( (self.startDate != nil && self.endDate != nil) && (self.startDate! < self.endDate!) )
         {
             let myCalendar:Calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
             // Create our answer from the components of the result.
             let unitFlags: NSCalendar.Unit = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]
             let myComponents = (myCalendar as NSCalendar).components(unitFlags, from: startDate!, to: endDate!, options: NSCalendar.Options.wrapComponents)
             
-            if let years = myComponents.year {
-                if let months = myComponents.month {
-                    if let days = myComponents.day {
+            if let years = myComponents.year
+            {
+                if let months = myComponents.month
+                {
+                    if let days = myComponents.day
+                    {
                         self.years = years
                         self.months = months
                         self.days = days
