@@ -114,6 +114,7 @@ class NACC_MainViewController : UIViewController
             self.displayTags ( inTagImageArray: tags! )
         }
         
+        NACC_AppDelegate.setGradient()
         self.setGradient()
         super.viewDidLayoutSubviews ( )
     }
