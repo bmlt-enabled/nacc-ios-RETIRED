@@ -147,8 +147,8 @@
                                             <segue destination="0fM-Qs-srA" kind="show" id="OKu-mK-aDp"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="440" placeholderIntrinsicHeight="188" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="EXPLAIN-TEXT" translatesAutoresizingMaskIntoConstraints="NO" id="Wm8-kp-O0f">
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <textView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="EXPLAIN-TEXT" translatesAutoresizingMaskIntoConstraints="NO" id="Wm8-kp-O0f">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
