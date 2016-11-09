@@ -66,14 +66,17 @@ class NACC_MainViewController : UIViewController
     */
     func displayTags ( inTagImageArray:[UIImage] )
     {
-        self.tagDisplayView!.bounds = self.tagDisplayScroller!.bounds
-        if ( inTagImageArray.count > 0 )    // We need to have images to display
+        if s_NACC_ShowTags
         {
-            var offset:CGFloat = 0.0    // This will be the vertical offset for each tag.
-
-            for tag in inTagImageArray
+            self.tagDisplayView!.bounds = self.tagDisplayScroller!.bounds
+            if ( inTagImageArray.count > 0 )    // We need to have images to display
             {
-                self.displayTag ( inTag: tag, inOffset: &offset )
+                var offset:CGFloat = 0.0    // This will be the vertical offset for each tag.
+
+                for tag in inTagImageArray
+                {
+                    self.displayTag ( inTag: tag, inOffset: &offset )
+                }
             }
         }
     }

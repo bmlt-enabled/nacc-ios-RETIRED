@@ -20,6 +20,7 @@ var s_NACC_cleanDateCalc:NACC_DateCalc = NACC_DateCalc ()   ///< This holds our 
 var s_NACC_BaseColor:UIColor? = nil                         ///< This will hold the color that will tint our backgrounds.
 var s_NACC_AppDelegate:NACC_AppDelegate? = nil
 var s_NACC_GradientLayer:CAGradientLayer? = nil
+var s_NACC_ShowTags:Bool = true
 
 @UIApplicationMain class NACC_AppDelegate: UIResponder, UIApplicationDelegate
 {

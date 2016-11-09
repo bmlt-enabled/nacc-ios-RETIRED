@@ -17,11 +17,19 @@ import UIKit
 
 class NACC_DatePickerViewController : UIViewController
 {
-    @IBOutlet var   datePicker:UIDatePicker?
-    @IBOutlet var   displayView: UIView?
-    @IBOutlet var   explainTextField: UITextView?
-    @IBOutlet var   calcButton: UIButton?
+    @IBOutlet weak var  datePicker:UIDatePicker?
+    @IBOutlet weak var  displayView: UIView?
+    @IBOutlet weak var  explainTextField: UITextView?
+    @IBOutlet weak var  calcButton: UIButton?
+    @IBOutlet weak var  calcOnlyLabel: UILabel!
+    @IBOutlet weak var  calcOnlySwitch: UISwitch!
     
+    /*******************************************************************************************/
+    /**
+     */
+    @IBAction func showTagsChanged(_ sender: UISwitch) {
+        s_NACC_ShowTags = sender.isOn
+    }
     /*******************************************************************************************/
     /**
         \brief  Register the date when the picker changes value.
@@ -59,6 +67,8 @@ class NACC_DatePickerViewController : UIViewController
     {
         self.navigationItem.title = NSLocalizedString ( "ENTER-LABEL", tableName: nil, bundle: Bundle.main, value: "ENTER-LABEL", comment: "" )
         self.calcButton!.setTitle ( NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" ), for: UIControlState() )
+        self.calcButton!.setTitle ( NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" ), for: UIControlState() )
+        self.calcOnlyLabel!.text = NSLocalizedString ( "CALC-ONLY-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" )
         self.explainTextField!.text = NSLocalizedString ( "EXPLAIN-TEXT", tableName: nil, bundle: Bundle.main, value: "EXPLAIN-TEXT", comment: "" )
         super.viewWillLayoutSubviews()
         let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
