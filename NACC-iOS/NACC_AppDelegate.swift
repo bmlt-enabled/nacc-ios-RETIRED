@@ -20,13 +20,13 @@ var s_NACC_cleanDateCalc:NACC_DateCalc = NACC_DateCalc ()   ///< This holds our 
 var s_NACC_BaseColor:UIColor? = nil                         ///< This will hold the color that will tint our backgrounds.
 var s_NACC_AppDelegate:NACC_AppDelegate? = nil
 var s_NACC_GradientLayer:CAGradientLayer? = nil
-var s_NACC_ShowTags:Bool = true
 
 @UIApplicationMain class NACC_AppDelegate: UIResponder, UIApplicationDelegate
 {
     /** This is the key we save the main prefs Dictionary under. */
     let _mainPrefsKey: String   = "NACCMainPrefs"
     let _datePrefsKey: String   = "NACCLastDate"
+    let _keysPrefsKey: String   = "NACCShowTags"
     
     /** This contains our loaded prefs Dictionary. */
     var _loadedPrefs: NSMutableDictionary! = nil
@@ -66,6 +66,42 @@ var s_NACC_ShowTags:Bool = true
             if self._loadPrefs()
             {
                 self._loadedPrefs.setObject(newValue, forKey: _datePrefsKey as NSCopying)
+                self._savePrefs()
+            }
+        }
+    }
+    
+    var showKeys: Bool {
+        /* ################################################################## */
+        /**
+         This method returns whether or not to show the keytags, which is persistent.
+         
+         The date is a POSIX epoch date (integer).
+         */
+        get {
+            var ret: Bool = true
+            
+            if self._loadPrefs()
+            {
+                if let temp = self._loadedPrefs.object(forKey: _keysPrefsKey) as? Bool
+                {
+                    ret = temp
+                }
+            }
+            
+            return ret
+        }
+        
+        /* ################################################################## */
+        /**
+         This method saves the state of the show keys switch, which is persistent.
+         
+         The date is a POSIX epoch date (integer).
+         */
+        set {
+            if self._loadPrefs()
+            {
+                self._loadedPrefs.setObject(newValue, forKey: _keysPrefsKey as NSCopying)
                 self._savePrefs()
             }
         }

@@ -66,7 +66,7 @@ class NACC_MainViewController : UIViewController
     */
     func displayTags ( inTagImageArray:[UIImage] )
     {
-        if s_NACC_ShowTags
+        if (s_NACC_AppDelegate?.showKeys)!
         {
             self.tagDisplayView!.bounds = self.tagDisplayScroller!.bounds
             if ( inTagImageArray.count > 0 )    // We need to have images to display

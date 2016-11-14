@@ -28,8 +28,9 @@ class NACC_DatePickerViewController : UIViewController
     /**
      */
     @IBAction func showTagsChanged(_ sender: UISwitch) {
-        s_NACC_ShowTags = sender.isOn
+        s_NACC_AppDelegate?.showKeys = sender.isOn
     }
+    
     /*******************************************************************************************/
     /**
         \brief  Register the date when the picker changes value.
@@ -70,6 +71,7 @@ class NACC_DatePickerViewController : UIViewController
         self.calcButton!.setTitle ( NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" ), for: UIControlState() )
         self.calcOnlyLabel!.text = NSLocalizedString ( "CALC-ONLY-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" )
         self.explainTextField!.text = NSLocalizedString ( "EXPLAIN-TEXT", tableName: nil, bundle: Bundle.main, value: "EXPLAIN-TEXT", comment: "" )
+        self.calcOnlySwitch.isOn = (s_NACC_AppDelegate?.showKeys)!
         super.viewWillLayoutSubviews()
         let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
         mainNavController.navigationBar.barTintColor = s_NACC_BaseColor
