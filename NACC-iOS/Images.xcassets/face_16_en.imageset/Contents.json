@@ -1,16 +1,13 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
-    },
-    {
       "idiom" : "universal",
-      "filename" : "12_HotPink.png",
+      "filename" : "14_Moonglow_face.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "12_HotPink@2x.png",
+      "filename" : "14_Moonglow_face@2x.png",
       "scale" : "2x"
     },
     {

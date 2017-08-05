@@ -17,21 +17,6 @@ import UIKit
 
 /***********************************************************************************************/
 /**
-    \class  Int (extension)
-
-    \brief  This simply adds the ability to display an integer using a printf format.
-*/
-/***********************************************************************************************/
-extension Int
-{
-    func format ( _ f: String ) -> String
-    {
-        return NSString ( format: "%\(f)d" as NSString, self ) as String
-    }
-}
-
-/***********************************************************************************************/
-/**
     \class  NACC_TagModel
 
     \brief  This class wil determine which NA tags are the proper ones for the cleantime, and will
@@ -198,7 +183,7 @@ class NACC_TagModel
         
         \returns a tuple, containing both the base (tag) file name, and the face (text) file name.
     */
-    class func determineImageNames ( _ inIndex:NSNumber ) -> (baseName:String,  ///< The tag base file name
+    class func determineImageNames ( _ inIndex:Int ) -> (baseName:String,  ///< The tag base file name
                                                             faceName:String   ///< The tag face file name.
                                                             )
     {
@@ -206,14 +191,14 @@ class NACC_TagModel
         let localeIDTemp:NSString = currentLocale!.identifier as NSString
         let localeID = localeIDTemp.substring(to: 2)
         
-        let returnedBaseName = "tag_" + Int ( inIndex.intValue ).format ( "02" )
-        var returnedFaceName = "face_" + Int ( inIndex.intValue ).format ( "02" ) + "_" + localeID
-        
+        let returnedBaseName = String(format: "tag_%02d", inIndex)
+        var returnedFaceName = String(format: "face_%02d_%@", inIndex, localeID)
+
         let testImage:UIImage? = UIImage ( named:returnedFaceName ) // Test to see if we can get the image for the face.
         
         if ( testImage == nil ) // Default to English if no image for this language.
         {
-            returnedFaceName = "face_" + Int ( inIndex.intValue ).format ( "02" ) + "_en"
+            returnedFaceName = String(format: "face_%02d_en", inIndex)
         }
 
         return ( baseName: returnedBaseName, faceName: returnedFaceName )
@@ -232,7 +217,7 @@ class NACC_TagModel
         
         var index = 1
         
-        var names:(baseName:String, faceName:String) = NACC_TagModel.determineImageNames ( index as NSNumber )
+        var names:(baseName:String, faceName:String) = NACC_TagModel.determineImageNames ( index )
         
         index += 1
         
@@ -240,7 +225,7 @@ class NACC_TagModel
         
         ret.append ( tagData1 )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
 
@@ -248,7 +233,7 @@ class NACC_TagModel
         
         ret.append ( tagData30 )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
 
@@ -256,7 +241,7 @@ class NACC_TagModel
         
         ret.append ( tagData60 )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
 
@@ -264,7 +249,7 @@ class NACC_TagModel
         
         ret.append ( tagData90 )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
 
@@ -272,7 +257,7 @@ class NACC_TagModel
         
         ret.append ( tagData6Mo )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
 
@@ -280,7 +265,7 @@ class NACC_TagModel
         
         ret.append ( tagData9Mo )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
         
@@ -288,7 +273,7 @@ class NACC_TagModel
         
         ret.append ( tagData1Yr )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
 
@@ -296,7 +281,7 @@ class NACC_TagModel
         
         ret.append ( tagData18Mo )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
 
@@ -304,7 +289,15 @@ class NACC_TagModel
         
         ret.append ( tagData2Yr )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
+        
+        index += 1
+        
+        let tagData5Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 5 )
+        
+        ret.append ( tagData5Yr )
+        
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
         
@@ -312,7 +305,15 @@ class NACC_TagModel
         
         ret.append ( tagData10Yr )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
+        
+        index += 1
+        
+        let tagData15Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 15 )
+        
+        ret.append ( tagData15Yr )
+        
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
 
@@ -320,7 +321,7 @@ class NACC_TagModel
         
         ret.append ( tagData20Yr )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
         
@@ -328,7 +329,7 @@ class NACC_TagModel
         
         ret.append ( tagData25Yr )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         index += 1
         
@@ -336,7 +337,7 @@ class NACC_TagModel
         
         ret.append ( tagData10K )
         
-        names = NACC_TagModel.determineImageNames ( index as NSNumber )
+        names = NACC_TagModel.determineImageNames ( index )
         
         let tagData30Yr = NACC_TagModel_TagData ( baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 30 )
         
@@ -476,24 +477,34 @@ class NACC_TagModel
                 
                 while ( years > 2 )
                 {
-                    if ( year == 10 )
+                    if ( year == 5 )
                     {
-                        let tenYearTag = tagDataArray[index + 1]
+                        let fiveYearTag = tagDataArray[index + 1]
+                        tagImages.append ( NACC_TagModel.constructTag ( fiveYearTag.baseImageName, inFaceName: fiveYearTag.faceImageName, inRingClosed: false )! )
+                    }
+                    else if ( year == 10 )
+                    {
+                        let tenYearTag = tagDataArray[index + 2]
                         tagImages.append ( NACC_TagModel.constructTag ( tenYearTag.baseImageName, inFaceName: tenYearTag.faceImageName, inRingClosed: false )! )
                     }
-                    else if ( year == 25 )
+                    else if ( year == 15 )
                     {
-                        let twentyFiveYearTag = tagDataArray[index + 3]
-                        tagImages.append ( NACC_TagModel.constructTag ( twentyFiveYearTag.baseImageName, inFaceName: twentyFiveYearTag.faceImageName, inRingClosed: false )! )
+                        let fifteenYearTag = tagDataArray[index + 3]
+                        tagImages.append ( NACC_TagModel.constructTag ( fifteenYearTag.baseImageName, inFaceName: fifteenYearTag.faceImageName, inRingClosed: false )! )
                     }
-                    else if ( year == 30 )
+                    else if ( year == 25 )
                     {
                         let twentyFiveYearTag = tagDataArray[index + 5]
                         tagImages.append ( NACC_TagModel.constructTag ( twentyFiveYearTag.baseImageName, inFaceName: twentyFiveYearTag.faceImageName, inRingClosed: false )! )
                     }
+                    else if ( year == 30 )
+                    {
+                        let twentyFiveYearTag = tagDataArray[index + 7]
+                        tagImages.append ( NACC_TagModel.constructTag ( twentyFiveYearTag.baseImageName, inFaceName: twentyFiveYearTag.faceImageName, inRingClosed: false )! )
+                    }
                     else if ( (year % 10) == 0 )
                     {
-                        let twentyYearTag = tagDataArray[index + 2]
+                        let twentyYearTag = tagDataArray[index + 4]
                         tagImages.append ( NACC_TagModel.constructTag ( twentyYearTag.baseImageName, inFaceName: twentyYearTag.faceImageName, inRingClosed: false )! )
                     }
                     else
@@ -503,7 +514,7 @@ class NACC_TagModel
                         
                         if ( (year == 27) && (self.calculation.totalDays >= 10000) )
                         {
-                            let tenKayDaysTag = tagDataArray[index + 4]
+                            let tenKayDaysTag = tagDataArray[index + 6]
                             tagImages.append ( NACC_TagModel.constructTag ( tenKayDaysTag.baseImageName, inFaceName: tenKayDaysTag.faceImageName, inRingClosed: false )! )
                         }
                     }

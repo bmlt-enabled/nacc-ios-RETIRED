@@ -1,13 +1,16 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
-      "filename" : "13_Purple_face.png",
+      "filename" : "11_Purple_Face.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "13_Purple_face@2x.png",
+      "filename" : "11_Purple_Face@2x.png",
       "scale" : "2x"
     },
     {

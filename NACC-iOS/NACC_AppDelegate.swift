@@ -125,7 +125,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
     {
         let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
         
-        if ( mainNavController.topViewController?.isKind ( of: NACC_MainViewController.self ) )!
+        if ( NSObject.isKind ( of: NACC_MainViewController.self ) )
         {
             mainNavController.popToRootViewController ( animated: true )
         }
