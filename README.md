@@ -31,10 +31,11 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
-== Version 3.3
+== Version 3.3.1000
 * TBD
 * Added the two new keytags (5 and 15 years).
-* Updated to the lates iOS and Xcode versions. Base version is now 9.0.
+* Updated to the lates iOS and Xcode versions. Base version is now 10.0.
+* Darkened the text to improve readability.
 
 == Version 3.2
 * November 14, 2016
