@@ -104,15 +104,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		771B6A98196190DE00011DC1 /* Misc. */ = {
-			isa = PBXGroup;
-			children = (
-				77D9F7D7195EE836007DF220 /* LICENSE.txt */,
-				77D9F7D8195EE836007DF220 /* README.md */,
-			);
-			name = Misc.;
-			sourceTree = "<group>";
-		};
 		77235AA91960E58E006E42D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +133,8 @@
 		77D9F7AC195EE760007DF220 = {
 			isa = PBXGroup;
 			children = (
-				771B6A98196190DE00011DC1 /* Misc. */,
+				77D9F7D7195EE836007DF220 /* LICENSE.txt */,
+				77D9F7D8195EE836007DF220 /* README.md */,
 				77D9F7B7195EE760007DF220 /* NACC */,
 				77D9F7CA195EE760007DF220 /* NACCTests */,
 				77D9F7B6195EE760007DF220 /* Products */,
