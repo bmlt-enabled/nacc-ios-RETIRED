@@ -32,6 +32,10 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
+***Version 3.3.0.3000* ** *- September 19, 2017*
+
+- Official release.
+
 ***Version 3.3.0.2000* ** *- September 13, 2017*
 - Added the two new keytags (5 and 15 years).
 - Updated to the latest iOS and Xcode versions. Base version is now 10.0.
