@@ -29,7 +29,7 @@
 		77E1EDEA1F72E4C800211683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E1EDE91F72E4C800211683 /* Assets.xcassets */; };
 		77E1EDF11F72E4C800211683 /* NACC Companion Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */; };
-		77E1EDF81F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF71F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift */; };
+		77E1EDF81F72E4C800211683 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF71F72E4C800211683 /* ExtensionDelegate.swift */; };
 		77E1EDFA1F72E4C800211683 /* NACC_Companion_ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF91F72E4C800211683 /* NACC_Companion_ComplicationController.swift */; };
 		77E1EE001F72E4C800211683 /* NACC Companion.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 77E1EDE41F72E4C800211683 /* NACC Companion.app */; };
 		77E694DC1960E3F6005F21FF /* NACC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */; };
@@ -135,7 +135,7 @@
 		77E1EDEB1F72E4C800211683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NACC Companion Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_InterfaceController.swift; sourceTree = "<group>"; };
-		77E1EDF71F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_ExtensionDelegate.swift; sourceTree = "<group>"; };
+		77E1EDF71F72E4C800211683 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		77E1EDF91F72E4C800211683 /* NACC_Companion_ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_ComplicationController.swift; sourceTree = "<group>"; };
 		77E1EDFD1F72E4C800211683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_MainViewController.swift; sourceTree = "<group>"; };
@@ -280,8 +280,8 @@
 		77E1EDF41F72E4C800211683 /* NACC Companion Extension */ = {
 			isa = PBXGroup;
 			children = (
+				77E1EDF71F72E4C800211683 /* ExtensionDelegate.swift */,
 				77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */,
-				77E1EDF71F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift */,
 				77E1EDF91F72E4C800211683 /* NACC_Companion_ComplicationController.swift */,
 				77E1EDFD1F72E4C800211683 /* Info.plist */,
 			);
@@ -491,7 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77E1EDF81F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift in Sources */,
+				77E1EDF81F72E4C800211683 /* ExtensionDelegate.swift in Sources */,
 				77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */,
 				77E1EDFA1F72E4C800211683 /* NACC_Companion_ComplicationController.swift in Sources */,
 			);

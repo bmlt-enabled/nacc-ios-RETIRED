@@ -11,7 +11,7 @@
         <!--Companion Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="NACC_Companion_InterfaceController" customModule="NACC_Companion" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="NACC_Companion_InterfaceController" customModule="NACC_Companion_Extension"/>
             </objects>
         </scene>
     </scenes>

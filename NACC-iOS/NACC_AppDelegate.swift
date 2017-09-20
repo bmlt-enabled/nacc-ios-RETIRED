@@ -15,24 +15,52 @@
 
 import UIKit
 import QuartzCore
+import WatchConnectivity
 
 var s_NACC_cleanDateCalc:NACC_DateCalc = NACC_DateCalc ()   ///< This holds our global date calculation.
 var s_NACC_BaseColor:UIColor? = nil                         ///< This will hold the color that will tint our backgrounds.
 var s_NACC_AppDelegate:NACC_AppDelegate? = nil
 var s_NACC_GradientLayer:CAGradientLayer? = nil
 
-@UIApplicationMain class NACC_AppDelegate: UIResponder, UIApplicationDelegate
+@UIApplicationMain
+/* ###################################################################################################################################### */
+/**
+ */
+class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate
 {
-    /** This is the key we save the main prefs Dictionary under. */
+    // MARK: - Constant Instance Properties
+    /* ################################################################################################################################## */
+    /* ################################################################## */
+    /**
+     These are keys for our prefs.
+     */
     let _mainPrefsKey: String   = "NACCMainPrefs"
     let _datePrefsKey: String   = "NACCLastDate"
     let _keysPrefsKey: String   = "NACCShowTags"
     
-    /** This contains our loaded prefs Dictionary. */
-    var _loadedPrefs: NSMutableDictionary! = nil
+    // MARK: - Private Instance Properties
+    /* ################################################################################################################################## */
+    /* This is the Watch connectivity session. */
+    private var _mySession: WCSession! = nil
 
+    // MARK: - Internal Instance Properties
+    /* ################################################################################################################################## */
+    /** This contains our loaded prefs Dictionary. */
+    var loadedPrefs: NSMutableDictionary! = nil
     var window:UIWindow?
     
+    // MARK: - Internal Instance Calculated Properties
+    /* ################################################################################################################################## */
+    var session: WCSession! {
+        get {
+            if nil == self._mySession {
+                self._mySession = WCSession.default
+            }
+            
+            return self._mySession
+        }
+    }
+
     var lastEnteredDate: Double {
         /* ################################################################## */
         /**
@@ -47,7 +75,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
             
             if self._loadPrefs()
             {
-                if let temp = self._loadedPrefs.object(forKey: _datePrefsKey) as? Double
+                if let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double
                 {
                     ret = temp
                 }
@@ -65,7 +93,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
         set {
             if self._loadPrefs()
             {
-                self._loadedPrefs.setObject(newValue, forKey: _datePrefsKey as NSCopying)
+                self.loadedPrefs.setObject(newValue, forKey: _datePrefsKey as NSCopying)
                 self._savePrefs()
             }
         }
@@ -83,7 +111,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
             
             if self._loadPrefs()
             {
-                if let temp = self._loadedPrefs.object(forKey: _keysPrefsKey) as? Bool
+                if let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool
                 {
                     ret = temp
                 }
@@ -101,12 +129,23 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
         set {
             if self._loadPrefs()
             {
-                self._loadedPrefs.setObject(newValue, forKey: _keysPrefsKey as NSCopying)
+                self.loadedPrefs.setObject(newValue, forKey: _keysPrefsKey as NSCopying)
                 self._savePrefs()
             }
         }
     }
     
+    // MARK: - Internal Instance Methods
+    /* ################################################################################################################################## */
+    func activateSession() {
+        if WCSession.isSupported() && (self._mySession.activationState != .activated) {
+            self._mySession.delegate = self
+            self.session.activate()
+        }
+    }
+
+    // MARK: - UIApplicationDelegate Protocol Methods
+    /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
         \brief  Simply set the SINGLETON to us.
@@ -194,7 +233,7 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
      */
     func _savePrefs()
     {
-        UserDefaults.standard.set(self._loadedPrefs, forKey: self._mainPrefsKey)
+        UserDefaults.standard.set(self.loadedPrefs, forKey: self._mainPrefsKey)
     }
     
     /*******************************************************************************************/
@@ -206,12 +245,63 @@ var s_NACC_GradientLayer:CAGradientLayer? = nil
         let temp = UserDefaults.standard.object(forKey: self._mainPrefsKey) as? NSDictionary
         
         if nil == temp {
-            self._loadedPrefs = NSMutableDictionary()
+            self.loadedPrefs = NSMutableDictionary()
         } else {
-            self._loadedPrefs = NSMutableDictionary(dictionary: temp!)
+            self.loadedPrefs = NSMutableDictionary(dictionary: temp!)
         }
         
-        return nil != self._loadedPrefs
+        return nil != self.loadedPrefs
+    }
+    
+    // MARK: - WCSessionDelegate Protocol Methods
+    /* ################################################################################################################################## */
+    /* ################################################################## */
+    /**
+     */
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if .activated == activationState {
+            #if DEBUG
+                print("Watch session is active.")
+            #endif
+        }
+    }
+    
+    /* ################################################################## */
+    /**
+     */
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        #if DEBUG
+            print("Watch session is inactive.")
+        #endif
+    }
+    
+    /* ################################################################## */
+    /**
+     */
+    func sessionDidDeactivate(_ session: WCSession) {
+        #if DEBUG
+            print("Watch session deactivated.")
+        #endif
+    }
+    
+    /* ################################################################## */
+    /**
+     */
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]){
+        #if DEBUG
+            print("Phone Received Application Context: " + String(describing: applicationContext))
+        #endif
+    }
+    
+    /* ################################################################## */
+    /**
+     */
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        DispatchQueue.main.async {
+            #if DEBUG
+                print("Phone Received Message: " + String(describing: message))
+            #endif
+        }
     }
 }
 
