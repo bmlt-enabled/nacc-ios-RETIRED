@@ -25,6 +25,13 @@
 		77D9F7CE195EE760007DF220 /* NACC_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7CD195EE760007DF220 /* NACC_iOSTests.swift */; };
 		77D9F7DA195EE847007DF220 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
 		77D9F7DB195EE847007DF220 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
+		77E1EDE81F72E4C800211683 /* NACC_Companion_Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E1EDE61F72E4C800211683 /* NACC_Companion_Interface.storyboard */; };
+		77E1EDEA1F72E4C800211683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E1EDE91F72E4C800211683 /* Assets.xcassets */; };
+		77E1EDF11F72E4C800211683 /* NACC Companion Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */; };
+		77E1EDF81F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF71F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift */; };
+		77E1EDFA1F72E4C800211683 /* NACC_Companion_ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF91F72E4C800211683 /* NACC_Companion_ComplicationController.swift */; };
+		77E1EE001F72E4C800211683 /* NACC Companion.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 77E1EDE41F72E4C800211683 /* NACC Companion.app */; };
 		77E694DC1960E3F6005F21FF /* NACC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +71,46 @@
 			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
 			remoteInfo = "NACC-iOS";
 		};
+		77E1EDF21F72E4C800211683 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77E1EDEF1F72E4C800211683;
+			remoteInfo = "NACC Companion Extension";
+		};
+		77E1EDFE1F72E4C800211683 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77E1EDE31F72E4C800211683;
+			remoteInfo = "NACC Companion";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		77E1EE041F72E4C800211683 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				77E1EDF11F72E4C800211683 /* NACC Companion Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77E1EE081F72E4C800211683 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				77E1EE001F72E4C800211683 /* NACC Companion.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		771B6A9719618AD100011DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -83,6 +129,15 @@
 		77D9F7D7195EE836007DF220 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		77D9F7D8195EE836007DF220 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_DateCalc.swift; sourceTree = "<group>"; };
+		77E1EDE41F72E4C800211683 /* NACC Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NACC Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77E1EDE71F72E4C800211683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NACC_Companion_Interface.storyboard; sourceTree = "<group>"; };
+		77E1EDE91F72E4C800211683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77E1EDEB1F72E4C800211683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NACC Companion Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_InterfaceController.swift; sourceTree = "<group>"; };
+		77E1EDF71F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_ExtensionDelegate.swift; sourceTree = "<group>"; };
+		77E1EDF91F72E4C800211683 /* NACC_Companion_ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_ComplicationController.swift; sourceTree = "<group>"; };
+		77E1EDFD1F72E4C800211683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +150,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		77D9F7C4195EE760007DF220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77E1EDED1F72E4C800211683 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -137,6 +199,8 @@
 				77D9F7D8195EE836007DF220 /* README.md */,
 				77D9F7B7195EE760007DF220 /* NACC */,
 				77D9F7CA195EE760007DF220 /* NACCTests */,
+				77E1EDE51F72E4C800211683 /* NACC Companion */,
+				77E1EDF41F72E4C800211683 /* NACC Companion Extension */,
 				77D9F7B6195EE760007DF220 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -146,6 +210,8 @@
 			children = (
 				77D9F7B5195EE760007DF220 /* NACC.app */,
 				77D9F7C7195EE760007DF220 /* NACCTests.xctest */,
+				77E1EDE41F72E4C800211683 /* NACC Companion.app */,
+				77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,6 +267,27 @@
 			name = "Date Picker Screen";
 			sourceTree = "<group>";
 		};
+		77E1EDE51F72E4C800211683 /* NACC Companion */ = {
+			isa = PBXGroup;
+			children = (
+				77E1EDE61F72E4C800211683 /* NACC_Companion_Interface.storyboard */,
+				77E1EDE91F72E4C800211683 /* Assets.xcassets */,
+				77E1EDEB1F72E4C800211683 /* Info.plist */,
+			);
+			path = "NACC Companion";
+			sourceTree = "<group>";
+		};
+		77E1EDF41F72E4C800211683 /* NACC Companion Extension */ = {
+			isa = PBXGroup;
+			children = (
+				77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */,
+				77E1EDF71F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift */,
+				77E1EDF91F72E4C800211683 /* NACC_Companion_ComplicationController.swift */,
+				77E1EDFD1F72E4C800211683 /* Info.plist */,
+			);
+			path = "NACC Companion Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,10 +298,12 @@
 				77D9F7B1195EE760007DF220 /* Sources */,
 				77D9F7B2195EE760007DF220 /* Frameworks */,
 				77D9F7B3195EE760007DF220 /* Resources */,
+				77E1EE081F72E4C800211683 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				77E1EDFF1F72E4C800211683 /* PBXTargetDependency */,
 			);
 			name = NACC;
 			productName = "NACC-iOS";
@@ -243,6 +332,40 @@
 			productReference = 77D9F7C7195EE760007DF220 /* NACCTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		77E1EDE31F72E4C800211683 /* NACC Companion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77E1EE051F72E4C800211683 /* Build configuration list for PBXNativeTarget "NACC Companion" */;
+			buildPhases = (
+				77E1EDE21F72E4C800211683 /* Resources */,
+				77E1EE041F72E4C800211683 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77E1EDF31F72E4C800211683 /* PBXTargetDependency */,
+			);
+			name = "NACC Companion";
+			productName = "NACC Companion";
+			productReference = 77E1EDE41F72E4C800211683 /* NACC Companion.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		77E1EDEF1F72E4C800211683 /* NACC Companion Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77E1EE011F72E4C800211683 /* Build configuration list for PBXNativeTarget "NACC Companion Extension" */;
+			buildPhases = (
+				77E1EDEC1F72E4C800211683 /* Sources */,
+				77E1EDED1F72E4C800211683 /* Frameworks */,
+				77E1EDEE1F72E4C800211683 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NACC Companion Extension";
+			productName = "NACC Companion Extension";
+			productReference = 77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -250,6 +373,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = NACC_;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = MAGSHARE;
 				TargetAttributes = {
@@ -262,6 +386,16 @@
 						CreatedOnToolsVersion = 6.0;
 						LastSwiftMigration = 0900;
 						TestTargetID = 77D9F7B4195EE760007DF220;
+					};
+					77E1EDE31F72E4C800211683 = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = P53V4JS928;
+						ProvisioningStyle = Automatic;
+					};
+					77E1EDEF1F72E4C800211683 = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = P53V4JS928;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -280,6 +414,8 @@
 			targets = (
 				77D9F7B4195EE760007DF220 /* NACC */,
 				77D9F7C6195EE760007DF220 /* NACCTests */,
+				77E1EDE31F72E4C800211683 /* NACC Companion */,
+				77E1EDEF1F72E4C800211683 /* NACC Companion Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -303,6 +439,22 @@
 				773DC6B51963028B00B169A4 /* Images.xcassets in Resources */,
 				77BB5CA61960765300B023FC /* Main.storyboard in Resources */,
 				7729B1641962EE6600524697 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77E1EDE21F72E4C800211683 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77E1EDEA1F72E4C800211683 /* Assets.xcassets in Resources */,
+				77E1EDE81F72E4C800211683 /* NACC_Companion_Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77E1EDEE1F72E4C800211683 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +487,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		77E1EDEC1F72E4C800211683 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77E1EDF81F72E4C800211683 /* NACC_Companion_ExtensionDelegate.swift in Sources */,
+				77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */,
+				77E1EDFA1F72E4C800211683 /* NACC_Companion_ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -363,6 +525,16 @@
 			target = 77D9F7B4195EE760007DF220 /* NACC */;
 			targetProxy = 77D9F7C8195EE760007DF220 /* PBXContainerItemProxy */;
 		};
+		77E1EDF31F72E4C800211683 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77E1EDEF1F72E4C800211683 /* NACC Companion Extension */;
+			targetProxy = 77E1EDF21F72E4C800211683 /* PBXContainerItemProxy */;
+		};
+		77E1EDFF1F72E4C800211683 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77E1EDE31F72E4C800211683 /* NACC Companion */;
+			targetProxy = 77E1EDFE1F72E4C800211683 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -388,6 +560,14 @@
 				77D9F7BF195EE760007DF220 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		77E1EDE61F72E4C800211683 /* NACC_Companion_Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				77E1EDE71F72E4C800211683 /* Base */,
+			);
+			name = NACC_Companion_Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -586,6 +766,144 @@
 			};
 			name = Release;
 		};
+		77E1EE021F72E4C800211683 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = P53V4JS928;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "NACC Companion Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.magshare.NACC.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		77E1EE031F72E4C800211683 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = P53V4JS928;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "NACC Companion Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = org.magshare.NACC.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		77E1EE061F72E4C800211683 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = P53V4JS928;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = NACC_Companion_Extension;
+				INFOPLIST_FILE = "NACC Companion/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.magshare.NACC.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		77E1EE071F72E4C800211683 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = P53V4JS928;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = NACC_Companion_Extension;
+				INFOPLIST_FILE = "NACC Companion/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = org.magshare.NACC.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -612,6 +930,24 @@
 			buildConfigurations = (
 				77D9F7D5195EE760007DF220 /* Debug */,
 				77D9F7D6195EE760007DF220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77E1EE011F72E4C800211683 /* Build configuration list for PBXNativeTarget "NACC Companion Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77E1EE021F72E4C800211683 /* Debug */,
+				77E1EE031F72E4C800211683 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77E1EE051F72E4C800211683 /* Build configuration list for PBXNativeTarget "NACC Companion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77E1EE061F72E4C800211683 /* Debug */,
+				77E1EE071F72E4C800211683 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
