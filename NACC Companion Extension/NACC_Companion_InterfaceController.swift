@@ -18,7 +18,10 @@ import Foundation
 
 /* ###################################################################################################################################### */
 class NACC_Companion_InterfaceController: WKInterfaceController {
-
+    @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
+    @IBOutlet var breakdownReportLabel: WKInterfaceLabel!
+    @IBOutlet var tagDisplayGroup: WKInterfaceGroup!
+    
     /* ################################################################################################################################## */
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)

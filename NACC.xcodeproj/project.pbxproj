@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77063E191F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77063E181F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift */; };
 		771B6A9419618AC000011DC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */; };
 		7729B1641962EE6600524697 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
@@ -19,6 +20,9 @@
 		77BB5CA31960753000B023FC /* NACC_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */; };
 		77BB5CA41960753400B023FC /* NACC_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */; };
 		77BB5CA61960765300B023FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D9F7BE195EE760007DF220 /* Main.storyboard */; };
+		77BEF3BD1F731E4200BD4FF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
+		77BEF3BE1F731F2800BD4FF2 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
+		77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
 		77D9F7BB195EE760007DF220 /* NACC_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */; };
 		77D9F7BD195EE760007DF220 /* NACC_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */; };
 		77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D9F7BE195EE760007DF220 /* Main.storyboard */; };
@@ -113,6 +117,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		77063E181F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Watch_MainGroup.swift; sourceTree = "<group>"; };
 		771B6A9719618AD100011DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		771BF1FB1D92E4D60024BAA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +289,7 @@
 				77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */,
 				77E1EDF91F72E4C800211683 /* NACC_Companion_ComplicationController.swift */,
 				77E1EDFD1F72E4C800211683 /* Info.plist */,
+				77063E181F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift */,
 			);
 			path = "NACC Companion Extension";
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BEF3BD1F731E4200BD4FF2 /* Images.xcassets in Resources */,
 				77E1EDEA1F72E4C800211683 /* Assets.xcassets in Resources */,
 				77E1EDE81F72E4C800211683 /* NACC_Companion_Interface.storyboard in Resources */,
 			);
@@ -492,8 +499,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				77E1EDF81F72E4C800211683 /* ExtensionDelegate.swift in Sources */,
+				77063E191F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift in Sources */,
 				77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */,
 				77E1EDFA1F72E4C800211683 /* NACC_Companion_ComplicationController.swift in Sources */,
+				77BEF3BE1F731F2800BD4FF2 /* NACC_DateCalc.swift in Sources */,
+				77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

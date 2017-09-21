@@ -8,10 +8,33 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
     <scenes>
-        <!--Companion Interface Controller-->
+        <!--WatchBackground-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="NACC_Companion_InterfaceController" customModule="NACC_Companion_Extension"/>
+                <controller backgroundImage="WatchBackground" fullScreen="YES" id="AgC-eL-Hgc" customClass="NACC_Companion_InterfaceController" customModule="NACC_Companion_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" radius="0.0" id="Zs6-bB-nJU" customClass="NACC_Watch_MainGroup" customModule="NACC_Companion_Extension">
+                            <items>
+                                <group width="1" alignment="left" layout="vertical" id="cuT-cL-mL6" userLabel="Date Report Group">
+                                    <items>
+                                        <label width="1" alignment="left" text="Label" id="ZWW-iS-NML">
+                                            <color key="textColor" red="0.10881315760877805" green="0.18601525285300971" blue="0.6993806670984456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                        <label width="1" alignment="left" text="Label" textAlignment="left" id="UoM-lh-lmF">
+                                            <color key="textColor" red="0.10881315760877805" green="0.18601525285300971" blue="0.6993806670984456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="Zcc-ea-GYw" userLabel="Tag Display Group"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="breakdownReportLabel" destination="UoM-lh-lmF" id="qFL-KP-4aO"/>
+                        <outlet property="cleandateReportLabel" destination="ZWW-iS-NML" id="Nqa-1c-VYy"/>
+                        <outlet property="tagDisplayGroup" destination="Zcc-ea-GYw" id="HHf-Cw-b0n"/>
+                    </connections>
+                </controller>
             </objects>
         </scene>
     </scenes>
