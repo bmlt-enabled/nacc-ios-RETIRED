@@ -3,26 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		77063E191F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77063E181F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift */; };
 		771B6A9419618AC000011DC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */; };
+		771F88C21F75A5E000D7BCDE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
+		771F88C31F75A61200D7BCDE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
 		7722AFEA1F74937400FB2E95 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
 		77388C051960ECB0001F89A8 /* NACC_DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */; };
 		773DC6B41963028B00B169A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
 		778ED8411F753BBF007AAC03 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		779E76BD195F2E230061BAED /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
-		77BEF3BD1F731E4200BD4FF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
 		77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
 		77D9F7BB195EE760007DF220 /* NACC_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */; };
 		77D9F7BD195EE760007DF220 /* NACC_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */; };
 		77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D9F7BE195EE760007DF220 /* Main.storyboard */; };
 		77D9F7DA195EE847007DF220 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
 		77E1EDE81F72E4C800211683 /* NACC_Companion_Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E1EDE61F72E4C800211683 /* NACC_Companion_Interface.storyboard */; };
-		77E1EDEA1F72E4C800211683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E1EDE91F72E4C800211683 /* Assets.xcassets */; };
 		77E1EDF11F72E4C800211683 /* NACC Companion Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */; };
 		77E1EDF81F72E4C800211683 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF71F72E4C800211683 /* ExtensionDelegate.swift */; };
@@ -103,7 +103,6 @@
 		77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_DateCalc.swift; sourceTree = "<group>"; };
 		77E1EDE41F72E4C800211683 /* NACC Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NACC Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E1EDE71F72E4C800211683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NACC_Companion_Interface.storyboard; sourceTree = "<group>"; };
-		77E1EDE91F72E4C800211683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77E1EDEB1F72E4C800211683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NACC Companion Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_InterfaceController.swift; sourceTree = "<group>"; };
@@ -244,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				77E1EDE61F72E4C800211683 /* NACC_Companion_Interface.storyboard */,
-				77E1EDE91F72E4C800211683 /* Assets.xcassets */,
 				77E1EDEB1F72E4C800211683 /* Info.plist */,
 			);
 			path = "NACC Companion";
@@ -371,7 +369,7 @@
 				};
 			};
 			buildConfigurationList = 77D9F7B0195EE760007DF220 /* Build configuration list for PBXProject "NACC" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -407,8 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77BEF3BD1F731E4200BD4FF2 /* Images.xcassets in Resources */,
-				77E1EDEA1F72E4C800211683 /* Assets.xcassets in Resources */,
+				771F88C21F75A5E000D7BCDE /* Images.xcassets in Resources */,
 				77E1EDE81F72E4C800211683 /* NACC_Companion_Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				778ED8411F753BBF007AAC03 /* Localizable.strings in Resources */,
+				771F88C31F75A61200D7BCDE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,7 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -781,7 +779,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -55,6 +55,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         // Use this method to pause ongoing tasks, disable timers, etc.
     }
 
+    /* ################################################################## */
+    /**
+     */
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
         // Sent when the system needs to launch the application in the background to process tasks. Tasks arrive in a set, so loop through and process each one.
         for task in backgroundTasks {
@@ -63,7 +66,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
                 if #available(watchOSApplicationExtension 4.0, *) {
-                    backgroundTask.setTaskCompletedWithSnapshot(false)
+                    backgroundTask.setTaskCompletedWithSnapshot(true)
                 } else {
                     // Fallback on earlier versions
                 }
@@ -71,30 +74,29 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
             case let connectivityTask as WKWatchConnectivityRefreshBackgroundTask:
-                // Be sure to complete the connectivity task once you’re done.
                 if #available(watchOSApplicationExtension 4.0, *) {
-                    connectivityTask.setTaskCompletedWithSnapshot(false)
+                    connectivityTask.setTaskCompletedWithSnapshot(true)
                 } else {
                     // Fallback on earlier versions
                 }
             case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
                 // Be sure to complete the URL session task once you’re done.
                 if #available(watchOSApplicationExtension 4.0, *) {
-                    urlSessionTask.setTaskCompletedWithSnapshot(false)
+                    urlSessionTask.setTaskCompletedWithSnapshot(true)
                 } else {
                     // Fallback on earlier versions
                 }
             default:
                 // make sure to complete unhandled task types
                 if #available(watchOSApplicationExtension 4.0, *) {
-                    task.setTaskCompletedWithSnapshot(false)
+                    task.setTaskCompletedWithSnapshot(true)
                 } else {
                     // Fallback on earlier versions
                 }
             }
         }
     }
-    
+
     /* ################################################################################################################################## */
     
     // MARK: - WCSessionDelegate Protocol Methods

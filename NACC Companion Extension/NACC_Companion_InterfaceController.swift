@@ -19,7 +19,10 @@ import WatchKit
 class NACC_Companion_InterfaceController: WKInterfaceController {
     @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
     @IBOutlet var tagDisplayGroup: WKInterfaceGroup!
-    
+    @IBOutlet var tagDisplay: WKInterfaceImage!
+
+    private let _offsetMultiplier: CGFloat     = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
+
     var extensionDelegateObject:ExtensionDelegate! {
         get {
             return WKExtension.shared().delegate as! ExtensionDelegate
@@ -31,7 +34,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
             return self.extensionDelegateObject.cleanDateCalc
         }
     }
-
+    
     /* ################################################################################################################################## */
     func performCalculation() {
         DispatchQueue.main.async {
@@ -39,9 +42,57 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
                 let displayString = NACC_TagModel.getDisplayCleandate ( self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days )
                 self.cleandateReportLabel.setText(displayString)
             }
+            
+            let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: self.cleanDateCalc )
+            let tags:[UIImage]? = tagModel.getTags()
+            if ( tags != nil )
+            {
+                self.displayTags ( inTagImageArray: tags! )
+            }
+       }
+    }
+
+    /*******************************************************************************************/
+    /**
+     \brief  Displays the tags in the tag display panel.
+     
+     \param inTagImageArray the array of tag images to be displayed.
+     */
+    func displayTags ( inTagImageArray:[UIImage] )
+    {
+        let count = CGFloat(inTagImageArray.count)
+        if 0 < count {
+            let prototypeImage = inTagImageArray[0]
+            let width = prototypeImage.size.width
+            var height = prototypeImage.size.height
+            height += ((height * self._offsetMultiplier) * (count - 1))
+            let size = CGSize(width:width, height:height)
+            UIGraphicsBeginImageContextWithOptions ( size, false, 0 )    // Set up an offscreen bitmap context.
+            if let drawingContext = UIGraphicsGetCurrentContext() {
+                // OK. The graphics context here is mirrored upside-down, so we start at the bottom, and go up
+                var offset = (height - prototypeImage.size.height)
+                for index in 0..<inTagImageArray.count {
+                    let image = inTagImageArray[index]
+                    let imageRect = CGRect(x: 0, y: offset, width: image.size.width, height: image.size.height)
+                    if let cgImage = image.cgImage {
+                        drawingContext.draw(cgImage, in: imageRect)
+                    }
+                    
+                    offset -= (image.size.height * self._offsetMultiplier)
+                }
+                
+                let image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                if nil != image {
+                    // Now, we flip the image to display naturally.
+                    let flippedImage = UIImage(cgImage: image!.cgImage!, scale: image!.scale, orientation:UIImageOrientation.downMirrored)
+                    self.tagDisplay.setImage(flippedImage)
+                }
+            }
         }
     }
-    
+
     /* ################################################################################################################################## */
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)

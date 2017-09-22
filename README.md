@@ -32,6 +32,10 @@ along with this code.  If not, see <http://www.gnu.org/licenses/>.
 
 CHANGELIST
 ----------
+***Version 3.4.0.0000* ** *- TBD*
+
+- Adds a simple Watch app that reports the results on your wrist.
+
 ***Version 3.3.0.3000* ** *- September 19, 2017*
 
 - Official release.

@@ -376,30 +376,32 @@ class NACC_TagModel
     */
     class func constructTag ( _ inBaseName:String, inFaceName:String, inRingClosed:Bool = false ) -> UIImage?
     {
-        let baseImage:UIImage = UIImage ( named:inBaseName )!
-        let faceImage:UIImage = UIImage ( named:inFaceName )!
-        let ringImage:UIImage = UIImage ( named:(inRingClosed ? "ring_02" : "ring_01") )! // Select the correct ring image.
-        
         var ret:UIImage? = nil  // Start off pessimistic
         
-        let aspect:CGFloat = 580.0 / 320.0
-        let width:CGFloat = baseImage.size.width
-        let height:CGFloat = width * aspect
-        
-        let size:CGSize = CGSize ( width: width, height: height )
-        
-        UIGraphicsBeginImageContextWithOptions ( size, false, 0 )    // Set up an offscreen bitmap context.
-        
-        // Draw the transparent images over each other.
-        baseImage.draw ( at: CGPoint ( x: 0.0, y: height - baseImage.size.height ) )
-        faceImage.draw ( at: CGPoint ( x: 0.0, y: height - faceImage.size.height ) )
-        
-        let ringleft:CGFloat = (size.width - ringImage.size.width) / 2.0
-        
-        ringImage.draw ( at: CGPoint ( x: ringleft, y: 0.0 ) )
-        
-        ret = UIGraphicsGetImageFromCurrentImageContext()   // Get the resulting composite image as a single image.
-        UIGraphicsEndImageContext()
+        if let baseImage:UIImage = UIImage ( named:inBaseName ) {
+            if let faceImage:UIImage = UIImage ( named:inFaceName ) {
+                if let ringImage:UIImage = UIImage ( named:(inRingClosed ? "ring_02" : "ring_01") ) { // Select the correct ring image.
+                    let aspect:CGFloat = 580.0 / 320.0
+                    let width:CGFloat = baseImage.size.width
+                    let height:CGFloat = width * aspect
+                    
+                    let size:CGSize = CGSize ( width: width, height: height )
+                    
+                    UIGraphicsBeginImageContextWithOptions ( size, false, 0 )    // Set up an offscreen bitmap context.
+                    
+                    // Draw the transparent images over each other.
+                    baseImage.draw ( at: CGPoint ( x: 0.0, y: height - baseImage.size.height ) )
+                    faceImage.draw ( at: CGPoint ( x: 0.0, y: height - faceImage.size.height ) )
+                    
+                    let ringleft:CGFloat = (size.width - ringImage.size.width) / 2.0
+                    
+                    ringImage.draw ( at: CGPoint ( x: ringleft, y: 0.0 ) )
+                    
+                    ret = UIGraphicsGetImageFromCurrentImageContext()   // Get the resulting composite image as a single image.
+                    UIGraphicsEndImageContext()
+                }
+            }
+        }
         
         return ret
     }
