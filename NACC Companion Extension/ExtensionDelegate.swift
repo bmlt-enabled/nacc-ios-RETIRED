@@ -20,6 +20,12 @@ import WatchConnectivity
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /* ################################################################################################################################## */
     private var _mySession = WCSession.default
+    var cleanDateCalc:NACC_DateCalc! = nil ///< This holds our global date calculation.
+    var mainController:NACC_Companion_InterfaceController! {
+        get {
+            return WKExtension.shared().rootInterfaceController as! NACC_Companion_InterfaceController
+        }
+    }
     
     /* ################################################################################################################################## */
     var session: WCSession {get { return self._mySession }}
@@ -37,6 +43,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        self._activateSession()
     }
 
     func applicationDidBecomeActive() {
@@ -110,6 +117,13 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         #if DEBUG
             print("Watch Received Application Context: " + String(describing: applicationContext))
         #endif
+        
+        if let startDate = applicationContext[s_appContext_StartDate] as? Date {
+            if let endDate = applicationContext[s_appContext_EndDate] as? Date {
+                self.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: endDate)
+                self.mainController.performCalculation()
+            }
+        }
     }
     
     /* ################################################################## */

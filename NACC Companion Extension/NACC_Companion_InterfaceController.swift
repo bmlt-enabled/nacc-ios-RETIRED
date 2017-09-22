@@ -14,19 +14,38 @@
  */
 
 import WatchKit
-import Foundation
 
 /* ###################################################################################################################################### */
 class NACC_Companion_InterfaceController: WKInterfaceController {
     @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
-    @IBOutlet var breakdownReportLabel: WKInterfaceLabel!
     @IBOutlet var tagDisplayGroup: WKInterfaceGroup!
+    
+    var extensionDelegateObject:ExtensionDelegate! {
+        get {
+            return WKExtension.shared().delegate as! ExtensionDelegate
+        }
+    }
+    
+    var cleanDateCalc:NACC_DateCalc! {
+        get {
+            return self.extensionDelegateObject.cleanDateCalc
+        }
+    }
+
+    /* ################################################################################################################################## */
+    func performCalculation() {
+        DispatchQueue.main.async {
+            if 0 < self.cleanDateCalc.totalDays {
+                let displayString = NACC_TagModel.getDisplayCleandate ( self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days )
+                self.cleandateReportLabel.setText(displayString)
+            }
+        }
+    }
     
     /* ################################################################################################################################## */
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        // Configure interface objects here.
+        self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
     }
     
     override func willActivate() {

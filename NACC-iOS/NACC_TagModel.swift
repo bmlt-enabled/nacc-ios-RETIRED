@@ -15,6 +15,25 @@
 
 import UIKit
 
+/**
+ These will be used for storing and transmitting the values.
+ */
+let s_appContext_StartDate = "NACC_AppContext_StartDate"
+let s_appContext_EndDate = "NACC_AppContext_EndDate"
+
+/* ###################################################################################################################################### */
+/**
+ These are String class extensions that we'll use throughout the app.
+ */
+extension String {
+    /* ################################################################## */
+    /**
+     */
+    var localizedVariant: String {
+        return NSLocalizedString(self, comment: "")
+    }
+}
+
 /***********************************************************************************************/
 /**
     \class  NACC_TagModel
@@ -59,20 +78,19 @@ class NACC_TagModel
     class func getDisplayCleandate ( _ inTotalDays:Int, inYears:Int, inMonths:Int, inDays:Int ) -> String
     {
         var resultsString:String = ""
-        let bundle:Bundle = Bundle ( for: NACC_TagModel.self )
         
         // This is the first line, where we count days.
         if ( inTotalDays == 1 )  // Brand new
         {
-            resultsString = NSLocalizedString ( "RESULTS-DAY", tableName: nil, bundle: bundle, value: "RESULTS-DAY", comment: "" )
+            resultsString = "RESULTS-DAY".localizedVariant
         }
         else if ( inTotalDays < 0 )
         {
-            resultsString = String ( format: NSLocalizedString ( "RESULTS-SUPPORT", tableName: nil, bundle: bundle, value: "RESULTS-DAYS", comment: "" ) )
+            resultsString = "RESULTS-SUPPORT".localizedVariant
         }
         else
         {
-            resultsString = String ( format: NSLocalizedString ( "RESULTS-DAYS", tableName: nil, bundle: bundle, value: "RESULTS-DAYS", comment: "" ), inTotalDays )
+            resultsString = String ( format: "RESULTS-DAYS".localizedVariant, inTotalDays )
         }
         
         // The next line is more involved, as it breaks into years, months and days.
@@ -80,95 +98,95 @@ class NACC_TagModel
         {
             if ( (inYears > 1) && (inMonths > 1) && (inDays > 1) )    // Multiple of years, months and days.
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-1", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-1", comment: "" ), inYears, inMonths, inDays )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-1".localizedVariant, inYears, inMonths, inDays )
             }
             else if ( (inYears > 1) && (inMonths > 1) && (inDays == 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-2", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-2", comment: "" ), inYears, inMonths )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-2".localizedVariant, inYears, inMonths )
             }
             else if ( (inYears > 1) && (inMonths == 1) && (inDays == 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-3", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-3", comment: "" ), inYears )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-3".localizedVariant, inYears )
             }
             else if ( (inYears == 1) && (inMonths == 1) && (inDays == 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-4", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-4", comment: "" ) )
+                resultsString = resultsString + "RESULTS-COMPLEX-4".localizedVariant
             }
             else if ( (inYears == 1) && (inMonths > 1) && (inDays == 0) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-5", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-5", comment: "" ), inMonths )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-5".localizedVariant, inMonths )
             }
             else if ( (inYears == 1) && (inMonths == 1) && (inDays == 0) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-6", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-6", comment: "" ) )
+                resultsString = resultsString + "RESULTS-COMPLEX-6".localizedVariant
             }
             if ( (inYears == 1) && (inMonths == 0) && (inDays > 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-7", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-7", comment: "" ), inDays )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-7".localizedVariant, inDays )
             }
             else if ( (inYears == 1) && (inMonths == 0) && (inDays == 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-8", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-8", comment: "" ) )
+                resultsString = resultsString + "RESULTS-COMPLEX-8".localizedVariant
             }
            else if ( (inYears > 1) && (inMonths > 1) && (inDays == 0) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-9", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-9", comment: "" ), inYears, inMonths )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-9".localizedVariant, inYears, inMonths )
             }
             else if ( (inYears == 0) && (inMonths > 1) && (inDays > 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-10", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-10", comment: "" ), inMonths, inDays )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-10".localizedVariant, inMonths, inDays )
             }
             else if ( (inYears == 0) && (inMonths > 1) && (inDays == 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-11", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-11", comment: "" ), inMonths )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-11".localizedVariant, inMonths )
             }
             else if ( (inYears == 0) && (inMonths > 1) && (inDays == 0) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-12", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-12", comment: "" ), inMonths )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-12".localizedVariant, inMonths )
             }
             else if ( (inYears > 1) && (inMonths == 0) && (inDays == 0) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-13", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-13", comment: "" ), inYears )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-13".localizedVariant, inYears )
             }
             else if ( (inYears > 1) && (inMonths == 1) && (inDays == 0) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-14", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-14", comment: "" ), inYears )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-14".localizedVariant, inYears )
             }
             else if ( (inYears == 1) && (inMonths > 1) && (inDays > 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-15", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-15", comment: "" ), inMonths, inDays )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-15".localizedVariant, inMonths, inDays )
             }
             else if ( (inYears == 1) && (inMonths > 1) && (inDays == 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-16", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-16", comment: "" ), inMonths )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-16".localizedVariant, inMonths )
             }
             else if ( (inYears == 0) && (inMonths == 1) && (inDays > 1) )  // Should never happen.
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-17", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-17", comment: "" ), inDays )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-17".localizedVariant, inDays )
             }
             else if ( (inYears == 0) && (inMonths == 1) && (inDays == 1) )  // Should never happen.
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-18", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-18", comment: "" ) )
+                resultsString = resultsString + "RESULTS-COMPLEX-18".localizedVariant
             }
             else if ( (inYears > 1) && (inMonths == 0) && (inDays > 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-19", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-19", comment: "" ), inYears, inDays )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-19".localizedVariant, inYears, inDays )
             }
             else if ( (inYears > 1) && (inMonths == 0) && (inDays == 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-20", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-20", comment: "" ), inYears )
+                resultsString = resultsString + String ( format: "RESULTS-COMPLEX-20".localizedVariant, inYears )
             }
             else if ( (inYears == 1) && (inMonths == 0) && (inDays == 0) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-21", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-21", comment: "" ) )
+                resultsString = resultsString + "RESULTS-COMPLEX-21".localizedVariant
             }
             else if ( (inYears > 1) && (inMonths == 1) && (inDays > 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-22", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-22", comment: "" ), inYears, inDays )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-22".localizedVariant, inYears, inDays )
             }
             else if ( (inYears == 1) && (inMonths == 1) && (inDays > 1) )
             {
-                resultsString = resultsString + String ( format: NSLocalizedString ( "RESULTS-COMPLEX-23", tableName: nil, bundle: bundle, value: "RESULTS-COMPLEX-23", comment: "" ), inDays )
+                resultsString = resultsString + String ( format:"RESULTS-COMPLEX-23".localizedVariant, inDays )
             }
         }
         

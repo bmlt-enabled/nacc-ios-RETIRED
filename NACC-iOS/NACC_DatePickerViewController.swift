@@ -42,6 +42,9 @@ class NACC_DatePickerViewController : UIViewController
         let posixDate = inPicker.date.timeIntervalSince1970
         s_NACC_AppDelegate?.lastEnteredDate = posixDate
         s_NACC_cleanDateCalc = NACC_DateCalc ( inStartDate: inPicker.date )
+        if let appDelegate = UIApplication.shared.delegate as? NACC_AppDelegate {
+            appDelegate.sendCurrentProfileToWatch()
+        }
     }
     
     /*******************************************************************************************/
@@ -58,6 +61,7 @@ class NACC_DatePickerViewController : UIViewController
         self.datePicker!.isHidden = false
         self.calcButton!.isHidden = false
         self.explainTextField!.isHidden = false
+        self.dateChanged(self.datePicker!)
     }
     
     /*******************************************************************************************/
@@ -87,6 +91,9 @@ class NACC_DatePickerViewController : UIViewController
     override func viewWillDisappear ( _ inAnimated: Bool )
     {
         s_NACC_cleanDateCalc = NACC_DateCalc ( inStartDate: self.datePicker!.date )
+        if let appDelegate = UIApplication.shared.delegate as? NACC_AppDelegate {
+            appDelegate.sendCurrentProfileToWatch()
+        }
         self.calcButton!.isHidden = true
         self.datePicker!.isHidden = true
         self.explainTextField!.isHidden = true

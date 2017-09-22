@@ -10,25 +10,17 @@
 		77063E191F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77063E181F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift */; };
 		771B6A9419618AC000011DC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */; };
-		7729B1641962EE6600524697 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
+		7722AFEA1F74937400FB2E95 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
 		77388C051960ECB0001F89A8 /* NACC_DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */; };
 		773DC6B41963028B00B169A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
-		773DC6B51963028B00B169A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
-		77442E2319658C210001C1DD /* NACC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */; };
+		778ED8411F753BBF007AAC03 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		779E76BD195F2E230061BAED /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
-		779E76BE195F2E230061BAED /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
-		77BB5CA31960753000B023FC /* NACC_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */; };
-		77BB5CA41960753400B023FC /* NACC_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */; };
-		77BB5CA61960765300B023FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D9F7BE195EE760007DF220 /* Main.storyboard */; };
 		77BEF3BD1F731E4200BD4FF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773DC6B31963028B00B169A4 /* Images.xcassets */; };
-		77BEF3BE1F731F2800BD4FF2 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
 		77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
 		77D9F7BB195EE760007DF220 /* NACC_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */; };
 		77D9F7BD195EE760007DF220 /* NACC_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */; };
 		77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D9F7BE195EE760007DF220 /* Main.storyboard */; };
-		77D9F7CE195EE760007DF220 /* NACC_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7CD195EE760007DF220 /* NACC_iOSTests.swift */; };
 		77D9F7DA195EE847007DF220 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
-		77D9F7DB195EE847007DF220 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
 		77E1EDE81F72E4C800211683 /* NACC_Companion_Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E1EDE61F72E4C800211683 /* NACC_Companion_Interface.storyboard */; };
 		77E1EDEA1F72E4C800211683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E1EDE91F72E4C800211683 /* Assets.xcassets */; };
 		77E1EDF11F72E4C800211683 /* NACC Companion Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -37,44 +29,13 @@
 		77E1EDFA1F72E4C800211683 /* NACC_Companion_ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF91F72E4C800211683 /* NACC_Companion_ComplicationController.swift */; };
 		77E1EE001F72E4C800211683 /* NACC Companion.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 77E1EDE41F72E4C800211683 /* NACC Companion.app */; };
 		77E694DC1960E3F6005F21FF /* NACC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */; };
+		77F3F84F1F7469C500620402 /* NACC_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7CD195EE760007DF220 /* NACC_iOSTests.swift */; };
+		77F3F8501F7469F500620402 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
+		77F3F8511F7469F500620402 /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
+		77F3F8521F746A5000620402 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		772F27381960EED700F6DBC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
-			remoteInfo = "NACC-iOS";
-		};
-		772F273A1960EED700F6DBC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
-			remoteInfo = "NACC-iOS";
-		};
-		77BB5C9F196074FA00B023FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
-			remoteInfo = "NACC-iOS";
-		};
-		77BB5CA1196074FB00B023FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
-			remoteInfo = "NACC-iOS";
-		};
-		77D9F7C8195EE760007DF220 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
-			remoteInfo = "NACC-iOS";
-		};
 		77E1EDF21F72E4C800211683 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
@@ -88,6 +49,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 77E1EDE31F72E4C800211683;
 			remoteInfo = "NACC Companion";
+		};
+		77F3F84A1F7469BC00620402 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77D9F7AD195EE760007DF220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77D9F7B4195EE760007DF220;
+			remoteInfo = NACC;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -128,7 +96,6 @@
 		77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_AppDelegate.swift; sourceTree = "<group>"; };
 		77D9F7BC195EE760007DF220 /* NACC_NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_NavigationController.swift; sourceTree = "<group>"; };
 		77D9F7BF195EE760007DF220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		77D9F7C7195EE760007DF220 /* NACCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NACCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77D9F7CC195EE760007DF220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77D9F7CD195EE760007DF220 /* NACC_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_iOSTests.swift; sourceTree = "<group>"; };
 		77D9F7D7195EE836007DF220 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -144,6 +111,7 @@
 		77E1EDF91F72E4C800211683 /* NACC_Companion_ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_ComplicationController.swift; sourceTree = "<group>"; };
 		77E1EDFD1F72E4C800211683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_MainViewController.swift; sourceTree = "<group>"; };
+		77F3F8451F7469BC00620402 /* NACCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NACCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,14 +122,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77D9F7C4195EE760007DF220 /* Frameworks */ = {
+		77E1EDED1F72E4C800211683 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77E1EDED1F72E4C800211683 /* Frameworks */ = {
+		77F3F8421F7469BC00620402 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,9 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				77D9F7B5195EE760007DF220 /* NACC.app */,
-				77D9F7C7195EE760007DF220 /* NACCTests.xctest */,
 				77E1EDE41F72E4C800211683 /* NACC Companion.app */,
 				77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */,
+				77F3F8451F7469BC00620402 /* NACCTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -316,28 +284,6 @@
 			productReference = 77D9F7B5195EE760007DF220 /* NACC.app */;
 			productType = "com.apple.product-type.application";
 		};
-		77D9F7C6195EE760007DF220 /* NACCTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 77D9F7D4195EE760007DF220 /* Build configuration list for PBXNativeTarget "NACCTests" */;
-			buildPhases = (
-				77D9F7C3195EE760007DF220 /* Sources */,
-				77D9F7C4195EE760007DF220 /* Frameworks */,
-				77D9F7C5195EE760007DF220 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				77D9F7C9195EE760007DF220 /* PBXTargetDependency */,
-				77BB5CA0196074FA00B023FC /* PBXTargetDependency */,
-				77BB5CA2196074FB00B023FC /* PBXTargetDependency */,
-				772F27391960EED700F6DBC5 /* PBXTargetDependency */,
-				772F273B1960EED700F6DBC5 /* PBXTargetDependency */,
-			);
-			name = NACCTests;
-			productName = "NACC-iOSTests";
-			productReference = 77D9F7C7195EE760007DF220 /* NACCTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		77E1EDE31F72E4C800211683 /* NACC Companion */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77E1EE051F72E4C800211683 /* Build configuration list for PBXNativeTarget "NACC Companion" */;
@@ -372,6 +318,24 @@
 			productReference = 77E1EDF01F72E4C800211683 /* NACC Companion Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		77F3F8441F7469BC00620402 /* NACCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77F3F84E1F7469BC00620402 /* Build configuration list for PBXNativeTarget "NACCTests" */;
+			buildPhases = (
+				77F3F8411F7469BC00620402 /* Sources */,
+				77F3F8421F7469BC00620402 /* Frameworks */,
+				77F3F8431F7469BC00620402 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77F3F84B1F7469BC00620402 /* PBXTargetDependency */,
+			);
+			name = NACCTests;
+			productName = NACCTests;
+			productReference = 77F3F8451F7469BC00620402 /* NACCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -388,11 +352,6 @@
 						DevelopmentTeam = P53V4JS928;
 						LastSwiftMigration = 0900;
 					};
-					77D9F7C6195EE760007DF220 = {
-						CreatedOnToolsVersion = 6.0;
-						LastSwiftMigration = 0900;
-						TestTargetID = 77D9F7B4195EE760007DF220;
-					};
 					77E1EDE31F72E4C800211683 = {
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = P53V4JS928;
@@ -402,6 +361,12 @@
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = P53V4JS928;
 						ProvisioningStyle = Automatic;
+					};
+					77F3F8441F7469BC00620402 = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = P53V4JS928;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 77D9F7B4195EE760007DF220;
 					};
 				};
 			};
@@ -419,9 +384,9 @@
 			projectRoot = "";
 			targets = (
 				77D9F7B4195EE760007DF220 /* NACC */,
-				77D9F7C6195EE760007DF220 /* NACCTests */,
 				77E1EDE31F72E4C800211683 /* NACC Companion */,
 				77E1EDEF1F72E4C800211683 /* NACC Companion Extension */,
+				77F3F8441F7469BC00620402 /* NACCTests */,
 			);
 		};
 /* End PBXProject section */
@@ -435,16 +400,6 @@
 				771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */,
 				77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */,
 				771B6A9419618AC000011DC1 /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		77D9F7C5195EE760007DF220 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				773DC6B51963028B00B169A4 /* Images.xcassets in Resources */,
-				77BB5CA61960765300B023FC /* Main.storyboard in Resources */,
-				7729B1641962EE6600524697 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +417,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				778ED8411F753BBF007AAC03 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77F3F8431F7469BC00620402 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F3F8521F746A5000620402 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,60 +445,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77D9F7C3195EE760007DF220 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				77D9F7CE195EE760007DF220 /* NACC_iOSTests.swift in Sources */,
-				77BB5CA31960753000B023FC /* NACC_AppDelegate.swift in Sources */,
-				77D9F7DB195EE847007DF220 /* NACC_DateCalc.swift in Sources */,
-				779E76BE195F2E230061BAED /* NACC_TagModel.swift in Sources */,
-				77442E2319658C210001C1DD /* NACC_MainViewController.swift in Sources */,
-				77BB5CA41960753400B023FC /* NACC_NavigationController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		77E1EDEC1F72E4C800211683 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				77E1EDF81F72E4C800211683 /* ExtensionDelegate.swift in Sources */,
+				7722AFEA1F74937400FB2E95 /* NACC_DateCalc.swift in Sources */,
 				77063E191F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift in Sources */,
 				77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */,
 				77E1EDFA1F72E4C800211683 /* NACC_Companion_ComplicationController.swift in Sources */,
-				77BEF3BE1F731F2800BD4FF2 /* NACC_DateCalc.swift in Sources */,
 				77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77F3F8411F7469BC00620402 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F3F84F1F7469C500620402 /* NACC_iOSTests.swift in Sources */,
+				77F3F8501F7469F500620402 /* NACC_DateCalc.swift in Sources */,
+				77F3F8511F7469F500620402 /* NACC_TagModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		772F27391960EED700F6DBC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 77D9F7B4195EE760007DF220 /* NACC */;
-			targetProxy = 772F27381960EED700F6DBC5 /* PBXContainerItemProxy */;
-		};
-		772F273B1960EED700F6DBC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 77D9F7B4195EE760007DF220 /* NACC */;
-			targetProxy = 772F273A1960EED700F6DBC5 /* PBXContainerItemProxy */;
-		};
-		77BB5CA0196074FA00B023FC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 77D9F7B4195EE760007DF220 /* NACC */;
-			targetProxy = 77BB5C9F196074FA00B023FC /* PBXContainerItemProxy */;
-		};
-		77BB5CA2196074FB00B023FC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 77D9F7B4195EE760007DF220 /* NACC */;
-			targetProxy = 77BB5CA1196074FB00B023FC /* PBXContainerItemProxy */;
-		};
-		77D9F7C9195EE760007DF220 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 77D9F7B4195EE760007DF220 /* NACC */;
-			targetProxy = 77D9F7C8195EE760007DF220 /* PBXContainerItemProxy */;
-		};
 		77E1EDF31F72E4C800211683 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 77E1EDEF1F72E4C800211683 /* NACC Companion Extension */;
@@ -544,6 +480,11 @@
 			isa = PBXTargetDependency;
 			target = 77E1EDE31F72E4C800211683 /* NACC Companion */;
 			targetProxy = 77E1EDFE1F72E4C800211683 /* PBXContainerItemProxy */;
+		};
+		77F3F84B1F7469BC00620402 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77D9F7B4195EE760007DF220 /* NACC */;
+			targetProxy = 77F3F84A1F7469BC00620402 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -627,7 +568,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -675,7 +616,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -731,48 +672,6 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		77D9F7D5195EE760007DF220 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NACC.app/NACC";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "NACC-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.magshare.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = NACCTests;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		77D9F7D6195EE760007DF220 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NACC.app/NACC";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "NACC-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.magshare.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = NACCTests;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
 		};
@@ -914,6 +813,72 @@
 			};
 			name = Release;
 		};
+		77F3F84C1F7469BC00620402 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = P53V4JS928;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = NACCTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.magshare.NACCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NACC.app/NACC";
+			};
+			name = Debug;
+		};
+		77F3F84D1F7469BC00620402 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = P53V4JS928;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = NACCTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = net.magshare.NACCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NACC.app/NACC";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -935,15 +900,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		77D9F7D4195EE760007DF220 /* Build configuration list for PBXNativeTarget "NACCTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				77D9F7D5195EE760007DF220 /* Debug */,
-				77D9F7D6195EE760007DF220 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		77E1EE011F72E4C800211683 /* Build configuration list for PBXNativeTarget "NACC Companion Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -958,6 +914,15 @@
 			buildConfigurations = (
 				77E1EE061F72E4C800211683 /* Debug */,
 				77E1EE071F72E4C800211683 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77F3F84E1F7469BC00620402 /* Build configuration list for PBXNativeTarget "NACCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77F3F84C1F7469BC00620402 /* Debug */,
+				77F3F84D1F7469BC00620402 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -17,7 +17,8 @@ import UIKit
 import QuartzCore
 import WatchConnectivity
 
-var s_NACC_cleanDateCalc:NACC_DateCalc = NACC_DateCalc ()   ///< This holds our global date calculation.
+var s_NACC_cleanDateCalc:NACC_DateCalc = NACC_DateCalc () ///< This holds our global date calculation.
+
 var s_NACC_BaseColor:UIColor? = nil                         ///< This will hold the color that will tint our backgrounds.
 var s_NACC_AppDelegate:NACC_AppDelegate? = nil
 var s_NACC_GradientLayer:CAGradientLayer? = nil
@@ -37,7 +38,7 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate
     let _mainPrefsKey: String   = "NACCMainPrefs"
     let _datePrefsKey: String   = "NACCLastDate"
     let _keysPrefsKey: String   = "NACCShowTags"
-    
+
     // MARK: - Private Instance Properties
     /* ################################################################################################################################## */
     /* This is the Watch connectivity session. */
@@ -138,7 +139,7 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate
     // MARK: - Internal Instance Methods
     /* ################################################################################################################################## */
     func activateSession() {
-        if WCSession.isSupported() && (self._mySession.activationState != .activated) {
+        if WCSession.isSupported() && (self.session.activationState != .activated) {
             self._mySession.delegate = self
             self.session.activate()
         }
@@ -153,6 +154,7 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         s_NACC_AppDelegate = self
+        self.activateSession()
         return true
     }
     
@@ -253,6 +255,24 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate
         return nil != self.loadedPrefs
     }
     
+    // MARK: - WCSession Sender Methods
+    /* ################################################################################################################################## */
+    /* ################################################################## */
+    /**
+     */
+    func sendCurrentProfileToWatch() {
+        let appContext:[String:Any] = [
+                                        s_appContext_StartDate:s_NACC_cleanDateCalc.startDate!,
+                                        s_appContext_EndDate:s_NACC_cleanDateCalc.endDate!
+        ]
+        
+        do {
+            try self.session.updateApplicationContext(appContext)
+        } catch {
+            print("Communication Error With Watch!")
+        }
+    }
+    
     // MARK: - WCSessionDelegate Protocol Methods
     /* ################################################################################################################################## */
     /* ################################################################## */
@@ -263,6 +283,7 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate
             #if DEBUG
                 print("Watch session is active.")
             #endif
+            self.sendCurrentProfileToWatch()
         }
     }
     
@@ -281,15 +302,6 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate
     func sessionDidDeactivate(_ session: WCSession) {
         #if DEBUG
             print("Watch session deactivated.")
-        #endif
-    }
-    
-    /* ################################################################## */
-    /**
-     */
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]){
-        #if DEBUG
-            print("Phone Received Application Context: " + String(describing: applicationContext))
         #endif
     }
     

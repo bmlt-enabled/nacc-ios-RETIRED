@@ -15,7 +15,6 @@
 
 import ClockKit
 
-
 class NACC_Companion_ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Configuration
