@@ -20,6 +20,7 @@ import UIKit
  */
 let s_appContext_StartDate = "NACC_AppContext_StartDate"
 let s_appContext_EndDate = "NACC_AppContext_EndDate"
+let s_watchkitCommsRequestUpdate = "NACC_WatchkitCommsRequestUpdate"
 
 /* ###################################################################################################################################### */
 /**

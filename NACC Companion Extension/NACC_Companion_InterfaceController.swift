@@ -38,16 +38,18 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /* ################################################################################################################################## */
     func performCalculation() {
         DispatchQueue.main.async {
-            if 0 < self.cleanDateCalc.totalDays {
-                let displayString = NACC_TagModel.getDisplayCleandate ( self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days )
-                self.cleandateReportLabel.setText(displayString)
-            }
+            let displayString = NACC_TagModel.getDisplayCleandate ( self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days )
+            self.cleandateReportLabel.setText(displayString)
             
-            let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: self.cleanDateCalc )
-            let tags:[UIImage]? = tagModel.getTags()
-            if ( tags != nil )
-            {
-                self.displayTags ( inTagImageArray: tags! )
+            if self.extensionDelegateObject.showKeys && (0 < self.cleanDateCalc.totalDays) {
+                let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: self.cleanDateCalc )
+                let tags:[UIImage]? = tagModel.getTags()
+                if ( tags != nil )
+                {
+                    self.displayTags ( inTagImageArray: tags! )
+                }
+            } else {
+                self.tagDisplay.setImage(nil)
             }
        }
     }
@@ -97,11 +99,22 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
+        self.extensionDelegateObject.sendRequestUpdateMessage()
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        if nil == self.extensionDelegateObject.cleanDateCalc {
+            var startDateNum = self.extensionDelegateObject.lastEnteredDate
+            if 0 == startDateNum {
+                startDateNum = Date().timeIntervalSince1970
+            }
+            
+            let startDate = Date(timeIntervalSince1970: startDateNum)
+            self.extensionDelegateObject.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: Date())
+        }
+        self.performCalculation()
     }
     
     override func didDeactivate() {

@@ -18,9 +18,19 @@ import WatchConnectivity
 
 /* ###################################################################################################################################### */
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
+    let _mainPrefsKey: String   = "NACCMainPrefs"
+    let _datePrefsKey: String   = "NACCLastDate"
+    let _keysPrefsKey: String   = "NACCShowTags"
+
     /* ################################################################################################################################## */
     private var _mySession = WCSession.default
+
+    // MARK: - Internal Instance Properties
+    /* ################################################################################################################################## */
+    /** This contains our loaded prefs Dictionary. */
+    var loadedPrefs: NSMutableDictionary! = nil
     var cleanDateCalc:NACC_DateCalc! = nil ///< This holds our global date calculation.
+    
     var mainController:NACC_Companion_InterfaceController! {
         get {
             return WKExtension.shared().rootInterfaceController as! NACC_Companion_InterfaceController
@@ -29,9 +39,80 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     /* ################################################################################################################################## */
     var session: WCSession {get { return self._mySession }}
+
+    var lastEnteredDate: Double {
+        /***************************************************************************************/
+        /**
+         This method returns the last entered date, which is persistent.
+         
+         The date is a POSIX epoch date (integer).
+         */
+        get {
+            var ret: Double = 0
+            
+            if self._loadPrefs()
+            {
+                if let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double
+                {
+                    ret = temp
+                }
+            }
+            
+            return ret
+        }
+        
+        /***************************************************************************************/
+        /**
+         This method saves the last entered date, which is persistent.
+         
+         The date is a POSIX epoch date (integer).
+         */
+        set {
+            if self._loadPrefs()
+            {
+                self.loadedPrefs.setObject(newValue, forKey: _datePrefsKey as NSCopying)
+                self._savePrefs()
+            }
+        }
+    }
     
-    /* ################################################################################################################################## */
-    /* ################################################################## */
+    var showKeys: Bool {
+        /***************************************************************************************/
+        /**
+         This method returns whether or not to show the keytags, which is persistent.
+         
+         The date is a POSIX epoch date (integer).
+         */
+        get {
+            var ret: Bool = true
+            
+            if self._loadPrefs()
+            {
+                if let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool
+                {
+                    ret = temp
+                }
+            }
+            
+            return ret
+        }
+        
+        /***************************************************************************************/
+        /**
+         This method saves the state of the show keys switch, which is persistent.
+         
+         The date is a POSIX epoch date (integer).
+         */
+        set {
+            if self._loadPrefs()
+            {
+                self.loadedPrefs.setObject(newValue, forKey: _keysPrefsKey as NSCopying)
+                self._savePrefs()
+            }
+        }
+    }
+    
+    /*******************************************************************************************/
     /**
      */
     private func _activateSession() {
@@ -40,19 +121,45 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
             self.session.activate()
         }
     }
+    
+    /*******************************************************************************************/
+    /**
+     \brief  Saves the persistent prefs.
+     */
+    private func _savePrefs()
+    {
+        UserDefaults.standard.set(self.loadedPrefs, forKey: self._mainPrefsKey)
+    }
 
+    /*******************************************************************************************/
+    /**
+     \brief  Loads the persistent prefs.
+     */
+    private func _loadPrefs() -> Bool
+    {
+        let temp = UserDefaults.standard.object(forKey: self._mainPrefsKey) as? NSDictionary
+        
+        if nil == temp {
+            self.loadedPrefs = NSMutableDictionary()
+        } else {
+            self.loadedPrefs = NSMutableDictionary(dictionary: temp!)
+        }
+        
+        return nil != self.loadedPrefs
+    }
+
+    /* ################################################################################################################################## */
     func applicationDidFinishLaunching() {
-        // Perform any final initialization of your application.
+        if 0 < self.lastEnteredDate {
+            let startDate = Date(timeIntervalSince1970: self.lastEnteredDate)
+            self.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: Date())
+        }
+        
         self._activateSession()
     }
 
-    func applicationDidBecomeActive() {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
     func applicationWillResignActive() {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, etc.
+        self._savePrefs()
     }
 
     /* ################################################################## */
@@ -96,9 +203,20 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
             }
         }
     }
-
-    /* ################################################################################################################################## */
     
+    /* ################################################################## */
+    /**
+     */
+    func sendRequestUpdateMessage() {
+        if self.session.isReachable {
+            let selectMsg = [s_watchkitCommsRequestUpdate:"HIT ME"]
+            #if DEBUG
+                print("Watch Sending Message: " + String(describing: selectMsg))
+            #endif
+            self.session.sendMessage(selectMsg, replyHandler: nil, errorHandler: nil)
+        }
+    }
+
     // MARK: - WCSessionDelegate Protocol Methods
     /* ################################################################################################################################## */
     /* ################################################################## */
@@ -122,6 +240,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         
         if let startDate = applicationContext[s_appContext_StartDate] as? Date {
             if let endDate = applicationContext[s_appContext_EndDate] as? Date {
+                self.lastEnteredDate = startDate.timeIntervalSince1970
+                self._savePrefs()
                 self.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: endDate)
                 self.mainController.performCalculation()
             }

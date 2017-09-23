@@ -313,6 +313,13 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate
             #if DEBUG
                 print("Phone Received Message: " + String(describing: message))
             #endif
+            
+            if let _ = message[s_watchkitCommsRequestUpdate] {
+                #if DEBUG
+                    print("Sending the profile to the watch.")
+                #endif
+                self.sendCurrentProfileToWatch()
+            }
         }
     }
 }
