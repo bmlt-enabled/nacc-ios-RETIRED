@@ -49,6 +49,9 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
                     self.displayTags ( inTagImageArray: tags! )
                 }
             } else {
+                if 0 == self.cleanDateCalc.totalDays {
+                    self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
+                }
                 self.tagDisplay.setImage(nil)
             }
        }
@@ -102,6 +105,9 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
         self.extensionDelegateObject.sendRequestUpdateMessage()
     }
     
+    /*******************************************************************************************/
+    /**
+     */
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
@@ -114,11 +120,14 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
             let startDate = Date(timeIntervalSince1970: startDateNum)
             self.extensionDelegateObject.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: Date())
         }
-        self.performCalculation()
+        self.extensionDelegateObject.sendRequestUpdateMessage()
     }
     
+    /*******************************************************************************************/
+    /**
+     */
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
+        self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
         super.didDeactivate()
     }
 }

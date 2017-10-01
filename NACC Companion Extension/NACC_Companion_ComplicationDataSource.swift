@@ -13,12 +13,23 @@
  along with this code.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import WatchKit
 import ClockKit
 
 /* ###################################################################################################################################### */
 /**
  */
 class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource {
+    /* ################################################################################################################################## */
+    /*******************************************************************************************/
+    /**
+     */
+    var extensionDelegateObject:ExtensionDelegate! {
+        get {
+            return WKExtension.shared().delegate as! ExtensionDelegate
+        }
+    }
+
     /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
@@ -48,9 +59,9 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
             if let templateImage = UIImage(named: "Complication/Modular") {
                 (template as! CLKComplicationTemplateModularLargeStandardBody).headerImageProvider = CLKImageProvider(onePieceImage: templateImage)
             }
-            (template as! CLKComplicationTemplateModularLargeStandardBody).headerTextProvider = CLKSimpleTextProvider(text: "HAI-HOWAYA")
-            (template as! CLKComplicationTemplateModularLargeStandardBody).body1TextProvider = CLKSimpleTextProvider(text: "HAI")
-            (template as! CLKComplicationTemplateModularLargeStandardBody).body2TextProvider = CLKSimpleTextProvider(text: "HAI-HAI")
+            (template as! CLKComplicationTemplateModularLargeStandardBody).headerTextProvider = CLKSimpleTextProvider(text: "NACC")
+            (template as! CLKComplicationTemplateModularLargeStandardBody).body1TextProvider = CLKSimpleTextProvider(text: "")
+            (template as! CLKComplicationTemplateModularLargeStandardBody).body2TextProvider = CLKSimpleTextProvider(text: "")
             break
         case .utilitarianSmall:
             template = CLKComplicationTemplateUtilitarianSmallFlat()
@@ -99,7 +110,20 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /**
      */
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: self.makeTemplateObject(for: complication)!)
-        handler(entry)
+        if let templateObject = self.makeTemplateObject(for: complication) {
+            if .modularLarge == complication.family {
+                if let tObject = templateObject as? CLKComplicationTemplateModularLargeStandardBody {
+                    if 0 < self.extensionDelegateObject.lastEnteredDate {
+                        let startDate = Date(timeIntervalSince1970:  self.extensionDelegateObject.lastEnteredDate)
+                        tObject.body1TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.year, .month])
+                        tObject.body2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                    }
+                }
+            }
+            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject)
+            handler(entry)
+        } else {
+            handler(nil)
+        }
     }
 }

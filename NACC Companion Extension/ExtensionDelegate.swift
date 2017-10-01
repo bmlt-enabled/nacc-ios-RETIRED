@@ -33,7 +33,15 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     var mainController:NACC_Companion_InterfaceController! {
         get {
-            return WKExtension.shared().rootInterfaceController as! NACC_Companion_InterfaceController
+            var ret:NACC_Companion_InterfaceController! = nil
+            
+            if nil != WKExtension.shared().rootInterfaceController {
+                if let temp = WKExtension.shared().rootInterfaceController as? NACC_Companion_InterfaceController {
+                    ret = temp
+                }
+            }
+            
+            return ret
         }
     }
     
@@ -149,20 +157,35 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     }
 
     /* ################################################################################################################################## */
+    /*******************************************************************************************/
+    /**
+     */
     func applicationDidFinishLaunching() {
-        if 0 < self.lastEnteredDate {
-            let startDate = Date(timeIntervalSince1970: self.lastEnteredDate)
-            self.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: Date())
-        }
-        
         self._activateSession()
     }
 
+    /*******************************************************************************************/
+    /**
+     */
+    func applicationDidBecomeActive() {
+        if 0 < self.lastEnteredDate {
+            let startDate = Date(timeIntervalSince1970: self.lastEnteredDate)
+            self.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: Date())
+            if nil != self.mainController {
+                self.mainController.performCalculation()
+            }
+        }
+        self.sendRequestUpdateMessage()
+    }
+    
+    /*******************************************************************************************/
+    /**
+     */
     func applicationWillResignActive() {
         self._savePrefs()
     }
 
-    /* ################################################################## */
+    /*******************************************************************************************/
     /**
      */
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
@@ -204,7 +227,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
     }
     
-    /* ################################################################## */
+    /*******************************************************************************************/
     /**
      */
     func sendRequestUpdateMessage() {
@@ -219,7 +242,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
 
     // MARK: - WCSessionDelegate Protocol Methods
     /* ################################################################################################################################## */
-    /* ################################################################## */
+    /*******************************************************************************************/
     /**
      */
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -230,7 +253,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
     }
     
-    /* ################################################################## */
+    /*******************************************************************************************/
     /**
      */
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]){
@@ -248,7 +271,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
     }
     
-    /* ################################################################## */
+    /*******************************************************************************************/
     /**
      */
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
