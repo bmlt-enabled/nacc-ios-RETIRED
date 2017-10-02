@@ -75,4 +75,7 @@
 It says nothing about qualifying your Recovery. That's between you and your sponsor.\n\
 Simply set the wheels above to your cleandate, and touch the \"CALCULATE CLEANTIME\" button.";
 
+"COMPLICATION-LABEL"        =           "NACC";
+
 "APP-NOT-CONNECTED"         =           "Please Enter a Cleandate in the Phone App";
+
