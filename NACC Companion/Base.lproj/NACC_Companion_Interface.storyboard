@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,7 +17,7 @@
                             <items>
                                 <group width="1" alignment="left" layout="vertical" id="cuT-cL-mL6" userLabel="Date Report Group">
                                     <items>
-                                        <label width="1" alignment="left" text="Label" numberOfLines="6" id="ZWW-iS-NML">
+                                        <label width="1" alignment="left" numberOfLines="6" id="ZWW-iS-NML">
                                             <color key="textColor" red="0.10881315760877805" green="0.18601525285300971" blue="0.6993806670984456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
                                     </items>
@@ -33,6 +33,7 @@
                             </items>
                         </group>
                     </items>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="cleandateReportLabel" destination="ZWW-iS-NML" id="Nqa-1c-VYy"/>
                         <outlet property="tagDisplay" destination="IdK-2R-Cu1" id="5R0-NK-yxK"/>

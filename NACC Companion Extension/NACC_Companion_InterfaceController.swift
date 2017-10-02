@@ -41,18 +41,21 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
             let displayString = NACC_TagModel.getDisplayCleandate ( self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days )
             self.cleandateReportLabel.setText(displayString)
             
+
             if self.extensionDelegateObject.showKeys && (0 < self.cleanDateCalc.totalDays) {
                 let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: self.cleanDateCalc )
                 let tags:[UIImage]? = tagModel.getTags()
                 if ( tags != nil )
                 {
                     self.displayTags ( inTagImageArray: tags! )
+                } else {
+                    self.tagDisplay.setImage(nil)
                 }
             } else {
                 if 0 == self.cleanDateCalc.totalDays {
+                    self.tagDisplay.setImage(nil)
                     self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
                 }
-                self.tagDisplay.setImage(nil)
             }
        }
     }
@@ -101,6 +104,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /* ################################################################################################################################## */
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        self.tagDisplay.setImage(nil)
         self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
         self.extensionDelegateObject.sendRequestUpdateMessage()
     }
@@ -127,6 +131,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /**
      */
     override func didDeactivate() {
+        self.tagDisplay.setImage(nil)
         self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
         super.didDeactivate()
     }

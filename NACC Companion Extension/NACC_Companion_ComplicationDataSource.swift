@@ -141,8 +141,8 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
                 if let tObject = templateObject as? CLKComplicationTemplateModularLargeStandardBody {
                     if 0 < self.extensionDelegateObject.lastEnteredDate {
                         let startDate = Date(timeIntervalSince1970:  self.extensionDelegateObject.lastEnteredDate)
-                        tObject.body1TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.year, .month, .day])
-                        tObject.body2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                        tObject.body1TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                        tObject.body2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.year, .month, .day])
                     }
                 }
             } else if .utilitarianLarge == complication.family {
