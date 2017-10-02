@@ -13,7 +13,7 @@
             <objects>
                 <controller backgroundImage="WatchBackground" id="AgC-eL-Hgc" customClass="NACC_Companion_InterfaceController" customModule="NACC_Companion_Extension">
                     <items>
-                        <group width="1" alignment="left" layout="vertical" radius="0.0" id="Zs6-bB-nJU" customClass="NACC_Watch_MainGroup" customModule="NACC_Companion_Extension">
+                        <group width="1" alignment="left" layout="vertical" radius="0.0" id="Zs6-bB-nJU" userLabel="Main Display Group">
                             <items>
                                 <group width="1" alignment="left" layout="vertical" id="cuT-cL-mL6" userLabel="Date Report Group">
                                     <items>

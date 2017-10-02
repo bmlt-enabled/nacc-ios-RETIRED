@@ -17,18 +17,27 @@ import WatchKit
 
 /* ###################################################################################################################################### */
 class NACC_Companion_InterfaceController: WKInterfaceController {
+    /* ################################################################################################################################## */
     @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
     @IBOutlet var tagDisplayGroup: WKInterfaceGroup!
     @IBOutlet var tagDisplay: WKInterfaceImage!
 
+    /* ################################################################################################################################## */
     private let _offsetMultiplier: CGFloat     = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
 
+    /* ################################################################################################################################## */
+    /*******************************************************************************************/
+    /**
+     */
     var extensionDelegateObject:ExtensionDelegate! {
         get {
             return WKExtension.shared().delegate as! ExtensionDelegate
         }
     }
     
+    /*******************************************************************************************/
+    /**
+     */
     var cleanDateCalc:NACC_DateCalc! {
         get {
             return self.extensionDelegateObject.cleanDateCalc
@@ -36,25 +45,29 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     }
     
     /* ################################################################################################################################## */
+    /*******************************************************************************************/
+    /**
+     */
     func performCalculation() {
         DispatchQueue.main.async {
-            let displayString = NACC_TagModel.getDisplayCleandate ( self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days )
-            self.cleandateReportLabel.setText(displayString)
-            
-
-            if self.extensionDelegateObject.showKeys && (0 < self.cleanDateCalc.totalDays) {
-                let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: self.cleanDateCalc )
-                let tags:[UIImage]? = tagModel.getTags()
-                if ( tags != nil )
-                {
-                    self.displayTags ( inTagImageArray: tags! )
+            if nil != self.cleanDateCalc {
+                let displayString = NACC_TagModel.getDisplayCleandate ( self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days )
+                self.cleandateReportLabel.setText(displayString)
+                
+                if self.extensionDelegateObject.showKeys && (0 < self.cleanDateCalc.totalDays) {
+                    let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: self.cleanDateCalc )
+                    let tags:[UIImage]? = tagModel.getTags()
+                    if ( tags != nil )
+                    {
+                        self.displayTags ( inTagImageArray: tags! )
+                    } else {
+                        self.tagDisplay.setImage(nil)
+                    }
                 } else {
                     self.tagDisplay.setImage(nil)
-                }
-            } else {
-                if 0 == self.cleanDateCalc.totalDays {
-                    self.tagDisplay.setImage(nil)
-                    self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
+                    if 0 == self.cleanDateCalc.totalDays {
+                        self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
+                    }
                 }
             }
        }
@@ -102,11 +115,12 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     }
 
     /* ################################################################################################################################## */
+    /*******************************************************************************************/
+    /**
+     */
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        self.tagDisplay.setImage(nil)
-        self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
-        self.extensionDelegateObject.sendRequestUpdateMessage()
+        self.performCalculation()
     }
     
     /*******************************************************************************************/
@@ -116,13 +130,8 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         if nil == self.extensionDelegateObject.cleanDateCalc {
-            var startDateNum = self.extensionDelegateObject.lastEnteredDate
-            if 0 == startDateNum {
-                startDateNum = Date().timeIntervalSince1970
-            }
-            
-            let startDate = Date(timeIntervalSince1970: startDateNum)
-            self.extensionDelegateObject.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: Date())
+            self.tagDisplay.setImage(nil)
+            self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
         }
         self.extensionDelegateObject.sendRequestUpdateMessage()
     }

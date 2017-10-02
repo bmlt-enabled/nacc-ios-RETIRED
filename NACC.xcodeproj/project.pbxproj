@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		77063E191F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77063E181F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift */; };
 		771B6A9419618AC000011DC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */; };
 		7722AFEA1F74937400FB2E95 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
@@ -85,7 +84,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		77063E181F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Watch_MainGroup.swift; sourceTree = "<group>"; };
 		771B6A9719618AD100011DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		771BF1FB1D92E4D60024BAA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -252,9 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				77E1EDF71F72E4C800211683 /* ExtensionDelegate.swift */,
-				77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */,
 				77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */,
-				77063E181F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift */,
+				77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */,
 				77E1EDFD1F72E4C800211683 /* Info.plist */,
 			);
 			path = "NACC Companion Extension";
@@ -450,7 +447,6 @@
 				77F548C41F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift in Sources */,
 				77E1EDF81F72E4C800211683 /* ExtensionDelegate.swift in Sources */,
 				7722AFEA1F74937400FB2E95 /* NACC_DateCalc.swift in Sources */,
-				77063E191F73EFB6002B15B8 /* NACC_Watch_MainGroup.swift in Sources */,
 				77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */,
 				77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */,
 			);
@@ -570,6 +566,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -617,6 +614,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
