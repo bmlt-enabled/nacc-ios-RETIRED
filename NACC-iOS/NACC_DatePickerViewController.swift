@@ -29,6 +29,9 @@ class NACC_DatePickerViewController : UIViewController
      */
     @IBAction func showTagsChanged(_ sender: UISwitch) {
         s_NACC_AppDelegate?.showKeys = sender.isOn
+        if let appDelegate = UIApplication.shared.delegate as? NACC_AppDelegate {
+            appDelegate.sendCurrentProfileToWatch()
+        }
     }
     
     /*******************************************************************************************/

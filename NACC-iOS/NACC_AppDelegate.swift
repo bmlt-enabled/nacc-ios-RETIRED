@@ -263,7 +263,8 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate
     func sendCurrentProfileToWatch() {
         let appContext:[String:Any] = [
                                         s_appContext_StartDate:s_NACC_cleanDateCalc.startDate!,
-                                        s_appContext_EndDate:s_NACC_cleanDateCalc.endDate!
+                                        s_appContext_EndDate:s_NACC_cleanDateCalc.endDate!,
+                                        s_appContext_ShowTags:self.showKeys
         ]
         
         do {

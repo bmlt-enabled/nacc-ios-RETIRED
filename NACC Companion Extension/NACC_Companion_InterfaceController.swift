@@ -19,7 +19,6 @@ import WatchKit
 class NACC_Companion_InterfaceController: WKInterfaceController {
     /* ################################################################################################################################## */
     @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
-    @IBOutlet var tagDisplayGroup: WKInterfaceGroup!
     @IBOutlet var tagDisplay: WKInterfaceImage!
 
     /* ################################################################################################################################## */
@@ -129,19 +128,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        if nil == self.extensionDelegateObject.cleanDateCalc {
-            self.tagDisplay.setImage(nil)
-            self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
-        }
+        self.performCalculation()
         self.extensionDelegateObject.sendRequestUpdateMessage()
-    }
-    
-    /*******************************************************************************************/
-    /**
-     */
-    override func didDeactivate() {
-        self.tagDisplay.setImage(nil)
-        self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
-        super.didDeactivate()
     }
 }

@@ -198,7 +198,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
                 if #available(watchOSApplicationExtension 4.0, *) {
                     backgroundTask.setTaskCompletedWithSnapshot(true)
                 } else {
-                    // Fallback on earlier versions
+                    backgroundTask.setTaskCompleted()
                 }
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
@@ -207,21 +207,21 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
                 if #available(watchOSApplicationExtension 4.0, *) {
                     connectivityTask.setTaskCompletedWithSnapshot(true)
                 } else {
-                    // Fallback on earlier versions
+                    connectivityTask.setTaskCompleted()
                 }
             case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
                 // Be sure to complete the URL session task once you’re done.
                 if #available(watchOSApplicationExtension 4.0, *) {
                     urlSessionTask.setTaskCompletedWithSnapshot(true)
                 } else {
-                    // Fallback on earlier versions
+                    urlSessionTask.setTaskCompleted()
                 }
             default:
                 // make sure to complete unhandled task types
                 if #available(watchOSApplicationExtension 4.0, *) {
                     task.setTaskCompletedWithSnapshot(true)
                 } else {
-                    // Fallback on earlier versions
+                    task.setTaskCompleted()
                 }
             }
         }
@@ -264,9 +264,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         if let startDate = applicationContext[s_appContext_StartDate] as? Date {
             if let endDate = applicationContext[s_appContext_EndDate] as? Date {
                 self.lastEnteredDate = startDate.timeIntervalSince1970
-                self._savePrefs()
-                self.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: endDate)
-                self.mainController.performCalculation()
+                if let showKeys = applicationContext[s_appContext_ShowTags] as? Bool {
+                    self.showKeys = showKeys
+                    self._savePrefs()
+                    self.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: endDate)
+                    self.mainController.performCalculation()
+                }
             }
         }
     }
