@@ -171,11 +171,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         if 0 < self.lastEnteredDate {
             let startDate = Date(timeIntervalSince1970: self.lastEnteredDate)
             self.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: Date())
-            if nil != self.mainController {
-                self.mainController.performCalculation()
-            }
         }
-        self.sendRequestUpdateMessage()
     }
     
     /*******************************************************************************************/

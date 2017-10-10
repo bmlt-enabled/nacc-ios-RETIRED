@@ -49,6 +49,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
      */
     func performCalculation() {
         DispatchQueue.main.async {
+            self.tagDisplay.setImage(nil)
             if nil != self.cleanDateCalc {
                 let displayString = NACC_TagModel.getDisplayCleandate ( self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days )
                 self.cleandateReportLabel.setText(displayString)
@@ -56,18 +57,16 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
                 if self.extensionDelegateObject.showKeys && (0 < self.cleanDateCalc.totalDays) {
                     let tagModel:NACC_TagModel = NACC_TagModel ( inCalculation: self.cleanDateCalc )
                     let tags:[UIImage]? = tagModel.getTags()
-                    if ( tags != nil )
-                    {
+                    if ( tags != nil ) {
                         self.displayTags ( inTagImageArray: tags! )
-                    } else {
-                        self.tagDisplay.setImage(nil)
                     }
                 } else {
-                    self.tagDisplay.setImage(nil)
                     if 0 == self.cleanDateCalc.totalDays {
                         self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
                     }
                 }
+            } else {
+                self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
             }
        }
     }
@@ -116,17 +115,9 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
-     */
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        self.performCalculation()
-    }
-    
-    /*******************************************************************************************/
-    /**
+        This method is called when watch view controller is about to be visible to user
      */
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         self.performCalculation()
         self.extensionDelegateObject.sendRequestUpdateMessage()
