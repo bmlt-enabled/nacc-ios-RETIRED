@@ -1,0 +1,25 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "images" : [
+    {
+      "filename" : "Frame-07~watch@2x.png",
+      "idiom" : "watch",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Frame-07~watch@2x.png",
+      "idiom" : "watch",
+      "scale" : "2x",
+      "screenWidth" : "<=145"
+    },
+    {
+      "filename" : "Frame-07~watch@2x.png",
+      "idiom" : "watch",
+      "scale" : "2x",
+      "screenWidth" : ">145"
+    }
+  ]
+}

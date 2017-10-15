@@ -20,10 +20,12 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /* ################################################################################################################################## */
     @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
     @IBOutlet var tagDisplay: WKInterfaceImage!
-
+    @IBOutlet var animationGroup: WKInterfaceGroup!
+    
     /* ################################################################################################################################## */
-    private let _offsetMultiplier: CGFloat     = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
-
+    private let _offsetMultiplier: CGFloat          = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
+    private var _leaveMeAloneCantYouSeeImBusy: Bool = false // This is a semaphore to prevent constant resetting the requests.
+    
     /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
@@ -49,6 +51,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
      */
     func performCalculation() {
         DispatchQueue.main.async {
+            self.hideAnimation()
             self.tagDisplay.setImage(nil)
             if nil != self.cleanDateCalc {
                 let displayString = NACC_TagModel.getDisplayCleandate ( self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days )
@@ -62,13 +65,37 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
                     }
                 } else {
                     if 0 == self.cleanDateCalc.totalDays {
-                        self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
+                        self.showAnimation()
                     }
                 }
             } else {
-                self.cleandateReportLabel.setText("APP-NOT-CONNECTED".localizedVariant)
+                self.showAnimation()
             }
        }
+    }
+
+    /*******************************************************************************************/
+    /**
+     Shows the animated tags.
+     */
+    func showAnimation() {
+        DispatchQueue.main.async {
+            self.tagDisplay.setHidden(true)
+            self.cleandateReportLabel.setHidden(true)
+            self.animationGroup.setHidden(false)
+        }
+    }
+
+    /*******************************************************************************************/
+    /**
+     Hides the animated tags.
+     */
+    func hideAnimation() {
+        DispatchQueue.main.async {
+            self.tagDisplay.setHidden(!(self.extensionDelegateObject.showKeys && (0 < self.cleanDateCalc.totalDays)))
+            self.cleandateReportLabel.setHidden(false)
+            self.animationGroup.setHidden(true)
+        }
     }
 
     /*******************************************************************************************/
@@ -119,7 +146,12 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
      */
     override func willActivate() {
         super.willActivate()
-        self.performCalculation()
-        self.extensionDelegateObject.sendRequestUpdateMessage()
+        if !self._leaveMeAloneCantYouSeeImBusy && (nil != self.cleanDateCalc) {
+            self.performCalculation()
+        } else {
+            self._leaveMeAloneCantYouSeeImBusy = true
+            self.extensionDelegateObject.sendRequestUpdateMessage()
+            self.showAnimation()
+        }
     }
 }

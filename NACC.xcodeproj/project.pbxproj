@@ -10,9 +10,9 @@
 		771B6A9419618AC000011DC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */; };
 		7722AFEA1F74937400FB2E95 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
+		773759681F93E6A6006CBCCE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F548C01F795E3C00DF36A4 /* Images.xcassets */; };
 		77388C051960ECB0001F89A8 /* NACC_DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77388C041960ECB0001F89A8 /* NACC_DatePickerViewController.swift */; };
 		778ED8411F753BBF007AAC03 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
-		7796FB7B1F799C90008C6023 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F548C01F795E3C00DF36A4 /* Images.xcassets */; };
 		7796FB7C1F799C91008C6023 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F548C01F795E3C00DF36A4 /* Images.xcassets */; };
 		779E76BD195F2E230061BAED /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
 		77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
@@ -411,8 +411,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7796FB7B1F799C90008C6023 /* Images.xcassets in Resources */,
 				778ED8411F753BBF007AAC03 /* Localizable.strings in Resources */,
+				773759681F93E6A6006CBCCE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

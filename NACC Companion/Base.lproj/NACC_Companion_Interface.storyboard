@@ -23,9 +23,15 @@
                                 </imageView>
                             </items>
                         </group>
+                        <group width="1" height="1" alignment="left" hidden="YES" id="1xv-DS-byC">
+                            <items>
+                                <imageView width="37" height="48" alignment="center" verticalAlignment="center" image="WatchAnimation/Frame-" animationDuration="2" id="z3A-qQ-Sxd"/>
+                            </items>
+                        </group>
                     </items>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
+                        <outlet property="animationGroup" destination="1xv-DS-byC" id="NRd-Au-hPx"/>
                         <outlet property="cleandateReportLabel" destination="ZWW-iS-NML" id="Nqa-1c-VYy"/>
                         <outlet property="tagDisplay" destination="IdK-2R-Cu1" id="5R0-NK-yxK"/>
                     </connections>
