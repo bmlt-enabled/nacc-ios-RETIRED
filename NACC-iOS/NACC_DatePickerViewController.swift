@@ -15,9 +15,8 @@
 
 import UIKit
 
-class NACC_DatePickerViewController : UIViewController
-{
-    @IBOutlet weak var  datePicker:UIDatePicker?
+class NACC_DatePickerViewController: UIViewController {
+    @IBOutlet weak var  datePicker: UIDatePicker?
     @IBOutlet weak var  displayView: UIView?
     @IBOutlet weak var  explainTextField: UITextView?
     @IBOutlet weak var  calcButton: UIButton?
@@ -40,11 +39,10 @@ class NACC_DatePickerViewController : UIViewController
     
         \param  inPicker the picker object.
     */
-    @IBAction func dateChanged ( _ inPicker: UIDatePicker )
-    {
+    @IBAction func dateChanged(_ inPicker: UIDatePicker) {
         let posixDate = inPicker.date.timeIntervalSince1970
         s_NACC_AppDelegate?.lastEnteredDate = posixDate
-        s_NACC_cleanDateCalc = NACC_DateCalc ( inStartDate: inPicker.date )
+        s_NACC_cleanDateCalc = NACC_DateCalc(inStartDate: inPicker.date)
         if let appDelegate = UIApplication.shared.delegate as? NACC_AppDelegate {
             appDelegate.sendCurrentProfileToWatch()
         }
@@ -56,9 +54,8 @@ class NACC_DatePickerViewController : UIViewController
     
         \param inAnimated true, if the transition is animated.
     */
-    override func viewWillAppear ( _ inAnimated: Bool )
-    {
-        super.viewWillAppear ( inAnimated )
+    override func viewWillAppear(_ inAnimated: Bool) {
+        super.viewWillAppear(inAnimated)
         let posixDate = s_NACC_AppDelegate?.lastEnteredDate
         self.datePicker!.date = Date(timeIntervalSince1970: posixDate!)
         self.datePicker!.isHidden = false
@@ -71,16 +68,15 @@ class NACC_DatePickerViewController : UIViewController
     /**
         \brief  Called when the view is loaded. We set the navbar color here.
     */
-    override func viewWillLayoutSubviews() 
-    {
-        self.navigationItem.title = NSLocalizedString ( "ENTER-LABEL", tableName: nil, bundle: Bundle.main, value: "ENTER-LABEL", comment: "" )
-        self.calcButton!.setTitle ( NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" ), for: UIControlState() )
-        self.calcButton!.setTitle ( NSLocalizedString ( "CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" ), for: UIControlState() )
-        self.calcOnlyLabel!.text = NSLocalizedString ( "CALC-ONLY-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "" )
-        self.explainTextField!.text = NSLocalizedString ( "EXPLAIN-TEXT", tableName: nil, bundle: Bundle.main, value: "EXPLAIN-TEXT", comment: "" )
+    override func viewWillLayoutSubviews() {
+        self.navigationItem.title = NSLocalizedString("ENTER-LABEL", tableName: nil, bundle: Bundle.main, value: "ENTER-LABEL", comment: "")
+        self.calcButton!.setTitle(NSLocalizedString("CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: ""), for: UIControlState())
+        self.calcButton!.setTitle(NSLocalizedString("CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: ""), for: UIControlState())
+        self.calcOnlyLabel!.text = NSLocalizedString("CALC-ONLY-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "")
+        self.explainTextField!.text = NSLocalizedString("EXPLAIN-TEXT", tableName: nil, bundle: Bundle.main, value: "EXPLAIN-TEXT", comment: "")
         self.calcOnlySwitch.isOn = (s_NACC_AppDelegate?.showKeys)!
         super.viewWillLayoutSubviews()
-        let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as! UINavigationController
+        let mainNavController: UINavigationController = (s_NACC_AppDelegate!.window!.rootViewController as? UINavigationController)!
         mainNavController.navigationBar.barTintColor = s_NACC_BaseColor
         NACC_AppDelegate.setGradient()
     }
@@ -91,15 +87,14 @@ class NACC_DatePickerViewController : UIViewController
     
         \param inAnimated true, if the transition is animated.
     */
-    override func viewWillDisappear ( _ inAnimated: Bool )
-    {
-        s_NACC_cleanDateCalc = NACC_DateCalc ( inStartDate: self.datePicker!.date )
+    override func viewWillDisappear(_ inAnimated: Bool) {
+        s_NACC_cleanDateCalc = NACC_DateCalc(inStartDate: self.datePicker!.date)
         if let appDelegate = UIApplication.shared.delegate as? NACC_AppDelegate {
             appDelegate.sendCurrentProfileToWatch()
         }
         self.calcButton!.isHidden = true
         self.datePicker!.isHidden = true
         self.explainTextField!.isHidden = true
-        super.viewWillDisappear ( inAnimated )
+        super.viewWillDisappear(inAnimated)
     }
 }

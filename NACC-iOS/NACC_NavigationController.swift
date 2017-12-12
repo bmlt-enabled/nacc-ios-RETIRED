@@ -15,7 +15,5 @@
 
 import UIKit
 
-class NACC_NavigationController: UINavigationController
-{
+class NACC_NavigationController: UINavigationController {
 }
-

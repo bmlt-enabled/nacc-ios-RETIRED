@@ -10,7 +10,7 @@
  GNU General Public License for more details.
  
  You should have received a copy of the GNU General Public License
- along with this code.  If not, see <http://www.gnu.org/licenses/>.
+ along with this code.  If not, see <http: //www.gnu.org/licenses/>.
  */
 
 import WatchKit
@@ -31,10 +31,8 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /**
      This is an accessor for the main Extension Delegate object, where we can get our settings.
      */
-    var extensionDelegateObject:ExtensionDelegate! {
-        get {
-            return WKExtension.shared().delegate as! ExtensionDelegate
-        }
+    var extensionDelegateObject: ExtensionDelegate! {
+        return WKExtension.shared().delegate as? ExtensionDelegate
     }
 
     // MARK: - Internal Methods
@@ -55,51 +53,45 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
         var template: CLKComplicationTemplate? = nil
         
         switch complication.family {
-        case .circularSmall:
+        case .circularSmall: 
             template = CLKComplicationTemplateCircularSmallSimpleImage()
             if let templateImage = UIImage(named: "Complication/Circular") {
-                (template as! CLKComplicationTemplateCircularSmallSimpleImage).imageProvider = CLKImageProvider(onePieceImage: templateImage)
+                (template as? CLKComplicationTemplateCircularSmallSimpleImage)?.imageProvider = CLKImageProvider(onePieceImage: templateImage)
             }
-            break
         case .modularSmall:
             template = CLKComplicationTemplateModularSmallSimpleImage()
             if let templateImage = UIImage(named: "Complication/Modular") {
-                (template as! CLKComplicationTemplateModularSmallSimpleImage).imageProvider = CLKImageProvider(onePieceImage: templateImage)
+                (template as? CLKComplicationTemplateModularSmallSimpleImage)?.imageProvider = CLKImageProvider(onePieceImage: templateImage)
             }
-            break
         case .modularLarge:
             template = CLKComplicationTemplateModularLargeStandardBody()
             if let templateImage = UIImage(named: "Complication/Modular") {
-                (template as! CLKComplicationTemplateModularLargeStandardBody).headerImageProvider = CLKImageProvider(onePieceImage: templateImage)
+                (template as? CLKComplicationTemplateModularLargeStandardBody)?.headerImageProvider = CLKImageProvider(onePieceImage: templateImage)
             }
-            (template as! CLKComplicationTemplateModularLargeStandardBody).headerTextProvider = CLKSimpleTextProvider(text: "COMPLICATION-LABEL".localizedVariant)
-            (template as! CLKComplicationTemplateModularLargeStandardBody).body1TextProvider = CLKSimpleTextProvider(text: "")
-            (template as! CLKComplicationTemplateModularLargeStandardBody).body2TextProvider = CLKSimpleTextProvider(text: "")
-            break
+            (template as? CLKComplicationTemplateModularLargeStandardBody)?.headerTextProvider = CLKSimpleTextProvider(text: "COMPLICATION-LABEL".localizedVariant)
+            (template as? CLKComplicationTemplateModularLargeStandardBody)?.body1TextProvider = CLKSimpleTextProvider(text: "")
+            (template as? CLKComplicationTemplateModularLargeStandardBody)?.body2TextProvider = CLKSimpleTextProvider(text: "")
         case .utilitarianSmall:
             template = CLKComplicationTemplateUtilitarianSmallFlat()
             if let templateImage = UIImage(named: "Complication/Utilitarian") {
-                (template as! CLKComplicationTemplateUtilitarianSmallFlat).imageProvider = CLKImageProvider(onePieceImage: templateImage)
+                (template as? CLKComplicationTemplateUtilitarianSmallFlat)?.imageProvider = CLKImageProvider(onePieceImage: templateImage)
             }
-            (template as! CLKComplicationTemplateUtilitarianSmallFlat).textProvider = CLKSimpleTextProvider(text: "COMPLICATION-LABEL".localizedVariant)
-            break
+            (template as? CLKComplicationTemplateUtilitarianSmallFlat)?.textProvider = CLKSimpleTextProvider(text: "COMPLICATION-LABEL".localizedVariant)
         case .utilitarianLarge:
             template = CLKComplicationTemplateUtilitarianLargeFlat()
             if let templateImage = UIImage(named: "Complication/Utilitarian") {
-                (template as! CLKComplicationTemplateUtilitarianLargeFlat).imageProvider = CLKImageProvider(onePieceImage: templateImage)
+                (template as? CLKComplicationTemplateUtilitarianLargeFlat)?.imageProvider = CLKImageProvider(onePieceImage: templateImage)
             }
-            (template as! CLKComplicationTemplateUtilitarianLargeFlat).textProvider = CLKSimpleTextProvider(text: "")
-            break
+            (template as? CLKComplicationTemplateUtilitarianLargeFlat)?.textProvider = CLKSimpleTextProvider(text: "")
         case .extraLarge:
             if let templateImage = UIImage(named: "Complication/Extra Large") {
                 let template = CLKComplicationTemplateExtraLargeStackImage()
                 template.line1ImageProvider = CLKImageProvider(onePieceImage: templateImage)
                 if 0 < self.extensionDelegateObject.lastEnteredDate {
-                    let startDate = Date(timeIntervalSince1970:  self.extensionDelegateObject.lastEnteredDate)
+                    let startDate = Date(timeIntervalSince1970: self.extensionDelegateObject.lastEnteredDate)
                     template.line2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
                 }
             }
-            break
         default:
             break
         }
@@ -142,24 +134,24 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         if let templateObject = self.makeTemplateObject(for: complication) {
             switch complication.family {
-            case .modularLarge:
+            case .modularLarge: 
                 if let tObject = templateObject as? CLKComplicationTemplateModularLargeStandardBody {
                     if 0 < self.extensionDelegateObject.lastEnteredDate {
-                        let startDate = Date(timeIntervalSince1970:  self.extensionDelegateObject.lastEnteredDate)
+                        let startDate = Date(timeIntervalSince1970: self.extensionDelegateObject.lastEnteredDate)
                         tObject.body1TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
                         tObject.body2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.year, .month, .day])
                         handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
                     }
                 }
-            case .utilitarianLarge:
+            case .utilitarianLarge: 
                 if let tObject = templateObject as? CLKComplicationTemplateUtilitarianLargeFlat {
                     if 0 < self.extensionDelegateObject.lastEnteredDate {
-                        let startDate = Date(timeIntervalSince1970:  self.extensionDelegateObject.lastEnteredDate)
+                        let startDate = Date(timeIntervalSince1970: self.extensionDelegateObject.lastEnteredDate)
                         tObject.textProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
                         handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
                     }
                 }
-            default:
+            default: 
                 handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject))
             }
         } else {

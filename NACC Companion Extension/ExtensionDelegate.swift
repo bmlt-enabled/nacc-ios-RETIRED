@@ -10,7 +10,7 @@
  GNU General Public License for more details.
  
  You should have received a copy of the GNU General Public License
- along with this code.  If not, see <http://www.gnu.org/licenses/>.
+ along with this code.  If not, see <http: //www.gnu.org/licenses/>.
  */
 
 import WatchKit
@@ -29,20 +29,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /* ################################################################################################################################## */
     /** This contains our loaded prefs Dictionary. */
     var loadedPrefs: NSMutableDictionary! = nil
-    var cleanDateCalc:NACC_DateCalc! = nil ///< This holds our global date calculation.
+    var cleanDateCalc: NACC_DateCalc! = nil ///< This holds our global date calculation.
     
-    var mainController:NACC_Companion_InterfaceController! {
-        get {
-            var ret:NACC_Companion_InterfaceController! = nil
-            
-            if nil != WKExtension.shared().rootInterfaceController {
-                if let temp = WKExtension.shared().rootInterfaceController as? NACC_Companion_InterfaceController {
-                    ret = temp
-                }
+    var mainController: NACC_Companion_InterfaceController! {
+        var ret: NACC_Companion_InterfaceController! = nil
+        
+        if nil != WKExtension.shared().rootInterfaceController {
+            if let temp = WKExtension.shared().rootInterfaceController as? NACC_Companion_InterfaceController {
+                ret = temp
             }
-            
-            return ret
         }
+        
+        return ret
     }
     
     /* ################################################################################################################################## */
@@ -58,10 +56,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         get {
             var ret: Double = 0
             
-            if self._loadPrefs()
-            {
-                if let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double
-                {
+            if self._loadPrefs() {
+                if let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double {
                     ret = temp
                 }
             }
@@ -76,8 +72,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
          The date is a POSIX epoch date (integer).
          */
         set {
-            if self._loadPrefs()
-            {
+            if self._loadPrefs() {
                 self.loadedPrefs.setObject(newValue, forKey: _datePrefsKey as NSCopying)
                 self._savePrefs()
             }
@@ -94,10 +89,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         get {
             var ret: Bool = true
             
-            if self._loadPrefs()
-            {
-                if let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool
-                {
+            if self._loadPrefs() {
+                if let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool {
                     ret = temp
                 }
             }
@@ -112,8 +105,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
          The date is a POSIX epoch date (integer).
          */
         set {
-            if self._loadPrefs()
-            {
+            if self._loadPrefs() {
                 self.loadedPrefs.setObject(newValue, forKey: _keysPrefsKey as NSCopying)
                 self._savePrefs()
             }
@@ -134,8 +126,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /**
      \brief  Saves the persistent prefs.
      */
-    private func _savePrefs()
-    {
+    private func _savePrefs() {
         UserDefaults.standard.set(self.loadedPrefs, forKey: self._mainPrefsKey)
     }
 
@@ -143,8 +134,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /**
      \brief  Loads the persistent prefs.
      */
-    private func _loadPrefs() -> Bool
-    {
+    private func _loadPrefs() -> Bool {
         let temp = UserDefaults.standard.object(forKey: self._mainPrefsKey) as? NSDictionary
         
         if nil == temp {
@@ -189,30 +179,30 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         for task in backgroundTasks {
             // Use a switch statement to check the task type
             switch task {
-            case let backgroundTask as WKApplicationRefreshBackgroundTask:
+            case let backgroundTask as WKApplicationRefreshBackgroundTask: 
                 // Be sure to complete the background task once you’re done.
                 if #available(watchOSApplicationExtension 4.0, *) {
                     backgroundTask.setTaskCompletedWithSnapshot(true)
                 } else {
                     backgroundTask.setTaskCompleted()
                 }
-            case let snapshotTask as WKSnapshotRefreshBackgroundTask:
+            case let snapshotTask as WKSnapshotRefreshBackgroundTask: 
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
-            case let connectivityTask as WKWatchConnectivityRefreshBackgroundTask:
+            case let connectivityTask as WKWatchConnectivityRefreshBackgroundTask: 
                 if #available(watchOSApplicationExtension 4.0, *) {
                     connectivityTask.setTaskCompletedWithSnapshot(true)
                 } else {
                     connectivityTask.setTaskCompleted()
                 }
-            case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
+            case let urlSessionTask as WKURLSessionRefreshBackgroundTask: 
                 // Be sure to complete the URL session task once you’re done.
                 if #available(watchOSApplicationExtension 4.0, *) {
                     urlSessionTask.setTaskCompletedWithSnapshot(true)
                 } else {
                     urlSessionTask.setTaskCompleted()
                 }
-            default:
+            default: 
                 // make sure to complete unhandled task types
                 if #available(watchOSApplicationExtension 4.0, *) {
                     task.setTaskCompletedWithSnapshot(true)
@@ -228,7 +218,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
      */
     func sendRequestUpdateMessage() {
         if self.session.isReachable {
-            let selectMsg = [s_watchkitCommsRequestUpdate:"HIT ME"]
+            let selectMsg = [s_watchkitCommsRequestUpdate: "HIT ME"]
             #if DEBUG
                 print("Watch Sending Message: " + String(describing: selectMsg))
             #endif
@@ -252,7 +242,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /*******************************************************************************************/
     /**
      */
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]){
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
         #if DEBUG
             print("Watch Received Application Context: " + String(describing: applicationContext))
         #endif
@@ -273,7 +263,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /*******************************************************************************************/
     /**
      */
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         DispatchQueue.main.async {
             #if DEBUG
                 print("Watch Received Message: " + String(describing: message))

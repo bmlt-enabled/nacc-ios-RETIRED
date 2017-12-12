@@ -10,7 +10,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this code.  If not, see <http://www.gnu.org/licenses/>.
+    along with this code.  If not, see <http: //www.gnu.org/licenses/>.
 */
 
 import Foundation
@@ -27,9 +27,8 @@ import Foundation
             its work is done.
 */
 /***********************************************************************************************/
-class NACC_DateCalc
-{
-    /// The following will read like:
+class NACC_DateCalc {
+    /// The following will read like: 
     /// "There have been <totalDays> between the dates. This is a period of <years> years, <months> months and <days> days."
     let totalDays: Int      ///< The total number of days.
     var years: Int = 0      ///< The number of years since the clean date.
@@ -46,38 +45,33 @@ class NACC_DateCalc
         \param inStartDate This is the "from" date. It is the start of the calculation.
         \param inNowDate This is the end date. The calculation goes between these two dates.
     */
-    init ( inStartDate:Date, inNowDate:Date )
-    {
+    init(inStartDate: Date, inNowDate: Date) {
         // The reason for all this wackiness, is we want to completely strip out the time element of each date. We want the days to be specified at noon.
-        let fromString:String = DateFormatter.localizedString ( from: inStartDate, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.none )
-        let toString:String = DateFormatter.localizedString ( from: inNowDate, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.none )
+        let fromString: String = DateFormatter.localizedString(from: inStartDate, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.none)
+        let toString: String = DateFormatter.localizedString(from: inNowDate, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.none)
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
         dateFormatter.dateStyle = .short
         
         // We have stripped out the time information, and each day is at noon.
-        self.startDate = dateFormatter.date ( from: fromString )?.addingTimeInterval(43200)  // Make it Noon, Numbah One.
-        self.endDate = dateFormatter.date ( from: toString )?.addingTimeInterval ( 43200 )
+        self.startDate = dateFormatter.date(from: fromString)?.addingTimeInterval(43200)  // Make it Noon, Numbah One.
+        self.endDate = dateFormatter.date(from: toString)?.addingTimeInterval(43200)
         
-        self.dateString = DateFormatter.localizedString ( from: startDate!, dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none )
+        self.dateString = DateFormatter.localizedString(from: startDate!, dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
         
         // We get the total days, just to check for 90 or less.
-        self.totalDays = Int ( trunc ( inNowDate.timeIntervalSince ( inStartDate ) / 86400.0 ) ) // Change seconds into days.
+        self.totalDays = Int(trunc(inNowDate.timeIntervalSince(inStartDate) / 86400.0 )) // Change seconds into days.
         
-        if ( (self.startDate != nil && self.endDate != nil) && (self.startDate! < self.endDate!) )
-        {
-            let myCalendar:Calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
+        if (self.startDate != nil && self.endDate != nil) && (self.startDate! < self.endDate!) {
+            let myCalendar: Calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
             // Create our answer from the components of the result.
             let unitFlags: NSCalendar.Unit = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]
             let myComponents = (myCalendar as NSCalendar).components(unitFlags, from: startDate!, to: endDate!, options: NSCalendar.Options.wrapComponents)
             
-            if let years = myComponents.year
-            {
-                if let months = myComponents.month
-                {
-                    if let days = myComponents.day
-                    {
+            if let years = myComponents.year {
+                if let months = myComponents.month {
+                    if let days = myComponents.day {
                         self.years = years
                         self.months = months
                         self.days = days
@@ -85,17 +79,14 @@ class NACC_DateCalc
                 }
             }
         }
-        
-        
     }
     
     /*******************************************************************************************/
     /**
         \brief  Convenience parameter-less init
     */
-    convenience init ( )
-    {
-        self.init ( inStartDate: Date() )
+    convenience init() {
+        self.init(inStartDate: Date())
     }
     
     /*******************************************************************************************/
@@ -104,9 +95,8 @@ class NACC_DateCalc
     
         \param inStartDate This is the "from" date. It is the start of the calculation.
     */
-    convenience init ( inStartDate:Date )
-    {
-        self.init ( inStartDate: inStartDate, inNowDate: Date() )
+    convenience init(inStartDate: Date) {
+        self.init(inStartDate: inStartDate, inNowDate: Date())
     }
     
     /*******************************************************************************************/
@@ -117,8 +107,7 @@ class NACC_DateCalc
         \param inCleanMonth The month (1 is January)
         \param inCleanDay The day of the month
     */
-    convenience init ( inCleanYear: Int, inCleanMonth: Int, inCleanDay: Int )
-    {
+    convenience init(inCleanYear: Int, inCleanMonth: Int, inCleanDay: Int) {
         var components = DateComponents()
         components.year = inCleanYear
         components.month = inCleanMonth
@@ -126,9 +115,8 @@ class NACC_DateCalc
         components.hour = 0
         components.minute = 0
         components.second = 0
-        let cleanDate:Date? = Calendar.current.date ( from: components )
+        let cleanDate: Date? = Calendar.current.date(from: components)
         
-        self.init ( inStartDate: cleanDate! )
+        self.init(inStartDate: cleanDate!)
     }
 }
-
