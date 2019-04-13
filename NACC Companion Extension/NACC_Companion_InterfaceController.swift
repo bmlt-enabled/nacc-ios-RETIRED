@@ -127,7 +127,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
                 
                 if nil != image {
                     // Now, we flip the image to display naturally.
-                    let flippedImage = UIImage(cgImage: image!.cgImage!, scale: image!.scale, orientation: UIImageOrientation.downMirrored)
+                    let flippedImage = UIImage(cgImage: image!.cgImage!, scale: image!.scale, orientation: UIImage.Orientation.downMirrored)
                     self.tagDisplay.setImage(flippedImage)
                 }
             }

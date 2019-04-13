@@ -142,7 +142,7 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     /**
         \brief  Simply set the SINGLETON to us.
     */
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         s_NACC_AppDelegate = self
         self.activateSession()
         return true

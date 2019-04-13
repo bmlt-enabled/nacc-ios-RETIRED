@@ -70,8 +70,8 @@ class NACC_DatePickerViewController: UIViewController {
     */
     override func viewWillLayoutSubviews() {
         self.navigationItem.title = NSLocalizedString("ENTER-LABEL", tableName: nil, bundle: Bundle.main, value: "ENTER-LABEL", comment: "")
-        self.calcButton!.setTitle(NSLocalizedString("CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: ""), for: UIControlState())
-        self.calcButton!.setTitle(NSLocalizedString("CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: ""), for: UIControlState())
+        self.calcButton!.setTitle(NSLocalizedString("CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: ""), for: UIControl.State())
+        self.calcButton!.setTitle(NSLocalizedString("CALC-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: ""), for: UIControl.State())
         self.calcOnlyLabel!.text = NSLocalizedString("CALC-ONLY-LABEL", tableName: nil, bundle: Bundle.main, value: "CALC-LABEL", comment: "")
         self.explainTextField!.text = NSLocalizedString("EXPLAIN-TEXT", tableName: nil, bundle: Bundle.main, value: "EXPLAIN-TEXT", comment: "")
         self.calcOnlySwitch.isOn = (s_NACC_AppDelegate?.showKeys)!
