@@ -24,52 +24,44 @@ import UIKit
 import QuartzCore
 import WatchConnectivity
 
-var s_NACC_BaseColor: UIColor?                              ///< This will hold the color that will tint our backgrounds.
-var s_NACC_AppDelegate: NACC_AppDelegate?
-var s_NACC_GradientLayer: CAGradientLayer?
-
 @UIApplicationMain
 /* ###################################################################################################################################### */
 /**
  */
 class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
-    // MARK: - Constant Instance Properties
-    /* ################################################################################################################################## */
     /* ################################################################## */
     /**
-     These are keys for our prefs.
+     This is a quick way to get this object instance (it's a SINGLETON), cast as the correct class.
      */
-    let _mainPrefsKey: String   = "NACCMainPrefs"
-    let _datePrefsKey: String   = "NACCLastDate"
-    let _keysPrefsKey: String   = "NACCShowTags"
+    static var appDelegateObject: NACC_AppDelegate {
+        return (UIApplication.shared.delegate as? NACC_AppDelegate)!
+    }
 
-    // MARK: - Private Instance Properties
+    // MARK: - Constant Instance Properties
     /* ################################################################################################################################## */
-    /* This is the Watch connectivity session. */
-    private var _mySession: WCSession! = nil
-
     // MARK: - Internal Instance Properties
     /* ################################################################################################################################## */
     /** This contains our loaded prefs Dictionary. */
     var loadedPrefs: NSMutableDictionary! = nil
     var window: UIWindow?
-    
+
+    /* ############################################################################################################################## */
     // MARK: - Internal Instance Calculated Properties
-    /* ################################################################################################################################## */
+    /* ############################################################################################################################## */
+    /* ################################################################## */
+    /**
+     This is the WCSession. It is the default session.
+     */
     var session: WCSession! {
-        if nil == self._mySession {
-            self._mySession = WCSession.default
-        }
-        
-        return self._mySession
+        return WCSession.default
     }
-    
+
     // MARK: - Internal Instance Methods
     /* ################################################################################################################################## */
     func activateSession() {
-        if WCSession.isSupported() && (self.session.activationState != .activated) {
-            self._mySession.delegate = self
-            self.session.activate()
+        if WCSession.isSupported() && (session.activationState != .activated) {
+            session.delegate = self
+            session.activate()
         }
     }
 
@@ -80,21 +72,52 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         \brief  Simply set the SINGLETON to us.
     */
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        s_NACC_AppDelegate = self
+        /* ################################################################## */
+        /**
+         These are keys for our prefs.
+         */
+        let mainPrefsKey: String   = "NACCMainPrefs"
+        let datePrefsKey: String   = "NACCLastDate"
+        let keysPrefsKey: String   = "NACCShowTags"
+        
+        /*******************************************************************************************/
+        /**
+         \brief  Loads the old persistent prefs (if any).
+         */
+        func loadPrefs() {
+            let temp = UserDefaults.standard.object(forKey: mainPrefsKey) as? NSDictionary
+            
+            if nil == temp {
+                loadedPrefs = NSMutableDictionary()
+            } else {
+                loadedPrefs = NSMutableDictionary(dictionary: temp!)
+                let newPrefs = NACC_Prefs()
+                if let temp = loadedPrefs.object(forKey: datePrefsKey) as? Double {
+                    newPrefs.cleanDate = Date(timeIntervalSince1970: temp)
+                }
+                
+                if let temp = loadedPrefs.object(forKey: keysPrefsKey) as? Bool {
+                    newPrefs.tagDisplay = temp ? NACC_Prefs.TagDisplay.specialTags : NACC_Prefs.TagDisplay.noTags
+                }
+            }
+ 
+            UserDefaults.standard.set(nil, forKey: mainPrefsKey)
+        }
+        
         let newPrefs = NACC_Prefs()
         
+        loadPrefs()
+        
         if  nil == newPrefs.cleanDate,
-            self._loadPrefs(),
-            let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double {
+            let temp = loadedPrefs.object(forKey: datePrefsKey) as? Double {
             newPrefs.cleanDate = Date(timeIntervalSince1970: temp)
         }
         
-        if  self._loadPrefs(),
-            let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool {
+        if  let temp = loadedPrefs.object(forKey: keysPrefsKey) as? Bool {
             newPrefs.tagDisplay = temp ? .specialTags : .noTags
         }
 
-        self.activateSession()
+        activateSession()
         return true
     }
     
@@ -103,53 +126,48 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         \brief  We make sure that the first window is always the date selector.
     */
     func applicationWillEnterForeground( _ application: UIApplication) {
-        if let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as? UINavigationController {
-            if NSObject.isKind(of: NACC_ResultsViewController.self) {
-                mainNavController.popToRootViewController(animated: true)
-            }
-        }
-    }
-    
-    /*******************************************************************************************/
-    /**
-     \brief  Saves the persistent prefs.
-     */
-    func _savePrefs() {
-        UserDefaults.standard.set(self.loadedPrefs, forKey: self._mainPrefsKey)
-    }
-    
-    /*******************************************************************************************/
-    /**
-     \brief  Loads the persistent prefs.
-     */
-    func _loadPrefs() -> Bool {
-        let temp = UserDefaults.standard.object(forKey: self._mainPrefsKey) as? NSDictionary
-        
-        if nil == temp {
-            self.loadedPrefs = NSMutableDictionary()
-        } else {
-            self.loadedPrefs = NSMutableDictionary(dictionary: temp!)
-            let newPrefs = NACC_Prefs()
-            if let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double {
-                newPrefs.cleanDate = Date(timeIntervalSince1970: temp)
-            }
-            
-            if let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool {
-                newPrefs.tagDisplay = temp ? NACC_Prefs.TagDisplay.specialTags : NACC_Prefs.TagDisplay.noTags
-            }
-        }
-        
-        return nil != self.loadedPrefs
     }
     
     // MARK: - WCSession Sender Methods
     /* ################################################################################################################################## */
     /* ################################################################## */
     /**
+     Called to send our current settings to the watch.
      */
-    func sendCurrentProfileToWatch() {
+    func sendCurrentSettingsToWatch() {
+        if  .activated == session.activationState {
+            let values = NACC_Prefs().values
+            #if DEBUG
+                print("Sending Prefs to Watch: " + String(describing: values))
+            #endif
+            session.sendMessage(values, replyHandler: _replyHandler, errorHandler: _errorHandler)
+        }
     }
     
+    /* ################################################################## */
+    /**
+     The reply from the watch.
+     
+     - parameter inReply: The reply Dictionary. It can only be succsessful.
+     */
+    private func _replyHandler(_ inReply: [String: Any]) {
+        #if DEBUG
+            print("Reply From Watch: " + String(describing: inReply))
+        #endif
+    }
+    
+    /* ################################################################## */
+    /**
+     Any error from the watch.
+     
+     - parameter inError: The error that happened.
+     */
+    private func _errorHandler(_ inError: Error) {
+        #if DEBUG
+            print("Error From Watch: " + String(describing: inError))
+        #endif
+    }
+
     // MARK: - WCSessionDelegate Protocol Methods
     /* ################################################################################################################################## */
     /* ################################################################## */
@@ -160,7 +178,7 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             #if DEBUG
                 print("Watch session is active.")
             #endif
-            self.sendCurrentProfileToWatch()
+            sendCurrentSettingsToWatch()
         }
     }
     
@@ -185,11 +203,13 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     /* ################################################################## */
     /**
      */
-    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        DispatchQueue.main.async {
+    func session(_ inSession: WCSession, didReceiveMessage inMessage: [String: Any], replyHandler inReplyHandler: @escaping ([String: Any]) -> Void) {
+        if nil != inMessage[s_watchPhoneMessageHitMe] {
             #if DEBUG
-                print("Phone Received Message: " + String(describing: message))
+                print("Received Request for Settings from Watch.")
             #endif
+            inReplyHandler([s_watchPhoneReplySuccessKey: true])
+            sendCurrentSettingsToWatch()
         }
     }
 }

@@ -62,28 +62,26 @@ class NACC_DateCalc {
         dateFormatter.dateStyle = .short
         
         // We have stripped out the time information, and each day is at noon.
-        self.startDate = dateFormatter.date(from: fromString)?.addingTimeInterval(43200)  // Make it Noon, Numbah One.
-        self.endDate = dateFormatter.date(from: toString)?.addingTimeInterval(43200)
+        startDate = dateFormatter.date(from: fromString)?.addingTimeInterval(43200)  // Make it Noon, Numbah One.
+        endDate = dateFormatter.date(from: toString)?.addingTimeInterval(43200)
         
-        self.dateString = DateFormatter.localizedString(from: startDate!, dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
+        dateString = DateFormatter.localizedString(from: startDate!, dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
         
         // We get the total days, just to check for 90 or less.
-        self.totalDays = Int(trunc(inNowDate.timeIntervalSince(inStartDate) / 86400.0 )) // Change seconds into days.
+        totalDays = Int(trunc(inNowDate.timeIntervalSince(inStartDate) / 86400.0 )) // Change seconds into days.
         
-        if (self.startDate != nil && self.endDate != nil) && (self.startDate! < self.endDate!) {
+        if (startDate != nil && endDate != nil) && (startDate! < endDate!) {
             let myCalendar: Calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
             // Create our answer from the components of the result.
             let unitFlags: NSCalendar.Unit = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]
             let myComponents = (myCalendar as NSCalendar).components(unitFlags, from: startDate!, to: endDate!, options: NSCalendar.Options.wrapComponents)
             
-            if let years = myComponents.year {
-                if let months = myComponents.month {
-                    if let days = myComponents.day {
-                        self.years = years
-                        self.months = months
-                        self.days = days
-                    }
-                }
+            if  let yearsTmp = myComponents.year,
+                let monthsTmp = myComponents.month,
+                let daysTmp = myComponents.day {
+                years = yearsTmp
+                months = monthsTmp
+                days = daysTmp
             }
         }
     }
@@ -122,8 +120,7 @@ class NACC_DateCalc {
         components.hour = 0
         components.minute = 0
         components.second = 0
-        let cleanDate: Date? = Calendar.current.date(from: components)
         
-        self.init(inStartDate: cleanDate!)
+        self.init(inStartDate: Calendar.current.date(from: components)!)
     }
 }

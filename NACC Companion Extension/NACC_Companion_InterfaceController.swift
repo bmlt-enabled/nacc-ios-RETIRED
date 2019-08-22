@@ -28,7 +28,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
     @IBOutlet var tagDisplay: WKInterfaceImage!
     @IBOutlet var animationGroup: WKInterfaceGroup!
-    
+    @IBOutlet var updateButton: WKInterfaceButton!
     /* ################################################################################################################################## */
     private let _offsetMultiplier: CGFloat          = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
     private var _leaveMeAloneCantYouSeeImBusy: Bool = false // This is a semaphore to prevent constant resetting the requests.
@@ -37,15 +37,11 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /*******************************************************************************************/
     /**
      */
-    var extensionDelegateObject: ExtensionDelegate! {
-        return WKExtension.shared().delegate as? ExtensionDelegate
-    }
-    
-    /*******************************************************************************************/
-    /**
-     */
-    var cleanDateCalc: NACC_DateCalc! {
-        return self.extensionDelegateObject.cleanDateCalc
+    @IBAction func requestUpdate(_: Any! = nil) {
+        if let extensionDelegateObject = WKExtension.shared().delegate as? ExtensionDelegate {
+            showAnimation()
+            extensionDelegateObject.sendRequestUpdateMessage()
+        }
     }
     
     /* ################################################################################################################################## */
@@ -53,28 +49,24 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /**
      */
     func performCalculation() {
-        DispatchQueue.main.async {
-            self.hideAnimation()
-            self.tagDisplay.setImage(nil)
-            if nil != self.cleanDateCalc {
-                let displayString = NACC_TagModel.getDisplayCleandate(self.cleanDateCalc.totalDays, inYears: self.cleanDateCalc.years, inMonths: self.cleanDateCalc.months, inDays: self.cleanDateCalc.days)
-                self.cleandateReportLabel.setText(displayString)
-                
-                if self.extensionDelegateObject.showKeys && (0 < self.cleanDateCalc.totalDays) {
-                    let tagModel: NACC_TagModel = NACC_TagModel(inCalculation: self.cleanDateCalc)
-                    let tags: [UIImage]? = tagModel.getTags()
-                    if tags != nil {
-                        self.displayTags(inTagImageArray: tags!)
-                    }
-                } else {
-                    if 0 == self.cleanDateCalc.totalDays {
-                        self.showAnimation()
-                    }
-                }
-            } else {
-                self.showAnimation()
+        hideAnimation()
+        tagDisplay.setImage(nil)
+        let dateCalc: NACC_DateCalc = NACC_DateCalc()  ///< This holds our date calculation.
+        let displayString = NACC_TagModel.getDisplayCleandate(dateCalc.totalDays, inYears: dateCalc.years, inMonths: dateCalc.months, inDays: dateCalc.days)
+        
+        cleandateReportLabel.setText(displayString)
+        
+        let prefs = NACC_Prefs()
+        if (.noTags != prefs.tagDisplay) && (0 < dateCalc.totalDays) {
+            let tagModel: NACC_TagModel = NACC_TagModel(inCalculation: dateCalc)
+            let tags: [UIImage]? = tagModel.getTags()
+            if tags != nil {
+                displayTags(inTagImageArray: tags!)
             }
-       }
+        }
+        
+        updateButton.setTitle("GET-UPDATE".localizedVariant)
+        updateButton.setHidden(false)
     }
 
     /*******************************************************************************************/
@@ -82,9 +74,10 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
      Shows the animated tags.
      */
     func showAnimation() {
-        self.tagDisplay.setHidden(true)
-        self.cleandateReportLabel.setHidden(true)
-        self.animationGroup.setHidden(false)
+        tagDisplay.setHidden(true)
+        updateButton.setHidden(true)
+        cleandateReportLabel.setHidden(true)
+        animationGroup.setHidden(false)
     }
 
     /*******************************************************************************************/
@@ -92,9 +85,9 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
      Hides the animated tags.
      */
     func hideAnimation() {
-        self.tagDisplay.setHidden(!(self.extensionDelegateObject.showKeys && (0 < self.cleanDateCalc.totalDays)))
-        self.cleandateReportLabel.setHidden(false)
-        self.animationGroup.setHidden(true)
+        animationGroup.setHidden(true)
+        tagDisplay.setHidden(false)
+        cleandateReportLabel.setHidden(false)
     }
 
     /*******************************************************************************************/
@@ -109,7 +102,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
             let prototypeImage = inTagImageArray[0]
             let width = prototypeImage.size.width
             var height = prototypeImage.size.height
-            height += ((height * self._offsetMultiplier) * (count - 1))
+            height += ((height * _offsetMultiplier) * (count - 1))
             let size = CGSize(width: width, height: height)
             UIGraphicsBeginImageContextWithOptions(size, false, 0)    // Set up an offscreen bitmap context.
             if let drawingContext = UIGraphicsGetCurrentContext() {
@@ -122,7 +115,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
                         drawingContext.draw(cgImage, in: imageRect)
                     }
                     
-                    offset -= (image.size.height * self._offsetMultiplier)
+                    offset -= (image.size.height * _offsetMultiplier)
                 }
                 
                 let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -131,25 +124,9 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
                 if nil != image {
                     // Now, we flip the image to display naturally.
                     let flippedImage = UIImage(cgImage: image!.cgImage!, scale: image!.scale, orientation: UIImage.Orientation.downMirrored)
-                    self.tagDisplay.setImage(flippedImage)
+                    tagDisplay.setImage(flippedImage)
                 }
             }
-        }
-    }
-
-    /* ################################################################################################################################## */
-    /*******************************************************************************************/
-    /**
-        This method is called when watch view controller is about to be visible to user
-     */
-    override func willActivate() {
-        super.willActivate()
-        if !self._leaveMeAloneCantYouSeeImBusy && (nil != self.cleanDateCalc) {
-            self.performCalculation()
-        } else {
-            self._leaveMeAloneCantYouSeeImBusy = true
-            self.extensionDelegateObject.sendRequestUpdateMessage()
-            self.showAnimation()
         }
     }
 }

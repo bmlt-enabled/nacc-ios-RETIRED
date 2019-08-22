@@ -44,7 +44,7 @@ class NACC_ResultsViewController: UIViewController {
      \brief  Called When the DONE button is hit.
      */
     @IBAction func doneButtonHit(_: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     /*******************************************************************************************/
@@ -65,14 +65,14 @@ class NACC_ResultsViewController: UIViewController {
     */
     func displayTag(inTag: UIImage, inOffset: inout CGFloat) {
         let imageView: UIImageView = UIImageView(image: inTag)
-        var containerRect: CGRect = self.tagDisplayView!.bounds   // See what we have to work with. We will be extending this.
+        var containerRect: CGRect = tagDisplayView!.bounds   // See what we have to work with. We will be extending this.
         let targetRect: CGRect = CGRect(x: (containerRect.size.width - inTag.size.width) / 2.0, y: inOffset, width: inTag.size.width, height: inTag.size.height)
         imageView.frame = targetRect
         containerRect.size.height = max((targetRect.origin.y + targetRect.size.height), (containerRect.origin.y + containerRect.size.height))
-        self.tagDisplayView!.frame = containerRect
-        self.tagDisplayScroller!.contentSize = containerRect.size
-        self.tagDisplayView!.addSubview(imageView)
-        self.tagDisplayScroller!.scrollRectToVisible(targetRect, animated: true)
+        tagDisplayView!.frame = containerRect
+        tagDisplayScroller!.contentSize = containerRect.size
+        tagDisplayView!.addSubview(imageView)
+        tagDisplayScroller!.scrollRectToVisible(targetRect, animated: true)
         inOffset += (inTag.size.height * type(of: self).s_offsetMultiplier)
     }
     
@@ -86,12 +86,12 @@ class NACC_ResultsViewController: UIViewController {
         let prefs = NACC_Prefs()
         
         if .noTags != prefs.tagDisplay {
-            self.tagDisplayView!.bounds = self.tagDisplayScroller!.bounds
+            tagDisplayView!.bounds = tagDisplayScroller!.bounds
             if !inTagImageArray.isEmpty {  // We need to have images to display
                 var offset: CGFloat = 0.0    // This will be the vertical offset for each tag.
 
                 for tag in inTagImageArray {
-                    self.displayTag(inTag: tag, inOffset: &offset)
+                    displayTag(inTag: tag, inOffset: &offset)
                 }
             }
         }
@@ -103,15 +103,15 @@ class NACC_ResultsViewController: UIViewController {
                 We use this method to set up our keytag display.
     */
     override func viewDidLayoutSubviews() {
-        let subViews = self.tagDisplayView!.subviews 
+        let subViews = tagDisplayView!.subviews
         
         for subView in subViews {
             subView.removeFromSuperview()
         }
         
-        self.tagDisplayView!.frame = self.tagDisplayScroller!.bounds
-        self.tagDisplayScroller!.setContentOffset(CGPoint.zero, animated: false)
-        self.tagDisplayScroller!.contentSize = self.tagDisplayView!.bounds.size
+        tagDisplayView!.frame = tagDisplayScroller!.bounds
+        tagDisplayScroller!.setContentOffset(CGPoint.zero, animated: false)
+        tagDisplayScroller!.contentSize = tagDisplayView!.bounds.size
 
         let dateCalc: NACC_DateCalc = NACC_DateCalc()  ///< This holds our date calculation.
 
@@ -121,16 +121,18 @@ class NACC_ResultsViewController: UIViewController {
             let resultsString: String = NSLocalizedString("RESULTS-LINE1", tableName: nil, bundle: Bundle.main, value: "RESULTS-LINE1", comment: "")
             let dateString: String = dateCalc.dateString
             
-            self.cleandateLabel?.text = NSString(format: resultsString as NSString, dateString) as String
+            cleandateLabel?.text = NSString(format: resultsString as NSString, dateString) as String
         }
         
-        self.resultTextDisplayView?.text = displayString
+        resultTextDisplayView?.text = displayString
         let tagModel: NACC_TagModel = NACC_TagModel(inCalculation: dateCalc)
         let tags: [UIImage]? = tagModel.getTags()
         if tags != nil {
-            self.displayTags(inTagImageArray: tags!)
+            displayTags(inTagImageArray: tags!)
         }
         
+        NACC_AppDelegate.appDelegateObject.sendCurrentSettingsToWatch()
+
         super.viewDidLayoutSubviews()
     }
 }

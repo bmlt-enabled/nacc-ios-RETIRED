@@ -22,6 +22,16 @@
 
 import Foundation
 
+/* ############################################################################################################################## */
+// MARK: - Shared Constants
+/* ############################################################################################################################## */
+/// This is the reply to a message from the watch to the phone. Its value is either Boolean true or false.
+let s_watchPhoneReplySuccessKey = "SUCCESS"
+/// This message is sent from the watch to the phone. It asks the phone to update the watch with the latest version of the prefs.
+let s_watchPhoneMessageHitMe = "HITME"
+/// This message is sent from the watch to the phone. It asks the phone to reset its settings to default.
+let s_watchPhoneMessageReset = "RESET"
+
 /* ################################################################################################################################## */
 // MARK: - NACC Preferences Derived Class
 /* ################################################################################################################################## */

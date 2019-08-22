@@ -88,7 +88,7 @@ class NACC_TagModel {
         
         // The next line is more involved, as it breaks into years, months and days.
         if inTotalDays > 90 {
-            resultsString = self.handleOver90(inTotalDays, inYears: inYears, inMonths: inMonths, inDays: inDays, resultsString)
+            resultsString = handleOver90(inTotalDays, inYears: inYears, inMonths: inMonths, inDays: inDays, resultsString)
         }
         
         return resultsString
@@ -112,7 +112,7 @@ class NACC_TagModel {
             return inResultsString + "RESULTS-COMPLEX-6".localizedVariant
         }
         
-        return inResultsString + self.handleOver90Part2(inTotalDays, inYears: inYears, inMonths: inMonths, inDays: inDays, inResultsString)
+        return inResultsString + handleOver90Part2(inTotalDays, inYears: inYears, inMonths: inMonths, inDays: inDays, inResultsString)
     }
     
     /*******************************************************************************************/
@@ -142,7 +142,7 @@ class NACC_TagModel {
         } else if (inYears == 0) && (inMonths == 1) && (inDays > 1) {
             return inResultsString + String(format: "RESULTS-COMPLEX-17".localizedVariant, inDays)
         } else {
-            return self.handleOver90Part3(inTotalDays, inYears: inYears, inMonths: inMonths, inDays: inDays, inResultsString)
+            return handleOver90Part3(inTotalDays, inYears: inYears, inMonths: inMonths, inDays: inDays, inResultsString)
         }
     }
     
@@ -412,7 +412,7 @@ class NACC_TagModel {
         \param  inCalculation This is the NACC_DateCalc instance that has calculated the cleantime.
     */
     init(inCalculation: NACC_DateCalc) {
-        self.calculation = inCalculation
+        calculation = inCalculation
     }
     
     /*******************************************************************************************/
@@ -432,7 +432,7 @@ class NACC_TagModel {
     func getTags() -> [UIImage]? {
         var tagImages: [UIImage] = []                   // This is an array that will hold each of the aggregated image objects, in the order of display.
         
-        if self.calculation.totalDays > 0 {
+        if calculation.totalDays > 0 {
             let tagDataArray = NACC_TagModel.setUpAvailableImages() // Get our pool.
             
             var isFirst: Bool = true
@@ -443,13 +443,13 @@ class NACC_TagModel {
                 index = i
                 
                 let tagTemplate = tagDataArray[index]
-                if NACC_TagModel.doesThisTagApply(inCalculation: self.calculation, inTagTemplate: tagTemplate) {
+                if NACC_TagModel.doesThisTagApply(inCalculation: calculation, inTagTemplate: tagTemplate) {
                     tagImages.append(NACC_TagModel.constructTag(tagTemplate.baseImageName, inFaceName: tagTemplate.faceImageName, inRingClosed: isFirst)!)
                     isFirst = false // Only the first one is closed.
                 }
             }
             
-            var years: Int = self.calculation.years
+            var years: Int = calculation.years
             
             if years > 2 {
                 var year = 3
@@ -477,7 +477,7 @@ class NACC_TagModel {
                         let twoYearTag = tagDataArray[index]
                         tagImages.append(NACC_TagModel.constructTag(twoYearTag.baseImageName, inFaceName: twoYearTag.faceImageName, inRingClosed: false)!)
                         
-                        if (year == 27) && (self.calculation.totalDays >= 10000) {
+                        if (year == 27) && (calculation.totalDays >= 10000) {
                             let tenKayDaysTag = tagDataArray[index + 6]
                             tagImages.append(NACC_TagModel.constructTag(tenKayDaysTag.baseImageName, inFaceName: tenKayDaysTag.faceImageName, inRingClosed: false)!)
                         }

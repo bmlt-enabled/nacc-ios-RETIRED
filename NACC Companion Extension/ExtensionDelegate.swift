@@ -25,9 +25,8 @@ import WatchConnectivity
 
 /* ###################################################################################################################################### */
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
-    let _mainPrefsKey: String   = "NACCMainPrefs"
-    let _datePrefsKey: String   = "NACCLastDate"
-    let _keysPrefsKey: String   = "NACCShowTags"
+    /// These are our prefs that will contain the date and tag display prefs.
+    let prefs = NACC_Prefs()
 
     /* ################################################################################################################################## */
     private var _mySession = WCSession.default
@@ -38,119 +37,72 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     var loadedPrefs: NSMutableDictionary! = nil
     var cleanDateCalc: NACC_DateCalc! = nil ///< This holds our global date calculation.
     
-    var mainController: NACC_Companion_InterfaceController! {
-        var ret: NACC_Companion_InterfaceController! = nil
-        
-        if nil != WKExtension.shared().rootInterfaceController {
-            if let temp = WKExtension.shared().rootInterfaceController as? NACC_Companion_InterfaceController {
-                ret = temp
-            }
-        }
-        
-        return ret
-    }
-    
     /* ################################################################################################################################## */
-    var session: WCSession {get { return self._mySession }}
-
-    var lastEnteredDate: Double {
-        /***************************************************************************************/
-        /**
-         This method returns the last entered date, which is persistent.
-         
-         The date is a POSIX epoch date (integer).
-         */
-        get {
-            var ret: Double = 0
-            
-            if self._loadPrefs() {
-                if let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double {
-                    ret = temp
-                }
-            }
-            
-            return ret
-        }
-        
-        /***************************************************************************************/
-        /**
-         This method saves the last entered date, which is persistent.
-         
-         The date is a POSIX epoch date (integer).
-         */
-        set {
-            if self._loadPrefs() {
-                self.loadedPrefs.setObject(newValue, forKey: _datePrefsKey as NSCopying)
-                self._savePrefs()
-            }
-        }
-    }
-    
-    var showKeys: Bool {
-        /***************************************************************************************/
-        /**
-         This method returns whether or not to show the keytags, which is persistent.
-         
-         The date is a POSIX epoch date (integer).
-         */
-        get {
-            var ret: Bool = true
-            
-            if self._loadPrefs() {
-                if let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool {
-                    ret = temp
-                }
-            }
-            
-            return ret
-        }
-        
-        /***************************************************************************************/
-        /**
-         This method saves the state of the show keys switch, which is persistent.
-         
-         The date is a POSIX epoch date (integer).
-         */
-        set {
-            if self._loadPrefs() {
-                self.loadedPrefs.setObject(newValue, forKey: _keysPrefsKey as NSCopying)
-                self._savePrefs()
-            }
-        }
-    }
+    var session: WCSession {get { return _mySession }}
     
     /*******************************************************************************************/
     /**
      */
     private func _activateSession() {
-        if WCSession.isSupported() && (self.session.activationState != .activated) {
-            self.session.delegate = self
-            self.session.activate()
+        if WCSession.isSupported() && (session.activationState != .activated) {
+            session.delegate = self
+            session.activate()
         }
     }
     
     /*******************************************************************************************/
     /**
-     \brief  Saves the persistent prefs.
      */
-    private func _savePrefs() {
-        UserDefaults.standard.set(self.loadedPrefs, forKey: self._mainPrefsKey)
+    var controller: NACC_Companion_InterfaceController! {
+        return WKExtension.shared().rootInterfaceController as? NACC_Companion_InterfaceController
     }
 
+    /* ################################################################## */
+    /**
+     */
+    private func _replyHandler(_ inReply: [String: Any]) {
+        #if DEBUG
+        print("Reply From Phone: " + String(describing: inReply))
+        #endif
+    }
+    
+    /* ################################################################## */
+    /**
+     */
+    private func _errorHandler(_ inError: Error) {
+        #if DEBUG
+        print("Error From Phone: " + String(describing: inError))
+        #endif
+    }
+
+    /* ################################################################## */
+    /**
+     Called to ask the phone to send us its state.
+     */
+    private func _askPhoneForState() {
+        if  .activated == session.activationState {
+            let values = prefs.values
+            #if DEBUG
+                print("Sending Request for Prefs to Phone: " + String(describing: values))
+            #endif
+            session.sendMessage([s_watchPhoneMessageHitMe: ""], replyHandler: _replyHandler, errorHandler: _errorHandler)   // No extra data necessary.
+        } else {
+            #if DEBUG
+                print("ERROR! Session not active!")
+            #endif
+        }
+    }
+    
     /*******************************************************************************************/
     /**
-     \brief  Loads the persistent prefs.
      */
-    private func _loadPrefs() -> Bool {
-        let temp = UserDefaults.standard.object(forKey: self._mainPrefsKey) as? NSDictionary
-        
-        if nil == temp {
-            self.loadedPrefs = NSMutableDictionary()
-        } else {
-            self.loadedPrefs = NSMutableDictionary(dictionary: temp!)
+    func sendRequestUpdateMessage() {
+        if session.isReachable {
+            #if DEBUG
+            print("Watch Sending Update Request")
+            #endif
         }
-        
-        return nil != self.loadedPrefs
+        _askPhoneForState()
     }
 
     /* ################################################################################################################################## */
@@ -158,16 +110,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /**
      */
     func applicationDidFinishLaunching() {
-        self._activateSession()
+        _activateSession()
+        DispatchQueue.main.async {
+            self.controller.showAnimation()
+        }
     }
 
     /*******************************************************************************************/
     /**
      */
     func applicationDidBecomeActive() {
-        if 0 < self.lastEnteredDate {
-            let startDate = Date(timeIntervalSince1970: self.lastEnteredDate)
-            self.cleanDateCalc = NACC_DateCalc(inStartDate: startDate, inNowDate: Date())
+        DispatchQueue.main.async {
+            self.controller.requestUpdate()
         }
     }
     
@@ -175,7 +129,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /**
      */
     func applicationWillResignActive() {
-        self._savePrefs()
     }
 
     /*******************************************************************************************/
@@ -219,17 +172,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
             }
         }
     }
-    
-    /*******************************************************************************************/
-    /**
-     */
-    func sendRequestUpdateMessage() {
-        if self.session.isReachable {
-            #if DEBUG
-                print("Watch Sending Update Request")
-            #endif
-        }
-    }
 
     // MARK: - WCSessionDelegate Protocol Methods
     /* ################################################################################################################################## */
@@ -241,6 +183,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
             #if DEBUG
                 print("Watch session is active.")
             #endif
+            sendRequestUpdateMessage()
         }
     }
     
@@ -256,11 +199,17 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /*******************************************************************************************/
     /**
      */
-    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+    func session(_ inSession: WCSession, didReceiveMessage inMessage: [String: Any], replyHandler inReplyHandler: @escaping ([String: Any]) -> Void) {
+        #if DEBUG
+            print("\n###\nBEGIN Watch Received Message: " + String(describing: inMessage))
+        #endif
+        prefs.values = inMessage
+        inReplyHandler([s_watchPhoneReplySuccessKey: true]) // Let the phone know we got the message.
         DispatchQueue.main.async {
-            #if DEBUG
-                print("Watch Received Message: " + String(describing: message))
-            #endif
+            self.controller.performCalculation()
         }
+        #if DEBUG
+            print("###\nEND Watch Received Message\n")
+        #endif
     }
 }

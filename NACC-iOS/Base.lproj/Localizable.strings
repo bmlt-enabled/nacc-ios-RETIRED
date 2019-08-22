@@ -63,6 +63,7 @@
 "CALC-LABEL"                =           "CALCULATE CLEANTIME";
 "CALC-ONLY-LABEL"           =           "Show Tags:";
 "DONE-BUTTON"               =           "< BACK TO ENTER DATE";
+"GET-UPDATE"                =           "GET UPDATE";
 
 "RESULTS-LINE1"             =           "Your clean date is %@.\n";
 "RESULTS-SUPPORT"           =           "We support you in getting clean in the future.";

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
     </dependencies>
     <scenes>
         <!--NACC-->
@@ -13,19 +14,31 @@
             <objects>
                 <controller title="NACC" id="AgC-eL-Hgc" customClass="NACC_Companion_InterfaceController" customModule="NACC_Companion_Extension">
                     <items>
-                        <group width="1" alignment="left" layout="vertical" radius="0.0" id="Zs6-bB-nJU" userLabel="Main Display Group">
-                            <items>
-                                <label width="1" alignment="left" numberOfLines="6" id="ZWW-iS-NML">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </label>
-                                <imageView alignment="center" id="IdK-2R-Cu1" userLabel="tagDisplay">
-                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </imageView>
-                            </items>
-                        </group>
-                        <group width="1" height="1" alignment="left" hidden="YES" id="1xv-DS-byC">
+                        <group width="1" height="1" alignment="center" verticalAlignment="center" hidden="YES" id="1xv-DS-byC">
                             <items>
                                 <imageView width="37" height="48" alignment="center" verticalAlignment="center" image="WatchAnimation/Frame-" animationDuration="2" id="z3A-qQ-Sxd"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="overlap" id="5XX-cU-Npb">
+                            <items>
+                                <imageView width="1" height="1" alignment="center" image="Background-Gradient" id="K4w-y6-6K4"/>
+                                <group width="1" alignment="left" layout="vertical" radius="0.0" id="Zs6-bB-nJU" userLabel="Main Display Group">
+                                    <items>
+                                        <label width="1" alignment="left" numberOfLines="6" id="ZWW-iS-NML">
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </label>
+                                        <imageView alignment="center" id="IdK-2R-Cu1" userLabel="tagDisplay">
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                        <button width="1" alignment="left" hidden="YES" title="GET-UPDATE" id="jqE-Dy-4JH">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="requestUpdate:" destination="AgC-eL-Hgc" id="01Y-bf-iMX"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
                             </items>
                         </group>
                     </items>
@@ -34,6 +47,7 @@
                         <outlet property="animationGroup" destination="1xv-DS-byC" id="NRd-Au-hPx"/>
                         <outlet property="cleandateReportLabel" destination="ZWW-iS-NML" id="Nqa-1c-VYy"/>
                         <outlet property="tagDisplay" destination="IdK-2R-Cu1" id="5R0-NK-yxK"/>
+                        <outlet property="updateButton" destination="jqE-Dy-4JH" id="OaQ-DT-v0b"/>
                     </connections>
                 </controller>
             </objects>

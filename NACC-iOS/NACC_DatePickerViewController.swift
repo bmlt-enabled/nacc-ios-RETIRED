@@ -35,7 +35,8 @@ class NACC_DatePickerViewController: UIViewController {
      */
     @IBAction func showTagsChanged(_: Any! = nil) {
         let prefs = NACC_Prefs()
-        prefs.tagDisplay = self.calcOnlySwitch.isOn ? .specialTags : .noTags
+        prefs.tagDisplay = calcOnlySwitch.isOn ? .specialTags : .noTags
+        NACC_AppDelegate.appDelegateObject.sendCurrentSettingsToWatch()
     }
     
     /*******************************************************************************************/
@@ -43,7 +44,7 @@ class NACC_DatePickerViewController: UIViewController {
      */
     @IBAction func calcOnlyButtonHit(_: Any) {
         calcOnlySwitch.isOn = !calcOnlySwitch.isOn
-        self.showTagsChanged()
+        showTagsChanged()
     }
     
     /*******************************************************************************************/
@@ -55,6 +56,7 @@ class NACC_DatePickerViewController: UIViewController {
     @IBAction func dateChanged(_ inPicker: UIDatePicker) {
         let prefs = NACC_Prefs()
         prefs.cleanDate = inPicker.date
+        NACC_AppDelegate.appDelegateObject.sendCurrentSettingsToWatch()
     }
     
     /*******************************************************************************************/
@@ -63,11 +65,11 @@ class NACC_DatePickerViewController: UIViewController {
     */
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        self.calcButton.setTitle("CALC-LABEL".localizedVariant, for: .normal)
-        self.calcOnlySwitchButton.setTitle("CALC-ONLY-LABEL".localizedVariant, for: .normal)
-        self.explainTextField.text = "EXPLAIN-TEXT".localizedVariant
+        calcButton.setTitle("CALC-LABEL".localizedVariant, for: .normal)
+        calcOnlySwitchButton.setTitle("CALC-ONLY-LABEL".localizedVariant, for: .normal)
+        explainTextField.text = "EXPLAIN-TEXT".localizedVariant
         let newPrefs = NACC_Prefs()
-        self.calcOnlySwitch.isOn = .noTags != newPrefs.tagDisplay
-        self.datePicker.date = newPrefs.cleanDate
+        calcOnlySwitch.isOn = .noTags != newPrefs.tagDisplay
+        datePicker.date = newPrefs.cleanDate
     }
 }
