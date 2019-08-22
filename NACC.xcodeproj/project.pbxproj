@@ -25,11 +25,15 @@
 		77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */; };
 		77E1EDF81F72E4C800211683 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1EDF71F72E4C800211683 /* ExtensionDelegate.swift */; };
 		77E1EE001F72E4C800211683 /* NACC Companion.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 77E1EDE41F72E4C800211683 /* NACC Companion.app */; };
-		77E694DC1960E3F6005F21FF /* NACC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */; };
+		77E694DC1960E3F6005F21FF /* NACC_ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_ResultsViewController.swift */; };
 		77F548C11F79687C00DF36A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F548C01F795E3C00DF36A4 /* Images.xcassets */; };
 		77F548C41F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */; };
 		D4155FD2230EA808000F5294 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D4155FD1230EA808000F5294 /* Warnings.xcconfig */; };
 		D4155FD3230EA808000F5294 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D4155FD1230EA808000F5294 /* Warnings.xcconfig */; };
+		D44C3B5E230EC4F00001F2E2 /* RVS_PersistentPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C3B5D230EC4F00001F2E2 /* RVS_PersistentPrefs.swift */; };
+		D44C3B5F230EC4F00001F2E2 /* RVS_PersistentPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C3B5D230EC4F00001F2E2 /* RVS_PersistentPrefs.swift */; };
+		D44C3B61230EC50F0001F2E2 /* NACC_Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C3B60230EC50F0001F2E2 /* NACC_Prefs.swift */; };
+		D44C3B62230EC50F0001F2E2 /* NACC_Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C3B60230EC50F0001F2E2 /* NACC_Prefs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,24 +98,15 @@
 		77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_InterfaceController.swift; sourceTree = "<group>"; };
 		77E1EDF71F72E4C800211683 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		77E1EDFD1F72E4C800211683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_MainViewController.swift; sourceTree = "<group>"; };
+		77E694DB1960E3F6005F21FF /* NACC_ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_ResultsViewController.swift; sourceTree = "<group>"; };
 		77F548C01F795E3C00DF36A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_ComplicationDataSource.swift; sourceTree = "<group>"; };
 		D4155FD1230EA808000F5294 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = SOURCE_ROOT; };
-		D431E67650093EECCDD4CB65 /* Pods_NACC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NACC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5CDE7A43EBF17312CDC3E38 /* Pods_NACC_Companion_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NACC_Companion_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44C3B5D230EC4F00001F2E2 /* RVS_PersistentPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_PersistentPrefs.swift; sourceTree = "<group>"; };
+		D44C3B60230EC50F0001F2E2 /* NACC_Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Prefs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		38DC2DD01B6F5D1FCFF9FBAC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D431E67650093EECCDD4CB65 /* Pods_NACC.framework */,
-				F5CDE7A43EBF17312CDC3E38 /* Pods_NACC_Companion_Extension.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		77235AA91960E58E006E42D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +119,7 @@
 		77388C011960EAC4001F89A8 /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
-				77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */,
+				77E694DB1960E3F6005F21FF /* NACC_ResultsViewController.swift */,
 			);
 			name = "Main Screen";
 			sourceTree = "<group>";
@@ -141,12 +136,12 @@
 		77D9F7AC195EE760007DF220 = {
 			isa = PBXGroup;
 			children = (
+				D44C3B5C230EC4D80001F2E2 /* Common */,
 				77D9F7B7195EE760007DF220 /* NACC */,
 				77D9F7CA195EE760007DF220 /* NACCTests */,
 				77E1EDE51F72E4C800211683 /* NACC Companion */,
 				77E1EDF41F72E4C800211683 /* NACC Companion Extension */,
 				77D9F7B6195EE760007DF220 /* Products */,
-				38DC2DD01B6F5D1FCFF9FBAC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,6 +225,15 @@
 				77E1EDFD1F72E4C800211683 /* Info.plist */,
 			);
 			path = "NACC Companion Extension";
+			sourceTree = "<group>";
+		};
+		D44C3B5C230EC4D80001F2E2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D44C3B5D230EC4F00001F2E2 /* RVS_PersistentPrefs.swift */,
+				D44C3B60230EC50F0001F2E2 /* NACC_Prefs.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,8 +332,8 @@
 			projectRoot = "";
 			targets = (
 				77D9F7B4195EE760007DF220 /* NACC */,
-				77E1EDEF1F72E4C800211683 /* NACC Companion Extension */,
 				77E1EDE31F72E4C800211683 /* NACC Companion */,
+				77E1EDEF1F72E4C800211683 /* NACC Companion Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -406,10 +410,12 @@
 			files = (
 				77D9F7BD195EE760007DF220 /* NACC_NavigationController.swift in Sources */,
 				77D9F7DA195EE847007DF220 /* NACC_DateCalc.swift in Sources */,
-				77E694DC1960E3F6005F21FF /* NACC_MainViewController.swift in Sources */,
+				77E694DC1960E3F6005F21FF /* NACC_ResultsViewController.swift in Sources */,
 				77D9F7BB195EE760007DF220 /* NACC_AppDelegate.swift in Sources */,
 				77388C051960ECB0001F89A8 /* NACC_DatePickerViewController.swift in Sources */,
 				779E76BD195F2E230061BAED /* NACC_TagModel.swift in Sources */,
+				D44C3B5E230EC4F00001F2E2 /* RVS_PersistentPrefs.swift in Sources */,
+				D44C3B61230EC50F0001F2E2 /* NACC_Prefs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +426,8 @@
 				77F548C41F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift in Sources */,
 				77E1EDF81F72E4C800211683 /* ExtensionDelegate.swift in Sources */,
 				7722AFEA1F74937400FB2E95 /* NACC_DateCalc.swift in Sources */,
+				D44C3B5F230EC4F00001F2E2 /* RVS_PersistentPrefs.swift in Sources */,
+				D44C3B62230EC50F0001F2E2 /* NACC_Prefs.swift in Sources */,
 				77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */,
 				77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */,
 			);
@@ -529,7 +537,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -538,6 +546,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Debug;
 		};
@@ -587,7 +596,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
@@ -596,6 +605,7 @@
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};
@@ -611,7 +621,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "NACC-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = $inherited;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.magshare.${PRODUCT_NAME:rfc1034identifier}";
@@ -619,6 +629,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Debug;
 		};
@@ -634,7 +645,7 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "NACC-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = $inherited;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.magshare.${PRODUCT_NAME:rfc1034identifier}";
@@ -642,6 +653,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};
@@ -674,7 +686,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Debug;
 		};
@@ -707,14 +719,14 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};
 		77E1EE061F72E4C800211683 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -741,16 +753,16 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
 		77E1EE071F72E4C800211683 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -777,9 +789,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};

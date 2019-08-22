@@ -1,23 +1,28 @@
-/*
-    This is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    NACC is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this code.  If not, see <http: //www.gnu.org/licenses/>.
-*/
+/**
+ © Copyright 2019, Little Green Viper Software Development LLC
+ 
+ LICENSE:
+ 
+ MIT License
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
+ modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ 
+ Little Green Viper Software Development LLC: https://littlegreenviper.com
+ */
 
 import UIKit
 import QuartzCore
 import WatchConnectivity
-
-var s_NACC_cleanDateCalc: NACC_DateCalc = NACC_DateCalc ()  ///< This holds our global date calculation.
 
 var s_NACC_BaseColor: UIColor?                              ///< This will hold the color that will tint our backgrounds.
 var s_NACC_AppDelegate: NACC_AppDelegate?
@@ -58,74 +63,6 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         
         return self._mySession
     }
-
-    var lastEnteredDate: Double {
-        /* ################################################################## */
-        /**
-         This method returns the last entered date, which is persistent.
-         
-         The date is a POSIX epoch date (integer).
-         */
-        get {
-            let today = Date()
-            
-            var ret: Double = today.timeIntervalSince1970
-            
-            if self._loadPrefs() {
-                if let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double {
-                    ret = temp
-                }
-            }
-            
-            return ret
-        }
-        
-        /* ################################################################## */
-        /**
-         This method saves the last entered date, which is persistent.
-         
-         The date is a POSIX epoch date (integer).
-         */
-        set {
-            if self._loadPrefs() {
-                self.loadedPrefs.setObject(newValue, forKey: _datePrefsKey as NSCopying)
-                self._savePrefs()
-            }
-        }
-    }
-    
-    var showKeys: Bool {
-        /* ################################################################## */
-        /**
-         This method returns whether or not to show the keytags, which is persistent.
-         
-         The date is a POSIX epoch date (integer).
-         */
-        get {
-            var ret: Bool = true
-            
-            if self._loadPrefs() {
-                if let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool {
-                    ret = temp
-                }
-            }
-            
-            return ret
-        }
-        
-        /* ################################################################## */
-        /**
-         This method saves the state of the show keys switch, which is persistent.
-         
-         The date is a POSIX epoch date (integer).
-         */
-        set {
-            if self._loadPrefs() {
-                self.loadedPrefs.setObject(newValue, forKey: _keysPrefsKey as NSCopying)
-                self._savePrefs()
-            }
-        }
-    }
     
     // MARK: - Internal Instance Methods
     /* ################################################################################################################################## */
@@ -144,6 +81,19 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     */
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         s_NACC_AppDelegate = self
+        let newPrefs = NACC_Prefs()
+        
+        if  nil == newPrefs.cleanDate,
+            self._loadPrefs(),
+            let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double {
+            newPrefs.cleanDate = Date(timeIntervalSince1970: temp)
+        }
+        
+        if  self._loadPrefs(),
+            let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool {
+            newPrefs.tagDisplay = temp ? .specialTags : .noTags
+        }
+
         self.activateSession()
         return true
     }
@@ -154,60 +104,8 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     */
     func applicationWillEnterForeground( _ application: UIApplication) {
         if let mainNavController: UINavigationController = s_NACC_AppDelegate!.window!.rootViewController as? UINavigationController {
-            if NSObject.isKind(of: NACC_MainViewController.self) {
+            if NSObject.isKind(of: NACC_ResultsViewController.self) {
                 mainNavController.popToRootViewController(animated: true)
-            }
-        }
-    }
-    
-    /*******************************************************************************************/
-    /**
-        \brief  Create the gradient for the back of the window.
-    */
-    class func setGradient() {
-        if (s_NACC_AppDelegate != nil) && (s_NACC_AppDelegate!.window != nil) {
-            let mainNavController: UINavigationController = (s_NACC_AppDelegate!.window!.rootViewController as? UINavigationController)!
-            
-            var gradientEndColor: UIColor? = nil
-            var r: CGFloat = 0
-            var g: CGFloat = 0
-            var b: CGFloat = 0
-            var a: CGFloat = 0
-            let startPoint: CGPoint = CGPoint(x: 0.5, y: 0)
-            let endPoint: CGPoint = CGPoint(x: 0.5, y: 1)
-            
-            // We have the gradient get lighter. The source is the background color we set for our navigation bar.
-            if((mainNavController.navigationBar.backgroundColor != nil) && mainNavController.navigationBar.backgroundColor!.getRed(&r, green: &g, blue: &b, alpha: &a )) {
-                r += 0.4
-                g += 0.4
-                b += 0.4
-                
-                gradientEndColor = UIColor(red: r, green: g, blue: b, alpha: 1.0)
-            }
-            
-            s_NACC_BaseColor = gradientEndColor
-            mainNavController.navigationBar.barTintColor = s_NACC_BaseColor
-            
-            if s_NACC_GradientLayer != nil {
-                s_NACC_GradientLayer!.removeFromSuperlayer()
-            }
-            
-            s_NACC_GradientLayer = CAGradientLayer()
-            
-            if (s_NACC_GradientLayer != nil) && (gradientEndColor != nil) {
-                s_NACC_GradientLayer!.endPoint = endPoint
-                s_NACC_GradientLayer!.startPoint = startPoint
-                let clearColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-                
-                let endColor: CGColor = gradientEndColor!.cgColor
-                let startColor: CGColor = mainNavController.navigationBar.backgroundColor != nil ? mainNavController.navigationBar.backgroundColor!.cgColor: clearColor.cgColor
-                
-                s_NACC_GradientLayer!.colors = [endColor, startColor]
-                s_NACC_GradientLayer!.locations = [ NSNumber (value: 0.0 as Float),
-                                                    NSNumber (value: 1.0 as Float)
-                                                   ]
-                s_NACC_GradientLayer!.frame = s_NACC_AppDelegate!.window!.bounds
-                s_NACC_AppDelegate!.window!.layer.insertSublayer(s_NACC_GradientLayer!, at: 0)
             }
         }
     }
@@ -231,6 +129,14 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             self.loadedPrefs = NSMutableDictionary()
         } else {
             self.loadedPrefs = NSMutableDictionary(dictionary: temp!)
+            let newPrefs = NACC_Prefs()
+            if let temp = self.loadedPrefs.object(forKey: _datePrefsKey) as? Double {
+                newPrefs.cleanDate = Date(timeIntervalSince1970: temp)
+            }
+            
+            if let temp = self.loadedPrefs.object(forKey: _keysPrefsKey) as? Bool {
+                newPrefs.tagDisplay = temp ? NACC_Prefs.TagDisplay.specialTags : NACC_Prefs.TagDisplay.noTags
+            }
         }
         
         return nil != self.loadedPrefs
@@ -242,17 +148,6 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     /**
      */
     func sendCurrentProfileToWatch() {
-        let appContext: [String: Any] = [
-                                        s_appContext_StartDate: s_NACC_cleanDateCalc.startDate!,
-                                        s_appContext_EndDate: s_NACC_cleanDateCalc.endDate!,
-                                        s_appContext_ShowTags: self.showKeys
-        ]
-        
-        do {
-            try self.session.updateApplicationContext(appContext)
-        } catch {
-            print("Communication Error With Watch!")
-        }
     }
     
     // MARK: - WCSessionDelegate Protocol Methods
@@ -295,13 +190,6 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             #if DEBUG
                 print("Phone Received Message: " + String(describing: message))
             #endif
-            
-            if nil != message[s_watchkitCommsRequestUpdate] {
-                #if DEBUG
-                    print("Sending the profile to the watch.")
-                #endif
-                self.sendCurrentProfileToWatch()
-            }
         }
     }
 }
