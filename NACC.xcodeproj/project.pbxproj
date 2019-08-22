@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39CF3550C41C348FA7A33F73 /* Pods_NACC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D431E67650093EECCDD4CB65 /* Pods_NACC.framework */; };
 		771B6A9419618AC000011DC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */; };
 		7722AFEA1F74937400FB2E95 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
@@ -29,6 +28,8 @@
 		77E694DC1960E3F6005F21FF /* NACC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */; };
 		77F548C11F79687C00DF36A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F548C01F795E3C00DF36A4 /* Images.xcassets */; };
 		77F548C41F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */; };
+		D4155FD2230EA808000F5294 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D4155FD1230EA808000F5294 /* Warnings.xcconfig */; };
+		D4155FD3230EA808000F5294 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D4155FD1230EA808000F5294 /* Warnings.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,47 +97,12 @@
 		77E694DB1960E3F6005F21FF /* NACC_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_MainViewController.swift; sourceTree = "<group>"; };
 		77F548C01F795E3C00DF36A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NACC_Companion_ComplicationDataSource.swift; sourceTree = "<group>"; };
-		903C981CEEB9E0ED7123B9CD /* Pods-NACC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NACC.release.xcconfig"; path = "Pods/Target Support Files/Pods-NACC/Pods-NACC.release.xcconfig"; sourceTree = "<group>"; };
-		B6B01CCB71FF874390A13875 /* Pods-NACC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NACC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NACC/Pods-NACC.debug.xcconfig"; sourceTree = "<group>"; };
+		D4155FD1230EA808000F5294 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = SOURCE_ROOT; };
 		D431E67650093EECCDD4CB65 /* Pods_NACC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NACC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CDE7A43EBF17312CDC3E38 /* Pods_NACC_Companion_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NACC_Companion_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		77D9F7B2195EE760007DF220 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				39CF3550C41C348FA7A33F73 /* Pods_NACC.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		77E1EDED1F72E4C800211683 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7BA79A0B84265CA58C1A9D6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
-		1FFFE1780A9AD566ED6ECFB2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B6B01CCB71FF874390A13875 /* Pods-NACC.debug.xcconfig */,
-				903C981CEEB9E0ED7123B9CD /* Pods-NACC.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		38DC2DD01B6F5D1FCFF9FBAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +146,6 @@
 				77E1EDE51F72E4C800211683 /* NACC Companion */,
 				77E1EDF41F72E4C800211683 /* NACC Companion Extension */,
 				77D9F7B6195EE760007DF220 /* Products */,
-				1FFFE1780A9AD566ED6ECFB2 /* Pods */,
 				38DC2DD01B6F5D1FCFF9FBAC /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -211,6 +176,7 @@
 		77D9F7B8195EE760007DF220 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D4155FD1230EA808000F5294 /* Warnings.xcconfig */,
 				77F548C01F795E3C00DF36A4 /* Images.xcassets */,
 				77D9F7BE195EE760007DF220 /* Main.storyboard */,
 				771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */,
@@ -273,14 +239,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77D9F7D1195EE760007DF220 /* Build configuration list for PBXNativeTarget "NACC" */;
 			buildPhases = (
-				CDF6607BFF255C935C91B122 /* [CP] Check Pods Manifest.lock */,
 				7736808C1FE02BBE0004367C /* SwiftLint */,
 				77D9F7B1195EE760007DF220 /* Sources */,
-				77D9F7B2195EE760007DF220 /* Frameworks */,
 				77D9F7B3195EE760007DF220 /* Resources */,
 				77E1EE081F72E4C800211683 /* Embed Watch Content */,
-				F49A9E2886650C9914916B44 /* [CP] Embed Pods Frameworks */,
-				2E54802E571734F658D20CBD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -298,7 +260,6 @@
 			buildPhases = (
 				77E1EDE21F72E4C800211683 /* Resources */,
 				77E1EE041F72E4C800211683 /* Embed App Extensions */,
-				B7BA79A0B84265CA58C1A9D6 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,7 +277,6 @@
 			buildPhases = (
 				7736808D1FE02BD20004367C /* SwiftLint */,
 				77E1EDEC1F72E4C800211683 /* Sources */,
-				77E1EDED1F72E4C800211683 /* Frameworks */,
 				77E1EDEE1F72E4C800211683 /* Resources */,
 			);
 			buildRules = (
@@ -380,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */,
+				D4155FD2230EA808000F5294 /* Warnings.xcconfig in Resources */,
 				77F548C11F79687C00DF36A4 /* Images.xcassets in Resources */,
 				77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */,
 				771B6A9419618AC000011DC1 /* Localizable.strings in Resources */,
@@ -399,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4155FD3230EA808000F5294 /* Warnings.xcconfig in Resources */,
 				778ED8411F753BBF007AAC03 /* Localizable.strings in Resources */,
 				773759681F93E6A6006CBCCE /* Images.xcassets in Resources */,
 			);
@@ -407,21 +369,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2E54802E571734F658D20CBD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NACC/Pods-NACC-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7736808C1FE02BBE0004367C /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -434,7 +381,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/Pods/SwiftLint/swiftlint\"";
+			shellScript = "if test -f \"${PROJECT_DIR}/Pods/SwiftLint/swiftlint\"; then\n    \"${PROJECT_DIR}/Pods/SwiftLint/swiftlint\"\nfi\n";
 		};
 		7736808D1FE02BD20004367C /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -448,40 +395,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/Pods/SwiftLint/swiftlint\"";
-		};
-		CDF6607BFF255C935C91B122 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NACC-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F49A9E2886650C9914916B44 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NACC/Pods-NACC-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if test -f \"${PROJECT_DIR}/Pods/SwiftLint/swiftlint\"; then\n    \"${PROJECT_DIR}/Pods/SwiftLint/swiftlint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -564,6 +478,7 @@
 /* Begin XCBuildConfiguration section */
 		77D9F7CF195EE760007DF220 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4155FD1230EA808000F5294 /* Warnings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -628,6 +543,7 @@
 		};
 		77D9F7D0195EE760007DF220 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4155FD1230EA808000F5294 /* Warnings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -685,7 +601,6 @@
 		};
 		77D9F7D2195EE760007DF220 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6B01CCB71FF874390A13875 /* Pods-NACC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -709,7 +624,6 @@
 		};
 		77D9F7D3195EE760007DF220 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 903C981CEEB9E0ED7123B9CD /* Pods-NACC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
