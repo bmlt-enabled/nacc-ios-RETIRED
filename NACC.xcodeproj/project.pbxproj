@@ -99,7 +99,7 @@
 		77E694DB1960E3F6005F21FF /* NACC_ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_ResultsViewController.swift; sourceTree = "<group>"; };
 		77F548C01F795E3C00DF36A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_Companion_ComplicationDataSource.swift; sourceTree = "<group>"; };
-		D4155FD1230EA808000F5294 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = SOURCE_ROOT; };
+		D4155FD1230EA808000F5294 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Warnings.xcconfig; path = Common/Warnings.xcconfig; sourceTree = SOURCE_ROOT; };
 		D44C3B5D230EC4F00001F2E2 /* RVS_PersistentPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_PersistentPrefs.swift; sourceTree = "<group>"; };
 		D44C3B60230EC50F0001F2E2 /* NACC_Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NACC_Prefs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,11 +158,8 @@
 		77D9F7B8195EE760007DF220 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D4155FD1230EA808000F5294 /* Warnings.xcconfig */,
-				77F548C01F795E3C00DF36A4 /* Images.xcassets */,
 				77D9F7BE195EE760007DF220 /* Main.storyboard */,
 				771BF1FA1D92E4D60024BAA6 /* LaunchScreen.storyboard */,
-				771B6A9219618AC000011DC1 /* Localizable.strings */,
 				77BB5C9C1960566F00B023FC /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -221,6 +218,9 @@
 				D44C3B60230EC50F0001F2E2 /* NACC_Prefs.swift */,
 				77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */,
 				779E76BC195F2E230061BAED /* NACC_TagModel.swift */,
+				D4155FD1230EA808000F5294 /* Warnings.xcconfig */,
+				77F548C01F795E3C00DF36A4 /* Images.xcassets */,
+				771B6A9219618AC000011DC1 /* Localizable.strings */,
 			);
 			path = Common;
 			sourceTree = "<group>";
