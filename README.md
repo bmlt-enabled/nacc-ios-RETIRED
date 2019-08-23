@@ -33,7 +33,7 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 
 CHANGELIST
 ----------
-***Version 4.0.0.1000* ** *- TBD*
+***Version 4.0.0.2000* ** *- August 23, 2019*
 
 - Updated to Swift 5.
 - Complete rewrite in many places. The look and feel has changed, and it is a lot simpler.

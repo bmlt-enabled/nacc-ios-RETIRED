@@ -19,6 +19,13 @@
                                 <group width="1" alignment="left" layout="vertical" radius="0.0" id="Zs6-bB-nJU" userLabel="Main Display Group">
                                     <items>
                                         <label width="1" alignment="left" numberOfLines="6" id="ZWW-iS-NML">
+                                            <gestureRecognizers>
+                                                <swipeGestureRecognizer direction="8" id="f34-pQ-dql">
+                                                    <connections>
+                                                        <action selector="requestUpdate:" destination="AgC-eL-Hgc" id="bc1-1k-m23"/>
+                                                    </connections>
+                                                </swipeGestureRecognizer>
+                                            </gestureRecognizers>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </label>
                                         <imageView alignment="center" id="IdK-2R-Cu1" userLabel="tagDisplay">

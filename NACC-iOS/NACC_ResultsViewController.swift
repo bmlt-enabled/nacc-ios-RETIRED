@@ -88,7 +88,7 @@ class NACC_ResultsViewController: UIViewController {
         if .noTags != prefs.tagDisplay {
             tagDisplayView!.bounds = tagDisplayScroller!.bounds
             if !inTagImageArray.isEmpty {  // We need to have images to display
-                var offset: CGFloat = 0.0    // This will be the vertical offset for each tag.
+                var offset: CGFloat = headerView?.bounds.maxY ?? 0 // This will be the vertical offset for each tag.
 
                 for tag in inTagImageArray {
                     displayTag(inTag: tag, inOffset: &offset)
