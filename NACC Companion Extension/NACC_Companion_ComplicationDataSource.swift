@@ -24,9 +24,9 @@ import ClockKit
 
 /* ###################################################################################################################################### */
 /**
- This class handles the display of Watch complications.
+ This class handles the display of Watch inComplications.
  
- It implements all variants of complication, with Modular Large and Utilitarian Large displaying data relevant to the calculation, and the
+ It implements all variants of inComplication, with Modular Large and Utilitarian Large displaying data relevant to the calculation, and the
  others used as instatiation devices.
 
  */
@@ -37,16 +37,16 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /**
      This is a generic template generator.
      
-     - parameter for: The complication we're generating this for.
+     - parameter for: The inComplication we're generating this for.
      
      - returns: a Complication Template object.
      */
-    func makeTemplateObject(for complication: CLKComplication) -> CLKComplicationTemplate? {
+    func makeTemplateObject(for inComplication: CLKComplication) -> CLKComplicationTemplate? {
         #if DEBUG
-            print("Template requested for complication (Part 1): \(complication.family)")
+            print("Template requested for inComplication (Part 1): \(inComplication.family)")
         #endif
         
-        switch complication.family {
+        switch inComplication.family {
         case .circularSmall:
             if let templateImage = UIImage(named: "Complication/Circular") {
                 let templateTmp = CLKComplicationTemplateCircularSmallSimpleImage()
@@ -61,7 +61,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
                 return templateTmp
             }
         default:
-            return makeModularTemplateObject(for: complication)
+            return makeModularTemplateObject(for: inComplication)
         }
         
         return nil
@@ -71,16 +71,16 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /**
      This is a generic template generator.
      
-     - parameter for: The complication we're generating this for.
+     - parameter for: The inComplication we're generating this for.
      
      - returns: a Complication Template object.
      */
-    func makeModularTemplateObject(for complication: CLKComplication) -> CLKComplicationTemplate? {
+    func makeModularTemplateObject(for inComplication: CLKComplication) -> CLKComplicationTemplate? {
         #if DEBUG
-            print("Template requested for complication (Part 1): \(complication.family)")
+            print("Template requested for inComplication (Part 1): \(inComplication.family)")
         #endif
         
-        switch complication.family {
+        switch inComplication.family {
         case .modularSmall:
             if let templateImage = UIImage(named: "Complication/Modular") {
                 let templateTmp = CLKComplicationTemplateModularSmallSimpleImage()
@@ -97,7 +97,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
                 return templateTmp
             }
         default:
-            return makeUtilitarianTemplateObject(for: complication)
+            return makeUtilitarianTemplateObject(for: inComplication)
         }
         
         return nil
@@ -107,16 +107,16 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /**
      This is a utilitarian template generator.
      
-     - parameter for: The complication we're generating this for.
+     - parameter for: The inComplication we're generating this for.
      
      - returns: a Complication Template object.
      */
-    func makeUtilitarianTemplateObject(for complication: CLKComplication) -> CLKComplicationTemplate? {
+    func makeUtilitarianTemplateObject(for inComplication: CLKComplication) -> CLKComplicationTemplate? {
         #if DEBUG
-            print("Template requested for complication (Part 1): \(complication.family)")
+            print("Template requested for inComplication (Part 1): \(inComplication.family)")
         #endif
         
-        switch complication.family {
+        switch inComplication.family {
         case .utilitarianSmall:
             if let templateImage = UIImage(named: "Complication/Utilitarian") {
                 let templateTmp = CLKComplicationTemplateUtilitarianSmallFlat()
@@ -132,7 +132,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
                 return templateTmp
             }
         default:
-            return makeGraphicTemplateObject(for: complication)
+            return makeGraphicTemplateObject(for: inComplication)
         }
         
         return nil
@@ -143,16 +143,16 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /**
      This is a generic template generator (second, for CC).
      
-     - parameter for: The complication we're generating this for.
+     - parameter for: The inComplication we're generating this for.
      
      - returns: a Complication Template object.
      */
-    func makeGraphicTemplateObject(for complication: CLKComplication) -> CLKComplicationTemplate? {
+    func makeGraphicTemplateObject(for inComplication: CLKComplication) -> CLKComplicationTemplate? {
         #if DEBUG
-            print("Template requested for complication (Part 2): \(complication.family)")
+            print("Template requested for inComplication (Part 2): \(inComplication.family)")
         #endif
         
-        switch complication.family {
+        switch inComplication.family {
         case .graphicCircular:
             if let image = UIImage(named: "Complication/Circular") {
                 let templateTmp = CLKComplicationTemplateGraphicCircularImage()
@@ -193,45 +193,45 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
-     This sets the current timeline entry for the complication.
+     This sets the current timeline entry for the inComplication.
      
-     - parameter for: The complication we're generating this for.
-     - parameter withHandler: The handler method to be called.
+     - parameter for: The inComplication we're generating this for.
+     - parameter withHandler: The inHandler method to be called.
      */
-    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        if let templateObject = makeTemplateObject(for: complication) {
-            switch complication.family {
+    func getCurrentTimelineEntry(for inComplication: CLKComplication, withHandler inHandler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
+        if let templateObject = makeTemplateObject(for: inComplication) {
+            switch inComplication.family {
             case .modularLarge:
                 if  let tObject = templateObject as? CLKComplicationTemplateModularLargeStandardBody,
                     let startDate = NACC_Prefs().cleanDate {
                     tObject.body1TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
                     tObject.body2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.year, .month, .day])
-                    handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
+                    inHandler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
                 } else {
-                    handler(nil)
+                    inHandler(nil)
                 }
             case .utilitarianLarge:
                 if  let tObject = templateObject as? CLKComplicationTemplateUtilitarianLargeFlat,
                     let startDate = NACC_Prefs().cleanDate {
                     tObject.textProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
-                    handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
+                    inHandler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
                 } else {
-                    handler(nil)
+                    inHandler(nil)
                 }
             case .graphicRectangular:
                 if  let tObject = templateObject as? CLKComplicationTemplateGraphicRectangularLargeImage,
                     let startDate = NACC_Prefs().cleanDate {
                     tObject.textProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
                     let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject)
-                    handler(timelineEntry)
+                    inHandler(timelineEntry)
                 } else {
-                    handler(nil)
+                    inHandler(nil)
                 }
             default:
-                handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject))
+                inHandler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject))
             }
         } else {
-            handler(nil)
+            inHandler(nil)
         }
     }
 
@@ -239,22 +239,22 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /**
      This sets the supported Time Travel directions (We do both forward and backward).
      
-     - parameter for: The complication we're generating this for.
-     - parameter withHandler: The handler method to be called.
+     - parameter for: The inComplication we're generating this for.
+     - parameter withHandler: The inHandler method to be called.
      */
-    func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
-        handler([.backward, .forward])
+    func getSupportedTimeTravelDirections(for inComplication: CLKComplication, withHandler inHandler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
+        inHandler([.backward, .forward])
     }
     
     /*******************************************************************************************/
     /**
-     This sets the template object for the complication.
+     This sets the template object for the inComplication.
      
-     - parameter for: The complication we're generating this for.
-     - parameter withHandler: The handler method to be called.
+     - parameter for: The inComplication we're generating this for.
+     - parameter withHandler: The inHandler method to be called.
      */
-    func getLocalizableSampleTemplate(for complication: CLKComplication,
-                                      withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        handler(makeTemplateObject(for: complication))
+    func getLocalizableSampleTemplate(for inComplication: CLKComplication,
+                                      withHandler inHandler: @escaping (CLKComplicationTemplate?) -> Void) {
+        inHandler(makeTemplateObject(for: inComplication))
     }
 }
