@@ -70,6 +70,6 @@ class NACC_DatePickerViewController: UIViewController {
         explainTextField.text = "EXPLAIN-TEXT".localizedVariant
         let newPrefs = NACC_Prefs()
         calcOnlySwitch.isOn = .noTags != newPrefs.tagDisplay
-        datePicker.date = newPrefs.cleanDate
+        datePicker.date = newPrefs.cleanDate ?? Date()
     }
 }

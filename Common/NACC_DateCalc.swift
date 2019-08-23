@@ -91,7 +91,7 @@ class NACC_DateCalc {
         \brief  Convenience parameter-less init
     */
     convenience init() {
-        self.init(inStartDate: NACC_Prefs().cleanDate)
+        self.init(inStartDate: NACC_Prefs().cleanDate ?? Date())
     }
     
     /*******************************************************************************************/

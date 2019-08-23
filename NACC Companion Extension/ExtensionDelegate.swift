@@ -112,7 +112,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     func applicationDidFinishLaunching() {
         _activateSession()
         DispatchQueue.main.async {
-            self.controller.showPleaseWait()
+            if let controller = self.controller {
+                controller.showPleaseWait()
+            }
         }
     }
 
@@ -121,14 +123,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
      */
     func applicationDidBecomeActive() {
         DispatchQueue.main.async {
-            self.controller.requestUpdate()
+            if let controller = self.controller {
+                controller.requestUpdate()
+            }
         }
-    }
-    
-    /*******************************************************************************************/
-    /**
-     */
-    func applicationWillResignActive() {
     }
 
     /*******************************************************************************************/

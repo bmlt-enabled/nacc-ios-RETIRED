@@ -94,6 +94,10 @@
 "RESULTS-COMPLEX-22"        =           "\nThis is %d years, 1 month and %d days.";
 "RESULTS-COMPLEX-23"        =           "\nThis is 1 year, 1 month and %d days.";
 
+"DAYS-UNIT"                 =           "Total Days";
+"YEARS-UNIT"                =           "Years";
+"MONTHS-UNIT"               =           "Months";
+
 "EXPLAIN-TEXT"              =           "This is a simple app for quantifying your cleantime.\n\
 It says nothing about qualifying your Recovery. That's between you and your sponsor.\n\
 Simply set the wheels above to your cleandate, and touch the \"CALCULATE CLEANTIME\" button.";

@@ -7,9 +7,8 @@
     },
     {
       "idiom" : "watch",
-      "filename" : "graphic-circular40mm@2x.png",
-      "screen-width" : ">161",
-      "scale" : "2x"
+      "scale" : "2x",
+      "screen-width" : ">161"
     },
     {
       "idiom" : "watch",
@@ -18,7 +17,7 @@
     },
     {
       "idiom" : "watch",
-      "filename" : "graphic-circular44mm@2x.png",
+      "filename" : "ComplicationIcon1To1.pdf",
       "screen-width" : ">183",
       "scale" : "2x"
     }
@@ -26,5 +25,9 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "preserves-vector-representation" : true,
+    "auto-scaling" : "auto"
   }
 }
