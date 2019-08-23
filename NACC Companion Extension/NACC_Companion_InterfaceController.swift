@@ -27,11 +27,10 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /* ################################################################################################################################## */
     @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
     @IBOutlet var tagDisplay: WKInterfaceImage!
-    @IBOutlet var animationGroup: WKInterfaceGroup!
     @IBOutlet var updateButton: WKInterfaceButton!
+    
     /* ################################################################################################################################## */
     private let _offsetMultiplier: CGFloat          = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
-    private var _leaveMeAloneCantYouSeeImBusy: Bool = false // This is a semaphore to prevent constant resetting the requests.
     
     /* ################################################################################################################################## */
     /*******************************************************************************************/
@@ -39,7 +38,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
      */
     @IBAction func requestUpdate(_: Any! = nil) {
         if let extensionDelegateObject = WKExtension.shared().delegate as? ExtensionDelegate {
-            showAnimation()
+            showPleaseWait()
             extensionDelegateObject.sendRequestUpdateMessage()
         }
     }
@@ -49,7 +48,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /**
      */
     func performCalculation() {
-        hideAnimation()
+        tagDisplay.setHidden(false)
         tagDisplay.setImage(nil)
         let dateCalc: NACC_DateCalc = NACC_DateCalc()  ///< This holds our date calculation.
         let displayString = NACC_TagModel.getDisplayCleandate(dateCalc.totalDays, inYears: dateCalc.years, inMonths: dateCalc.months, inDays: dateCalc.days)
@@ -73,21 +72,10 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /**
      Shows the animated tags.
      */
-    func showAnimation() {
+    func showPleaseWait() {
         tagDisplay.setHidden(true)
         updateButton.setHidden(true)
-        cleandateReportLabel.setHidden(true)
-        animationGroup.setHidden(false)
-    }
-
-    /*******************************************************************************************/
-    /**
-     Hides the animated tags.
-     */
-    func hideAnimation() {
-        animationGroup.setHidden(true)
-        tagDisplay.setHidden(false)
-        cleandateReportLabel.setHidden(false)
+        cleandateReportLabel.setText("PLEASE-WAIT".localizedVariant)
     }
 
     /*******************************************************************************************/

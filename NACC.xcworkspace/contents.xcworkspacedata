@@ -2,13 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Volumes/Development/iOS/NACC_iOS/LICENSE">
-   </FileRef>
-   <FileRef
       location = "group:README.md">
    </FileRef>
    <FileRef
       location = "group:jazzy.sh">
+   </FileRef>
+   <FileRef
+      location = "group:/Volumes/Development/iOS/NACC_iOS/LICENSE">
    </FileRef>
    <FileRef
       location = "group:NACC.xcodeproj">

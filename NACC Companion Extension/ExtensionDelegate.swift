@@ -99,7 +99,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     func sendRequestUpdateMessage() {
         if session.isReachable {
             #if DEBUG
-            print("Watch Sending Update Request")
+                print("Watch Sending Update Request")
             #endif
         }
         _askPhoneForState()
@@ -112,7 +112,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     func applicationDidFinishLaunching() {
         _activateSession()
         DispatchQueue.main.async {
-            self.controller.showAnimation()
+            self.controller.showPleaseWait()
         }
     }
 

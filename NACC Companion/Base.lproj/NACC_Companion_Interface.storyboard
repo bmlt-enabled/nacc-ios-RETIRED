@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
     </dependencies>
@@ -14,11 +13,6 @@
             <objects>
                 <controller title="NACC" id="AgC-eL-Hgc" customClass="NACC_Companion_InterfaceController" customModule="NACC_Companion_Extension">
                     <items>
-                        <group width="1" height="1" alignment="center" verticalAlignment="center" hidden="YES" id="1xv-DS-byC">
-                            <items>
-                                <imageView width="37" height="48" alignment="center" verticalAlignment="center" image="WatchAnimation/Frame-" animationDuration="2" id="z3A-qQ-Sxd"/>
-                            </items>
-                        </group>
                         <group width="1" alignment="left" layout="overlap" id="5XX-cU-Npb">
                             <items>
                                 <imageView width="1" height="1" alignment="center" image="Background-Gradient" id="K4w-y6-6K4"/>
@@ -44,7 +38,6 @@
                     </items>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
-                        <outlet property="animationGroup" destination="1xv-DS-byC" id="NRd-Au-hPx"/>
                         <outlet property="cleandateReportLabel" destination="ZWW-iS-NML" id="Nqa-1c-VYy"/>
                         <outlet property="tagDisplay" destination="IdK-2R-Cu1" id="5R0-NK-yxK"/>
                         <outlet property="updateButton" destination="jqE-Dy-4JH" id="OaQ-DT-v0b"/>

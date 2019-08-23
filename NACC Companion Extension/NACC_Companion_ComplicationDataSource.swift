@@ -21,7 +21,6 @@
  */
 
 import WatchKit
-import ClockKit
 
 /* ###################################################################################################################################### */
 /**
@@ -60,7 +59,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
         var template: CLKComplicationTemplate? = nil
         
         switch complication.family {
-        case .circularSmall: 
+        case .circularSmall:
             template = CLKComplicationTemplateCircularSmallSimpleImage()
             if let templateImage = UIImage(named: "Complication/Circular") {
                 (template as? CLKComplicationTemplateCircularSmallSimpleImage)?.imageProvider = CLKImageProvider(onePieceImage: templateImage)
@@ -94,11 +93,10 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
             if let templateImage = UIImage(named: "Complication/Extra Large") {
                 let template = CLKComplicationTemplateExtraLargeStackImage()
                 template.line1ImageProvider = CLKImageProvider(onePieceImage: templateImage)
-//                if 0 < extensionDelegateObject.lastEnteredDate {
-//                    let startDate = Date(timeIntervalSince1970: extensionDelegateObject.lastEnteredDate)
-//                    template.line2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
-//                }
+                template.line2TextProvider = CLKRelativeDateTextProvider(date: NACC_Prefs().cleanDate, style: CLKRelativeDateStyle.natural, units: [.day])
             }
+        case .graphicCorner, .graphicCircular:
+            ()
         default:
             break
         }
@@ -139,30 +137,28 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
      - parameter withHandler: The handler method to be called.
      */
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-//        if let templateObject = makeTemplateObject(for: complication) {
-//            switch complication.family {
-//            case .modularLarge:
-//                if let tObject = templateObject as? CLKComplicationTemplateModularLargeStandardBody {
-//                    if 0 < extensionDelegateObject.lastEnteredDate {
-//                        let startDate = Date(timeIntervalSince1970: extensionDelegateObject.lastEnteredDate)
-//                        tObject.body1TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
-//                        tObject.body2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.year, .month, .day])
-//                        handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
-//                    }
-//                }
-//            case .utilitarianLarge: 
-//                if let tObject = templateObject as? CLKComplicationTemplateUtilitarianLargeFlat {
-//                    if 0 < extensionDelegateObject.lastEnteredDate {
-//                        let startDate = Date(timeIntervalSince1970: extensionDelegateObject.lastEnteredDate)
-//                        tObject.textProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
-//                        handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
-//                    }
-//                }
-//            default:
-//                handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject))
-//            }
-//        } else {
-//            handler(nil)
-//        }
+        if let templateObject = makeTemplateObject(for: complication) {
+            switch complication.family {
+            case .modularLarge:
+                if  let tObject = templateObject as? CLKComplicationTemplateModularLargeStandardBody,
+                    let startDate = NACC_Prefs().cleanDate {
+                    tObject.body1TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                    tObject.body2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.year, .month, .day])
+                    handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
+                }
+            case .utilitarianLarge:
+                if let tObject = templateObject as? CLKComplicationTemplateUtilitarianLargeFlat,
+                    let startDate = NACC_Prefs().cleanDate {
+                    tObject.textProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                    handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
+                }
+            case .graphicBezel, .graphicRectangular:
+                handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject))
+            default:
+                handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject))
+            }
+        } else {
+            handler(nil)
+        }
     }
 }
