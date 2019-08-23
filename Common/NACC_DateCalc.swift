@@ -53,36 +53,48 @@ class NACC_DateCalc {
         \param inNowDate This is the end date. The calculation goes between these two dates.
     */
     init(inStartDate: Date, inNowDate: Date) {
-        // The reason for all this wackiness, is we want to completely strip out the time element of each date. We want the days to be specified at noon.
-        let fromString: String = DateFormatter.localizedString(from: inStartDate, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.none)
-        let toString: String = DateFormatter.localizedString(from: inNowDate, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.none)
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .none
-        dateFormatter.dateStyle = .short
-        
-        // We have stripped out the time information, and each day is at noon.
-        startDate = dateFormatter.date(from: fromString)?.addingTimeInterval(43200)  // Make it Noon, Numbah One.
-        endDate = dateFormatter.date(from: toString)?.addingTimeInterval(43200)
-        
-        dateString = DateFormatter.localizedString(from: startDate!, dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
-        
-        // We get the total days, just to check for 90 or less.
-        totalDays = Int(trunc(inNowDate.timeIntervalSince(inStartDate) / 86400.0 )) // Change seconds into days.
-        
-        if (startDate != nil && endDate != nil) && (startDate! < endDate!) {
-            let myCalendar: Calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
-            // Create our answer from the components of the result.
-            let unitFlags: NSCalendar.Unit = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]
-            let myComponents = (myCalendar as NSCalendar).components(unitFlags, from: startDate!, to: endDate!, options: NSCalendar.Options.wrapComponents)
+        // This strips out the hours/minutes/seconds.
+        if  let cleanDate = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: inStartDate)),
+            let nowDate = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: inNowDate)) {
+            // The reason for all this wackiness, is we want to completely strip out the time element of each date. We want the days to be specified at noon.
+            let fromString: String = DateFormatter.localizedString(from: cleanDate, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.none)
+            let toString: String = DateFormatter.localizedString(from: nowDate, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.none)
             
-            if  let yearsTmp = myComponents.year,
-                let monthsTmp = myComponents.month,
-                let daysTmp = myComponents.day {
-                years = yearsTmp
-                months = monthsTmp
-                days = daysTmp
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateStyle = .short
+            
+            // We have stripped out the time information, and each day is at noon.
+            startDate = dateFormatter.date(from: fromString)?.addingTimeInterval(43200)  // Make it Noon, Numbah One.
+            endDate = dateFormatter.date(from: toString)?.addingTimeInterval(43200)
+            
+            dateString = DateFormatter.localizedString(from: startDate!, dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
+            
+            // We get the total days, just to check for 90 or less.
+            totalDays = Int(trunc(inNowDate.timeIntervalSince(inStartDate) / 86400.0 )) // Change seconds into days.
+            
+            if (startDate != nil && endDate != nil) && (startDate! < endDate!) {
+                let myCalendar: Calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
+                // Create our answer from the components of the result.
+                let unitFlags: NSCalendar.Unit = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]
+                let myComponents = (myCalendar as NSCalendar).components(unitFlags, from: startDate!, to: endDate!, options: NSCalendar.Options.wrapComponents)
+                
+                if  let yearsTmp = myComponents.year,
+                    let monthsTmp = myComponents.month,
+                    let daysTmp = myComponents.day {
+                    years = yearsTmp
+                    months = monthsTmp
+                    days = daysTmp
+                }
             }
+        } else {
+            totalDays = 0
+            years = 0
+            months = 0
+            days = 0
+            startDate = nil
+            endDate = nil
+            dateString = ""
         }
     }
     

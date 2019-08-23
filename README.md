@@ -33,6 +33,10 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 
 CHANGELIST
 ----------
+***Version 4.0.0.2001* ** *- August 23, 2019*
+
+- Fixed an issue where you could get a "0 day" response to one day clean.
+
 ***Version 4.0.0.2000* ** *- August 23, 2019*
 
 - Updated to Swift 5.
