@@ -19,21 +19,16 @@
                                 <group width="1" alignment="left" layout="vertical" radius="0.0" id="Zs6-bB-nJU" userLabel="Main Display Group">
                                     <items>
                                         <label width="1" alignment="left" numberOfLines="6" id="ZWW-iS-NML">
-                                            <gestureRecognizers>
-                                                <swipeGestureRecognizer direction="8" id="f34-pQ-dql">
-                                                    <connections>
-                                                        <action selector="requestUpdate:" destination="AgC-eL-Hgc" id="bc1-1k-m23"/>
-                                                    </connections>
-                                                </swipeGestureRecognizer>
-                                            </gestureRecognizers>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </label>
                                         <imageView alignment="center" id="IdK-2R-Cu1" userLabel="tagDisplay">
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
+                                        <separator alignment="left" hidden="YES" id="Qu9-cX-vlq"/>
                                         <button width="1" alignment="left" hidden="YES" title="GET-UPDATE" id="jqE-Dy-4JH">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="15"/>
                                             <connections>
                                                 <action selector="requestUpdate:" destination="AgC-eL-Hgc" id="01Y-bf-iMX"/>
                                             </connections>
@@ -45,6 +40,7 @@
                     </items>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
+                        <outlet property="buttonSeparator" destination="Qu9-cX-vlq" id="AjA-NU-oXl"/>
                         <outlet property="cleandateReportLabel" destination="ZWW-iS-NML" id="Nqa-1c-VYy"/>
                         <outlet property="tagDisplay" destination="IdK-2R-Cu1" id="5R0-NK-yxK"/>
                         <outlet property="updateButton" destination="jqE-Dy-4JH" id="OaQ-DT-v0b"/>

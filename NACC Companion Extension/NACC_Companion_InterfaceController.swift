@@ -28,6 +28,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
     @IBOutlet var tagDisplay: WKInterfaceImage!
     @IBOutlet var updateButton: WKInterfaceButton!
+    @IBOutlet weak var buttonSeparator: WKInterfaceSeparator!
     
     /* ################################################################################################################################## */
     private let _offsetMultiplier: CGFloat          = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
@@ -65,6 +66,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
         }
         
         updateButton.setTitle("GET-UPDATE".localizedVariant)
+        buttonSeparator.setHidden(false)
         updateButton.setHidden(false)
     }
 
@@ -74,6 +76,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
      */
     func showPleaseWait() {
         tagDisplay.setHidden(true)
+        buttonSeparator.setHidden(true)
         updateButton.setHidden(true)
         cleandateReportLabel.setText("PLEASE-WAIT".localizedVariant)
     }
