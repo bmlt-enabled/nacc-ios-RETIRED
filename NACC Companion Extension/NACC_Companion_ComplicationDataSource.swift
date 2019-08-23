@@ -20,7 +20,7 @@
  Little Green Viper Software Development LLC: https://littlegreenviper.com
  */
 
-import WatchKit
+import ClockKit
 
 /* ###################################################################################################################################### */
 /**
@@ -31,16 +31,6 @@ import WatchKit
 
  */
 class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource {
-    // MARK: - Internal Calculated Properties
-    /* ################################################################################################################################## */
-    /*******************************************************************************************/
-    /**
-     This is an accessor for the main Extension Delegate object, where we can get our settings.
-     */
-    var extensionDelegateObject: ExtensionDelegate! {
-        return WKExtension.shared().delegate as? ExtensionDelegate
-    }
-
     // MARK: - Internal Methods
     /* ################################################################################################################################## */
     /*******************************************************************************************/
@@ -53,59 +43,198 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
      */
     func makeTemplateObject(for complication: CLKComplication) -> CLKComplicationTemplate? {
         #if DEBUG
-            print("Template requested for complication: \(complication.family)")
+            print("Template requested for complication (Part 1): \(complication.family)")
         #endif
-        
-        var template: CLKComplicationTemplate? = nil
         
         switch complication.family {
         case .circularSmall:
-            template = CLKComplicationTemplateCircularSmallSimpleImage()
             if let templateImage = UIImage(named: "Complication/Circular") {
-                (template as? CLKComplicationTemplateCircularSmallSimpleImage)?.imageProvider = CLKImageProvider(onePieceImage: templateImage)
+                let templateTmp = CLKComplicationTemplateCircularSmallSimpleImage()
+                templateTmp.imageProvider = CLKImageProvider(onePieceImage: templateImage)
+                return templateTmp
             }
-        case .modularSmall:
-            template = CLKComplicationTemplateModularSmallSimpleImage()
-            if let templateImage = UIImage(named: "Complication/Modular") {
-                (template as? CLKComplicationTemplateModularSmallSimpleImage)?.imageProvider = CLKImageProvider(onePieceImage: templateImage)
-            }
-        case .modularLarge:
-            template = CLKComplicationTemplateModularLargeStandardBody()
-            if let templateImage = UIImage(named: "Complication/Modular") {
-                (template as? CLKComplicationTemplateModularLargeStandardBody)?.headerImageProvider = CLKImageProvider(onePieceImage: templateImage)
-            }
-            (template as? CLKComplicationTemplateModularLargeStandardBody)?.headerTextProvider = CLKSimpleTextProvider(text: "COMPLICATION-LABEL".localizedVariant)
-            (template as? CLKComplicationTemplateModularLargeStandardBody)?.body1TextProvider = CLKSimpleTextProvider(text: "")
-            (template as? CLKComplicationTemplateModularLargeStandardBody)?.body2TextProvider = CLKSimpleTextProvider(text: "")
-        case .utilitarianSmall:
-            template = CLKComplicationTemplateUtilitarianSmallFlat()
-            if let templateImage = UIImage(named: "Complication/Utilitarian") {
-                (template as? CLKComplicationTemplateUtilitarianSmallFlat)?.imageProvider = CLKImageProvider(onePieceImage: templateImage)
-            }
-            (template as? CLKComplicationTemplateUtilitarianSmallFlat)?.textProvider = CLKSimpleTextProvider(text: "COMPLICATION-LABEL".localizedVariant)
-        case .utilitarianLarge:
-            template = CLKComplicationTemplateUtilitarianLargeFlat()
-            if let templateImage = UIImage(named: "Complication/Utilitarian") {
-                (template as? CLKComplicationTemplateUtilitarianLargeFlat)?.imageProvider = CLKImageProvider(onePieceImage: templateImage)
-            }
-            (template as? CLKComplicationTemplateUtilitarianLargeFlat)?.textProvider = CLKSimpleTextProvider(text: "")
         case .extraLarge:
             if let templateImage = UIImage(named: "Complication/Extra Large") {
-                let template = CLKComplicationTemplateExtraLargeStackImage()
-                template.line1ImageProvider = CLKImageProvider(onePieceImage: templateImage)
-                template.line2TextProvider = CLKRelativeDateTextProvider(date: NACC_Prefs().cleanDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                let templateTmp = CLKComplicationTemplateExtraLargeStackImage()
+                templateTmp.line1ImageProvider = CLKImageProvider(onePieceImage: templateImage)
+                templateTmp.line2TextProvider = CLKRelativeDateTextProvider(date: NACC_Prefs().cleanDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                return templateTmp
             }
-        case .graphicCorner, .graphicCircular:
-            ()
+        default:
+            return makeModularTemplateObject(for: complication)
+        }
+        
+        return nil
+    }
+    
+    /*******************************************************************************************/
+    /**
+     This is a generic template generator.
+     
+     - parameter for: The complication we're generating this for.
+     
+     - returns: a Complication Template object.
+     */
+    func makeModularTemplateObject(for complication: CLKComplication) -> CLKComplicationTemplate? {
+        #if DEBUG
+            print("Template requested for complication (Part 1): \(complication.family)")
+        #endif
+        
+        switch complication.family {
+        case .modularSmall:
+            if let templateImage = UIImage(named: "Complication/Modular") {
+                let templateTmp = CLKComplicationTemplateModularSmallSimpleImage()
+                templateTmp.imageProvider = CLKImageProvider(onePieceImage: templateImage)
+                return templateTmp
+            }
+        case .modularLarge:
+            if let templateImage = UIImage(named: "Complication/Modular") {
+                let templateTmp = CLKComplicationTemplateModularLargeStandardBody()
+                templateTmp.headerImageProvider = CLKImageProvider(onePieceImage: templateImage)
+                templateTmp.headerTextProvider = CLKSimpleTextProvider(text: "COMPLICATION-LABEL".localizedVariant)
+                templateTmp.body1TextProvider = CLKSimpleTextProvider(text: "")
+                templateTmp.body2TextProvider = CLKSimpleTextProvider(text: "")
+                return templateTmp
+            }
+        default:
+            return makeUtilitarianTemplateObject(for: complication)
+        }
+        
+        return nil
+    }
+    
+    /*******************************************************************************************/
+    /**
+     This is a utilitarian template generator.
+     
+     - parameter for: The complication we're generating this for.
+     
+     - returns: a Complication Template object.
+     */
+    func makeUtilitarianTemplateObject(for complication: CLKComplication) -> CLKComplicationTemplate? {
+        #if DEBUG
+            print("Template requested for complication (Part 1): \(complication.family)")
+        #endif
+        
+        switch complication.family {
+        case .utilitarianSmall:
+            if let templateImage = UIImage(named: "Complication/Utilitarian") {
+                let templateTmp = CLKComplicationTemplateUtilitarianSmallFlat()
+                templateTmp.imageProvider = CLKImageProvider(onePieceImage: templateImage)
+                templateTmp.textProvider = CLKSimpleTextProvider(text: "COMPLICATION-LABEL".localizedVariant)
+                return templateTmp
+            }
+        case .utilitarianLarge:
+            if let templateImage = UIImage(named: "Complication/Utilitarian") {
+                let templateTmp = CLKComplicationTemplateUtilitarianLargeFlat()
+                templateTmp.imageProvider = CLKImageProvider(onePieceImage: templateImage)
+                templateTmp.textProvider = CLKSimpleTextProvider(text: "")
+                return templateTmp
+            }
+        default:
+            return makeGraphicTemplateObject(for: complication)
+        }
+        
+        return nil
+    }
+    
+
+    /*******************************************************************************************/
+    /**
+     This is a generic template generator (second, for CC).
+     
+     - parameter for: The complication we're generating this for.
+     
+     - returns: a Complication Template object.
+     */
+    func makeGraphicTemplateObject(for complication: CLKComplication) -> CLKComplicationTemplate? {
+        #if DEBUG
+            print("Template requested for complication (Part 2): \(complication.family)")
+        #endif
+        
+        switch complication.family {
+        case .graphicCircular:
+            if let image = UIImage(named: "Complication/Circular") {
+                let templateTmp = CLKComplicationTemplateGraphicCircularImage()
+                templateTmp.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
+                return templateTmp
+            }
+        case .graphicCorner:
+            if let image = UIImage(named: "Complication/Circular") {
+                let templateTmp = CLKComplicationTemplateGraphicCornerGaugeImage()
+                templateTmp.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
+                return templateTmp
+            }
+        case .graphicBezel:
+            if let image = UIImage(named: "Complication/Circular") {
+                let templateTmp = CLKComplicationTemplateGraphicBezelCircularText()
+                templateTmp.textProvider = CLKSimpleTextProvider(text: "")
+                let circularItem = CLKComplicationTemplateGraphicCircularImage()
+                circularItem.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
+                templateTmp.circularTemplate = circularItem
+                return templateTmp
+            }
+        case .graphicRectangular:
+            if let image = UIImage(named: "Complication/Modular"),
+                let startDate = NACC_Prefs().cleanDate {
+                let templateTmp = CLKComplicationTemplateGraphicRectangularLargeImage()
+                templateTmp.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
+                templateTmp.textProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                return templateTmp
+            }
         default:
             break
         }
         
-        return template
+        return nil
     }
     
     // MARK: - CLKComplicationDataSource Methods
     /* ################################################################################################################################## */
+    /*******************************************************************************************/
+    /**
+     This sets the current timeline entry for the complication.
+     
+     - parameter for: The complication we're generating this for.
+     - parameter withHandler: The handler method to be called.
+     */
+    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
+        if let templateObject = makeTemplateObject(for: complication) {
+            switch complication.family {
+            case .modularLarge:
+                if  let tObject = templateObject as? CLKComplicationTemplateModularLargeStandardBody,
+                    let startDate = NACC_Prefs().cleanDate {
+                    tObject.body1TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                    tObject.body2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.year, .month, .day])
+                    handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
+                } else {
+                    handler(nil)
+                }
+            case .utilitarianLarge:
+                if  let tObject = templateObject as? CLKComplicationTemplateUtilitarianLargeFlat,
+                    let startDate = NACC_Prefs().cleanDate {
+                    tObject.textProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                    handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
+                } else {
+                    handler(nil)
+                }
+            case .graphicRectangular:
+                if  let tObject = templateObject as? CLKComplicationTemplateGraphicRectangularLargeImage,
+                    let startDate = NACC_Prefs().cleanDate {
+                    tObject.textProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
+                    let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject)
+                    handler(timelineEntry)
+                } else {
+                    handler(nil)
+                }
+            default:
+                handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject))
+            }
+        } else {
+            handler(nil)
+        }
+    }
+
     /*******************************************************************************************/
     /**
      This sets the supported Time Travel directions (We do both forward and backward).
@@ -127,38 +256,5 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     func getLocalizableSampleTemplate(for complication: CLKComplication,
                                       withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         handler(makeTemplateObject(for: complication))
-    }
-    
-    /*******************************************************************************************/
-    /**
-     This sets the current timeline entry for the complication.
-     
-     - parameter for: The complication we're generating this for.
-     - parameter withHandler: The handler method to be called.
-     */
-    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        if let templateObject = makeTemplateObject(for: complication) {
-            switch complication.family {
-            case .modularLarge:
-                if  let tObject = templateObject as? CLKComplicationTemplateModularLargeStandardBody,
-                    let startDate = NACC_Prefs().cleanDate {
-                    tObject.body1TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
-                    tObject.body2TextProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.year, .month, .day])
-                    handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
-                }
-            case .utilitarianLarge:
-                if let tObject = templateObject as? CLKComplicationTemplateUtilitarianLargeFlat,
-                    let startDate = NACC_Prefs().cleanDate {
-                    tObject.textProvider = CLKRelativeDateTextProvider(date: startDate, style: CLKRelativeDateStyle.natural, units: [.day])
-                    handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
-                }
-            case .graphicBezel, .graphicRectangular:
-                handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject))
-            default:
-                handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: templateObject))
-            }
-        } else {
-            handler(nil)
-        }
     }
 }
