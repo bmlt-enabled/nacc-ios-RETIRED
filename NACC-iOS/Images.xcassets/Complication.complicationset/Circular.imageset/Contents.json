@@ -2,25 +2,22 @@
   "images" : [
     {
       "idiom" : "watch",
-      "filename" : "circular38mm@2x.png",
-      "screen-width" : "<=145",
-      "scale" : "2x"
+      "scale" : "2x",
+      "screen-width" : "<=145"
     },
     {
       "idiom" : "watch",
-      "filename" : "circular40mm@2x.png",
-      "screen-width" : ">161",
-      "scale" : "2x"
+      "scale" : "2x",
+      "screen-width" : ">161"
     },
     {
       "idiom" : "watch",
-      "filename" : "circular42mm@2x.png",
-      "screen-width" : ">145",
-      "scale" : "2x"
+      "scale" : "2x",
+      "screen-width" : ">145"
     },
     {
       "idiom" : "watch",
-      "filename" : "circular44mm@2x.png",
+      "filename" : "ComplicationIcon1To1-1.pdf",
       "screen-width" : ">183",
       "scale" : "2x"
     }
@@ -28,5 +25,9 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "preserves-vector-representation" : true,
+    "auto-scaling" : "auto"
   }
 }
