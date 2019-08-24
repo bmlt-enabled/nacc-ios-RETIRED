@@ -173,7 +173,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
             #if DEBUG
                 print("Template requested for graphicCircular")
             #endif
-            if  let image = UIImage(named: "Complication/Circular") {
+            if  let image = UIImage(named: "Complication/Graphic Circular") {
                 let templateTmp = CLKComplicationTemplateGraphicCircularImage()
                 templateTmp.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
                 return templateTmp
@@ -182,7 +182,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
             #if DEBUG
                 print("Template requested for graphicCorner")
             #endif
-            if  let image = UIImage(named: "Complication/Circular") {
+            if  let image = UIImage(named: "Complication/Graphic Corner") {
                 let templateTmp = CLKComplicationTemplateGraphicCornerCircularImage()
                 templateTmp.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
                 return templateTmp
@@ -191,7 +191,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
             #if DEBUG
                 print("Template requested for graphicBezel")
             #endif
-            if let image = UIImage(named: "Complication/Circular") {
+            if let image = UIImage(named: "Complication/Graphic Bezel") {
                 let templateTmp = CLKComplicationTemplateGraphicBezelCircularText()
                 templateTmp.textProvider = CLKSimpleTextProvider(text: "")
                 let circularItem = CLKComplicationTemplateGraphicCircularImage()
@@ -203,7 +203,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
             #if DEBUG
                 print("Template requested for graphicRectangular")
             #endif
-            if let image = UIImage(named: "Complication/Modular") {
+            if let image = UIImage(named: "Complication/Graphic Large Rectangular") {
                 let dateCalc: NACC_DateCalc = NACC_DateCalc()  ///< This holds our date calculation.
                 let templateTmp = CLKComplicationTemplateGraphicRectangularLargeImage()
                 templateTmp.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
