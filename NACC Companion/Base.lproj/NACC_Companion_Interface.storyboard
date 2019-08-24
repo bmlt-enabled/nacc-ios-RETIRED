@@ -24,7 +24,9 @@
                                         <imageView alignment="center" id="IdK-2R-Cu1" userLabel="tagDisplay">
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
-                                        <separator alignment="left" hidden="YES" id="Qu9-cX-vlq"/>
+                                        <separator alignment="left" hidden="YES" id="Qu9-cX-vlq">
+                                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </separator>
                                         <button width="1" alignment="left" hidden="YES" title="GET-UPDATE" id="jqE-Dy-4JH">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

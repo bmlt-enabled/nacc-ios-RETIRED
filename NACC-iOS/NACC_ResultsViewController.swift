@@ -72,7 +72,6 @@ class NACC_ResultsViewController: UIViewController {
         tagDisplayView!.frame = containerRect
         tagDisplayScroller!.contentSize = containerRect.size
         tagDisplayView!.addSubview(imageView)
-        tagDisplayScroller!.scrollRectToVisible(targetRect, animated: true)
         inOffset += (inTag.size.height * type(of: self).s_offsetMultiplier)
     }
     
