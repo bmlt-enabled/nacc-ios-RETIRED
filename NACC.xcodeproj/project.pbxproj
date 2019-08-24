@@ -129,6 +129,7 @@
 				77D9F7CA195EE760007DF220 /* NACCTests */,
 				77E1EDE51F72E4C800211683 /* NACC Companion */,
 				77E1EDF41F72E4C800211683 /* NACC Companion Extension */,
+				D49D57332311D47000BC0311 /* NACC Complication */,
 				77D9F7B6195EE760007DF220 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -205,7 +206,6 @@
 			children = (
 				77E1EDF71F72E4C800211683 /* ExtensionDelegate.swift */,
 				77E1EDF51F72E4C800211683 /* NACC_Companion_InterfaceController.swift */,
-				77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */,
 				77E1EDFD1F72E4C800211683 /* Info.plist */,
 			);
 			path = "NACC Companion Extension";
@@ -223,6 +223,14 @@
 				771B6A9219618AC000011DC1 /* Localizable.strings */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		D49D57332311D47000BC0311 /* NACC Complication */ = {
+			isa = PBXGroup;
+			children = (
+				77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */,
+			);
+			path = "NACC Complication";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

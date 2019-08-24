@@ -97,12 +97,16 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
                 print("Template requested for modularLarge")
             #endif
             if let templateImage = UIImage(named: "Complication/Modular") {
-                let dateCalc: NACC_DateCalc = NACC_DateCalc()  ///< This holds our date calculation.
                 let templateTmp = CLKComplicationTemplateModularLargeStandardBody()
+                let dateCalc: NACC_DateCalc = NACC_DateCalc()  ///< This holds our date calculation.
+                let dateFormatter = DateFormatter()
+                dateFormatter.timeStyle = .none
+                dateFormatter.dateStyle = .short
+                let dateString = dateFormatter.string(from: dateCalc.startDate ?? Date())
                 templateTmp.headerImageProvider = CLKImageProvider(onePieceImage: templateImage)
-                templateTmp.headerTextProvider = CLKSimpleTextProvider(text: String(dateCalc.totalDays) + " " + "DAYS-UNIT".localizedVariant)
-                templateTmp.body1TextProvider = CLKSimpleTextProvider(text: String(dateCalc.years) + " " + "YEARS-UNIT".localizedVariant)
-                templateTmp.body2TextProvider = CLKSimpleTextProvider(text: String(dateCalc.months) + " " + "MONTHS-UNIT".localizedVariant)
+                templateTmp.headerTextProvider = CLKSimpleTextProvider(text: dateString)
+                templateTmp.body1TextProvider = CLKSimpleTextProvider(text: String(dateCalc.totalDays) + " " + "DAYS-SHORT".localizedVariant)
+                templateTmp.body2TextProvider = CLKSimpleTextProvider(text: "")
                 return templateTmp
             }
         default:
@@ -193,21 +197,28 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
             #endif
             if let image = UIImage(named: "Complication/Graphic Bezel") {
                 let templateTmp = CLKComplicationTemplateGraphicBezelCircularText()
-                templateTmp.textProvider = CLKSimpleTextProvider(text: "")
                 let circularItem = CLKComplicationTemplateGraphicCircularImage()
                 circularItem.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
                 templateTmp.circularTemplate = circularItem
+                let dateCalc: NACC_DateCalc = NACC_DateCalc()  ///< This holds our date calculation.
+                templateTmp.textProvider = CLKSimpleTextProvider(text: String(dateCalc.totalDays) + " " + "DAYS-UNIT".localizedVariant)
                 return templateTmp
             }
         case .graphicRectangular:
             #if DEBUG
                 print("Template requested for graphicRectangular")
             #endif
-            if let image = UIImage(named: "Complication/Graphic Large Rectangular") {
+            if let templateImage = UIImage(named: "Complication/Graphic Circular") {
+                let templateTmp = CLKComplicationTemplateGraphicRectangularStandardBody()
                 let dateCalc: NACC_DateCalc = NACC_DateCalc()  ///< This holds our date calculation.
-                let templateTmp = CLKComplicationTemplateGraphicRectangularLargeImage()
-                templateTmp.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
-                templateTmp.textProvider = CLKSimpleTextProvider(text: String(dateCalc.totalDays) + " " + "DAYS-UNIT".localizedVariant)
+                let dateFormatter = DateFormatter()
+                dateFormatter.timeStyle = .none
+                dateFormatter.dateStyle = .short
+                let dateString = dateFormatter.string(from: dateCalc.startDate ?? Date())
+                templateTmp.headerImageProvider = CLKFullColorImageProvider(fullColorImage: templateImage)
+                templateTmp.headerTextProvider = CLKSimpleTextProvider(text: dateString)
+                templateTmp.body1TextProvider = CLKSimpleTextProvider(text: String(dateCalc.totalDays) + " " + "DAYS-SHORT".localizedVariant)
+                templateTmp.body2TextProvider = CLKSimpleTextProvider(text: "")
                 return templateTmp
             }
         default:
@@ -252,9 +263,8 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
                     inHandler(nil)
                 }
             case .graphicRectangular:
-                if  let tObject = templateObject as? CLKComplicationTemplateGraphicRectangularLargeImage {
-                    let timelineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject)
-                    inHandler(timelineEntry)
+                if  let tObject = templateObject as? CLKComplicationTemplateGraphicRectangularStandardBody {
+                    inHandler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: tObject))
                 } else {
                     inHandler(nil)
                 }
@@ -313,13 +323,13 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     
     /*******************************************************************************************/
     /**
-     This sets the supported Time Travel directions (We do both forward and backward).
+     This sets the supported Time Travel directions (We don't do any).
      
      - parameter for: The inComplication we're generating this for.
      - parameter withHandler: The inHandler method to be called.
      */
     func getSupportedTimeTravelDirections(for inComplication: CLKComplication, withHandler inHandler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
-        inHandler([.backward, .forward])
+        inHandler([])
     }
     
     /*******************************************************************************************/

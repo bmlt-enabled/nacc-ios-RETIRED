@@ -94,6 +94,7 @@
 "RESULTS-COMPLEX-22"        =           "\nThis is %d years, 1 month and %d days.";
 "RESULTS-COMPLEX-23"        =           "\nThis is 1 year, 1 month and %d days.";
 
+"DAYS-SHORT"                =           "Days";
 "DAYS-UNIT"                 =           "Total Days";
 "YEARS-UNIT"                =           "Years";
 "MONTHS-UNIT"               =           "Months";
