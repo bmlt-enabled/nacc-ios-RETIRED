@@ -33,6 +33,10 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 
 CHANGELIST
 ----------
+***Version 4.0.0.2002* ** *- August 24, 2019*
+
+- Updated Complication Images.
+
 ***Version 4.0.0.2001* ** *- August 24, 2019*
 
 - Fixed an issue where you could get a "0 day" response to one day clean.
