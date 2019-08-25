@@ -23,6 +23,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhw-M1-aYb">
                                 <rect key="frame" x="20" y="44" width="374" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="A2g-EN-Tc2"/>
                                 </constraints>
@@ -51,7 +52,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="iWV-iR-Wbb" firstAttribute="top" secondItem="ONg-DY-aAg" secondAttribute="top" id="3P0-MG-1Bu"/>
                                     <constraint firstAttribute="height" constant="110" id="DNd-YY-IF0"/>
@@ -68,10 +69,10 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDr-XG-NSX" userLabel="Keytag Container">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="822"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="GDr-XG-NSX" firstAttribute="top" secondItem="E8x-U3-FLx" secondAttribute="top" placeholder="YES" id="0OT-cr-7Bu"/>
                                     <constraint firstAttribute="bottom" secondItem="GDr-XG-NSX" secondAttribute="bottom" placeholder="YES" id="8jA-5r-pjd"/>
@@ -82,7 +83,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ONg-DY-aAg" firstAttribute="top" secondItem="mhw-M1-aYb" secondAttribute="bottom" id="5ee-EW-gaV"/>
                             <constraint firstAttribute="trailing" secondItem="R9N-oM-Skk" secondAttribute="trailing" id="Gog-Fq-SZF"/>
@@ -125,6 +126,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background-Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="W6w-Em-Gqi">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-Gs-pTM">
                                 <rect key="frame" x="0.0" y="44" width="414" height="162"/>
@@ -207,7 +209,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W6w-Em-Gqi" firstAttribute="top" secondItem="0aG-t2-5fT" secondAttribute="top" id="119-Wa-ICO"/>
                             <constraint firstAttribute="bottom" secondItem="W6w-Em-Gqi" secondAttribute="bottom" id="3We-IQ-Tmf"/>
@@ -240,7 +242,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background-Gradient" width="10" height="1000"/>
+        <image name="Background-Gradient" width="1" height="910.66668701171875"/>
     </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

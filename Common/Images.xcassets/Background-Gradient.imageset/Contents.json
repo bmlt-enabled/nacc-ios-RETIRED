@@ -6,9 +6,9 @@
       "filename" : "Background-Gradient~universal@1x.png"
     },
     {
-      "filename" : "Background-Gradient~universal@2x.png",
       "scale" : "2x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "Background-Gradient~universal@2x.png"
     },
     {
       "scale" : "3x",
