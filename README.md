@@ -1,24 +1,24 @@
+![Icon](icon.png)
+
 DESCRIPTION
------------
+=
 This is an extremely basic "toy" app that is for use by NA members for
 "calculating their cleantime -not their Recovery."
 It asks the user to enter their clean date in the app, then displays a
 textual breakdown of their cleantime to date, along with a string of keytags.
 
 REQUIREMENTS
-------------
+-
 This is an iOS app, made for iPhones and iPads. It is only available via the Apple App Store, and requires iOS 11.0 or above.
 
 The Watch component requires watchOS 5.0 or above.
 
 INSTALLATION
-------------
-
+-
 This will be installed via the Apple App Store, and will be a free app.
 
 LICENSE
--------
-
+-
 MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
@@ -34,7 +34,7 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMA
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 CHANGELIST
-----------
+-
 ***Version 4.0.0.2004* ** *- TBD*
 
 - Cleaned up the documentation for 100% Jazzy.
