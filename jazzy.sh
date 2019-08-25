@@ -11,5 +11,5 @@ jazzy   --github_url https://github.com/LittleGreenViper/nacc-ios \
         --module NACC \
         --min-acl private \
         --copyright [©2019\ Little\ Green\ Viper\ Software\ Development\ LLC]\(https://littlegreenviper.com\)
-cp icon.png docs/icon.png
+cp img/*.* docs/img/
 cd "${CWD}"

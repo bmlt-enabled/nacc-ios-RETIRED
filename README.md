@@ -1,21 +1,56 @@
-![Icon](icon.png)
+![Icon](img/NACC-Watch.png)
+
+NA Cleantime Calculator (NACC)
+=
 
 DESCRIPTION
-=
-This is an extremely basic "toy" app that is for use by NA members for
-"calculating their cleantime -not their Recovery."
-It asks the user to enter their clean date in the app, then displays a
-textual breakdown of their cleantime to date, along with a string of keytags.
+-
+This is an extremely simple [iOS](https://apple.com/ios) app that is designed specifically for use by [NA](https://na.org) members in order to "calculate their cleantime -not their Recovery."
+It asks the user to enter the date they got clean, then displays a textual breakdown of their cleantime to date, along with a string of keytags.
 
 REQUIREMENTS
 -
-This is an iOS app, made for iPhones and iPads. It is only available via the Apple App Store, and requires iOS 11.0 or above.
+This is an iOS app, made for iPhones, iPads and Apple Watches. It is only available via the [Apple iOS App Store](https://www.apple.com/ios/app-store/), and requires [iOS](https://apple.com/ios) 11.0 or above (Requires iPhone 5s or later).
 
-The Watch component requires watchOS 5.0 or above.
+The Watch app requires [watchOS](https://apple.com/watchos) 5.0 or above (Requires a Watch Series 2 or later).
 
 INSTALLATION
 -
-This will be installed via the Apple App Store, and will be a free app.
+This will be installed via the Apple App Store, and will be a free app. If you have a compatible Apple watch paired with your phone, then it will also install a Watch App, called "NACC." The Watch app will provide a full complement of complications for all faces.
+
+USAGE (IPHONE)
+-
+The app is extremely easy to use. Upon opening the app, you will be presented with a screen like this:
+
+![Enter Cleandate Screen](img/00-EnterCleandate.jpg)
+
+Use the date picker to select your cleandate, then tap on the "CALCULATE CLEANTIME" button.
+
+The app will provide a report screen that will look like this (Note that you can scroll the key tags):
+
+<img alt="Report With Tags" src="img/00-InitialTagReport.jpg"> <img alt="Report With Tags -Scrolled" src="img/00-ScrolledTagReport.jpg">
+
+If you tap on "BACK TO ENTER DATE", at the top, left, you will return to the date entry screen.
+
+You can also choose to have no tags displayed (textual report only). You do this by turning off the "Show Tags" switch, like so:
+
+<img alt="Report With Tags" src="img/00-NoTagsSwitchEnter.jpg"> <img alt="Report With Tags -Scrolled" src="img/00-NoTagsReport.jpg">
+
+USAGE (WATCH)
+-
+The Watch app is a "report only" app, that relies on the date that you entered in the paired phone. There is no way to enter a date in the Watch.
+
+The app is available in the "honeycomb", as "NACC", with the "circle of tags" icon:
+
+![Watch Icon](img/01-WatchIcon.jpg)
+
+Complications are available for all Watch faces that support complications:
+
+<img width="128" alt="Series 4 Infograph" src="img/01-WatchFace01.jpg"> <img width="128" alt="Series 4 Infograph Modular" src="img/01-WatchFace02.jpg"> <img width="128" alt="Utility" src="img/01-WatchFace03.jpg">  <img width="128" alt="Activity" src="img/01-WatchFace04.jpg"> <img width="128" alt="Siri" src="img/01-WatchFace05.jpg"> 
+
+If you activate the app, you will get a report that looks like this (with and without tags):
+
+<img alt="Watch Report With Tags" src="img/01-WatchReportTags.jpg"> <img alt="Watch Report With Tags -Scrolled" src="img/01-WatchReportTagsScrolled.jpg"> <img alt="Watch Report Without Tags" src="img/01-WatchReportNoTags.jpg">
 
 LICENSE
 -
@@ -32,53 +67,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-CHANGELIST
--
-***Version 4.0.0.2004* ** *- TBD*
-
-- Cleaned up the documentation for 100% Jazzy.
-- Refactoring to conform to the same basic coding style as other apps.
-
-***Version 4.0.0.2003* ** *- August 24, 2019*
-
-- Updated Complication Images.
-- Added a textual component to the Graphic Bezel complication.
-
-***Version 4.0.0.2002* ** *- August 24, 2019*
-
-- Updated Complication Images.
-
-***Version 4.0.0.2001* ** *- August 24, 2019*
-
-- Fixed an issue where you could get a "0 day" response to one day clean.
-- Changed the complication icons.
-
-***Version 4.0.0.2000* ** *- August 23, 2019*
-
-- Updated to Swift 5.
-- Complete rewrite in many places. The look and feel has changed, and it is a lot simpler.
-- Adds a simple Watch app that reports the results on your wrist.
-
-***Version 3.3.0.3000* ** *- September 19, 2017*
-
-- Official release.
-
-***Version 3.3.0.2000* ** *- September 13, 2017*
-- Added the two new keytags (5 and 15 years).
-- Updated to the latest iOS and Xcode versions. Base version is now 10.0.
-- Darkened the text to improve readability.
-- First beta release.
-
-***Version 3.2.0.3000* ** *- November 14, 2016*
-- This adds a new switch that allows the keytag display to be disabled.
-
-***Version 3.1.0.3000* ** *- September 22, 2016*
-- This implements the new Swift 3 language.
-- Added the new 10,000 days and 30-year tags.
-- It now remembers the last date entered.
-- The keychain now scrolls to the end when the result is announced.
-
-***Version 3.0.0.3000* ** *- July 15, 2015*
-- This reflects a complete, top-to-bottom rewrite of the app.
-- It has been rewritten in Swift, Apple's new programming language.

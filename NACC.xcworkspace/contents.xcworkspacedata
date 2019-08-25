@@ -5,6 +5,9 @@
       location = "group:README.md">
    </FileRef>
    <FileRef
+      location = "group:CHANGELIST.md">
+   </FileRef>
+   <FileRef
       location = "group:jazzy.sh">
    </FileRef>
    <FileRef
