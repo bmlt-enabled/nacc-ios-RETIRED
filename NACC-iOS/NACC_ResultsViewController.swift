@@ -49,7 +49,18 @@ class NACC_ResultsViewController: UIViewController {
     @IBOutlet weak var  cleandateLabel: UILabel!
     /// The back button at the top.
     @IBOutlet weak var  doneButton: UIButton!
-    
+
+    /* ################################################################################################################################## */
+    // MARK: - Instance Override Calculated Properties
+    /* ################################################################################################################################## */
+    /* ################################################################## */
+    /**
+     - returns true, indicating that X-phones should hide the Home Bar.
+     */
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+
     /* ################################################################################################################################## */
     // MARK: - @IBAction Methods
     /* ################################################################################################################################## */
@@ -114,6 +125,8 @@ class NACC_ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         doneButton.setTitle(doneButton.title(for: .normal)?.localizedVariant, for: .normal)
+        // This asks the "pushup" bar at the bottom to disappear.
+        self.setNeedsUpdateOfHomeIndicatorAutoHidden()
     }
     
     /* ################################################################## */
