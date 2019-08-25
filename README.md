@@ -33,7 +33,7 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 
 CHANGELIST
 ----------
-***Version 4.0.0.2003* ** *- TBD*
+***Version 4.0.0.2003* ** *- August 24, 2019*
 
 - Updated Complication Images.
 - Added a textual component to the Graphic Bezel complication.
