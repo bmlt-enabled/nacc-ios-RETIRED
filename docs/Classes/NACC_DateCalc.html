@@ -123,18 +123,13 @@
 
                 </div>
               </div>
-            <hr>
+            <p>This is the fundamental core of the cleantme calculator.</p>
 
-<p>\class  NACC_DateCalc
-\brief  This is the fundamental core of the cleantme calculator.</p>
-<pre class="highlight swift"><code>    <span class="kt">It</span> <span class="n">works</span> <span class="n">by</span> <span class="n">taking</span> <span class="n">an</span> <span class="n">input</span> <span class="nf">date</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">day</span> <span class="n">resolution</span><span class="p">),</span> <span class="n">and</span> <span class="n">a</span> <span class="s">"today"</span> <span class="nf">date</span> <span class="p">(</span><span class="n">which</span> <span class="n">can</span> <span class="n">be</span>
-    <span class="n">omitted</span><span class="p">),</span> <span class="n">and</span> <span class="n">calculates</span> <span class="n">the</span> <span class="n">time</span> <span class="n">interval</span> <span class="n">between</span> <span class="n">them</span><span class="o">.</span> <span class="kt">It</span> <span class="n">uses</span> <span class="n">the</span> <span class="n">appropriate</span>
-    <span class="nf">calendar</span> <span class="p">(</span><span class="k">if</span> <span class="kt">Iranian</span><span class="p">,</span> <span class="n">it</span> <span class="n">uses</span> <span class="n">the</span> <span class="kt">Persian</span> <span class="kt">Solar</span> <span class="kt">Calendar</span><span class="p">)</span><span class="o">.</span>
-    <span class="kt">All</span> <span class="n">the</span> <span class="n">action</span> <span class="n">happens</span> <span class="k">in</span> <span class="n">the</span> <span class="n">designated</span> <span class="n">initializer</span><span class="o">.</span> <span class="kt">Once</span> <span class="n">the</span> <span class="kd">class</span> <span class="k">is</span> <span class="n">instantiated</span><span class="p">,</span>
-    <span class="n">its</span> <span class="n">work</span> <span class="k">is</span> <span class="n">done</span><span class="o">.</span>
-</code></pre>
-
-<hr>
+<p>It works by taking an input date (1-day resolution), and a <q>today</q> date (which can be
+omitted), and calculates the time interval between them. It uses the appropriate
+calendar (if Iranian, it uses the Persian Solar Calendar).
+All the action happens in the designated initializer. Once the class is instantiated,
+its work is done.</p>
 
           </div>
         </section>
@@ -157,7 +152,8 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The following will read like: 
-<q>There have been <totalDays> between the dates. This is a period of <years> years, <months> months and <days> days.</q></p>
+<q>There have been <totalDays> between the dates. This is a period of <years> years, <months> months and <days> days.</q>
+The total number of days.</p>
 
                       </div>
                       <div class="declaration">
@@ -184,7 +180,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>&lt; The total number of days.</p>
+                        <p>The number of years since the clean date.</p>
 
                       </div>
                       <div class="declaration">
@@ -211,7 +207,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>&lt; The number of years since the clean date.</p>
+                        <p>The number of months since the last year in the clean date.</p>
 
                       </div>
                       <div class="declaration">
@@ -238,7 +234,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>&lt; The number of months since the last year in the clean date.</p>
+                        <p>The number of days since the last month in the clean date.</p>
 
                       </div>
                       <div class="declaration">
@@ -265,7 +261,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>&lt; The number of days since the last month in the clean date.</p>
+                        <p>This will contain a readable string of the date.</p>
 
                       </div>
                       <div class="declaration">
@@ -292,7 +288,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>&lt; This will contain a readable string of the date.</p>
+                        <p>The starting date of the period (the cleandate).</p>
 
                       </div>
                       <div class="declaration">
@@ -319,7 +315,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>&lt; The starting date of the period (the cleandate).</p>
+                        <p>The ending date of the period (today, usually).</p>
 
                       </div>
                       <div class="declaration">
@@ -346,12 +342,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>\brief  This is the designated initializer. It takes two dates, and calculates between them.</p>
-
-<p>\param inStartDate This is the <q>from</q> date. It is the start of the calculation.
-\param inNowDate This is the end date. The calculation goes between these two dates.</p>
+                        <p>This is the designated initializer. It takes two dates, and calculates between them.</p>
 
                       </div>
                       <div class="declaration">
@@ -361,6 +352,37 @@
                           <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">inStartDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">inNowDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inStartDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This is the <q>from</q> date. It is the start of the calculation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inNowDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This is the end date. The calculation goes between these two dates.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -378,9 +400,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>\brief  Convenience parameter-less init</p>
+                        <p>Convenience parameter-less init</p>
 
                       </div>
                       <div class="declaration">
@@ -407,11 +427,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>\brief  This is a convenience initializer that calculates between a given date, and now.</p>
-
-<p>\param inStartDate This is the <q>from</q> date. It is the start of the calculation.</p>
+                        <p>This is a convenience initializer that calculates between a given date, and now.</p>
 
                       </div>
                       <div class="declaration">
@@ -421,6 +437,25 @@
                           <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">inStartDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inStartDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This is the <q>from</q> date. It is the start of the calculation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -438,13 +473,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>\brief  This is a convenience initializer that calculates between a given date (expressed in components), and now.</p>
-
-<p>\param inCleanYear The year (fully-qualified)
-\param inCleanMonth The month (1 is January)
-\param inCleanDay The day of the month</p>
+                        <p>This is a convenience initializer that calculates between a given date (expressed in components), and now.</p>
 
                       </div>
                       <div class="declaration">
@@ -454,6 +483,49 @@
                           <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">inCleanYear</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inCleanMonth</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inCleanDay</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inCleanYear</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The year (fully-qualified)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inCleanMonth</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The month (1 is January)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inCleanDay</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The day of the month</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

@@ -123,14 +123,8 @@
 
                 </div>
               </div>
-            <hr>
-
-<p>\class  NACC_TagModel</p>
-
-<p>This class wil determine which NA tags are the proper ones for the cleantime, and will
-        instantiate and maintain the image assets for them (including constructing the tags).</p>
-
-<hr>
+            <p>This class will determine which NA tags are the proper ones for the cleantime, and will
+instantiate and maintain the image assets for them (including constructing the tags).</p>
 
           </div>
         </section>
@@ -207,8 +201,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-<pre class="highlight swift"><code><span class="kt">Yuck</span><span class="o">.</span> <span class="kt">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">big</span><span class="p">,</span> <span class="n">fat</span><span class="p">,</span> <span class="n">hairy</span> <span class="n">mess</span> <span class="n">of</span> <span class="n">cyclomatic</span> <span class="n">complexity</span><span class="o">.</span> <span class="kt">However</span><span class="p">,</span> <span class="n">there</span> <span class="n">doesn</span><span class="err">'</span><span class="n">t</span>
+                        <pre class="highlight swift"><code><span class="kt">Yuck</span><span class="o">.</span> <span class="kt">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">big</span><span class="p">,</span> <span class="n">fat</span><span class="p">,</span> <span class="n">hairy</span> <span class="n">mess</span> <span class="n">of</span> <span class="n">cyclomatic</span> <span class="n">complexity</span><span class="o">.</span> <span class="kt">However</span><span class="p">,</span> <span class="n">there</span> <span class="n">doesn</span><span class="err">'</span><span class="n">t</span>
        <span class="n">really</span> <span class="n">seem</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="n">better</span> <span class="n">way</span> <span class="n">of</span> <span class="n">getting</span> <span class="n">the</span> <span class="n">display</span> <span class="n">of</span> <span class="n">natural</span> <span class="n">text</span><span class="o">.</span>
        <span class="kt">This</span> <span class="n">function</span> <span class="n">generates</span> <span class="n">a</span> <span class="n">text</span> <span class="n">response</span> <span class="n">that</span> <span class="n">announces</span> <span class="n">the</span> <span class="n">cleantime</span><span class="p">,</span> <span class="k">in</span> <span class="n">a</span> <span class="n">casual</span><span class="p">,</span>
        <span class="n">natural</span> <span class="k">set</span> <span class="n">of</span> <span class="n">sentences</span><span class="o">.</span>
@@ -222,6 +215,25 @@
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getDisplayCleandate</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTotalDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inCalculation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the date calculation that we will display as text.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
@@ -243,9 +255,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>Generates a report for over 90 days.</p>
+                        <p>Generates a report for over 90 days.</p>
 
                       </div>
                       <div class="declaration">
@@ -255,6 +265,61 @@
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">handleOver90</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTotalDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">inResultsString</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inTotalDays</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The total number of days since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inYears</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of years since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inMonths</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of months, past the years, since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inDays</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of days, past the months, since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
@@ -276,9 +341,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>CC Overflow handler.</p>
+                        <p>CC Overflow handler.</p>
 
 <p>Handles creating the report for over 90 days (part 23).</p>
 
@@ -290,6 +353,61 @@
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">handleOver90Part2</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTotalDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">inResultsString</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inTotalDays</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The total number of days since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inYears</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of years since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inMonths</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of months, past the years, since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inDays</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of days, past the months, since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
@@ -311,9 +429,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>CC Overflow handler.</p>
+                        <p>CC Overflow handler.</p>
 
 <p>Handles creating the report for over 90 days (part 3).</p>
 
@@ -325,6 +441,61 @@
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">handleOver90Part3</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTotalDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">inResultsString</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inTotalDays</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The total number of days since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inYears</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of years since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inMonths</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of months, past the years, since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inDays</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of days, past the months, since the cleandate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
@@ -346,9 +517,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>A class function that will use our current localization to determine the correct tag name.</p>
+                        <p>A class function that will use our current localization to determine the correct tag name.</p>
 
                       </div>
                       <div class="declaration">
@@ -360,6 +529,25 @@
                                                        <span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inIndex</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The index of the tag we are looking up.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
@@ -381,9 +569,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>This loads our available strings</p>
+                        <p>This loads our available strings</p>
 
                       </div>
                       <div class="declaration">
@@ -414,9 +600,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>This composes a tag image, based on the three image resource names provided.</p>
+                        <p>This composes a tag image, based on the three image resource names provided.</p>
 
                       </div>
                       <div class="declaration">
@@ -426,6 +610,49 @@
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">constructTag</span><span class="p">(</span><span class="n">_</span> <span class="nv">inBaseName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">inFaceName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">inRingClosed</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIImage</span><span class="p">?</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inBaseName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the tag base image.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inFaceName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the text to overlay on the tag.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inRingClosed</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>if true, the closed ring image will be used. If not, the open one will be used. Default is false.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
@@ -447,9 +674,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>Checks a given tag data template against the given calculation to see if the tag applies.</p>
+                        <p>Checks a given tag data template against the given calculation to see if the tag applies.</p>
 
                       </div>
                       <div class="declaration">
@@ -459,6 +684,37 @@
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">doesThisTagApply</span><span class="p">(</span><span class="nv">inCalculation</span><span class="p">:</span> <span class="kt"><a href="../Classes/NACC_DateCalc.html">NACC_DateCalc</a></span><span class="p">,</span> <span class="nv">inTagTemplate</span><span class="p">:</span> <span class="kt"><a href="../Classes/NACC_TagModel/NACC_TagModel_TagData.html">NACC_TagModel_TagData</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inCalculation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This is the NACC_DateCalc instance that has calculated the cleantime.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inTagTemplate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This is the tag template we are checking.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
@@ -480,9 +736,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>The designated initializer.</p>
+                        <p>The designated initializer.</p>
 
                       </div>
                       <div class="declaration">
@@ -492,6 +746,25 @@
                           <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">inCalculation</span><span class="p">:</span> <span class="kt"><a href="../Classes/NACC_DateCalc.html">NACC_DateCalc</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inCalculation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This is the NACC_DateCalc instance that has calculated the cleantime.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -509,9 +782,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>Convenience parameter-less init</p>
+                        <p>Convenience parameter-less init</p>
 
                       </div>
                       <div class="declaration">
@@ -538,9 +809,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <hr>
-
-<p>This builds up an array of UIImages to be used to display the tags.</p>
+                        <p>This builds up an array of UIImages to be used to display the tags.</p>
 
                       </div>
                       <div class="declaration">
