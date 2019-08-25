@@ -7,7 +7,9 @@ textual breakdown of their cleantime to date, along with a string of keytags.
 
 REQUIREMENTS
 ------------
-This is an iOS app, made for iPhones and iPads. It is only available via the Apple App Store, and requires iOS 9.0 or above.
+This is an iOS app, made for iPhones and iPads. It is only available via the Apple App Store, and requires iOS 11.0 or above.
+
+The Watch component requires watchOS 5.0 or above.
 
 INSTALLATION
 ------------
@@ -33,6 +35,10 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 
 CHANGELIST
 ----------
+***Version 4.0.0.2004* ** *- TBD*
+
+- Cleaned up the documentation for 100% Jazzy.
+
 ***Version 4.0.0.2003* ** *- August 24, 2019*
 
 - Updated Complication Images.

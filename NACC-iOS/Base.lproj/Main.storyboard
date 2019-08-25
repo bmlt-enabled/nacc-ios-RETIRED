@@ -230,7 +230,6 @@
                         <outlet property="calcOnlySwitch" destination="kpF-VC-bdE" id="A3c-I1-vRq"/>
                         <outlet property="calcOnlySwitchButton" destination="yGl-2p-di2" id="f3a-JP-HXq"/>
                         <outlet property="datePicker" destination="2dk-Gs-pTM" id="Arq-9S-Tkv"/>
-                        <outlet property="displayView" destination="AYM-nT-E6c" id="e0m-j6-neB"/>
                         <outlet property="explainTextField" destination="Wm8-kp-O0f" id="OND-ks-3sU"/>
                         <outlet property="view" destination="0aG-t2-5fT" id="UD5-dh-nql"/>
                     </connections>

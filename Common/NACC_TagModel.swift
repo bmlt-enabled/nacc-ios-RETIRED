@@ -39,40 +39,45 @@ extension String {
 /**
     \class  NACC_TagModel
 
-    \brief  This class wil determine which NA tags are the proper ones for the cleantime, and will
+     This class wil determine which NA tags are the proper ones for the cleantime, and will
             instantiate and maintain the image assets for them (including constructing the tags).
 */
 /***********************************************************************************************/
 class NACC_TagModel {
     /**
-        \struct NACC_TagModel_TagData
-    
-        \brief This will be assigned to describe available tags.
+        This will be assigned to describe available tags.
     */
     struct NACC_TagModel_TagData {
-        let baseImageName: String    ///< The name of the image we will use as the tag base (if the tag applies).
-        let faceImageName: String    ///< The name of the face (text) image.
+        /// The name of the image we will use as the tag base (if the tag applies).
+        let baseImageName: String
+        /// The name of the face (text) image.
+        let faceImageName: String
         /// These are the coefficients we apply, to see if the tag applies.
-        let totalDays: Int           ///< If this tag is assigned for a certain number of total days, that is indicated here. If it is specified, the rest of these fields are ignored.
+        /// If this tag is assigned for a certain number of total days, that is indicated here. If it is specified, the rest of these fields are ignored.
+        let totalDays: Int
         /// The rest of these are for specific durations, measured in months, days, and years. If totalDays is specified, these are ignored.
         /// If totalDays is not specified, then all 3 of these are considered at once.
-        let days: Int                ///< Days past a month.
-        let months: Int              ///< Months past a year.
-        let years: Int               ///< Years.
+        /// Days past a month.
+        let days: Int
+        /// Months past a year.
+        let months: Int
+        /// Years.
+        let years: Int
     }
     
-    let calculation: NACC_DateCalc                  ///< This is the calculation object that will govern which tags will be displayed.
+    /// This is the calculation object that will govern which tags will be displayed.
+    let calculation: NACC_DateCalc
     
     /*******************************************************************************************/
     /**
-        \brief  Yuck. This is a big, fat, hairy mess of cyclomatic complexity. However, there doesn't
+         Yuck. This is a big, fat, hairy mess of cyclomatic complexity. However, there doesn't
                 really seem to be a better way of getting the display of natural text.
                 This function generates a text response that announces the cleantime, in a casual,
                 natural set of sentences.
         
-        \param inCalculation the date calculation that we will display as text.
+     - parameter inCalculation: the date calculation that we will display as text.
         
-        \returns a string, containing the cleandate text.
+     - returns: a string, containing the cleandate text.
     */
     class func getDisplayCleandate(_ inTotalDays: Int, inYears: Int, inMonths: Int, inDays: Int) -> String {
         var resultsString: String = ""
@@ -96,6 +101,14 @@ class NACC_TagModel {
     
     /*******************************************************************************************/
     /**
+     Generates a report for over 90 days.
+     
+     - parameter inTotalDays: The total number of days since the cleandate.
+     - parameter inYears: The number of years since the cleandate.
+     - parameter inMonths: The number of months, past the years, since the cleandate.
+     - parameter inDays: The number of days, past the months, since the cleandate.
+     
+     - returns: A String, with the report.
      */
     class func handleOver90(_ inTotalDays: Int, inYears: Int, inMonths: Int, inDays: Int, _ inResultsString: String) -> String {
         if (inYears > 1) && (inMonths > 1) && (inDays > 1) {   // Multiple of years, months and days.
@@ -117,6 +130,16 @@ class NACC_TagModel {
     
     /*******************************************************************************************/
     /**
+     CC Overflow handler.
+     
+     Handles creating the report for over 90 days (part 23).
+     
+     - parameter inTotalDays: The total number of days since the cleandate.
+     - parameter inYears: The number of years since the cleandate.
+     - parameter inMonths: The number of months, past the years, since the cleandate.
+     - parameter inDays: The number of days, past the months, since the cleandate.
+     
+     - returns: A String, with the report.
      */
     class func handleOver90Part2(_ inTotalDays: Int, inYears: Int, inMonths: Int, inDays: Int, _ inResultsString: String) -> String {
         if (inYears == 1) && (inMonths == 0) && (inDays > 1) {
@@ -148,6 +171,16 @@ class NACC_TagModel {
     
     /*******************************************************************************************/
     /**
+     CC Overflow handler.
+     
+     Handles creating the report for over 90 days (part 3).
+     
+     - parameter inTotalDays: The total number of days since the cleandate.
+     - parameter inYears: The number of years since the cleandate.
+     - parameter inMonths: The number of months, past the years, since the cleandate.
+     - parameter inDays: The number of days, past the months, since the cleandate.
+     
+     - returns: A String, with the report.
      */
     class func handleOver90Part3(_ inTotalDays: Int, inYears: Int, inMonths: Int, inDays: Int, _ inResultsString: String) -> String {
         if (inYears == 0) && (inMonths == 1) && (inDays == 1) { // Should never happen.
@@ -169,11 +202,11 @@ class NACC_TagModel {
 
     /*******************************************************************************************/
     /**
-        \brief  A class function that will use our current localization to determine the correct tag name.
+     A class function that will use our current localization to determine the correct tag name.
         
-        \param  inIndex The index of the tag we are looking up.
+     - parameter inIndex: The index of the tag we are looking up.
         
-        \returns a tuple, containing both the base (tag) file name, and the face (text) file name.
+     - returns: a tuple, containing both the base (tag) file name, and the face (text) file name.
     */
     class func determineImageNames(_ inIndex: Int) -> (baseName: String,  ///< The tag base file name
                                                             faceName: String   ///< The tag face file name.
@@ -197,9 +230,9 @@ class NACC_TagModel {
     
     /*******************************************************************************************/
     /**
-        \brief      This loads our available strings
+     This loads our available strings
         
-        \returns    an array of prepared NACC_TagModel_TagData objects.
+     - returns: an array of prepared NACC_TagModel_TagData objects.
     */
     class func setUpAvailableImages() -> [NACC_TagModel_TagData] {
         // This current implementation is real clunky. I'll revisit it when I improve my Swift-Fu.
@@ -338,13 +371,13 @@ class NACC_TagModel {
     
     /*******************************************************************************************/
     /**
-        \brief  This composes a tag image, based on the three image resource names provided.
+     This composes a tag image, based on the three image resource names provided.
         
-        \param inBaseName The name of the tag base image.
-        \param inFaceName The name of the text to overlay on the tag.
-        \param inRingClosed if true, the closed ring image will be used. If not, the open one will be used. Default is false.
+     - parameter inBaseName: The name of the tag base image.
+     - parameter inFaceName: The name of the text to overlay on the tag.
+     - parameter inRingClosed: if true, the closed ring image will be used. If not, the open one will be used. Default is false.
         
-        \returns an instance of UIImage. May be nil, if the operation fails.
+        - returns: an instance of UIImage. May be nil, if the operation fails.
     */
     class func constructTag(_ inBaseName: String, inFaceName: String, inRingClosed: Bool = false) -> UIImage? {
         var ret: UIImage? = nil  // Start off pessimistic
@@ -379,12 +412,12 @@ class NACC_TagModel {
     
     /*******************************************************************************************/
     /**
-        \brief  Checks a given tag data template against the given calculation to see if the tag applies.
+     Checks a given tag data template against the given calculation to see if the tag applies.
         
-        \param  inCalculation This is the NACC_DateCalc instance that has calculated the cleantime.
-        \param  inTagTemplate This is the tag template we are checking.
+     - parameter inCalculation: This is the NACC_DateCalc instance that has calculated the cleantime.
+     - parameter inTagTemplate: This is the tag template we are checking.
         
-        \returns true if the tag applies to this calculation.
+     - returns: true if the tag applies to this calculation.
     */
     class func doesThisTagApply(inCalculation: NACC_DateCalc, inTagTemplate: NACC_TagModel_TagData) -> Bool {
         var ret: Bool = false
@@ -407,9 +440,9 @@ class NACC_TagModel {
     
     /*******************************************************************************************/
     /**
-        \brief  The designated initializer.
+     The designated initializer.
         
-        \param  inCalculation This is the NACC_DateCalc instance that has calculated the cleantime.
+     - parameter inCalculation: This is the NACC_DateCalc instance that has calculated the cleantime.
     */
     init(inCalculation: NACC_DateCalc) {
         calculation = inCalculation
@@ -417,7 +450,7 @@ class NACC_TagModel {
     
     /*******************************************************************************************/
     /**
-        \brief  Convenience parameter-less init
+     Convenience parameter-less init
     */
     convenience init() {
         self.init(inCalculation: NACC_DateCalc())
@@ -425,9 +458,9 @@ class NACC_TagModel {
     
     /*******************************************************************************************/
     /**
-        \brief  This builds up an array of UIImages to be used to display the tags.
+     This builds up an array of UIImages to be used to display the tags.
         
-        \returns an array of UIImage.
+    - returns: an array of UIImage.
     */
     func getTags() -> [UIImage]? {
         var tagImages: [UIImage] = []                   // This is an array that will hold each of the aggregated image objects, in the order of display.

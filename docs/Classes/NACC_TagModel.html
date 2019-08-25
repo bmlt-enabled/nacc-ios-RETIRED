@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NACC_TagModel Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/NACC_TagModel" class="dashAnchor"></a>
+
+    <a title="NACC_TagModel Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          NACC Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/LittleGreenViper/nacc-ios">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">NACC Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      NACC_TagModel Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_AppDelegate.html">NACC_AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_DateCalc.html">NACC_DateCalc</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_DatePickerViewController.html">NACC_DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_Prefs.html">NACC_Prefs</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_Prefs/_KeyStrings.html">– _KeyStrings</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_Prefs/TagDisplay.html">– TagDisplay</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_ResultsViewController.html">NACC_ResultsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_TagModel.html">NACC_TagModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_TagModel/NACC_TagModel_TagData.html">– NACC_TagModel_TagData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RVS_PersistentPrefs.html">RVS_PersistentPrefs</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RVS_PersistentPrefs/PrefsError.html">– PrefsError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global Variables.html#/s:4NACC24s_watchPhoneMessageHitMeSSvp">s_watchPhoneMessageHitMe</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global Variables.html#/s:4NACC24s_watchPhoneMessageResetSSvp">s_watchPhoneMessageReset</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global Variables.html#/s:4NACC27s_watchPhoneReplySuccessKeySSvp">s_watchPhoneReplySuccessKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>NACC_TagModel</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NACC_TagModel</span></code></pre>
+
+                </div>
+              </div>
+            <hr>
+
+<p>\class  NACC_TagModel</p>
+
+<p>This class wil determine which NA tags are the proper ones for the cleantime, and will
+        instantiate and maintain the image assets for them (including constructing the tags).</p>
+
+<hr>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC0a1_bc1_B4DataV"></a>
+                    <a name="//apple_ref/swift/Struct/NACC_TagModel_TagData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC0a1_bc1_B4DataV">NACC_TagModel_TagData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This will be assigned to describe available tags.</p>
+
+                        <a href="../Classes/NACC_TagModel/NACC_TagModel_TagData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">NACC_TagModel_TagData</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC11calculationAA0A9_DateCalcCvp"></a>
+                    <a name="//apple_ref/swift/Property/calculation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC11calculationAA0A9_DateCalcCvp">calculation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the calculation object that will govern which tags will be displayed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">calculation</span><span class="p">:</span> <span class="kt"><a href="../Classes/NACC_DateCalc.html">NACC_DateCalc</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC19getDisplayCleandate_7inYears0G6Months0G4DaysSSSi_S3itFZ"></a>
+                    <a name="//apple_ref/swift/Method/getDisplayCleandate(_:inYears:inMonths:inDays:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC19getDisplayCleandate_7inYears0G6Months0G4DaysSSSi_S3itFZ">getDisplayCleandate(_:inYears:inMonths:inDays:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+<pre class="highlight swift"><code><span class="kt">Yuck</span><span class="o">.</span> <span class="kt">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">big</span><span class="p">,</span> <span class="n">fat</span><span class="p">,</span> <span class="n">hairy</span> <span class="n">mess</span> <span class="n">of</span> <span class="n">cyclomatic</span> <span class="n">complexity</span><span class="o">.</span> <span class="kt">However</span><span class="p">,</span> <span class="n">there</span> <span class="n">doesn</span><span class="err">'</span><span class="n">t</span>
+       <span class="n">really</span> <span class="n">seem</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="n">better</span> <span class="n">way</span> <span class="n">of</span> <span class="n">getting</span> <span class="n">the</span> <span class="n">display</span> <span class="n">of</span> <span class="n">natural</span> <span class="n">text</span><span class="o">.</span>
+       <span class="kt">This</span> <span class="n">function</span> <span class="n">generates</span> <span class="n">a</span> <span class="n">text</span> <span class="n">response</span> <span class="n">that</span> <span class="n">announces</span> <span class="n">the</span> <span class="n">cleantime</span><span class="p">,</span> <span class="k">in</span> <span class="n">a</span> <span class="n">casual</span><span class="p">,</span>
+       <span class="n">natural</span> <span class="k">set</span> <span class="n">of</span> <span class="n">sentences</span><span class="o">.</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getDisplayCleandate</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTotalDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a string, containing the cleandate text.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC12handleOver90_7inYears0F6Months0F4Days_SSSi_S3iSStFZ"></a>
+                    <a name="//apple_ref/swift/Method/handleOver90(_:inYears:inMonths:inDays:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC12handleOver90_7inYears0F6Months0F4Days_SSSi_S3iSStFZ">handleOver90(_:inYears:inMonths:inDays:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>Generates a report for over 90 days.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">handleOver90</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTotalDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">inResultsString</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A String, with the report.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC17handleOver90Part2_7inYears0G6Months0G4Days_SSSi_S3iSStFZ"></a>
+                    <a name="//apple_ref/swift/Method/handleOver90Part2(_:inYears:inMonths:inDays:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC17handleOver90Part2_7inYears0G6Months0G4Days_SSSi_S3iSStFZ">handleOver90Part2(_:inYears:inMonths:inDays:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>CC Overflow handler.</p>
+
+<p>Handles creating the report for over 90 days (part 23).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">handleOver90Part2</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTotalDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">inResultsString</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A String, with the report.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC17handleOver90Part3_7inYears0G6Months0G4Days_SSSi_S3iSStFZ"></a>
+                    <a name="//apple_ref/swift/Method/handleOver90Part3(_:inYears:inMonths:inDays:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC17handleOver90Part3_7inYears0G6Months0G4Days_SSSi_S3iSStFZ">handleOver90Part3(_:inYears:inMonths:inDays:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>CC Overflow handler.</p>
+
+<p>Handles creating the report for over 90 days (part 3).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">handleOver90Part3</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTotalDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">inResultsString</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A String, with the report.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC19determineImageNamesySS8baseName_SS04faceH0tSiFZ"></a>
+                    <a name="//apple_ref/swift/Method/determineImageNames(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC19determineImageNamesySS8baseName_SS04faceH0tSiFZ">determineImageNames(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>A class function that will use our current localization to determine the correct tag name.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">determineImageNames</span><span class="p">(</span><span class="n">_</span> <span class="nv">inIndex</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">baseName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>  <span class="c1">///&lt; The tag base file name</span>
+                                                        <span class="nv">faceName</span><span class="p">:</span> <span class="kt">String</span>   <span class="c1">///&lt; The tag face file name.</span>
+                                                       <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a tuple, containing both the base (tag) file name, and the face (text) file name.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC20setUpAvailableImagesSayAC0a1_bc1_B4DataVGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/setUpAvailableImages()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC20setUpAvailableImagesSayAC0a1_bc1_B4DataVGyFZ">setUpAvailableImages()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>This loads our available strings</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">setUpAvailableImages</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/NACC_TagModel/NACC_TagModel_TagData.html">NACC_TagModel_TagData</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an array of prepared NACC_TagModel_TagData objects.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC09constructB0_10inFaceName0E10RingClosedSo7UIImageCSgSS_SSSbtFZ"></a>
+                    <a name="//apple_ref/swift/Method/constructTag(_:inFaceName:inRingClosed:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC09constructB0_10inFaceName0E10RingClosedSo7UIImageCSgSS_SSSbtFZ">constructTag(_:inFaceName:inRingClosed:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>This composes a tag image, based on the three image resource names provided.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">constructTag</span><span class="p">(</span><span class="n">_</span> <span class="nv">inBaseName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">inFaceName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">inRingClosed</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIImage</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an instance of UIImage. May be nil, if the operation fails.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC08doesThisB5Apply13inCalculation0gB8TemplateSbAA0A9_DateCalcC_AC0a1_bc1_B4DataVtFZ"></a>
+                    <a name="//apple_ref/swift/Method/doesThisTagApply(inCalculation:inTagTemplate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC08doesThisB5Apply13inCalculation0gB8TemplateSbAA0A9_DateCalcC_AC0a1_bc1_B4DataVtFZ">doesThisTagApply(inCalculation:inTagTemplate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>Checks a given tag data template against the given calculation to see if the tag applies.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">doesThisTagApply</span><span class="p">(</span><span class="nv">inCalculation</span><span class="p">:</span> <span class="kt"><a href="../Classes/NACC_DateCalc.html">NACC_DateCalc</a></span><span class="p">,</span> <span class="nv">inTagTemplate</span><span class="p">:</span> <span class="kt"><a href="../Classes/NACC_TagModel/NACC_TagModel_TagData.html">NACC_TagModel_TagData</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>true if the tag applies to this calculation.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC13inCalculationAcA0A9_DateCalcC_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(inCalculation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC13inCalculationAcA0A9_DateCalcC_tcfc">init(inCalculation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>The designated initializer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">inCalculation</span><span class="p">:</span> <span class="kt"><a href="../Classes/NACC_DateCalc.html">NACC_DateCalc</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelCACycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelCACycfc">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>Convenience parameter-less init</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_TagModelC7getTagsSaySo7UIImageCGSgyF"></a>
+                    <a name="//apple_ref/swift/Method/getTags()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_TagModelC7getTagsSaySo7UIImageCGSgyF">getTags()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>This builds up an array of UIImages to be used to display the tags.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getTags</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">UIImage</span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an array of UIImage.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p><a class="link" href="https://littlegreenviper.com" target="_blank" rel="external">©2019 Little Green Viper Software Development LLC</a></p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

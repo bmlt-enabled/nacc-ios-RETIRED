@@ -22,16 +22,30 @@
 
 import UIKit
 
+/* ###################################################################################################################################### */
+/**
+ The ViewController class for the date selector screen.
+ */
 class NACC_DatePickerViewController: UIViewController {
+    /// The date picker view
     @IBOutlet weak var  datePicker: UIDatePicker!
-    @IBOutlet weak var  displayView: UIView!
+    /// The text with the explanation
     @IBOutlet weak var  explainTextField: UITextView!
+    /// The Calculate button
     @IBOutlet weak var  calcButton: UIButton!
+    /// The button that toggles the switch
     @IBOutlet weak var  calcOnlySwitchButton: UIButton!
+    /// The show tags switch.
     @IBOutlet weak var  calcOnlySwitch: UISwitch!
     
+    /* ################################################################################################################################## */
+    // MARK: - @IBAction Methods
+    /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
+     Called when the Show Tags Switch changes.
+     
+     - parameter: Ignored
      */
     @IBAction func showTagsChanged(_: Any! = nil) {
         let prefs = NACC_Prefs()
@@ -41,17 +55,20 @@ class NACC_DatePickerViewController: UIViewController {
     
     /*******************************************************************************************/
     /**
+     Called when the Show Tags Button Toggler is hit.
+     
+     - parameter: Ignored
      */
     @IBAction func calcOnlyButtonHit(_: Any) {
-        calcOnlySwitch.isOn = !calcOnlySwitch.isOn
+        calcOnlySwitch.setOn(!calcOnlySwitch.isOn, animated: true)
         showTagsChanged()
     }
     
     /*******************************************************************************************/
     /**
-        \brief  Register the date when the picker changes value.
+     Register the date when the picker changes value.
     
-        \param  inPicker the picker object.
+     - parameter inPicker: the picker object.
     */
     @IBAction func dateChanged(_ inPicker: UIDatePicker) {
         let prefs = NACC_Prefs()
@@ -59,9 +76,12 @@ class NACC_DatePickerViewController: UIViewController {
         NACC_AppDelegate.appDelegateObject.sendCurrentSettingsToWatch()
     }
     
+    /* ################################################################################################################################## */
+    // MARK: - Base Class Override Methods
+    /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
-        \brief  Called when the view is loaded. We set the navbar color here.
+     Called when the view is loaded. We set the navbar color here.
     */
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()

@@ -25,17 +25,25 @@ import WatchKit
 /* ###################################################################################################################################### */
 class NACC_Companion_InterfaceController: WKInterfaceController {
     /* ################################################################################################################################## */
+    /// The label that holds the cleandate report.
     @IBOutlet var cleandateReportLabel: WKInterfaceLabel!
+    /// The container for the tags.
     @IBOutlet var tagDisplay: WKInterfaceImage!
+    /// The update button.
     @IBOutlet var updateButton: WKInterfaceButton!
+    /// The separator between the update button and the tags.
     @IBOutlet weak var buttonSeparator: WKInterfaceSeparator!
     
     /* ################################################################################################################################## */
-    private let _offsetMultiplier: CGFloat          = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
+    /// This is a multiplier for ofsetting the tag images so they form a "chain."
+    private let _offsetMultiplier: CGFloat          = 0.31
     
     /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
+     Called when the update button is hit.
+     
+     - parameter: ignored.
      */
     @IBAction func requestUpdate(_: Any! = nil) {
         if let extensionDelegateObject = WKExtension.shared().delegate as? ExtensionDelegate {
@@ -47,6 +55,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
+     Actually calculates the cleantime.
      */
     func performCalculation() {
         tagDisplay.setHidden(false)
@@ -83,9 +92,9 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
 
     /*******************************************************************************************/
     /**
-     \brief  Displays the tags in the tag display panel.
+     Displays the tags in the tag display panel.
      
-     \param inTagImageArray the array of tag images to be displayed.
+     - parameter inTagImageArray: the array of tag images to be displayed.
      */
     func displayTags(inTagImageArray: [UIImage]) {
         let count = CGFloat(inTagImageArray.count)

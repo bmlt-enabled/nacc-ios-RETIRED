@@ -24,10 +24,11 @@ import UIKit
 import QuartzCore
 import WatchConnectivity
 
-@UIApplicationMain
 /* ###################################################################################################################################### */
 /**
+ The main App Delegate class.
  */
+@UIApplicationMain
 class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     /* ################################################################## */
     /**
@@ -37,12 +38,12 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         return (UIApplication.shared.delegate as? NACC_AppDelegate)!
     }
 
-    // MARK: - Constant Instance Properties
     /* ################################################################################################################################## */
     // MARK: - Internal Instance Properties
     /* ################################################################################################################################## */
-    /** This contains our loaded prefs Dictionary. */
+    /// This contains our loaded prefs Dictionary.
     var loadedPrefs: NSMutableDictionary! = nil
+    /// The app main window.
     var window: UIWindow?
 
     /* ############################################################################################################################## */
@@ -56,8 +57,10 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         return WCSession.default
     }
 
+    /* ################################################################################################################################## */
     // MARK: - Internal Instance Methods
     /* ################################################################################################################################## */
+    /// Activates the Watch session.
     func activateSession() {
         if WCSession.isSupported() && (session.activationState != .activated) {
             session.delegate = self
@@ -65,24 +68,35 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         }
     }
 
+    /* ################################################################################################################################## */
     // MARK: - UIApplicationDelegate Protocol Methods
     /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
-        \brief  Simply set the SINGLETON to us.
+     Called when the app has finished launch prep.
+     
+     - parameter inApplication: The application object (ignored).
+     - parameter didFinishLaunchingWithOptions: The launch options (also ignored).
+     
+     - returns: True, if the app is to launch.
     */
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ inApplication: UIApplication, didFinishLaunchingWithOptions inLaunchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         /* ################################################################## */
         /**
-         These are keys for our prefs.
+         These are keys for our old prefs.
+         
+         We use these to load any legacy prefs from previous versions of the app.
          */
+        /// The Main prefs
         let mainPrefsKey: String   = "NACCMainPrefs"
+        /// The last entered cleandate.
         let datePrefsKey: String   = "NACCLastDate"
+        /// Whether or not to show the tags.
         let keysPrefsKey: String   = "NACCShowTags"
         
         /*******************************************************************************************/
         /**
-         \brief  Loads the old persistent prefs (if any).
+         Loads the old persistent prefs (if any).
          */
         func loadPrefs() {
             let temp = UserDefaults.standard.object(forKey: mainPrefsKey) as? NSDictionary
@@ -123,11 +137,12 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     /*******************************************************************************************/
     /**
-        \brief  We make sure that the first window is always the date selector.
+     We make sure that the first window is always the date selector.
     */
     func applicationWillEnterForeground( _ application: UIApplication) {
     }
     
+    /* ################################################################################################################################## */
     // MARK: - WCSession Sender Methods
     /* ################################################################################################################################## */
     /* ################################################################## */
@@ -168,13 +183,19 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         #endif
     }
 
+    /* ################################################################################################################################## */
     // MARK: - WCSessionDelegate Protocol Methods
     /* ################################################################################################################################## */
     /* ################################################################## */
     /**
+     Called when the session is done activating.
+     
+     - parameter inSession: The WatchKit session (ignored).
+     - parameter activationDidCompleteWith: The activation state.
+     - parameter error: Any errors (ignored).
      */
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        if .activated == activationState {
+    func session(_ inSession: WCSession, activationDidCompleteWith inActivationState: WCSessionActivationState, error inError: Error?) {
+        if .activated == inActivationState {
             #if DEBUG
                 print("Watch session is active.")
             #endif
@@ -184,24 +205,11 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     /* ################################################################## */
     /**
-     */
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        #if DEBUG
-            print("Watch session is inactive.")
-        #endif
-    }
-    
-    /* ################################################################## */
-    /**
-     */
-    func sessionDidDeactivate(_ session: WCSession) {
-        #if DEBUG
-            print("Watch session deactivated.")
-        #endif
-    }
-    
-    /* ################################################################## */
-    /**
+     Called when we receive a message from the Watch.
+     
+     - parameter inSession: The WatchKit session (ignored).
+     - parameter didReceiveMessage: A Dictionary, with the message.
+     - parameter replyHandler: A callback closure to acknowledge the receipt of the message, and send back a reply.
      */
     func session(_ inSession: WCSession, didReceiveMessage inMessage: [String: Any], replyHandler inReplyHandler: @escaping ([String: Any]) -> Void) {
         if nil != inMessage[s_watchPhoneMessageHitMe] {
@@ -211,5 +219,29 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             inReplyHandler([s_watchPhoneReplySuccessKey: true])
             sendCurrentSettingsToWatch()
         }
+    }
+    
+    /* ################################################################## */
+    /**
+     Called when the session becomes inactive.
+     
+     - parameter inSession: The WatchKit session (ignored).
+     */
+    func sessionDidBecomeInactive(_ inSession: WCSession) {
+        #if DEBUG
+            print("Session became inactive.")
+        #endif
+    }
+    
+    /* ################################################################## */
+    /**
+     Called when the session is explicitly deactivated.
+     
+     - parameter inSession: The WatchKit session (ignored).
+     */
+    func sessionDidDeactivate(_ inSession: WCSession) {
+        #if DEBUG
+            print("Session deactivated.")
+        #endif
     }
 }

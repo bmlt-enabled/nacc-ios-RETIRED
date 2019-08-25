@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NACC_DateCalc Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/NACC_DateCalc" class="dashAnchor"></a>
+
+    <a title="NACC_DateCalc Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          NACC Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/LittleGreenViper/nacc-ios">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">NACC Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      NACC_DateCalc Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_AppDelegate.html">NACC_AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_DateCalc.html">NACC_DateCalc</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_DatePickerViewController.html">NACC_DatePickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_Prefs.html">NACC_Prefs</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_Prefs/_KeyStrings.html">– _KeyStrings</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_Prefs/TagDisplay.html">– TagDisplay</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_ResultsViewController.html">NACC_ResultsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_TagModel.html">NACC_TagModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NACC_TagModel/NACC_TagModel_TagData.html">– NACC_TagModel_TagData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RVS_PersistentPrefs.html">RVS_PersistentPrefs</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RVS_PersistentPrefs/PrefsError.html">– PrefsError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global Variables.html#/s:4NACC24s_watchPhoneMessageHitMeSSvp">s_watchPhoneMessageHitMe</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global Variables.html#/s:4NACC24s_watchPhoneMessageResetSSvp">s_watchPhoneMessageReset</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global Variables.html#/s:4NACC27s_watchPhoneReplySuccessKeySSvp">s_watchPhoneReplySuccessKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>NACC_DateCalc</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NACC_DateCalc</span></code></pre>
+
+                </div>
+              </div>
+            <hr>
+
+<p>\class  NACC_DateCalc
+\brief  This is the fundamental core of the cleantme calculator.</p>
+<pre class="highlight swift"><code>    <span class="kt">It</span> <span class="n">works</span> <span class="n">by</span> <span class="n">taking</span> <span class="n">an</span> <span class="n">input</span> <span class="nf">date</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">day</span> <span class="n">resolution</span><span class="p">),</span> <span class="n">and</span> <span class="n">a</span> <span class="s">"today"</span> <span class="nf">date</span> <span class="p">(</span><span class="n">which</span> <span class="n">can</span> <span class="n">be</span>
+    <span class="n">omitted</span><span class="p">),</span> <span class="n">and</span> <span class="n">calculates</span> <span class="n">the</span> <span class="n">time</span> <span class="n">interval</span> <span class="n">between</span> <span class="n">them</span><span class="o">.</span> <span class="kt">It</span> <span class="n">uses</span> <span class="n">the</span> <span class="n">appropriate</span>
+    <span class="nf">calendar</span> <span class="p">(</span><span class="k">if</span> <span class="kt">Iranian</span><span class="p">,</span> <span class="n">it</span> <span class="n">uses</span> <span class="n">the</span> <span class="kt">Persian</span> <span class="kt">Solar</span> <span class="kt">Calendar</span><span class="p">)</span><span class="o">.</span>
+    <span class="kt">All</span> <span class="n">the</span> <span class="n">action</span> <span class="n">happens</span> <span class="k">in</span> <span class="n">the</span> <span class="n">designated</span> <span class="n">initializer</span><span class="o">.</span> <span class="kt">Once</span> <span class="n">the</span> <span class="kd">class</span> <span class="k">is</span> <span class="n">instantiated</span><span class="p">,</span>
+    <span class="n">its</span> <span class="n">work</span> <span class="k">is</span> <span class="n">done</span><span class="o">.</span>
+</code></pre>
+
+<hr>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC9totalDaysSivp"></a>
+                    <a name="//apple_ref/swift/Property/totalDays" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC9totalDaysSivp">totalDays</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The following will read like: 
+<q>There have been <totalDays> between the dates. This is a period of <years> years, <months> months and <days> days.</q></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">totalDays</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC5yearsSivp"></a>
+                    <a name="//apple_ref/swift/Property/years" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC5yearsSivp">years</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The total number of days.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">years</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC6monthsSivp"></a>
+                    <a name="//apple_ref/swift/Property/months" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC6monthsSivp">months</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The number of years since the clean date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">months</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC4daysSivp"></a>
+                    <a name="//apple_ref/swift/Property/days" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC4daysSivp">days</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The number of months since the last year in the clean date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">days</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC10dateStringSSvp"></a>
+                    <a name="//apple_ref/swift/Property/dateString" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC10dateStringSSvp">dateString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The number of days since the last month in the clean date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">dateString</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC05startB010Foundation0B0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/startDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC05startB010Foundation0B0VSgvp">startDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; This will contain a readable string of the date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">startDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC03endB010Foundation0B0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/endDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC03endB010Foundation0B0VSgvp">endDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The starting date of the period (the cleandate).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">endDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC07inStartB00d3NowB0AC10Foundation0B0V_AHtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(inStartDate:inNowDate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC07inStartB00d3NowB0AC10Foundation0B0V_AHtcfc">init(inStartDate:inNowDate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>\brief  This is the designated initializer. It takes two dates, and calculates between them.</p>
+
+<p>\param inStartDate This is the <q>from</q> date. It is the start of the calculation.
+\param inNowDate This is the end date. The calculation goes between these two dates.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">inStartDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">inNowDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcCACycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcCACycfc">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>\brief  Convenience parameter-less init</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC07inStartB0AC10Foundation0B0V_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(inStartDate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC07inStartB0AC10Foundation0B0V_tcfc">init(inStartDate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>\brief  This is a convenience initializer that calculates between a given date, and now.</p>
+
+<p>\param inStartDate This is the <q>from</q> date. It is the start of the calculation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">inStartDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4NACC0A9_DateCalcC11inCleanYear0dE5Month0dE3DayACSi_S2itcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(inCleanYear:inCleanMonth:inCleanDay:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4NACC0A9_DateCalcC11inCleanYear0dE5Month0dE3DayACSi_S2itcfc">init(inCleanYear:inCleanMonth:inCleanDay:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <hr>
+
+<p>\brief  This is a convenience initializer that calculates between a given date (expressed in components), and now.</p>
+
+<p>\param inCleanYear The year (fully-qualified)
+\param inCleanMonth The month (1 is January)
+\param inCleanDay The day of the month</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">inCleanYear</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inCleanMonth</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">inCleanDay</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p><a class="link" href="https://littlegreenviper.com" target="_blank" rel="external">©2019 Little Green Viper Software Development LLC</a></p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

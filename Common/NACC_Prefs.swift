@@ -45,7 +45,9 @@ class NACC_Prefs: RVS_PersistentPrefs {
     /**
      */
     private enum _KeyStrings: String {
+        /// The Cleandate, as a Date
         case cleanDate
+        /// Whether or not to display the tags (all of them), as a String
         case tagDisplay
     }
     

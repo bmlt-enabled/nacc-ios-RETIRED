@@ -23,46 +23,54 @@
 import UIKit
 import QuartzCore
 
+/* ###################################################################################################################################### */
+/**
+ The ViewController class for the results display screen.
+ */
 class NACC_ResultsViewController: UIViewController {
     /*******************************************************************************************/
     /**
+     This is a multiplier for ofsetting the tag images so they form a "chain."
      */
-    static let s_offsetMultiplier: CGFloat     = 0.31  // This is a multiplier for ofsetting the tag images so they form a "chain."
+    static let s_offsetMultiplier: CGFloat     = 0.31
 
-    /*******************************************************************************************/
-    /**
-     */
+    /* ################################################################################################################################## */
+    // MARK: - @IBOutlet Properties
+    /* ################################################################################################################################## */
+    /// The text display for the results report.
     @IBOutlet weak var  resultTextDisplayView: UILabel!
+    /// The view that holds the tag display inside the scroller
     @IBOutlet weak var  tagDisplayView: UIView!
+    /// The scroller that holds the tags.
     @IBOutlet weak var  tagDisplayScroller: UIScrollView!
+    /// The main header items container.
     @IBOutlet weak var  headerView: UIView!
+    /// The label that displays the cleandate.
     @IBOutlet weak var  cleandateLabel: UILabel!
+    /// The back button at the top.
     @IBOutlet weak var  doneButton: UIButton!
     
+    /* ################################################################################################################################## */
+    // MARK: - @IBAction Methods
+    /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
-     \brief  Called When the DONE button is hit.
+     Called When the DONE button is hit.
      */
     @IBAction func doneButtonHit(_: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    /*******************************************************************************************/
-    /**
-     \brief  Called when the view is loaded. We set the navbar color here.
-     */
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        doneButton.setTitle(doneButton.title(for: .normal)?.localizedVariant, for: .normal)
-    }
 
+    /* ################################################################################################################################## */
+    // MARK: - Internal Methods
+    /* ################################################################################################################################## */
     /*******************************************************************************************/
     /**
-        \brief  Displays a single tag in the scroll view.
-        
-        \param inTag a UIImage of the tag to be displayed.
-        \param inOffset the vertical offset (from the top of the display view) of the tag to be drawn.
-    */
+     Displays a single tag in the scroll view.
+     
+     - parameter inTag: a UIImage of the tag to be displayed.
+     - parameter inOffset: the vertical offset (from the top of the display view) of the tag to be drawn.
+     */
     func displayTag(inTag: UIImage, inOffset: inout CGFloat) {
         let imageView: UIImageView = UIImageView(image: inTag)
         var containerRect: CGRect = tagDisplayView!.bounds   // See what we have to work with. We will be extending this.
@@ -77,10 +85,10 @@ class NACC_ResultsViewController: UIViewController {
     
     /*******************************************************************************************/
     /**
-        \brief  Displays the tags in the scroll view.
-        
-        \param inTagImageArray the array of tag images to be displayed.
-    */
+     Displays the tags in the scroll view.
+     
+     - parameter inTagImageArray: the array of tag images to be displayed.
+     */
     func displayTags(inTagImageArray: [UIImage]) {
         let prefs = NACC_Prefs()
         
@@ -88,18 +96,29 @@ class NACC_ResultsViewController: UIViewController {
             tagDisplayView!.bounds = tagDisplayScroller!.bounds
             if !inTagImageArray.isEmpty {  // We need to have images to display
                 var offset: CGFloat = headerView?.bounds.maxY ?? 0 // This will be the vertical offset for each tag.
-
+                
                 for tag in inTagImageArray {
                     displayTag(inTag: tag, inOffset: &offset)
                 }
             }
         }
     }
+
+    /* ################################################################################################################################## */
+    // MARK: - Base Class Override Methods
+    /* ################################################################################################################################## */
+    /*******************************************************************************************/
+    /**
+     Called when the view is loaded. We set the navbar color here.
+     */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        doneButton.setTitle(doneButton.title(for: .normal)?.localizedVariant, for: .normal)
+    }
     
     /*******************************************************************************************/
     /**
-        \brief  Override of base class layout preflight.
-                We use this method to set up our keytag display.
+     Override of base class layout preflight. We use this method to set up our keytag display.
     */
     override func viewDidLayoutSubviews() {
         let subViews = tagDisplayView!.subviews
