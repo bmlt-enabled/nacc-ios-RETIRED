@@ -38,6 +38,7 @@ CHANGELIST
 ***Version 4.0.0.2004* ** *- TBD*
 
 - Cleaned up the documentation for 100% Jazzy.
+- Refactoring to conform to the same basic coding style as other apps.
 
 ***Version 4.0.0.2003* ** *- August 24, 2019*
 

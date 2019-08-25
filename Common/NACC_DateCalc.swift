@@ -1,4 +1,5 @@
 /**
+ 
  © Copyright 2019, Little Green Viper Software Development LLC
  
  LICENSE:
@@ -22,35 +23,40 @@
 
 import Foundation
 
-/***********************************************************************************************/
+/* ###################################################################################################################################### */
 /**
-    \class  NACC_DateCalc
-    \brief  This is the fundamental core of the cleantme calculator.
+ This is the fundamental core of the cleantme calculator.
 
-            It works by taking an input date (1-day resolution), and a "today" date (which can be
-            omitted), and calculates the time interval between them. It uses the appropriate
-            calendar (if Iranian, it uses the Persian Solar Calendar).
-            All the action happens in the designated initializer. Once the class is instantiated,
-            its work is done.
+ It works by taking an input date (1-day resolution), and a "today" date (which can be
+ omitted), and calculates the time interval between them. It uses the appropriate
+ calendar (if Iranian, it uses the Persian Solar Calendar).
+ All the action happens in the designated initializer. Once the class is instantiated,
+ its work is done.
 */
-/***********************************************************************************************/
 class NACC_DateCalc {
     /// The following will read like: 
     /// "There have been <totalDays> between the dates. This is a period of <years> years, <months> months and <days> days."
-    let totalDays: Int      ///< The total number of days.
-    var years: Int = 0      ///< The number of years since the clean date.
-    var months: Int = 0     ///< The number of months since the last year in the clean date.
-    var days: Int = 0       ///< The number of days since the last month in the clean date.
-    let dateString: String  ///< This will contain a readable string of the date.
-    let startDate: Date?    ///< The starting date of the period (the cleandate).
-    let endDate: Date?      ///< The ending date of the period (today, usually).
+    /// The total number of days.
+    let totalDays: Int
+    /// The number of years since the clean date.
+    var years: Int = 0
+    /// The number of months since the last year in the clean date.
+    var months: Int = 0
+    /// The number of days since the last month in the clean date.
+    var days: Int = 0
+    /// This will contain a readable string of the date.
+    let dateString: String
+    /// The starting date of the period (the cleandate).
+    let startDate: Date?
+    /// The ending date of the period (today, usually).
+    let endDate: Date?
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
-        \brief  This is the designated initializer. It takes two dates, and calculates between them.
+     This is the designated initializer. It takes two dates, and calculates between them.
     
-        \param inStartDate This is the "from" date. It is the start of the calculation.
-        \param inNowDate This is the end date. The calculation goes between these two dates.
+     - parameter inStartDate: This is the "from" date. It is the start of the calculation.
+     - parameter inNowDate: This is the end date. The calculation goes between these two dates.
     */
     init(inStartDate: Date, inNowDate: Date) {
         // This strips out the hours/minutes/seconds.
@@ -98,31 +104,31 @@ class NACC_DateCalc {
         }
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
-        \brief  Convenience parameter-less init
+     Convenience parameter-less init
     */
     convenience init() {
         self.init(inStartDate: NACC_Prefs().cleanDate ?? Date())
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
-        \brief  This is a convenience initializer that calculates between a given date, and now.
+     This is a convenience initializer that calculates between a given date, and now.
     
-        \param inStartDate This is the "from" date. It is the start of the calculation.
+     - parameter inStartDate: This is the "from" date. It is the start of the calculation.
     */
     convenience init(inStartDate: Date) {
         self.init(inStartDate: inStartDate, inNowDate: Date())
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
-        \brief  This is a convenience initializer that calculates between a given date (expressed in components), and now.
+    This is a convenience initializer that calculates between a given date (expressed in components), and now.
 
-        \param inCleanYear The year (fully-qualified)
-        \param inCleanMonth The month (1 is January)
-        \param inCleanDay The day of the month
+     - parameter inCleanYear: The year (fully-qualified)
+     - parameter inCleanMonth: The month (1 is January)
+     - parameter inCleanDay: The day of the month
     */
     convenience init(inCleanYear: Int, inCleanMonth: Int, inCleanDay: Int) {
         var components = DateComponents()

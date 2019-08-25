@@ -27,22 +27,18 @@ import WatchConnectivity
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     /// These are our prefs that will contain the date and tag display prefs.
     let prefs = NACC_Prefs()
-
-    /* ################################################################################################################################## */
-    private var _mySession = WCSession.default
-
-    /* ################################################################################################################################## */
-    // MARK: - Internal Instance Properties
-    /* ################################################################################################################################## */
-    /** This contains our loaded prefs Dictionary. */
-    var loadedPrefs: NSMutableDictionary! = nil
-    var cleanDateCalc: NACC_DateCalc! = nil ///< This holds our global date calculation.
     
     /* ################################################################################################################################## */
-    var session: WCSession {get { return _mySession }}
+    // MARK: - Internal Calculated Properties
+    /* ################################################################################################################################## */
+    /// Returns the default session
+    var session: WCSession {
+        return WCSession.default
+    }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
+     Called to start activation of a Watch session.
      */
     private func _activateSession() {
         if WCSession.isSupported() && (session.activationState != .activated) {
@@ -51,8 +47,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
+     Returns our controller, conveniently cast.
      */
     var controller: NACC_Companion_InterfaceController! {
         return WKExtension.shared().rootInterfaceController as? NACC_Companion_InterfaceController
@@ -60,6 +57,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
 
     /* ################################################################## */
     /**
+     Handles replies from the phone.
+     
+     - parameter inReply: The reply data.
      */
     private func _replyHandler(_ inReply: [String: Any]) {
         #if DEBUG
@@ -69,6 +69,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     /* ################################################################## */
     /**
+     Handles errors in replies from the phone.
+     
+     - parameter inError: The error data.
      */
     private func _errorHandler(_ inError: Error) {
         #if DEBUG
@@ -94,8 +97,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
+     Sends a message to the phone, asking for an update.
      */
     func sendRequestUpdateMessage() {
         if session.isReachable {
@@ -107,8 +111,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     }
 
     /* ################################################################################################################################## */
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
+     Called when the app has finished launching.
      */
     func applicationDidFinishLaunching() {
         _activateSession()
@@ -119,8 +124,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
     }
 
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
+     Called when the app has become active.
      */
     func applicationDidBecomeActive() {
         DispatchQueue.main.async {
@@ -130,12 +136,15 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
     }
 
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
+     Handles background tasks.
+     
+     - parameter inBackgroundTasks: The task set being handled.
      */
-    func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
+    func handle(_ inBackgroundTasks: Set<WKRefreshBackgroundTask>) {
         // Sent when the system needs to launch the application in the background to process tasks. Tasks arrive in a set, so loop through and process each one.
-        for task in backgroundTasks {
+        for task in inBackgroundTasks {
             // Use a switch statement to check the task type
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask: 
@@ -172,12 +181,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
     }
 
+    /* ################################################################################################################################## */
     // MARK: - WCSessionDelegate Protocol Methods
     /* ################################################################################################################################## */
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
+     Called when the session activation is complete.
+     
+     - parameter: ignored
+     - parameter activationState: The final activation state.
+     - parameter error: ignored.
      */
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    func session(_: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if .activated == activationState {
             #if DEBUG
                 print("Watch session is active.")
@@ -186,19 +201,28 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
+     Called when the Watch recieves an application context.
+     
+     - parameter: ignored
+     - parameter didReceiveApplicationContext: ignored.
      */
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+    func session(_: WCSession, didReceiveApplicationContext inApplicationContext: [String: Any]) {
         #if DEBUG
-            print("Watch Received Application Context: " + String(describing: applicationContext))
+            print("Watch Received Application Context: " + String(describing: inApplicationContext))
         #endif
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
+     Called when the Watch recieves a message. We update our prefs, here.
+     
+     - parameter: ignored
+     - parameter didReceiveMessage: ignored.
+     - parameter replyHandler: The closure to be called in order to reply to the message.
      */
-    func session(_ inSession: WCSession, didReceiveMessage inMessage: [String: Any], replyHandler inReplyHandler: @escaping ([String: Any]) -> Void) {
+    func session(_: WCSession, didReceiveMessage inMessage: [String: Any], replyHandler inReplyHandler: @escaping ([String: Any]) -> Void) {
         #if DEBUG
             print("\n###\nBEGIN Watch Received Message: " + String(describing: inMessage))
         #endif

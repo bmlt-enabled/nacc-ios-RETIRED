@@ -35,14 +35,11 @@ extension String {
     }
 }
 
-/***********************************************************************************************/
+/* ###################################################################################################################################### */
 /**
-    \class  NACC_TagModel
-
-     This class wil determine which NA tags are the proper ones for the cleantime, and will
-            instantiate and maintain the image assets for them (including constructing the tags).
+ This class will determine which NA tags are the proper ones for the cleantime, and will
+ instantiate and maintain the image assets for them (including constructing the tags).
 */
-/***********************************************************************************************/
 class NACC_TagModel {
     /**
         This will be assigned to describe available tags.
@@ -68,7 +65,7 @@ class NACC_TagModel {
     /// This is the calculation object that will govern which tags will be displayed.
     let calculation: NACC_DateCalc
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
          Yuck. This is a big, fat, hairy mess of cyclomatic complexity. However, there doesn't
                 really seem to be a better way of getting the display of natural text.
@@ -99,7 +96,7 @@ class NACC_TagModel {
         return resultsString
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      Generates a report for over 90 days.
      
@@ -128,7 +125,7 @@ class NACC_TagModel {
         return inResultsString + handleOver90Part2(inTotalDays, inYears: inYears, inMonths: inMonths, inDays: inDays, inResultsString)
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      CC Overflow handler.
      
@@ -169,7 +166,7 @@ class NACC_TagModel {
         }
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      CC Overflow handler.
      
@@ -200,7 +197,7 @@ class NACC_TagModel {
         return inResultsString
     }
 
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      A class function that will use our current localization to determine the correct tag name.
         
@@ -228,7 +225,7 @@ class NACC_TagModel {
         return(baseName: returnedBaseName, faceName: returnedFaceName)
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This loads our available strings
         
@@ -369,7 +366,7 @@ class NACC_TagModel {
         return ret
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This composes a tag image, based on the three image resource names provided.
         
@@ -410,7 +407,7 @@ class NACC_TagModel {
         return ret
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      Checks a given tag data template against the given calculation to see if the tag applies.
         
@@ -438,7 +435,7 @@ class NACC_TagModel {
         return ret
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      The designated initializer.
         
@@ -448,7 +445,7 @@ class NACC_TagModel {
         calculation = inCalculation
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      Convenience parameter-less init
     */
@@ -456,7 +453,7 @@ class NACC_TagModel {
         self.init(inCalculation: NACC_DateCalc())
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This builds up an array of UIImages to be used to display the tags.
         

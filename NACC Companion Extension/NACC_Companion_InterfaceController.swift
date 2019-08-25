@@ -39,7 +39,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     private let _offsetMultiplier: CGFloat          = 0.31
     
     /* ################################################################################################################################## */
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      Called when the update button is hit.
      
@@ -53,7 +53,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
     }
     
     /* ################################################################################################################################## */
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      Actually calculates the cleantime.
      */
@@ -79,7 +79,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
         updateButton.setHidden(false)
     }
 
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      Shows the animated tags.
      */
@@ -90,7 +90,7 @@ class NACC_Companion_InterfaceController: WKInterfaceController {
         cleandateReportLabel.setText("PLEASE-WAIT".localizedVariant)
     }
 
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      Displays the tags in the tag display panel.
      

@@ -71,7 +71,7 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     /* ################################################################################################################################## */
     // MARK: - UIApplicationDelegate Protocol Methods
     /* ################################################################################################################################## */
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      Called when the app has finished launch prep.
      
@@ -81,12 +81,12 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
      - returns: True, if the app is to launch.
     */
     func application(_ inApplication: UIApplication, didFinishLaunchingWithOptions inLaunchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        /* ################################################################## */
-        /**
+    /* ################################################################## */
+    /**
          These are keys for our old prefs.
          
          We use these to load any legacy prefs from previous versions of the app.
-         */
+    */
         /// The Main prefs
         let mainPrefsKey: String   = "NACCMainPrefs"
         /// The last entered cleandate.
@@ -94,10 +94,10 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         /// Whether or not to show the tags.
         let keysPrefsKey: String   = "NACCShowTags"
         
-        /*******************************************************************************************/
-        /**
+    /* ################################################################## */
+    /**
          Loads the old persistent prefs (if any).
-         */
+     */
         func loadPrefs() {
             let temp = UserDefaults.standard.object(forKey: mainPrefsKey) as? NSDictionary
             
@@ -135,7 +135,7 @@ class NACC_AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         return true
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      We make sure that the first window is always the date selector.
     */

@@ -35,7 +35,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /* ################################################################################################################################## */
     // MARK: - Internal Methods
     /* ################################################################################################################################## */
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This is a generic template generator.
      
@@ -69,7 +69,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
         return nil
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This is a generic template generator.
      
@@ -116,7 +116,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
         return nil
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This is a utilitarian template generator.
      
@@ -159,7 +159,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
         return nil
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This is a generic template generator (second, for CC).
      
@@ -231,7 +231,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
     /* ################################################################################################################################## */
     // MARK: - CLKComplicationDataSource Methods
     /* ################################################################################################################################## */
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This sets the current timeline entry for the inComplication.
      
@@ -276,7 +276,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
         }
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This sets the supported placeholder.
      
@@ -321,7 +321,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
         }
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This sets the supported Time Travel directions (We don't do any).
      
@@ -332,7 +332,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
         inHandler([])
     }
     
-    /*******************************************************************************************/
+    /* ################################################################## */
     /**
      This sets the template object for the inComplication.
      
