@@ -14,6 +14,14 @@ This is an iOS app, made for iPhones, iPads and Apple Watches. It is only availa
 
 The Watch app requires [watchOS](https://apple.com/watchos) 5.0 or above (Requires a Watch Series 2 or later).
 
+WHERE TO GET
+-
+You can get the app, itself [from the Apple iOS App Store](https://apps.apple.com/us/app/nacc/id452299196).
+
+Full source code is available [from the GitHub code repo](https://github.com/LittleGreenViper/nacc-ios).
+
+Full technical documentation [is available here](https://littlegreenviper.github.io/nacc-ios/).
+
 INSTALLATION
 -
 This will be installed via the Apple App Store, and will be a free app. If you have a compatible Apple watch paired with your phone, then it will also install a Watch App, called "NACC." The Watch app will provide a full complement of complications for all faces.
