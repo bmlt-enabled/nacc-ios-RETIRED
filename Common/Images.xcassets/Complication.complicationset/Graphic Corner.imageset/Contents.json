@@ -2,11 +2,6 @@
   "images" : [
     {
       "idiom" : "watch",
-      "scale" : "2x",
-      "screen-width" : "<=145"
-    },
-    {
-      "idiom" : "watch",
       "filename" : "graphic-corner40mm@2x.png",
       "screen-width" : ">161",
       "scale" : "2x"
@@ -14,13 +9,8 @@
     {
       "idiom" : "watch",
       "scale" : "2x",
-      "screen-width" : ">145"
-    },
-    {
-      "idiom" : "watch",
-      "filename" : "graphic-corner44mm@2x.png",
       "screen-width" : ">183",
-      "scale" : "2x"
+      "filename" : "graphic-corner44mm@2x.png"
     }
   ],
   "info" : {

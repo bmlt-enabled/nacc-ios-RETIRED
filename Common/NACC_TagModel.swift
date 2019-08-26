@@ -22,13 +22,16 @@
 
 import UIKit
 
-/* ###################################################################################################################################### */
+/* ################################################################################################################################## */
+// MAEK: - String Extension
+/* ################################################################################################################################## */
 /**
- These are String class extensions that we'll use throughout the app.
+ String extension for localization.
  */
 extension String {
     /* ################################################################## */
     /**
+     This allows easy localization. Simply ask any String for its "localizedVariant."
      */
     var localizedVariant: String {
         return NSLocalizedString(self, comment: "")

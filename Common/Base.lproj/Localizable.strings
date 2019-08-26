@@ -19,44 +19,31 @@
  
      Little Green Viper Software Development LLC: https://littlegreenviper.com
 
-    MAIN LOCALIZATION FILE
+     MAIN LOCALIZATION FILE
 
-    This file contains all the strings that are displayed in the NACC app.
+     This file contains all the strings that are displayed in the NACC app.
 
-    The app is designed to be entirely localizable, so no strings are included
-    in the main app. Instead, we use keys and the NSLocalizedString function to
-    develop the displayed strings. Whatever is written here, will be displayed
-    in the app.
+     The app is designed to be entirely localizable, so no strings are included
+     in the main app. Instead, we use keys and the NSLocalizedString function to
+     develop the displayed strings. Whatever is written here, will be displayed
+     in the app.
 
-    It is important that this file be UTF-8 encoded. Xcode has a bug, where it keeps
-    saving these as UTF-16. If this happens, you will see a bunch of upside-down
-    question marks (¿) displayed, if viewed in Xcode. It will probably display fine
-    in other text editors.
+     It is important that this file be UTF-8 encoded. Xcode has a bug, where it keeps
+     saving these as UTF-16. If this happens, you will see a bunch of upside-down
+     question marks (¿) displayed, if viewed in Xcode. It will probably display fine
+     in other text editors.
  
-    You localize these strings by changing the string in the RIGHT side of the "=".
+     You localize these strings by changing the string in the RIGHT side of the "=".
  
-    DO NOT CHANGE THE LEFT SIDE!
+     DO NOT CHANGE THE LEFT SIDE!
  
-    Only change the string on the right.
+     Only change the string on the right.
 
       DO NOT CHANGE                                 CHANGE
            |                                           |
            |                                           |
            V                                           V
        "RESULTS-DAY"        =           "You have been clean for 1 day.";
-
-    This is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    NACC is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this code.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 "ENTER-LABEL"               =           "Enter Your Clean Date";
@@ -102,8 +89,4 @@
 "EXPLAIN-TEXT"              =           "This is a simple app for quantifying your cleantime.\n\
 It says nothing about qualifying your Recovery. That's between you and your sponsor.\n\
 Simply set the wheels above to your cleandate, and touch the \"CALCULATE CLEANTIME\" button.";
-
-"COMPLICATION-LABEL"        =           "NACC";
-
-"APP-NOT-CONNECTED"         =           "Please Enter a Cleandate in the Phone App";
 

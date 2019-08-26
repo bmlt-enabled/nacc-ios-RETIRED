@@ -15,7 +15,6 @@
 		778ED8411F753BBF007AAC03 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 771B6A9219618AC000011DC1 /* Localizable.strings */; };
 		7796FB7C1F799C91008C6023 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F548C01F795E3C00DF36A4 /* Images.xcassets */; };
 		779E76BD195F2E230061BAED /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
-		77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
 		77D9F7BB195EE760007DF220 /* NACC_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7BA195EE760007DF220 /* NACC_AppDelegate.swift */; };
 		77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D9F7BE195EE760007DF220 /* Main.storyboard */; };
 		77D9F7DA195EE847007DF220 /* NACC_DateCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F7D9195EE847007DF220 /* NACC_DateCalc.swift */; };
@@ -29,6 +28,7 @@
 		77F548C41F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */; };
 		D4155FD2230EA808000F5294 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D4155FD1230EA808000F5294 /* Warnings.xcconfig */; };
 		D4155FD3230EA808000F5294 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D4155FD1230EA808000F5294 /* Warnings.xcconfig */; };
+		D44BCF912313F34B00B678D2 /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
 		D44C3B5E230EC4F00001F2E2 /* RVS_PersistentPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C3B5D230EC4F00001F2E2 /* RVS_PersistentPrefs.swift */; };
 		D44C3B5F230EC4F00001F2E2 /* RVS_PersistentPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C3B5D230EC4F00001F2E2 /* RVS_PersistentPrefs.swift */; };
 		D44C3B61230EC50F0001F2E2 /* NACC_Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C3B60230EC50F0001F2E2 /* NACC_Prefs.swift */; };
@@ -425,7 +425,7 @@
 				D44C3B5F230EC4F00001F2E2 /* RVS_PersistentPrefs.swift in Sources */,
 				D44C3B62230EC50F0001F2E2 /* NACC_Prefs.swift in Sources */,
 				77E1EDF61F72E4C800211683 /* NACC_Companion_InterfaceController.swift in Sources */,
-				77BEF3BF1F731F2F00BD4FF2 /* NACC_TagModel.swift in Sources */,
+				D44BCF912313F34B00B678D2 /* NACC_TagModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

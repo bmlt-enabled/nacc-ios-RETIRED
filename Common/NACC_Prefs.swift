@@ -22,9 +22,9 @@
 
 import Foundation
 
-/* ############################################################################################################################## */
+/* ################################################################################################################################## */
 // MARK: - Shared Constants
-/* ############################################################################################################################## */
+/* ################################################################################################################################## */
 /// This is the reply to a message from the watch to the phone. Its value is either Boolean true or false.
 let s_watchPhoneReplySuccessKey = "SUCCESS"
 /// This message is sent from the watch to the phone. It asks the phone to update the watch with the latest version of the prefs.
@@ -36,6 +36,7 @@ let s_watchPhoneMessageReset = "RESET"
 // MARK: - NACC Preferences Derived Class
 /* ################################################################################################################################## */
 /**
+ This class implements the concrete persistent preferences of the NACC.
  */
 class NACC_Prefs: RVS_PersistentPrefs {
     /* ############################################################################################################################## */
@@ -43,6 +44,7 @@ class NACC_Prefs: RVS_PersistentPrefs {
     /* ############################################################################################################################## */
     /* ################################################################## */
     /**
+     These are the actual key strings.
      */
     private enum _KeyStrings: String {
         /// The Cleandate, as a Date

@@ -22,19 +22,19 @@ USAGE (IPHONE)
 -
 The app is extremely easy to use. Upon opening the app, you will be presented with a screen like this:
 
-![Enter Cleandate Screen](img/00-EnterCleandate.jpg)
+![Enter Cleandate Screen](img/00-EnterCleandate.png)
 
 Use the date picker to select your cleandate, then tap on the "CALCULATE CLEANTIME" button.
 
 The app will provide a report screen that will look like this (Note that you can scroll the key tags):
 
-<img alt="Report With Tags" src="img/00-InitialTagReport.jpg"> <img alt="Report With Tags -Scrolled" src="img/00-ScrolledTagReport.jpg">
+<img alt="Report With Tags" src="img/00-InitialTagReport.png"> <img alt="Report With Tags -Scrolled" src="img/00-ScrolledTagReport.png">
 
 If you tap on "BACK TO ENTER DATE", at the top, left, you will return to the date entry screen.
 
 You can also choose to have no tags displayed (textual report only). You do this by turning off the "Show Tags" switch, like so:
 
-<img alt="Report With Tags" src="img/00-NoTagsSwitchEnter.jpg"> <img alt="Report With Tags -Scrolled" src="img/00-NoTagsReport.jpg">
+<img alt="Report With Tags" src="img/00-NoTagsSwitchEnter.png"> <img alt="Report With Tags -Scrolled" src="img/00-NoTagsReport.png">
 
 USAGE (WATCH)
 -
@@ -42,15 +42,15 @@ The Watch app is a "report only" app, that relies on the date that you entered i
 
 The app is available in the "honeycomb", as "NACC", with the "circle of tags" icon:
 
-![Watch Icon](img/01-WatchIcon.jpg)
+![Watch Icon](img/01-WatchIcon.png)
 
 Complications are available for all Watch faces that support complications:
 
-<img width="128" alt="Series 4 Infograph" src="img/01-WatchFace01.jpg"> <img width="128" alt="Series 4 Infograph Modular" src="img/01-WatchFace02.jpg"> <img width="128" alt="Utility" src="img/01-WatchFace03.jpg">  <img width="128" alt="Activity" src="img/01-WatchFace04.jpg"> <img width="128" alt="Siri" src="img/01-WatchFace05.jpg"> 
+<img alt="Watch Face Example" src="img/01-WatchFace01.png"> <img alt="Watch Face Example" src="img/01-WatchFace02.png"> <img alt="Watch Face Example" src="img/01-WatchFace03.png"> 
 
 If you activate the app, you will get a report that looks like this (with and without tags):
 
-<img alt="Watch Report With Tags" src="img/01-WatchReportTags.jpg"> <img alt="Watch Report With Tags -Scrolled" src="img/01-WatchReportTagsScrolled.jpg"> <img alt="Watch Report Without Tags" src="img/01-WatchReportNoTags.jpg">
+<img alt="Watch Report With Tags" src="img/01-WatchReportTags.png"> <img alt="Watch Report With Tags -Scrolled" src="img/01-WatchReportTagsScrolled.png"> <img alt="Watch Report Without Tags" src="img/01-WatchReportNoTags.png">
 
 LICENSE
 -

@@ -2,6 +2,8 @@
 
 - Cleaned up the documentation for 100% Jazzy.
 - Refactoring to conform to the same basic coding style as other apps.
+- Improved the appearance of the background gradient.
+- Updated the app icons and Graphic complications to feature the new gradient.
 - Improved the README documentation.
 
 ***Version 4.0.0.2003* ** *- August 24, 2019*
