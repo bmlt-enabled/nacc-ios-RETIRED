@@ -123,9 +123,9 @@ class NACC_TagModel {
             return inResultsString + String(format: "RESULTS-COMPLEX-5".localizedVariant, inMonths)
         } else if (inYears == 1) && (inMonths == 1) && (inDays == 0) {
             return inResultsString + "RESULTS-COMPLEX-6".localizedVariant
+        } else {
+            return handleOver90Part2(inTotalDays, inYears: inYears, inMonths: inMonths, inDays: inDays, inResultsString)
         }
-        
-        return inResultsString + handleOver90Part2(inTotalDays, inYears: inYears, inMonths: inMonths, inDays: inDays, inResultsString)
     }
     
     /* ################################################################## */

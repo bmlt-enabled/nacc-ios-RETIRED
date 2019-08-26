@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>4.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>2004</string>
+	<string>2005</string>
 	<key>CLKComplicationPrincipalClass</key>
 	<string>$(PRODUCT_MODULE_NAME).NACC_Companion_ComplicationDataSource</string>
 	<key>CLKComplicationSupportedFamilies</key>
