@@ -208,7 +208,7 @@ class NACC_Companion_ComplicationDataSource: NSObject, CLKComplicationDataSource
             #if DEBUG
                 print("Template requested for graphicRectangular")
             #endif
-            if let templateImage = UIImage(named: "Complication/Graphic Circular") {
+            if let templateImage = UIImage(named: "Complication/Graphic Corner") {
                 let templateTmp = CLKComplicationTemplateGraphicRectangularStandardBody()
                 let dateCalc: NACC_DateCalc = NACC_DateCalc()  ///< This holds our date calculation.
                 let dateFormatter = DateFormatter()
