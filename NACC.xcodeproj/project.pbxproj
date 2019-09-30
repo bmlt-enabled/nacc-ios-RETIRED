@@ -26,8 +26,6 @@
 		77E694DC1960E3F6005F21FF /* NACC_ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E694DB1960E3F6005F21FF /* NACC_ResultsViewController.swift */; };
 		77F548C11F79687C00DF36A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F548C01F795E3C00DF36A4 /* Images.xcassets */; };
 		77F548C41F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F548C31F7968F400DF36A4 /* NACC_Companion_ComplicationDataSource.swift */; };
-		D4155FD2230EA808000F5294 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D4155FD1230EA808000F5294 /* Warnings.xcconfig */; };
-		D4155FD3230EA808000F5294 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D4155FD1230EA808000F5294 /* Warnings.xcconfig */; };
 		D44BCF912313F34B00B678D2 /* NACC_TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E76BC195F2E230061BAED /* NACC_TagModel.swift */; };
 		D44C3B5E230EC4F00001F2E2 /* RVS_PersistentPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C3B5D230EC4F00001F2E2 /* RVS_PersistentPrefs.swift */; };
 		D44C3B5F230EC4F00001F2E2 /* RVS_PersistentPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C3B5D230EC4F00001F2E2 /* RVS_PersistentPrefs.swift */; };
@@ -297,7 +295,7 @@
 			attributes = {
 				CLASSPREFIX = NACC_;
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = MAGSHARE;
 				TargetAttributes = {
 					77D9F7B4195EE760007DF220 = {
@@ -341,7 +339,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				771BF1FC1D92E4D60024BAA6 /* LaunchScreen.storyboard in Resources */,
-				D4155FD2230EA808000F5294 /* Warnings.xcconfig in Resources */,
 				77F548C11F79687C00DF36A4 /* Images.xcassets in Resources */,
 				77D9F7C0195EE760007DF220 /* Main.storyboard in Resources */,
 				771B6A9419618AC000011DC1 /* Localizable.strings in Resources */,
@@ -361,7 +358,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4155FD3230EA808000F5294 /* Warnings.xcconfig in Resources */,
 				778ED8411F753BBF007AAC03 /* Localizable.strings in Resources */,
 				773759681F93E6A6006CBCCE /* Images.xcassets in Resources */,
 			);
@@ -615,6 +611,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -622,6 +619,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = $inherited;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.magshare.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -639,6 +637,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				GCC_OPTIMIZATION_LEVEL = s;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -646,6 +645,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = $inherited;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.magshare.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -671,11 +671,13 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2000;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "NACC Companion Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 4.0.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.magshare.NACC.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -706,11 +708,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2000;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P53V4JS928;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "NACC Companion Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 4.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = org.magshare.NACC.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -742,11 +746,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2000;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = NACC_Companion_Extension;
 				INFOPLIST_FILE = "NACC Companion/Info.plist";
+				MARKETING_VERSION = 4.0.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.magshare.NACC.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -780,11 +786,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2000;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P53V4JS928;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = NACC_Companion_Extension;
 				INFOPLIST_FILE = "NACC Companion/Info.plist";
+				MARKETING_VERSION = 4.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = org.magshare.NACC.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
