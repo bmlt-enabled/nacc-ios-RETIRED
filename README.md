@@ -18,9 +18,9 @@ WHERE TO GET
 -
 You can get the app, itself [from the Apple iOS App Store](https://apps.apple.com/us/app/nacc/id452299196).
 
-Full source code is available [from the GitHub code repo](https://github.com/LittleGreenViper/nacc-ios).
+Full source code is available [from the GitHub code repo](https://github.com/bmlt-enabled/nacc-ios).
 
-Full technical documentation [is available here](https://littlegreenviper.github.io/nacc-ios/).
+Full technical documentation [is available here](https://bmlt-enabled.github.io/nacc-ios/).
 
 INSTALLATION
 -

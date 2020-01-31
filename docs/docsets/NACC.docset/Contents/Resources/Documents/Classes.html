@@ -33,7 +33,7 @@
       </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="https://github.com/LittleGreenViper/nacc-ios">
+          <a class="header-link" href="https://github.com/bmlt-enabled/nacc-ios">
             <img class="header-icon" src="img/gh.png"/>
             View on GitHub
           </a>
@@ -89,16 +89,16 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Global Variables.html">Global Variables</a>
+            <a class="nav-group-name-link" href="Global%20Variables.html">Global Variables</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Global Variables.html#/s:4NACC24s_watchPhoneMessageHitMeSSvp">s_watchPhoneMessageHitMe</a>
+                <a class="nav-group-task-link" href="Global%20Variables.html#/s:4NACC24s_watchPhoneMessageHitMeSSvp">s_watchPhoneMessageHitMe</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Global Variables.html#/s:4NACC24s_watchPhoneMessageResetSSvp">s_watchPhoneMessageReset</a>
+                <a class="nav-group-task-link" href="Global%20Variables.html#/s:4NACC24s_watchPhoneMessageResetSSvp">s_watchPhoneMessageReset</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Global Variables.html#/s:4NACC27s_watchPhoneReplySuccessKeySSvp">s_watchPhoneReplySuccessKey</a>
+                <a class="nav-group-task-link" href="Global%20Variables.html#/s:4NACC27s_watchPhoneReplySuccessKeySSvp">s_watchPhoneReplySuccessKey</a>
               </li>
             </ul>
           </li>
@@ -115,7 +115,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>Classes</h1>
             <p>The following classes are available globally.</p>
 
@@ -141,7 +141,7 @@
                       <div class="abstract">
                         <p>This is the fundamental core of the cleantme calculator.</p>
 
-<p>It works by taking an input date (1-day resolution), and a <q>today</q> date (which can be
+<p>It works by taking an input date (1-day resolution), and a &ldquo;today&rdquo; date (which can be
 omitted), and calculates the time interval between them. It uses the appropriate
 calendar (if Iranian, it uses the Persian Solar Calendar).
 All the action happens in the designated initializer. Once the class is instantiated,
@@ -166,9 +166,11 @@ its work is done.</p>
               <div class="task-name-container">
                 <a name="/NACC%20Preferences%20Derived%20Class"></a>
                 <a name="//apple_ref/swift/Section/NACC Preferences Derived Class" class="dashAnchor"></a>
-                <a href="#/NACC%20Preferences%20Derived%20Class">
-                  <h3 class="section-name">NACC Preferences Derived Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/NACC%20Preferences%20Derived%20Class"></a>
+                  <h3 class="section-name"><p>NACC Preferences Derived Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -199,10 +201,6 @@ its work is done.</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -238,9 +236,11 @@ instantiate and maintain the image assets for them (including constructing the t
               <div class="task-name-container">
                 <a name="/Main%20Preferences%20Base%20Class"></a>
                 <a name="//apple_ref/swift/Section/Main Preferences Base Class" class="dashAnchor"></a>
-                <a href="#/Main%20Preferences%20Base%20Class">
-                  <h3 class="section-name">Main Preferences Base Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Main%20Preferences%20Base%20Class"></a>
+                  <h3 class="section-name"><p>Main Preferences Base Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -256,10 +256,10 @@ instantiate and maintain the image assets for them (including constructing the t
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This class is designed to act as an <q>abstract</q> base class, providing a simple <code>Dictionary</code> datastore that is stored in the <a href="https://developer.apple.com/documentation/foundation/userdefaults"><code>UserDefaults</code></a> in the Application Bundle. It is designed to be reliable, and extremely simple to use.
+                        <p>This class is designed to act as an &ldquo;abstract&rdquo; base class, providing a simple <code>Dictionary</code> datastore that is stored in the <a href="https://developer.apple.com/documentation/foundation/userdefaults"><code>UserDefaults</code></a> in the Application Bundle. It is designed to be reliable, and extremely simple to use.
 The stored <code>Dictionary</code> would be a String-keyed Dictionary of <code>Any</code> (flexible types). It s up to subclasses to specialize the typeless data.
 THIS IS NOT EFFICIENT OR ROBUST!
-It is meant as a simple <q>bucket</q> for things like application preferences. It is not an industrial data storage solution. You have been warned.
+It is meant as a simple &ldquo;bucket&rdquo; for things like application preferences. It is not an industrial data storage solution. You have been warned.
 Subclasses could declare their accessors as <a href="https://developer.apple.com/documentation/swift/cocoa_design_patterns/using_key-value_observing_in_swift"><code>KVO</code></a>-style, thus, providing a direct way to influence persistent state.</p>
 
                         <a href="Classes/RVS_PersistentPrefs.html" class="slightly-smaller">See more</a>
@@ -275,10 +275,6 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -308,10 +304,6 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -340,10 +332,6 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -380,8 +368,8 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
       </article>
     </div>
     <section class="footer">
-      <p><a class="link" href="https://littlegreenviper.com" target="_blank" rel="external">©2019 Little Green Viper Software Development LLC</a></p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p><a class="link" href="https://bmlt.app" target="_blank" rel="external">©2020 BMLT-Enabled</a></p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -33,7 +33,7 @@
       </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="https://github.com/LittleGreenViper/nacc-ios">
+          <a class="header-link" href="https://github.com/bmlt-enabled/nacc-ios">
             <img class="header-icon" src="../img/gh.png"/>
             View on GitHub
           </a>
@@ -89,16 +89,16 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Global Variables.html">Global Variables</a>
+            <a class="nav-group-name-link" href="../Global%20Variables.html">Global Variables</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Global Variables.html#/s:4NACC24s_watchPhoneMessageHitMeSSvp">s_watchPhoneMessageHitMe</a>
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4NACC24s_watchPhoneMessageHitMeSSvp">s_watchPhoneMessageHitMe</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Global Variables.html#/s:4NACC24s_watchPhoneMessageResetSSvp">s_watchPhoneMessageReset</a>
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4NACC24s_watchPhoneMessageResetSSvp">s_watchPhoneMessageReset</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Global Variables.html#/s:4NACC27s_watchPhoneReplySuccessKeySSvp">s_watchPhoneReplySuccessKey</a>
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4NACC27s_watchPhoneReplySuccessKeySSvp">s_watchPhoneReplySuccessKey</a>
               </li>
             </ul>
           </li>
@@ -115,7 +115,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>RVS_PersistentPrefs</h1>
               <div class="declaration">
                 <div class="language">
@@ -123,10 +123,10 @@
 
                 </div>
               </div>
-            <p>This class is designed to act as an <q>abstract</q> base class, providing a simple <code>Dictionary</code> datastore that is stored in the <a href="https://developer.apple.com/documentation/foundation/userdefaults"><code>UserDefaults</code></a> in the Application Bundle. It is designed to be reliable, and extremely simple to use.
+            <p>This class is designed to act as an &ldquo;abstract&rdquo; base class, providing a simple <code>Dictionary</code> datastore that is stored in the <a href="https://developer.apple.com/documentation/foundation/userdefaults"><code>UserDefaults</code></a> in the Application Bundle. It is designed to be reliable, and extremely simple to use.
 The stored <code>Dictionary</code> would be a String-keyed Dictionary of <code>Any</code> (flexible types). It s up to subclasses to specialize the typeless data.
 THIS IS NOT EFFICIENT OR ROBUST!
-It is meant as a simple <q>bucket</q> for things like application preferences. It is not an industrial data storage solution. You have been warned.
+It is meant as a simple &ldquo;bucket&rdquo; for things like application preferences. It is not an industrial data storage solution. You have been warned.
 Subclasses could declare their accessors as <a href="https://developer.apple.com/documentation/swift/cocoa_design_patterns/using_key-value_observing_in_swift"><code>KVO</code></a>-style, thus, providing a direct way to influence persistent state.</p>
 
           </div>
@@ -138,9 +138,11 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
               <div class="task-name-container">
                 <a name="/Private%20Properties"></a>
                 <a name="//apple_ref/swift/Section/Private Properties" class="dashAnchor"></a>
-                <a href="#/Private%20Properties">
-                  <h3 class="section-name">Private Properties</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Private%20Properties"></a>
+                  <h3 class="section-name"><p>Private Properties</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -176,9 +178,11 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
               <div class="task-name-container">
                 <a name="/Private%20Methods"></a>
                 <a name="//apple_ref/swift/Section/Private Methods" class="dashAnchor"></a>
-                <a href="#/Private%20Methods">
-                  <h3 class="section-name">Private Methods</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Private%20Methods"></a>
+                  <h3 class="section-name"><p>Private Methods</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -194,7 +198,7 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This is a private method that saves the current contents of the _values Dictionary to persistent storage, keyed by the value of the <q>key</q> property.</p>
+                        <p>This is a private method that saves the current contents of the _values Dictionary to persistent storage, keyed by the value of the &ldquo;key&rdquo; property.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     An error, if the values are not all codable.
@@ -226,7 +230,7 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This is a private method that reads in the data from persistent storage for this instance (using the <q>key</q> property), and loads the _values Dictionary property.</p>
+                        <p>This is a private method that reads in the data from persistent storage for this instance (using the &ldquo;key&rdquo; property), and loads the _values Dictionary property.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     An error, if there were no stored prefs for the given key.
@@ -251,9 +255,11 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
               <div class="task-name-container">
                 <a name="/Public%20Enums"></a>
                 <a name="//apple_ref/swift/Section/Public Enums" class="dashAnchor"></a>
-                <a href="#/Public%20Enums">
-                  <h3 class="section-name">Public Enums</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Enums"></a>
+                  <h3 class="section-name"><p>Public Enums</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -290,9 +296,11 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
               <div class="task-name-container">
                 <a name="/Public%20Properties"></a>
                 <a name="//apple_ref/swift/Section/Public Properties" class="dashAnchor"></a>
-                <a href="#/Public%20Properties">
-                  <h3 class="section-name">Public Properties</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Properties"></a>
+                  <h3 class="section-name"><p>Public Properties</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -355,9 +363,11 @@ Subclasses could declare their accessors as <a href="https://developer.apple.com
               <div class="task-name-container">
                 <a name="/Public%20Calculated%20Properties"></a>
                 <a name="//apple_ref/swift/Section/Public Calculated Properties" class="dashAnchor"></a>
-                <a href="#/Public%20Calculated%20Properties">
-                  <h3 class="section-name">Public Calculated Properties</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Calculated%20Properties"></a>
+                  <h3 class="section-name"><p>Public Calculated Properties</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -424,9 +434,11 @@ You simply read and write the Dictionary, using these accessors. The saving and 
               <div class="task-name-container">
                 <a name="/Public%20Subscript"></a>
                 <a name="//apple_ref/swift/Section/Public Subscript" class="dashAnchor"></a>
-                <a href="#/Public%20Subscript">
-                  <h3 class="section-name">Public Subscript</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Subscript"></a>
+                  <h3 class="section-name"><p>Public Subscript</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -461,9 +473,11 @@ You simply read and write the Dictionary, using these accessors. The saving and 
               <div class="task-name-container">
                 <a name="/Initializers"></a>
                 <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
-                <a href="#/Initializers">
-                  <h3 class="section-name">Initializers</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Initializers"></a>
+                  <h3 class="section-name"><p>Initializers</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -562,8 +576,8 @@ If provided, then the persistent prefs are updated with the new values.</p>
       </article>
     </div>
     <section class="footer">
-      <p><a class="link" href="https://littlegreenviper.com" target="_blank" rel="external">©2019 Little Green Viper Software Development LLC</a></p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p><a class="link" href="https://bmlt.app" target="_blank" rel="external">©2020 BMLT-Enabled</a></p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

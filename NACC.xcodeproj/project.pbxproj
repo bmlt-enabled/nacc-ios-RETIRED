@@ -295,7 +295,7 @@
 			attributes = {
 				CLASSPREFIX = NACC_;
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = MAGSHARE;
 				TargetAttributes = {
 					77D9F7B4195EE760007DF220 = {
