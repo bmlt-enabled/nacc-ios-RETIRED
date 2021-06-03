@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eAx-lj-sxn">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eAx-lj-sxn">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,14 +13,14 @@
             <objects>
                 <viewController id="0fM-Qs-srA" userLabel="Calculation Results" customClass="NACC_ResultsViewController" customModule="NACC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OEu-gT-xHc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background-Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="R9N-oM-Skk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhw-M1-aYb">
-                                <rect key="frame" x="20" y="44" width="374" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhw-M1-aYb">
+                                <rect key="frame" x="20" y="0.0" width="374" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="A2g-EN-Tc2"/>
@@ -36,7 +34,7 @@
                                 </connections>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONg-DY-aAg" userLabel="Header Container">
-                                <rect key="frame" x="0.0" y="74" width="414" height="110"/>
+                                <rect key="frame" x="0.0" y="30" width="414" height="110"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iWV-iR-Wbb" userLabel="Cleandate Label">
                                         <rect key="frame" x="8" y="0.0" width="398" height="40"/>
@@ -65,10 +63,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8x-U3-FLx" userLabel="Keytag Scroller">
-                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
+                                <rect key="frame" x="0.0" y="30" width="414" height="812"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDr-XG-NSX" userLabel="Keytag Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="822"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -83,6 +81,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="pDB-Si-oKj"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ONg-DY-aAg" firstAttribute="top" secondItem="mhw-M1-aYb" secondAttribute="bottom" id="5ee-EW-gaV"/>
@@ -100,7 +99,6 @@
                             <constraint firstItem="R9N-oM-Skk" firstAttribute="leading" secondItem="OEu-gT-xHc" secondAttribute="leading" id="tKq-cF-zJh"/>
                             <constraint firstItem="E8x-U3-FLx" firstAttribute="top" secondItem="mhw-M1-aYb" secondAttribute="bottom" id="wT8-H4-ROp"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="pDB-Si-oKj"/>
                     </view>
                     <navigationItem key="navigationItem" title="CALC-LABEL" id="8Ut-hu-DWH"/>
                     <connections>
@@ -128,16 +126,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-Gs-pTM">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-Gs-pTM">
                                 <rect key="frame" x="0.0" y="44" width="414" height="162"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="MYW-SX-bl6"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="425783493.22768003">
-                                    <!--2014-06-30 01:11:33 +0000-->
-                                </date>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="-1490740200">
                                     <!--1953-10-06 01:30:00 +0000-->
                                 </date>
@@ -148,7 +143,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYM-nT-E6c">
                                 <rect key="frame" x="0.0" y="206" width="414" height="656"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42j-kW-w6Q">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42j-kW-w6Q">
                                         <rect key="frame" x="20" y="8" width="374" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="89R-LS-OzI"/>
@@ -178,7 +173,7 @@
                                         <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGl-2p-di2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGl-2p-di2">
                                         <rect key="frame" x="20" y="43.666666666666657" width="329" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="QbU-3Z-HVo"/>
@@ -209,6 +204,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="JL8-60-iGE"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W6w-Em-Gqi" firstAttribute="top" secondItem="0aG-t2-5fT" secondAttribute="top" id="119-Wa-ICO"/>
@@ -223,7 +219,6 @@
                             <constraint firstItem="JL8-60-iGE" firstAttribute="trailing" secondItem="2dk-Gs-pTM" secondAttribute="trailing" id="oKj-uC-gRJ"/>
                             <constraint firstItem="2dk-Gs-pTM" firstAttribute="leading" secondItem="JL8-60-iGE" secondAttribute="leading" id="s6s-sW-YU5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="JL8-60-iGE"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="ENTER-LABEL" id="zGo-9m-lM0"/>
@@ -241,8 +236,8 @@
             <point key="canvasLocation" x="452.17391304347831" y="-235.71428571428569"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="Background-Gradient" width="1" height="910.66668701171875"/>
     </resources>
-    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

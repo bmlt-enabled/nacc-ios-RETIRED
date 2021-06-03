@@ -362,10 +362,20 @@ class NACC_TagModel {
         
         names = NACC_TagModel.determineImageNames(index)
         
+        index += 1
+
         let tagData30Yr = NACC_TagModel_TagData(baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 30)
         
         ret.append(tagData30Yr)
         
+        names = NACC_TagModel.determineImageNames(index)
+        
+        index += 1
+
+        let tagData40Yr = NACC_TagModel_TagData(baseImageName: names.baseName, faceImageName: names.faceName, totalDays: 0, days: 0, months: 0, years: 40)
+        
+        ret.append(tagData40Yr)
+
         return ret
     }
     
@@ -501,8 +511,11 @@ class NACC_TagModel {
                         let twentyFiveYearTag = tagDataArray[index + 5]
                         tagImages.append(NACC_TagModel.constructTag(twentyFiveYearTag.baseImageName, inFaceName: twentyFiveYearTag.faceImageName, inRingClosed: false)!)
                     } else if year == 30 {
-                        let twentyFiveYearTag = tagDataArray[index + 7]
-                        tagImages.append(NACC_TagModel.constructTag(twentyFiveYearTag.baseImageName, inFaceName: twentyFiveYearTag.faceImageName, inRingClosed: false)!)
+                        let thirtyYearTag = tagDataArray[index + 7]
+                        tagImages.append(NACC_TagModel.constructTag(thirtyYearTag.baseImageName, inFaceName: thirtyYearTag.faceImageName, inRingClosed: false)!)
+                    } else if year == 40 {
+                        let fortyYearTag = tagDataArray[index + 8]
+                        tagImages.append(NACC_TagModel.constructTag(fortyYearTag.baseImageName, inFaceName: fortyYearTag.faceImageName, inRingClosed: false)!)
                     } else if (year % 10) == 0 {
                         let twentyYearTag = tagDataArray[index + 4]
                         tagImages.append(NACC_TagModel.constructTag(twentyYearTag.baseImageName, inFaceName: twentyYearTag.faceImageName, inRingClosed: false)!)

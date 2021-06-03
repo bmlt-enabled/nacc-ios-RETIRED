@@ -1,4 +1,10 @@
+***Version 4.1.0.2000*** *- June 3, 2021*
+
+- Updated with the 40-year keytag.
+- Updated to the latest Xcode, and set the date picker to the classic "Wheels."
+
 ***Version 4.0.0.2005*** *- August 26, 2019*
+
 - Fixed a bug, where the total days was repeated.
 
 ***Version 4.0.0.2004*** *- August 26, 2019*
