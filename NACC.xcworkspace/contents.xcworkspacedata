@@ -11,7 +11,7 @@
       location = "group:jazzy.sh">
    </FileRef>
    <FileRef
-      location = "group:/Volumes/Development/iOS/NACC_iOS/LICENSE">
+      location = "group:LICENSE">
    </FileRef>
    <FileRef
       location = "group:NACC.xcodeproj">

@@ -1,3 +1,7 @@
+***Version 4.1.1.2000*** *- December 14, 2021*
+
+- Updated withe the latest Apple tools and libraries.
+
 ***Version 4.1.0.2000*** *- June 3, 2021*
 
 - Updated with the 40-year keytag.
